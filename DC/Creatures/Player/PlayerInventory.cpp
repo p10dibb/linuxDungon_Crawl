@@ -192,35 +192,35 @@ int Player::EquipInventory(int pos) {
 	else if ((typeid(*this->Inventory[pos].item) == typeid(Armor))) {
 		
 		Armor* a = dynamic_cast<Armor*>(this->Inventory[pos].item);
-		if (a->getType() == Helmet) {
+		if (a->getType() == Helmet_ArmorType) {
 			this->Inventory[pos].item = this->getHead();
 			if (!this->setHead(a)) {
 				cout << "Failed to equip" << endl;
 				this->Inventory[pos].item = a;
 			}
 		}
-		else if (a->getType() == Chest) {
+		else if (a->getType() == Chest_ArmorType) {
 			this->Inventory[pos].item = this->getTorso();
 			if (!this->setTorso(a)) {
 				cout << "Failed to equip" << endl;
 				this->Inventory[pos].item = a;
 			}
 		}
-		else if (a->getType() == Gloves) {
+		else if (a->getType() == Gloves_ArmorType) {
 			this->Inventory[pos].item = this->getHands();
 			if (!this->setHands(a)) {
 				cout << "Failed to equip" << endl;
 				this->Inventory[pos].item = a;
 			}
 		}
-		else if (a->getType() == Pants) {
+		else if (a->getType() == Pants_ArmorType) {
 			this->Inventory[pos].item = this->getLegs();
 			if (!this->setLegs(a)) {
 				cout << "Failed to equip" << endl;
 				this->Inventory[pos].item = a;
 			}
 		}
-		else if (a->getType() == Boots) {
+		else if (a->getType() == Boots_ArmorType) {
 			this->Inventory[pos].item = this->getFeet();
 			if (!this->setFeet(a)) {
 				cout << "Failed to equip" << endl;

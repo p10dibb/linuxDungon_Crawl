@@ -18,9 +18,7 @@ void Zombie::setWeapon(Weapon* w) {
 	this->weapon = w;
 }
 
-int Zombie::Attack() {
-	return this->getDamage()+this->weapon->getDamage();
-}
+
 
 
 int Zombie::TakeDamage(int attack) {
@@ -60,7 +58,62 @@ int Zombie::ActualSpeed() {
 		speed = this->getSpeed() + this->weapon->getSpeed() - (ArmorWeight / (this->getStrength() / 2));
 
 
+	if (this->ContainEffect(Slowed)) {
+		speed = speed * .75;
+	}
+	if (this->ContainEffect(Dazed)) {
+		speed = speed * .75;
+	}
 
 	return speed;
 
+}
+
+DoubleLinkedList<DamageTypes> Zombie::getAllDamageTypes(){
+ DoubleLinkedList<DamageTypes> ret;
+	ret.add(DamageTypes(this->getDamage()));
+	int i=0;
+	for(i=0;i<this->getWeapon()->getDamageTypes_Weapon().Size();i++){
+		ret.add(this->getWeapon()->getDamageTypes_Weapon().getData(i));
+	}
+	
+	return ret;
+}
+
+int Zombie::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
+int totalDamage=0;
+		DamageTypes current;
+
+	
+
+		//itterates through all damage types
+		for(int i=0;i<damageTypes.Size();i++){
+			current=damageTypes.getData(i);
+			if(rand()%100<=current.getProbability()){
+				//checks if Effect needs to be added
+				if (current.getType()==Fire_DamageType){
+					cout<<"Burning"<<endl;
+					this->AddEffect(Burning,5);
+				}
+				else if (current.getType()==Blunt_DamageType){
+					cout<<"Dazed"<<endl;
+					this->AddEffect(Dazed,5);
+				}
+				else if (current.getType()==Stabbing_DamageType){
+					cout<<"Bleeding"<<endl;
+					this->AddEffect(Bleeding,5);
+				}
+
+				totalDamage+=current.getDamage();
+
+			}
+		}
+
+		int taken = totalDamage - this->getDefense();
+		if (taken < 1) {
+			taken = 1;
+		}
+		this->setHealth(this->getHealth() - taken);
+
+		return taken;
 }

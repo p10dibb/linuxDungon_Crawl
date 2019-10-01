@@ -1,3 +1,4 @@
+#pragma once
 #include "../Biped/Biped.h"
 
 
@@ -16,9 +17,10 @@ public:
 	Weapon* getWeapon();
 	void setWeapon(Weapon* w);
 
-	int Attack();
+	DoubleLinkedList<DamageTypes> getAllDamageTypes();
 
 	int TakeDamage(int attack);
+	int TakeDamage(DoubleLinkedList<DamageTypes> damageTypes);
 
 
 	void DisplayDetails();

@@ -6,10 +6,10 @@ Armor::Armor() {
 	Item();
 	this->Defense = 0;
 	this->Level = 0;
-	this->Type = Nill;
-	this->Class = Light;
+	this->Type = NULL_ArmorType;
+	this->Class = NULL_ArmorClass;
 }
-Armor::Armor(int def, int lvl, ArmorType type, ArmorClass c) {
+Armor::Armor(int def, int lvl, ArmorType_enum type, ArmorClass_enum c) {
 	Item();
 	this->Defense = def;
 	this->Level = lvl;
@@ -32,17 +32,17 @@ void Armor::setLevel(int l) {
 	}
 	this->Level = l;
 }
-ArmorType Armor::getType() {
+ArmorType_enum Armor::getType() {
 	return this->Type;
 }
-void Armor::setType(ArmorType t) {
+void Armor::setType(ArmorType_enum t) {
 	this->Type = t;
 }
 
-ArmorClass Armor::getClass() {
+ArmorClass_enum Armor::getClass() {
 	return this->Class;
 }
-void Armor::setClass(ArmorClass c) {
+void Armor::setClass(ArmorClass_enum c) {
 	this->Class = c;
 }
 

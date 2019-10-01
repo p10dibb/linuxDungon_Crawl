@@ -1,4 +1,5 @@
 
+#pragma once
 #include "../Creatures/Zombie/Zombie.h"
 
 #include "../Items/Potion/Potion.h"
@@ -79,11 +80,11 @@ public:
 	Weapon* CreateAxe(int level, bool forceLevel = false);
 	Weapon* CreateShield(int level, bool forceLevel = false);
 
-	Armor* CreateHelmet(int level, ArmorClass c, bool forceLevel=false);
-	Armor* CreateChest(int level, ArmorClass c, bool forceLevel=false);
-	Armor* CreateGloves(int level, ArmorClass c, bool forceLevel = false);
-	Armor* CreatePants(int level, ArmorClass c, bool forceLevel = false);
-	Armor* CreateBoots (int level, ArmorClass c, bool forceLevel = false);
+	Armor* CreateHelmet(int level, ArmorClass_enum c, bool forceLevel=false);
+	Armor* CreateChest(int level, ArmorClass_enum c, bool forceLevel=false);
+	Armor* CreateGloves(int level, ArmorClass_enum c, bool forceLevel = false);
+	Armor* CreatePants(int level, ArmorClass_enum c, bool forceLevel = false);
+	Armor* CreateBoots (int level, ArmorClass_enum c, bool forceLevel = false);
 
 	//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
 	Potion* CreateHealthPotion(bool random = false, int level = 1, int Tier = 1);

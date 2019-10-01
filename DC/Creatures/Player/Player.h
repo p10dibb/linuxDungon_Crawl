@@ -65,8 +65,6 @@ public:
 	//calculates the players actual speed
 	int ActualSpeed();
 
-	//calculates players Actual attack
-	int ActualDamage();
 
 	//calculates Players actual Defense
 	int ActualDefense();
@@ -74,8 +72,10 @@ public:
 	//players attack
 	int Attack();
 
-	//damage recieved
-	int TakeDamage(int damage);
+	DoubleLinkedList<DamageTypes> getAllDamageTypes();
+
+
+	int TakeDamage(DoubleLinkedList<DamageTypes> damageTypes);
 
 	//takes in the enemies loot and adds to inventory
 	void RecieveLootDrop(lootDrop loot);

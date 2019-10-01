@@ -3,7 +3,7 @@
 Potion::Potion() {
 	Item();
 	this->Tier = 1;
-	this->Type = Water;
+	this->Type = NULL_PotionType;
 	this->BaseBooster = 0;
 	this->setStackSize(5);
 
@@ -38,10 +38,10 @@ bool Potion::Use(Creature *c) {
 	switch (this->Type)
 	{
 
-	case Water: cout << "You drank water it did nothing" << endl; break;
-	case Health: this->UseHealth(c); break;
-	case Speed:this->UseSpeedBooster(c); break;
-	case Strength: this->UseStrengthBooster(c); break;
+	case NULL_PotionType: cout << "You drank water it did nothing" << endl; break;
+	case Health_PotionType: this->UseHealth(c); break;
+	case Speed_PotionType:this->UseSpeedBooster(c); break;
+	case Strength_PotionType: this->UseStrengthBooster(c); break;
 	default:
 		break;
 	}
@@ -54,23 +54,23 @@ void Potion::DisplayDetails() {
 	cout << this->getName() << endl;
 	cout << "Value: " << this->getValue()<<endl;
 
-	if (this->Type == Health) {
+	if (this->Type == Health_PotionType) {
 		cout << "Restores "<<to_string(this->Tier*this->BaseBooster) << " Health" << endl;
 	}
-	else if (this->Type == Speed) {
+	else if (this->Type == Speed_PotionType) {
 		cout << "increases base speed by " << to_string(this->Tier*this->BaseBooster) << endl;
 	}
-	else if (this->Type == Strength) {
+	else if (this->Type == Strength_PotionType) {
 		cout << "increases base Strength by " << to_string(this->Tier*this->BaseBooster) << endl;
 	}
 
 }
 
 
-PotionTypes Potion::getType() {
+PotionTypes_enum Potion::getType() {
 	return this->Type;
 }
-void Potion::setType(PotionTypes t) {
+void Potion::setType(PotionTypes_enum t) {
 	this->Type = t;
 }
 int Potion::getTier() {

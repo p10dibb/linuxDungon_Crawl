@@ -1,3 +1,4 @@
+#pragma once
 #include "../Level/Floor/Floor.h"
 
 #include <time.h>

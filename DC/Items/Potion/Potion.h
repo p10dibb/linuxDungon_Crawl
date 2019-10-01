@@ -1,7 +1,7 @@
 #include "../Item/Item.h"
 #include "../../Creatures/Creature/Creature.h"
 
-enum PotionTypes { Water, Health, Speed, Strength };
+enum PotionTypes_enum { NULL_PotionType, Health_PotionType, Speed_PotionType, Strength_PotionType };
 
 
 //potions can only be used by humanoids
@@ -9,7 +9,7 @@ class Potion :public Item {
 
 private:
 	//the 
-	PotionTypes Type;
+	PotionTypes_enum Type;
 	//multiplier for restoration
 	int Tier;
 	
@@ -25,8 +25,8 @@ public:
 
 	void DisplayDetails();
 
-	PotionTypes getType();
-	void setType(PotionTypes t);
+	PotionTypes_enum getType();
+	void setType(PotionTypes_enum t);
 	int getTier();
 	void setTier(int t);
 	int getBaseBooster();

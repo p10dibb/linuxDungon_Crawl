@@ -22,9 +22,9 @@ Player::Player() {
 
 	
 
-	this->Right = new Weapon(0, 0, false, 0, 0, 0,None);
+	this->Right = new Weapon();
 	this->Right->setName("Fist");
-	this->Left = new Weapon(0, 0, false, 0, 0, 0,None);
+	this->Left = new Weapon();
 	this->Left->setName("Fist");
 
 	this->FreeSlots = 40;
@@ -75,10 +75,10 @@ int Player::ActualSpeed() {
 	int ArmorWeight = this->getHead()->getWeight() + this->getTorso()->getWeight() + this->getHands()->getWeight() + this->getLegs()->getWeight() + this->getFeet()->getWeight();
 	
 	//if onehanded else dual wielding
-	if (this->Left->getType() == None) {
+	if (this->Left->getType() == NULL_WeaponType) {
 		speed = this->getSpeed() + this->Right->getSpeed() - (ArmorWeight / (this->getStrength() / 2));
 	}
-	else if(this->Right->getType() == None) {
+	else if(this->Right->getType() == NULL_WeaponType) {
 		speed = this->getSpeed() + this->Left->getSpeed() - (ArmorWeight / (this->getStrength() / 2));
 	}
 	else {
@@ -88,6 +88,9 @@ int Player::ActualSpeed() {
 
 	//if slwed effect is active then decrease speed by 25%
 	if (this->ContainEffect(Slowed)) {
+		speed = speed * .75;
+	}
+	if (this->ContainEffect(Dazed)) {
 		speed = speed * .75;
 	}
 	//cuts speed in half if overweighted
@@ -102,13 +105,7 @@ int Player::ActualSpeed() {
 
 }
 //calculates players Actual attack
-int Player::ActualDamage() {
-	int attack = 0;
 
-	//total of all damage items +actual attack power
-	return this->Left->getDamage() + Right->getDamage() + this->getDamage();
-	
-}
 //calculates Players actual Defense
 int Player::ActualDefense() {
 	//total of all defensive items
@@ -116,25 +113,8 @@ int Player::ActualDefense() {
 
 }
 
-//players attack
-int Player::Attack() {
-	cout << "hit any button to attack:" << endl;
-//	system("pause");
-	//currently just actual damage  may change later.
-	return this->ActualDamage();
-}
-//damage recieved
-int Player:: TakeDamage(int damage) {
 
-	int taken = damage - this->ActualDefense();
-	if (taken < 1) {
-		taken = 1;
-	}
 
-	this->setHealth(this->getHealth() - taken);
-	return taken;
-
-}
 
 //player recieves lootdrop from enemy
 void Player::RecieveLootDrop(lootDrop loot) {
@@ -280,4 +260,56 @@ int Player::Navigation(char map[][10]) {
 
 }
 
+DoubleLinkedList<DamageTypes> Player::getAllDamageTypes(){
+	DoubleLinkedList<DamageTypes> ret;
+	ret.add(DamageTypes(this->getDamage()));
+	int i=0;
+	for(i=0;i<this->getRight()->getDamageTypes_Weapon().Size();i++){
+		ret.add(this->getRight()->getDamageTypes_Weapon().getData(i));
+	}
+	for(i=0;i<this->getLeft()->getDamageTypes_Weapon().Size();i++){
+		ret.add(this->getLeft()->getDamageTypes_Weapon().getData(i));
+	}
 
+	return ret;
+
+}
+
+
+	int Player::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
+		int totalDamage=0;
+		DamageTypes current;
+
+	
+
+		//itterates through all damage types
+		for(int i=0;i<damageTypes.Size();i++){
+			current=damageTypes.getData(i);
+			if(rand()%100<=current.getProbability()){
+				//checks if Effect needs to be added
+				if (current.getType()==Fire_DamageType){
+					cout<<"Burning"<<endl;
+					this->AddEffect(Burning,5);
+				}
+				else if (current.getType()==Blunt_DamageType){
+					cout<<"Dazed"<<endl;
+					this->AddEffect(Dazed,5);
+				}
+				else if (current.getType()==Stabbing_DamageType){
+					cout<<"Bleeding"<<endl;
+					this->AddEffect(Bleeding,5);
+				}
+
+				totalDamage+=current.getDamage();
+
+			}
+		}
+
+		int taken = totalDamage - this->ActualDefense();
+		if (taken < 1) {
+			taken = 1;
+		}
+		this->setHealth(this->getHealth() - taken);
+		return taken;
+
+	}

@@ -1,7 +1,8 @@
 #pragma once
 #include "../Item/Item.h"
+#include "../../DamageTypes/DamageTypes.h"
 
-enum WeaponTypes{None,Sword, Shield, Dagger, Axe, Claw};
+enum WeaponTypes_enum{NULL_WeaponType,Sword_WeaponType, Shield_WeaponType, Dagger_WeaponType, Axe_WeaponType, Claw_WeaponType};
 //None is basically nothing
 //sword =med speed, attack, def
 //shield = med speed, low attack, high defense
@@ -10,8 +11,9 @@ enum WeaponTypes{None,Sword, Shield, Dagger, Axe, Claw};
 //claws = daggers
 class Weapon :public Item {
 private:
-	WeaponTypes Type;
-	int Damage;
+	WeaponTypes_enum Type;
+	
+	DoubleLinkedList<DamageTypes> DamageTypes_Weapon;
 	int Defense;
 	bool TwoHanded;
 	int Speed;
@@ -19,9 +21,8 @@ private:
 	int Range;
 public:
 	Weapon();
-	Weapon(int Dam, int Def, bool TH, int Sp, int Lvl, int Rng, WeaponTypes type);
-	int getDamage();
-	void setDamage(int d);
+	Weapon(int Dam, int Def, bool TH, int Sp, int Lvl, int Rng, WeaponTypes_enum type, DoubleLinkedList<DamageTypes> damageTypes);
+
 	int getDefense();
 	void setDefense(int d);
 	bool getTwoHanded();
@@ -33,9 +34,15 @@ public:
 	int getRange();
 	void setRange(int r);
 
-	WeaponTypes getType();
-	void setType(WeaponTypes w);
+	WeaponTypes_enum getType();
+	void setType(WeaponTypes_enum w);
 
 	void DisplayDetails();
+
+	DoubleLinkedList<DamageTypes> getDamageTypes_Weapon();
+	void setDamageTypes_Weapon(DoubleLinkedList<DamageTypes> damagetypes);
+	void addDamageType(DamageTypes type);
+
+
 
 };

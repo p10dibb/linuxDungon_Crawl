@@ -67,19 +67,19 @@ LootDrop Spawner::GenerateZombieLootDrop(Zombie zed) {
 
 		//randomly picks armour piece
 		if (chance == 0) {
-			ret.armour = this->CreateHelmet(zed.getLevel(),(ArmorClass)armorClass);
+			ret.armour = this->CreateHelmet(zed.getLevel(),(ArmorClass_enum)armorClass);
 		}
 		else if (chance == 1) {
-			ret.armour = this->CreateChest(zed.getLevel(), (ArmorClass)armorClass);
+			ret.armour = this->CreateChest(zed.getLevel(), (ArmorClass_enum)armorClass);
 		}
 		else if (chance == 2) {
-			ret.armour = this->CreateGloves(zed.getLevel(), (ArmorClass)armorClass);
+			ret.armour = this->CreateGloves(zed.getLevel(), (ArmorClass_enum)armorClass);
 		}
 		else if (chance == 3) {
-			ret.armour = this->CreatePants(zed.getLevel(), (ArmorClass)armorClass);
+			ret.armour = this->CreatePants(zed.getLevel(), (ArmorClass_enum)armorClass);
 		}
 		else if (chance == 4) {
-			ret.armour = this->CreateBoots(zed.getLevel(), (ArmorClass)armorClass);
+			ret.armour = this->CreateBoots(zed.getLevel(), (ArmorClass_enum)armorClass);
 		}
 
 	}
@@ -108,7 +108,7 @@ LootDrop Spawner::GenerateZombieLootDrop(Zombie zed) {
 Weapon* Spawner::CreateClaws(int level , bool forceLevel ) {
 	Weapon* ret= new Weapon();
 	ret->setName("Claws");
-	ret->setType(Claw);
+	ret->setType(Claw_WeaponType);
 
 	//sets level to range between level-3 and level+3
 	if (forceLevel) {
@@ -121,8 +121,10 @@ Weapon* Spawner::CreateClaws(int level , bool forceLevel ) {
 	
 
 	
-		//sets damage to medium, speed to strong, sets defense to extra weak
-	ret->setDamage( ret->getLevel() + rand() % (ret->getLevel() * Medium));
+	
+	//adds default Normal damage type;sets damage to medium, speed to strong, sets defense to extra weak
+	ret->addDamageType(DamageTypes(ret->getLevel() + rand() % (ret->getLevel() * Medium)));
+
 	ret->setSpeed(ret->getLevel() + rand() % (ret->getLevel() * Strong));
 	ret->setDefense((ret->getLevel()/2) + rand() % ret->getLevel()*Weak);
 	ret->setRange(Weak);
@@ -130,7 +132,16 @@ Weapon* Spawner::CreateClaws(int level , bool forceLevel ) {
 	ret->setTwoHanded(false);
 	ret->setWeight((rand() % 3) + 1);
 
-	ret->setValue((ret->getLevel() / 2) + (ret->getDamage() / 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4));
+	//adding other Damage Types Claws have Stabbing(~15%), Blunt(~15%) max Probability 25
+
+	if(rand()%7 ==0){
+		ret->addDamageType(DamageTypes(Stabbing_DamageType,(rand()%24)+1,ret->getLevel()/2));
+	}
+	if(rand()%7 ==0){
+		ret->addDamageType(DamageTypes(Blunt_DamageType,(rand()%24)+1,ret->getLevel()/2));
+	}
+
+	ret->setValue((ret->getLevel() / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-2)*level);
 
 
 		return ret;
@@ -141,7 +152,7 @@ Weapon* Spawner::CreateClaws(int level , bool forceLevel ) {
 Weapon* Spawner::CreateSword(int level, bool forceLevel ) {
 	Weapon* ret = new Weapon();
 
-	ret->setType(Sword);
+	ret->setType(Sword_WeaponType);
 
 	//sets level to range between level-3 and level+3
 	if (forceLevel) {
@@ -172,7 +183,9 @@ Weapon* Spawner::CreateSword(int level, bool forceLevel ) {
 	ret->setName(name);
 
 	//sets damage to medium, speed to medium, defense to extra medium
-	ret->setDamage(ret->getLevel() + rand() % (ret->getLevel() * Medium));
+	ret->addDamageType(DamageTypes(ret->getLevel() + rand() % (ret->getLevel() * Medium)));
+
+
 	ret->setSpeed(ret->getLevel() + rand() % (ret->getLevel() * Medium));
 	ret->setDefense((ret->getLevel() / 2) + rand() % (ret->getLevel() * Medium));
 	ret->setRange(Medium);
@@ -180,7 +193,21 @@ Weapon* Spawner::CreateSword(int level, bool forceLevel ) {
 	ret->setTwoHanded(false);
 	ret->setWeight((rand() % 3) + 2);
 
-	ret->setValue((ret->getLevel() / 2) + (ret->getDamage() / 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4));
+	//adds random other effects Sword gets Fire(5%), stabing(10%),Blunt(10%)  //max of 25 Probability
+
+	if (rand()%20==0){		
+		ret->addDamageType(DamageTypes(Fire_DamageType,(rand()%24)+1,ret->getLevel()/2));
+	}
+	if (rand()%10==0){
+		ret->addDamageType(DamageTypes(Stabbing_DamageType,(rand()%24)+1,ret->getLevel()/2));
+	
+	}
+	if (rand()%10==0){
+		ret->addDamageType(DamageTypes(Blunt_DamageType,(rand()%24)+1,ret->getLevel()/2));
+	
+	}
+
+	ret->setValue((ret->getLevel() / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-2)*level);
 
 	return ret;
 
@@ -199,7 +226,7 @@ Weapon* Spawner::CreateDagger(int level, bool forceLevel ) {
 	}
 
 	
-	ret->setType(Dagger);
+	ret->setType(Dagger_WeaponType);
 	//random name generation
 	string name = "";
 	if (ret->getLevel() < 7) {
@@ -222,8 +249,9 @@ Weapon* Spawner::CreateDagger(int level, bool forceLevel ) {
 
 	ret->setName(name);
 
-	//sets damage to med, speed to strong, defense to extra weak
-	ret->setDamage(ret->getLevel() + rand() % (ret->getLevel() * Medium));
+	//sets damage to med, speed to strong, defense to extra weak adds default Normal damage type;
+	ret->addDamageType(DamageTypes(ret->getLevel() + rand() % (ret->getLevel() * Medium)));
+
 	ret->setSpeed(ret->getLevel() + rand() % (ret->getLevel() * Strong));
 	ret->setDefense((ret->getLevel() / 2) + rand() % ret->getLevel()*Weak);
 	ret->setRange(Weak);
@@ -231,7 +259,20 @@ Weapon* Spawner::CreateDagger(int level, bool forceLevel ) {
 	ret->setTwoHanded(false);
 	ret->setWeight((rand() % 3) + 1);
 
-	ret->setValue((ret->getLevel() / 2) + (ret->getDamage() / 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4));
+
+	//adds random other effects Dagger gets Fire(5%), stabing(25%)  //max of 25 Probability
+
+	if (rand()%20==0){		
+		ret->addDamageType(DamageTypes(Fire_DamageType,(rand()%24)+1,ret->getLevel()/2));
+	}
+	if (rand()%4==0){
+		ret->addDamageType(DamageTypes(Stabbing_DamageType,(rand()%24)+1,ret->getLevel()/2));
+	
+	}
+
+
+
+	ret->setValue((ret->getLevel() / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-2)*level);
 
 
 	return ret;
@@ -250,7 +291,7 @@ Weapon* Spawner::CreateAxe(int level, bool forceLevel) {
 	}
 
 
-	ret->setType(Axe);
+	ret->setType(Axe_WeaponType);
 
 	//random generation 
 	string name = "";
@@ -272,8 +313,10 @@ Weapon* Spawner::CreateAxe(int level, bool forceLevel) {
 
 	ret->setName(name);
 
-	//sets damage to strong, speed to weak, defense to extra medium
-	ret->setDamage(ret->getLevel() + rand() % (ret->getLevel() * Strong));
+	//sets damage to strong, speed to weak, defense to extra medium adds default Normal damage type;
+	ret->addDamageType(DamageTypes(ret->getLevel() + rand() % (ret->getLevel() * Strong)));
+
+
 	ret->setSpeed(ret->getLevel() + rand() % (ret->getLevel() * Weak));
 	ret->setDefense((ret->getLevel() / 2) + rand() % ret->getLevel()*Medium);
 	ret->setRange(Weak);
@@ -281,7 +324,17 @@ Weapon* Spawner::CreateAxe(int level, bool forceLevel) {
 	ret->setTwoHanded(false);
 	ret->setWeight((rand() % 3) + 1);
 
-	ret->setValue((ret->getLevel() / 2) + (ret->getDamage() / 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4));
+
+	//adding other Damage Types axe gets Fire(10%), Blunt(10%) max Probability 25
+	if (rand()%10==0){
+		ret->addDamageType(DamageTypes(Blunt_DamageType,(rand()%24)+1,ret->getLevel()/2));
+	}
+	if (rand()%10==0){
+		ret->addDamageType(DamageTypes(Fire_DamageType,(rand()%24)+1,ret->getLevel()/2));
+	}
+
+
+	ret->setValue((ret->getLevel() / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage()/ 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-2)*level);
 
 
 	return ret;
@@ -301,7 +354,7 @@ Weapon* Spawner::CreateShield(int level, bool forceLevel ) {
 		ret->setLevel((level - 3) + rand() % 6);
 	}
 
-	ret->setType(Axe);
+	ret->setType(Shield_WeaponType);
 
 	//random name generation
 	string name = "";
@@ -324,8 +377,8 @@ Weapon* Spawner::CreateShield(int level, bool forceLevel ) {
 
 	ret->setName(name);
 
-	//sets damage to extra weak ,speed to medium and defense to extra strong
-	ret->setDamage(ret->getLevel()/2 + rand() % (ret->getLevel() * Weak));
+	//sets damage to extra weak ,speed to medium and defense to extra strong //adds default Normal damage type;
+	ret->addDamageType(DamageTypes(ret->getLevel()/2 + rand() % (ret->getLevel() * Weak)));
 	ret->setSpeed(ret->getLevel() + rand() % (ret->getLevel() * Medium));
 	ret->setDefense((ret->getLevel() ) + rand() % ret->getLevel()*Strong);
 	ret->setRange(Weak);
@@ -333,7 +386,13 @@ Weapon* Spawner::CreateShield(int level, bool forceLevel ) {
 	ret->setTwoHanded(false);
 	ret->setWeight((rand() % 3) + 1);
 
-	ret->setValue((ret->getLevel() / 2) + (ret->getDamage() / 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4));
+
+	//adding Damage types Shield gets Blunt(50%) max Probability 25
+	if (rand()%2==0){
+		ret->addDamageType(DamageTypes(Fire_DamageType,(rand()%24)+1,ret->getLevel()/2));
+	}
+
+	ret->setValue((ret->getLevel() / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-2)*level+(ret->getDamageTypes_Weapon().Size()-2)*level);
 
 
 	return ret;
@@ -341,7 +400,7 @@ Weapon* Spawner::CreateShield(int level, bool forceLevel ) {
 
 
 //Creates a helmet
-Armor* Spawner::CreateHelmet(int level, ArmorClass c,bool forceLevel ) {
+Armor* Spawner::CreateHelmet(int level, ArmorClass_enum c,bool forceLevel ) {
 	int classMultiplier = 1;
 	string classType = "";
 	Armor* ret= new Armor();
@@ -358,17 +417,17 @@ Armor* Spawner::CreateHelmet(int level, ArmorClass c,bool forceLevel ) {
 
 	switch (c)
 	{
-	case Light: classMultiplier = this->L; classType = " Light";
+	case Light_ArmorClass: classMultiplier = this->L; classType = " Light";
 
 		break;
-	case Normal: classMultiplier = this->M; classType = " Normal";
+	case Normal_ArmorClass: classMultiplier = this->M; classType = " Normal";
 		break;
-	case Heavy: classMultiplier = this->H; classType = " Heavy";
+	case Heavy_ArmorClass: classMultiplier = this->H; classType = " Heavy";
 		break;
 	default:
 		break;
 	}
-	ret->setType(Helmet);
+	ret->setType(Helmet_ArmorType);
 
 	string name = "";
 	if (ret->getLevel() < 7) {
@@ -405,7 +464,7 @@ Armor* Spawner::CreateHelmet(int level, ArmorClass c,bool forceLevel ) {
 }
 
 //Creates a chestplate
-Armor* Spawner::CreateChest(int level, ArmorClass c, bool forceLevel ) {
+Armor* Spawner::CreateChest(int level, ArmorClass_enum c, bool forceLevel ) {
 	int classMultiplier = 1;
 	string classType = "";
 	Armor* ret=new Armor;
@@ -422,17 +481,17 @@ Armor* Spawner::CreateChest(int level, ArmorClass c, bool forceLevel ) {
 
 	switch (c)
 	{
-	case Light: classMultiplier = this->L; classType = " Light";
+	case Light_ArmorClass: classMultiplier = this->L; classType = " Light";
 
 		break;
-	case Normal: classMultiplier = this->M; classType = " Normal";
+	case Normal_ArmorClass: classMultiplier = this->M; classType = " Normal";
 		break;
-	case Heavy: classMultiplier = this->H; classType = " Heavy";
+	case Heavy_ArmorClass: classMultiplier = this->H; classType = " Heavy";
 		break;
 	default:
 		break;
 	}
-	ret->setType(Chest);
+	ret->setType(Chest_ArmorType);
 
 	string name = "";
 	if (ret->getLevel() < 7) {
@@ -465,7 +524,7 @@ Armor* Spawner::CreateChest(int level, ArmorClass c, bool forceLevel ) {
 }
 
 //Creates a Gloves
-Armor* Spawner::CreateGloves(int level, ArmorClass c, bool forceLevel ) {
+Armor* Spawner::CreateGloves(int level, ArmorClass_enum c, bool forceLevel ) {
 	int classMultiplier = 1;
 	string classType = "";
 	Armor* ret=new Armor();
@@ -482,17 +541,17 @@ Armor* Spawner::CreateGloves(int level, ArmorClass c, bool forceLevel ) {
 
 	switch (c)
 	{
-	case Light: classMultiplier = this->L; classType = " Light";
+	case Light_ArmorClass: classMultiplier = this->L; classType = " Light";
 
 		break;
-	case Normal: classMultiplier = this->M; classType = " Normal";
+	case Normal_ArmorClass: classMultiplier = this->M; classType = " Normal";
 		break;
-	case Heavy: classMultiplier = this->H; classType = " Heavy";
+	case Heavy_ArmorClass: classMultiplier = this->H; classType = " Heavy";
 		break;
 	default:
 		break;
 	}
-	ret->setType(Gloves);
+	ret->setType(Gloves_ArmorType);
 
 	string name = "";
 	if (ret->getLevel() < 7) {
@@ -526,7 +585,7 @@ Armor* Spawner::CreateGloves(int level, ArmorClass c, bool forceLevel ) {
 }
 
 //Creates Pants
-Armor* Spawner::CreatePants(int level, ArmorClass c, bool forceLevel ) {
+Armor* Spawner::CreatePants(int level, ArmorClass_enum c, bool forceLevel ) {
 	int classMultiplier = 1;
 	string classType = "";
 	Armor* ret=new Armor();
@@ -543,17 +602,17 @@ Armor* Spawner::CreatePants(int level, ArmorClass c, bool forceLevel ) {
 
 	switch (c)
 	{
-	case Light: classMultiplier = this->L; classType = " Light";
+	case Light_ArmorClass: classMultiplier = this->L; classType = " Light";
 
 		break;
-	case Normal: classMultiplier = this->M; classType = " Normal";
+	case Normal_ArmorClass: classMultiplier = this->M; classType = " Normal";
 		break;
-	case Heavy: classMultiplier = this->H; classType = " Heavy";
+	case Heavy_ArmorClass: classMultiplier = this->H; classType = " Heavy";
 		break;
 	default:
 		break;
 	}
-	ret->setType(Pants);
+	ret->setType(Pants_ArmorType);
 
 	string name = "";
 	if (ret->getLevel() < 7) {
@@ -587,7 +646,7 @@ Armor* Spawner::CreatePants(int level, ArmorClass c, bool forceLevel ) {
 }
 
 //Creates Boots
-Armor* Spawner::CreateBoots(int level, ArmorClass c, bool forceLevel ) {
+Armor* Spawner::CreateBoots(int level, ArmorClass_enum c, bool forceLevel ) {
 	int classMultiplier = 1;
 	string classType = "";
 	Armor* ret=new Armor();
@@ -604,17 +663,17 @@ Armor* Spawner::CreateBoots(int level, ArmorClass c, bool forceLevel ) {
 
 	switch (c)
 	{
-	case Light: classMultiplier = this->L; classType = " Light";
+	case Light_ArmorClass: classMultiplier = this->L; classType = " Light";
 
 		break;
-	case Normal: classMultiplier = this->M; classType = " Normal";
+	case Normal_ArmorClass: classMultiplier = this->M; classType = " Normal";
 		break;
-	case Heavy: classMultiplier = this->H; classType = " Heavy";
+	case Heavy_ArmorClass: classMultiplier = this->H; classType = " Heavy";
 		break;
 	default:
 		break;
 	}
-	ret->setType(Boots);
+	ret->setType(Boots_ArmorType);
 
 	string name = "";
 	if (ret->getLevel() < 7) {
@@ -651,7 +710,7 @@ Armor* Spawner::CreateBoots(int level, ArmorClass c, bool forceLevel ) {
 //if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
 Potion* Spawner::CreateHealthPotion(bool random , int level, int Tier) {
 	Potion * ret = new Potion();
-	ret->setType(Health);
+	ret->setType(Health_PotionType);
 	ret->setBaseBooster(20);
 	if (random) {
 		//change later based on level
@@ -671,7 +730,7 @@ Potion* Spawner::CreateHealthPotion(bool random , int level, int Tier) {
 //if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
 Potion* Spawner::CreateSpeedPotion(bool random , int level , int Tier ) {
 	Potion * ret = new Potion();
-	ret->setType(Speed);
+	ret->setType(Speed_PotionType);
 	ret->setBaseBooster(1);
 	if (random) {
 		//change later based on level
@@ -688,7 +747,7 @@ Potion* Spawner::CreateSpeedPotion(bool random , int level , int Tier ) {
 //if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
 Potion* Spawner::CreateStrengthPotion(bool random , int level , int Tier ) {
 	Potion * ret = new Potion();
-	ret->setType(Strength);
+	ret->setType(Strength_PotionType);
 	ret->setBaseBooster(1);
 	if (random) {
 		//change later based on level

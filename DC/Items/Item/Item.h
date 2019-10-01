@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include "../../DataStructures/DoubleLinkedList.h"
 
 using namespace::std;
 

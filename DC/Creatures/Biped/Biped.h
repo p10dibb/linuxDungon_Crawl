@@ -1,4 +1,5 @@
 #include "../Creature/Creature.h"
+#pragma once
 #include "../../Items/Armor/Armor.h"
 #include "../../Items/Weapon/Weapon.h"
 

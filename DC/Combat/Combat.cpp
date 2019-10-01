@@ -23,7 +23,7 @@ int PlayerVsZombieCombat(Player* player, Zombie zed) {
 			//incriment player speed to see if player gets a turn
 			playerSpeedTot += player->ActualSpeed();
 
-			Damage = player->TakeDamage(zed.Attack());
+			Damage = player->TakeDamage(zed.getAllDamageTypes());
 			cout << player->getName() << " takes " << Damage << "damage" << endl<<endl;
 		}
 		else {
@@ -32,11 +32,12 @@ int PlayerVsZombieCombat(Player* player, Zombie zed) {
 			//incriment the zombie speed to see if they get thier turn
 			ZombieSpeedTot += zed.getSpeed();
 
-			Damage = zed.TakeDamage(zed.Attack());
+			Damage = zed.TakeDamage(player->getAllDamageTypes());
 			cout << zed.getName() << " takes " << Damage << " damage" << endl<<endl;
-			system("pause");
+			getchar();
 		}
-
+		player->runDamageEffects();
+		zed.runDamageEffects();
 		if (player->getHealth() <= 0) {
 			cout << "Player Died" << endl;
 			return -1;

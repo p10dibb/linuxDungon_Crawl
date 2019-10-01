@@ -4,15 +4,15 @@ Biped::Biped() {
 	Creature();
 
 
-	this->Head = new  Armor(0, 0, Helmet, Light);
+	this->Head = new  Armor(0, 0, Helmet_ArmorType, Light_ArmorClass);
 	this->Head->setName("Hat");
-	this->Torso = new Armor(0, 0, Chest, Light);
+	this->Torso = new Armor(0, 0, Chest_ArmorType, Light_ArmorClass);
 	this->Torso->setName("Shirt");
-	this->Legs = new Armor(0, 0, Pants, Light);
+	this->Legs = new Armor(0, 0, Pants_ArmorType, Light_ArmorClass);
 	this->Legs->setName("Pants");
-	this->Hands = new  Armor(0, 0, Gloves, Light);
+	this->Hands = new  Armor(0, 0, Gloves_ArmorType, Light_ArmorClass);
 	this->Hands->setName("Basic");
-	this->Feet = new Armor(0, 0, Boots, Light);
+	this->Feet = new Armor(0, 0, Boots_ArmorType, Light_ArmorClass);
 	this->Feet->setName("sandals");
 }
 
@@ -45,7 +45,7 @@ Armor*  Biped::getHead() {
 	return this->Head;
 }
 int  Biped::setHead(Armor* h) {
-	if (h->getType() == Helmet && h->getLevel() <= this->getLevel()) {
+	if (h->getType() == Helmet_ArmorType && h->getLevel() <= this->getLevel()) {
 		this->Head = h;
 		return 1;
 	}
@@ -55,7 +55,7 @@ Armor*  Biped::getTorso() {
 	return this->Torso;
 }
 int  Biped::setTorso(Armor* c) {
-	if (c->getType() == Chest && c->getLevel() <= this->getLevel()) {
+	if (c->getType() == Chest_ArmorType && c->getLevel() <= this->getLevel()) {
 		this->Head = c;
 		return 1;
 	}
@@ -66,7 +66,7 @@ Armor*  Biped::getHands() {
 	return this->Hands;
 }
 int  Biped::setHands(Armor* h) {
-	if (h->getType() == Gloves && h->getLevel() <= this->getLevel()) {
+	if (h->getType() == Gloves_ArmorType && h->getLevel() <= this->getLevel()) {
 		this->Head = h;
 		return 1;
 	}
@@ -77,7 +77,7 @@ Armor*  Biped::getLegs() {
 	return this->Legs;
 }
 int  Biped::setLegs(Armor* p) {
-	if (p->getType() == Pants && p->getLevel() <= this->getLevel()) {
+	if (p->getType() == Pants_ArmorType && p->getLevel() <= this->getLevel()) {
 		this->Head = p;
 		return 1;
 	}
@@ -87,7 +87,7 @@ Armor*  Biped::getFeet() {
 	return this->Feet;
 }
 int  Biped::setFeet(Armor* b) {
-	if (b->getType() == Boots && b->getLevel() <= this->getLevel()) {
+	if (b->getType() == Boots_ArmorType && b->getLevel() <= this->getLevel()) {
 		this->Head = b;
 		return 1;
 	}

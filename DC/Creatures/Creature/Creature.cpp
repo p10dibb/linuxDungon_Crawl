@@ -193,5 +193,6 @@ bool Creature::runDamageEffects() {
 			}
 		}
 	}
+	this->DecrementAllEffects();
 	return 0;
 }
