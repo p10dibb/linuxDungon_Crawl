@@ -102,6 +102,8 @@ int totalDamage=0;
 				else if (current.getType()==Stabbing_DamageType){
 					cout<<"Bleeding"<<endl;
 					this->AddEffect(Bleeding,5);
+				}else if (current.getType()==Critical_DamageType){
+					cout<<"Critical hit"<<endl;
 				}
 
 				totalDamage+=current.getDamage();

@@ -135,6 +135,7 @@ int Room::RunRoom() {
 
 //-1 player dies //0 nothing important  //1 exits left // 2 exits up  // 3 exits right// 4 exits down
 int Room::playerCollisionCheck() {
+	cout<<"collission check"<<endl;
 	int result = -2;
 	int i = 0;
 
@@ -155,6 +156,9 @@ int Room::playerCollisionCheck() {
 				this->player->RecieveLootDrop(this->spawner.GenerateZombieLootDrop(this->getZeds().getNode(i)->getData()));
 				this->zeds.removeNode(i+1);
 				this->setEnemyAmt(this->getEnemyAmt() - 1);
+			}
+			else if(result ==-2){
+				return -2;
 			}
 
 		}

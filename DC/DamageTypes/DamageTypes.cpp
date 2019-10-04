@@ -70,6 +70,7 @@
         case Fire_DamageType: return "Fire"; break;
         case Stabbing_DamageType: return "Stabbing"; break;
         case Blunt_DamageType: return "Blunt Damage"; break;
+        case Critical_DamageType: return "Critical Damage"; break;
         
         
         default:

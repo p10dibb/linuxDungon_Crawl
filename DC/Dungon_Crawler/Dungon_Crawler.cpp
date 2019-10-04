@@ -6,15 +6,19 @@ void Run() {
 	 Spawner s;
 	Player player = createPlayer();
 	
-	Floor f;
 
-	for (int i = 0; i < 10; i++) {
-		for (int j = 0; j < 10; j++) {
-			f.createRoom(i, j);
-		}
-	}
-	f.setPlayer(&player);
-	f.NavigateFloor();
+	cout<<"defense:"<<player.getDefense()<<endl;
+	cout<<"tot def: "<<player.ActualDefense()<<endl;;
+
+	// Floor f;
+
+	// for (int i = 0; i < 10; i++) {
+	// 	for (int j = 0; j < 10; j++) {
+	// 		f.createRoom(i, j);
+	// 	}
+	// }
+	// f.setPlayer(&player);
+	// f.NavigateFloor();
 
 
 	

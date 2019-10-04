@@ -124,6 +124,9 @@ Weapon* Spawner::CreateClaws(int level , bool forceLevel ) {
 	
 	//adds default Normal damage type;sets damage to medium, speed to strong, sets defense to extra weak
 	ret->addDamageType(DamageTypes(ret->getLevel() + rand() % (ret->getLevel() * Medium)));
+	//adds a critical damage chance
+	ret->addDamageType(DamageTypes(Critical_DamageType,rand()%25,ret->getLevel()/2 + rand() % (ret->getLevel() * Weak)));
+
 
 	ret->setSpeed(ret->getLevel() + rand() % (ret->getLevel() * Strong));
 	ret->setDefense((ret->getLevel()/2) + rand() % ret->getLevel()*Weak);
@@ -141,7 +144,7 @@ Weapon* Spawner::CreateClaws(int level , bool forceLevel ) {
 		ret->addDamageType(DamageTypes(Blunt_DamageType,(rand()%24)+1,ret->getLevel()/2));
 	}
 
-	ret->setValue((ret->getLevel() / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-2)*level);
+	ret->setValue((ret->getLevel() / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-3)*level);
 
 
 		return ret;
@@ -184,6 +187,8 @@ Weapon* Spawner::CreateSword(int level, bool forceLevel ) {
 
 	//sets damage to medium, speed to medium, defense to extra medium
 	ret->addDamageType(DamageTypes(ret->getLevel() + rand() % (ret->getLevel() * Medium)));
+	//adds a critical damage chance
+	ret->addDamageType(DamageTypes(Critical_DamageType,rand()%25,ret->getLevel()/2 + rand() % (ret->getLevel() * Weak)));
 
 
 	ret->setSpeed(ret->getLevel() + rand() % (ret->getLevel() * Medium));
@@ -207,7 +212,7 @@ Weapon* Spawner::CreateSword(int level, bool forceLevel ) {
 	
 	}
 
-	ret->setValue((ret->getLevel() / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-2)*level);
+	ret->setValue((ret->getLevel() / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-3)*level);
 
 	return ret;
 
@@ -252,6 +257,9 @@ Weapon* Spawner::CreateDagger(int level, bool forceLevel ) {
 	//sets damage to med, speed to strong, defense to extra weak adds default Normal damage type;
 	ret->addDamageType(DamageTypes(ret->getLevel() + rand() % (ret->getLevel() * Medium)));
 
+	//adds a critical damage chance
+	ret->addDamageType(DamageTypes(Critical_DamageType,rand()%25,ret->getLevel()/2 + rand() % (ret->getLevel() * Weak)));
+
 	ret->setSpeed(ret->getLevel() + rand() % (ret->getLevel() * Strong));
 	ret->setDefense((ret->getLevel() / 2) + rand() % ret->getLevel()*Weak);
 	ret->setRange(Weak);
@@ -272,7 +280,7 @@ Weapon* Spawner::CreateDagger(int level, bool forceLevel ) {
 
 
 
-	ret->setValue((ret->getLevel() / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-2)*level);
+	ret->setValue((ret->getLevel() / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-3)*level);
 
 
 	return ret;
@@ -315,6 +323,8 @@ Weapon* Spawner::CreateAxe(int level, bool forceLevel) {
 
 	//sets damage to strong, speed to weak, defense to extra medium adds default Normal damage type;
 	ret->addDamageType(DamageTypes(ret->getLevel() + rand() % (ret->getLevel() * Strong)));
+	//adds a critical damage chance
+	ret->addDamageType(DamageTypes(Critical_DamageType,rand()%25,ret->getLevel()/2 + rand() % (ret->getLevel() * Weak)));
 
 
 	ret->setSpeed(ret->getLevel() + rand() % (ret->getLevel() * Weak));
@@ -334,7 +344,7 @@ Weapon* Spawner::CreateAxe(int level, bool forceLevel) {
 	}
 
 
-	ret->setValue((ret->getLevel() / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage()/ 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-2)*level);
+	ret->setValue((ret->getLevel() / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage()/ 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-3)*level);
 
 
 	return ret;
@@ -379,6 +389,10 @@ Weapon* Spawner::CreateShield(int level, bool forceLevel ) {
 
 	//sets damage to extra weak ,speed to medium and defense to extra strong //adds default Normal damage type;
 	ret->addDamageType(DamageTypes(ret->getLevel()/2 + rand() % (ret->getLevel() * Weak)));
+	
+	//adds a critical damage chance
+	ret->addDamageType(DamageTypes(Critical_DamageType,rand()%25,ret->getLevel()/2 + rand() % (ret->getLevel() * Weak)));
+
 	ret->setSpeed(ret->getLevel() + rand() % (ret->getLevel() * Medium));
 	ret->setDefense((ret->getLevel() ) + rand() % ret->getLevel()*Strong);
 	ret->setRange(Weak);
@@ -392,7 +406,7 @@ Weapon* Spawner::CreateShield(int level, bool forceLevel ) {
 		ret->addDamageType(DamageTypes(Fire_DamageType,(rand()%24)+1,ret->getLevel()/2));
 	}
 
-	ret->setValue((ret->getLevel() / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-2)*level+(ret->getDamageTypes_Weapon().Size()-2)*level);
+	ret->setValue((ret->getLevel() / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-2)*level+(ret->getDamageTypes_Weapon().Size()-3)*level);
 
 
 	return ret;

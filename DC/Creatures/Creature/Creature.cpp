@@ -107,8 +107,9 @@ int  Creature::getDefense() {
 }
 void  Creature::setDefense(int d) {
 	if (d < 0) {
-		this->Defense = d;
+		d=0;
 	}
+	this->Defense = d;
 }
 
 

@@ -299,6 +299,9 @@ DoubleLinkedList<DamageTypes> Player::getAllDamageTypes(){
 					cout<<"Bleeding"<<endl;
 					this->AddEffect(Bleeding,5);
 				}
+				else if (current.getType()==Critical_DamageType){
+					cout<<"Critical hit"<<endl;
+				}
 
 				totalDamage+=current.getDamage();
 
