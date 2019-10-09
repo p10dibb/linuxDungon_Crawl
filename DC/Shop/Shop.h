@@ -15,6 +15,9 @@ int Level;
 
 Spawner spawner;
 
+//x,y position
+array<int, 2> Position;
+
 
 public:
 Shop();
@@ -61,13 +64,14 @@ void setLevel(int level);
 //will generate 10 items at "random"
 void GenerateNewInventory();
 
+//identifies the item type and displays the info.
 void ViewItem();
 
+//get the shops position
+array<int,2> getPosition();
 
-
-
-
-
+//sets the shops position
+void setPosition(array<int,2>pos);
 
 
 

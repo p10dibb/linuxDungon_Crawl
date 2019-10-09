@@ -4,12 +4,10 @@
 
 //player fighting zombie  return 0=zombie died -1=player died
 int PlayerVsZombieCombat(Player* player, Zombie zed) {
-	cout<<"player v zed combat"<<endl;
 	//speed totals who ever has the higher number gets to attack
 	int playerSpeedTot = player->ActualSpeed();
 	int ZombieSpeedTot = zed.getSpeed();
-	cout<<"player v zed combat2"<<endl;
-
+	
 	int Damage = 0;
 	int round = 1;
 	int playerChoice=-1;
@@ -17,8 +15,7 @@ int PlayerVsZombieCombat(Player* player, Zombie zed) {
 		cout << "round: " << round <<",Level "<<zed.getLevel()<<" "<< zed.getName()<<" health:" << zed.getHealth() << " Player health:" << player->getHealth() << endl;
 		// zed.DisplayDetails();
 		 round++;
-		 cout << "zombie speed tot: " << ZombieSpeedTot << " player speed tot: " << playerSpeedTot<<endl<<endl;
-
+		 
 		if (ZombieSpeedTot > playerSpeedTot) {//zombie attacking
 			cout << zed.getName() << "'s turn" << endl;
 			cout << zed.getName() << " is attacking" << endl;
@@ -42,8 +39,8 @@ int PlayerVsZombieCombat(Player* player, Zombie zed) {
 				Damage = zed.TakeDamage(player->getAllDamageTypes());
 				
 			cout << zed.getName() << " takes " << Damage << " damage" << endl<<endl;
-			getchar();
-			getchar();
+			
+		
 			}else if(playerChoice==1){//runaway
 				cout << player->getName() << " is Running away" << endl;
 
@@ -65,6 +62,10 @@ int PlayerVsZombieCombat(Player* player, Zombie zed) {
 		}
 		player->runDamageEffects();
 		zed.runDamageEffects();
+		cout<<"press enter to continue"<<endl;
+		
+		getchar();
+		getchar();
 		if (player->getHealth() <= 0) {
 			cout << "Player Died" << endl;
 			return -1; // player died
@@ -85,19 +86,19 @@ int PlayerVsZombieCombat(Player* player, Zombie zed) {
 // prompsts player for options  returns 0 for attack and 1 for run
 int PlayersChoices(Player* player){
 	
-	char input='\0';
+	string input="-1";
 	
 
 	while(1){
 	cout<<"would you like to [attack:1|Run:2|View inventory:3]: ";
-	input = getchar();
+	cin>>input ;
 
-	if (input=='1'){// attack
+	if (input=="1"){// attack
 		return 0;
-	}else if(input=='2'){// run away
+	}else if(input=="2"){// run away
 		return 1;
 	}
-	else if(input=='3'){
+	else if(input=="3"){
 		player->InventoryDialogue();
 	}else{
 		cout<<"not valid choice"<<endl;

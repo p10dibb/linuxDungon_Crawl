@@ -71,10 +71,9 @@ void Player::DisplayDetails() {
 
 //calculates the players actual speed
 int Player::ActualSpeed() {
-	cout<<"player speed check"<<endl;
 	int speed = 0;
 	int ArmorWeight = this->getHead()->getWeight() + this->getTorso()->getWeight() + this->getHands()->getWeight() + this->getLegs()->getWeight() + this->getFeet()->getWeight();
-	cout<<"player speed check"<<endl;
+
 	//if onehanded else dual wielding
 	if (this->Left->getType() == NULL_WeaponType) {
 		
@@ -86,10 +85,9 @@ int Player::ActualSpeed() {
 	}
 	else {
 		//two weapons being used 2/3 the speed of both weapons added together so dual wielding is slower but has higher attack and defense
-		cout<<"Two handed"<<endl;
 		speed = this->getSpeed() +( (this->Left->getSpeed()+this->Right->getSpeed())/3 )- (ArmorWeight / (this->getStrength() / 2));
 	}
-	cout<<"player speed check"<<endl;
+
 
 	//if slwed effect is active then decrease speed by 25%
 	if (this->ContainEffect(Slowed)) {
@@ -106,11 +104,10 @@ int Player::ActualSpeed() {
 	if (speed < 1) {
 		speed = 1;
 	}
-	cout<<"player speed check"<<endl;
 	return speed;
 
 }
-//calculates players Actual attack
+
 
 //calculates Players actual Defense
 int Player::ActualDefense() {
@@ -152,12 +149,12 @@ void Player::RecieveLootDrop(lootDrop loot) {
 	if (this->getXP() >= this->getLevelUp()) {
 		this->NextLevel();
 	}
-	//system("pause");
+	cout<<endl;
 
 }
 
 void Player::addSkillPoint(){
-		int input;
+		string input="";
 		while(1){
 		cout << "#\tstat\tcurrent level\tDescription" << endl;
 		cout << "1\tMaxHealth\t" << this->getMaxHealth() <<"\tMaximum Health of the player"<< endl;
@@ -168,29 +165,30 @@ void Player::addSkillPoint(){
 		cout << "6\tStamina\t" << this->getStamina() << "\tCurrently Does nothing"<<endl;
 		cout << "Choice: ";
 		cin >> input;
-		if (input == 1) {
+		
+		if (input == "1") {
 
 			this->setMaxHealth(this->getMaxHealth() + 10);
 			this->setHealth(this->getMaxHealth());
 			break;
 
 		}
-		else if (input == 2) {
+		else if (input == "2") {
 			this->setStrength(this->getStrength()+1);
 			this->MaxWeight = this->getStrength() * 10;
 			
 			this->setOverWeighted(this->MaxWeight < this->CurrentWeight);		
 			break;	
 		}
-		else if (input == 3) {
+		else if (input == "3") {
 			this->setSpeed(this->getSpeed() + 1);
 			break;
 		}
-		else if (input == 4) {
+		else if (input == "4") {
 			this->setDamage(this->getDamage()+1);
 			break;
 		}
-		else if (input == 5) {
+		else if (input == "5") {
 			this->setDefense(this->getDefense()+1);
 			break;
 		}

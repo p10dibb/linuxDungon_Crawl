@@ -34,7 +34,7 @@ int Floor::NavigateFloor() {
 		cout << endl << endl << "Room:" << currentRoom[0] << "," << currentRoom[1] << endl << endl;
 		this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].setPlayer(this->getPlayer());
 		value = this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].RunRoom();
-		cout << "value" << value << endl;
+		
 		if (value == -1) {
 			return -1;
 		}//going left a room
@@ -72,10 +72,9 @@ int Floor::NavigateFloor() {
 					this->player->setPosition({ this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[1][0] + 1 ,this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[1][1] });
 				}
 		}
-			 cout << "woootdss " << this->FloorMap[this->getCurrentRoom()[0]][this->getCurrentRoom()[1]].getZeds().Size()<<"  :  "<< this->FloorMap[this->getCurrentRoom()[0]][this->getCurrentRoom()[1]].getEnemyAmt()<< endl;
-			 if (this->FloorMap[this->getCurrentRoom()[0]][this->getCurrentRoom()[1]].getZeds().Size() !=this->FloorMap[this->getCurrentRoom()[0]][this->getCurrentRoom()[1]].getEnemyAmt()) {
+			if (this->FloorMap[this->getCurrentRoom()[0]][this->getCurrentRoom()[1]].getZeds().Size() !=this->FloorMap[this->getCurrentRoom()[0]][this->getCurrentRoom()[1]].getEnemyAmt()) {
 				
-				 cout << "made it" << endl;
+			
 				 this->initializeRoom(this->player->getLevel(),currentRoom[0],currentRoom[1]);
 			 }
 
@@ -91,25 +90,32 @@ array<int, 2>  Floor::getCurrentRoom() {
 	return this->currentRoom;
 }
 
-bool Floor::createRoom( int x, int y, int zedamt ) {
+bool Floor::createRoom( int x, int y, int zedamt,bool isShop ) {
 	int actual = zedamt;
 	if (zedamt == -1) {
 		actual = rand() % 5 + 1;
 	}
 
 	this->FloorMap[x][y].setEnemyAmt(actual);
+	this->FloorMap[x][y].setIsShop(isShop);
 
 	return true;
 
 }
 
-bool Floor::initializeRoom(int level, int x, int y) {
+bool Floor::initializeRoom(int level, int x, int y ) {
 	
 	DoubleLinkedList<Zombie> z;
 	for (int i = 0; i < this->FloorMap[x][y].getEnemyAmt();i++) {
 		z.add(spawner.CreateZombie(level));
 	}
 	this->FloorMap[x][y].setZeds(z);
+
+	if (this->FloorMap[x][y].getIsShop()){
+		this->FloorMap[x][y].setShopPosition({rand()%5 +2,rand()%5 +2});
+		this->FloorMap[x][y].setShopLevel(this->getPlayer()->getLevel());
+	}
+
 	//create the other stuff like shops and lootchests (not added yet)
 	return true;
 }

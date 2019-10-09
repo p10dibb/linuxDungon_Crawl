@@ -56,7 +56,7 @@ Armor*  Biped::getTorso() {
 }
 int  Biped::setTorso(Armor* c) {
 	if (c->getType() == Chest_ArmorType && c->getLevel() <= this->getLevel()) {
-		this->Head = c;
+		this->Torso = c;
 		return 1;
 	}
 	return 0;
@@ -67,7 +67,7 @@ Armor*  Biped::getHands() {
 }
 int  Biped::setHands(Armor* h) {
 	if (h->getType() == Gloves_ArmorType && h->getLevel() <= this->getLevel()) {
-		this->Head = h;
+		this->Hands = h;
 		return 1;
 	}
 	return 0;
@@ -78,7 +78,7 @@ Armor*  Biped::getLegs() {
 }
 int  Biped::setLegs(Armor* p) {
 	if (p->getType() == Pants_ArmorType && p->getLevel() <= this->getLevel()) {
-		this->Head = p;
+		this->Legs = p;
 		return 1;
 	}
 	return 0;
@@ -88,7 +88,7 @@ Armor*  Biped::getFeet() {
 }
 int  Biped::setFeet(Armor* b) {
 	if (b->getType() == Boots_ArmorType && b->getLevel() <= this->getLevel()) {
-		this->Head = b;
+		this->Feet = b;
 		return 1;
 	}
 	return 0;

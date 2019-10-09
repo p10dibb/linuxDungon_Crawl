@@ -6,7 +6,19 @@ void Run() {
 	 Spawner s;
 	Player player = createPlayer();
 	
+	player.addToInventory(s.CreateAxe(1,true));
+	
+	player.addToInventory(s.CreateShield(1,true));
+	
+	player.addToInventory(s.CreateHelmet(1,Light_ArmorClass,true));
 
+	player.addToInventory(s.CreateChest(1,Light_ArmorClass,true));
+	
+	player.addToInventory(s.CreateBoots(1,Light_ArmorClass,true));
+	
+	player.addToInventory(s.CreateGloves(1,Light_ArmorClass,true));
+	
+	player.addToInventory(s.CreatePants(1,Light_ArmorClass,true));
 	
 	Floor f;
 
@@ -15,6 +27,17 @@ void Run() {
 			f.createRoom(i, j);
 		}
 	}
+
+	f.createRoom(2,2,3,true);
+	
+	f.createRoom(1,0,3,true);
+	
+	f.createRoom(5,5,3,true);
+	
+	f.createRoom(6,4,3,true);
+	
+	f.createRoom(7,9,3,true);
+
 	f.setPlayer(&player);
 	f.NavigateFloor();
 

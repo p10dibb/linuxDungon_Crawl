@@ -12,6 +12,10 @@ private:
 	Spawner spawner;
 	Player* player;
 
+	Shop shop;
+	//is the shop accisable
+	bool isShop;
+
 	int enemyCount;
 	DoubleLinkedList<Zombie> zeds;
 
@@ -45,6 +49,12 @@ public:
 	void setEnemyAmt(int a);
 	int getEnemyAmt();
 
+	void setIsShop(bool shop);
+	
+	bool getIsShop();
+
+	void setShopPosition(array<int,2>pos);
+	void setShopLevel(int level);
 
 
 };

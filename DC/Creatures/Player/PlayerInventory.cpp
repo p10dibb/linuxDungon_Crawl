@@ -164,6 +164,8 @@ int Player::ViewInventory(int pos) {
 			Potion* a = dynamic_cast<Potion*>(this->Inventory[pos].item);
 			a->DisplayDetails();
 		}
+		getchar();
+		getchar();
 
 		return 0;
 	}
@@ -206,6 +208,8 @@ int Player::EquipInventory(int pos) {
 	else if ((typeid(*this->Inventory[pos].item) == typeid(Armor))) {
 		
 		Armor* a = dynamic_cast<Armor*>(this->Inventory[pos].item);
+		cout<<"armour type for equip: "<<a->getType()<<endl;
+
 		if (a->getType() == Helmet_ArmorType) {
 			this->Inventory[pos].item = this->getHead();
 			if (!this->setHead(a)) {
@@ -313,14 +317,14 @@ void Player::DisplayEquiped() {
 	cout << "Health: " << this->getHealth() << "/" << this->getMaxHealth()<<endl;
 	cout << "Level: " << this->getLevel() << endl;
 	cout << "XP: " << this->getXP() << "/" << this->getLevelUp() << endl;
-	cout << "Gold" << this->getMoney()<<endl;
+	cout << "Gold: " << this->getMoney()<<endl;
 	
 	cout << "Armor:" << endl;
 	cout << "Head:\t" << this->getHead()->getName() << "\t" << "Level: " << this->getHead()->getLevel()<<endl;
 	cout << "Torso:\t" << this->getTorso()->getName() << "\t" << "Level: " << this->getTorso()->getLevel()<<endl;
 	cout << "Hands:\t" << this->getHands()->getName() << "\t" << "Level: " << this->getHands()->getLevel()<<endl;
 	cout << "Legs:\t" << this->getLegs()->getName() << "\t" << "Level: " << this->getLegs()->getLevel()<<endl;
-	cout << "Boots:\t" << this->getHead()->getName() << "\t" << "Level: " << this->getHead()->getLevel()<<endl;
+	cout << "Boots:\t" << this->getFeet()->getName() << "\t" << "Level: " << this->getFeet()->getLevel()<<endl;
 	cout << endl << "Weapons: " << endl;
 	cout << "Right Hand:\t" << this->getRight()->getName() << "\tLevel: " << this->getRight()->getLevel() << endl;
 	cout << "Left Hand:\t" << this->getLeft()->getName() << "\tLevel: " << this->getLeft()->getLevel() << endl;
@@ -368,6 +372,8 @@ int Player::EquipedDialogue() {
 		else if (input == commands[7]) {
 			return 0;
 		}
+		getchar();
+		getchar();
 
 		system("pause");
 		}

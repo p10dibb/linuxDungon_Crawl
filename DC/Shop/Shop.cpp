@@ -5,6 +5,7 @@ Shop::Shop(){
     this->Level=1;
     this->Money=rand()%250 +250;
     this->GenerateNewInventory();
+    this->setPosition({5,5});
 }
 
 //sets Level to level and money to 250-500
@@ -12,6 +13,7 @@ Shop::Shop(int level){
     this->Level=level;
     this->Money=rand()%250 +250;
     this->GenerateNewInventory();
+    this->setPosition({5,5});
 }
 
 //sets Level to level and Money to money
@@ -19,6 +21,7 @@ Shop::Shop(int level, int money){
     this->Level=level;
     this->Money=money;
     this->GenerateNewInventory();
+    this->setPosition({5,5});
 }
 
 //checks if money is > amount and subtracts from there and returns amount;
@@ -85,23 +88,33 @@ void Shop::DisplayInventory(){
 
 //Displays all Shopping options.
 void Shop::ShopDialogue(Player *player){
-    int playerChoice=-1;
+
+    string playerChoice="";
     cout<<"welcome to the store"<<endl;
-    while (playerChoice!=0){
+    while (playerChoice!="exit"){
         cout<<"Store Inventory:"<<endl;
+        cout<<"Gold: "<<this->getMoney();
         this->DisplayInventory();
-        cout<<"what would you like to do? [Exit:0|Buy:1|Sell:2|View Items:3|View Inventory:4|View Equiped:5]"<<endl;
+        cout<<"what would you like to do? [Exit|Buy|Sell|View|I(view Inventory)|E(view Equiped)]"<<endl;
         cin>>playerChoice;
-        switch (playerChoice)
-        {
-        case 0:cout<<"Exiting Store"<<endl;break;
-        case 1:this->SellItem(player);break;
-        case 2:this->PurchaseItem(player);break;
-        case 3:this->ViewItem();break;
-        case 4: player->InventoryDialogue();break;
-        case 5: player->EquipedDialogue();break;       
-        default: cout<<"Not Valid choice"<<endl;break;
+        playerChoice=toLower(playerChoice);
+        
+        if (playerChoice=="exit"){
+            cout<<"Exiting Store"<<endl;
+        }else if (playerChoice=="buy"){
+            this->SellItem(player);
+        }else if(playerChoice=="sell"){
+            this->PurchaseItem(player);
+        }else if(playerChoice=="view"){
+            this->ViewItem();
+        }else if(playerChoice=="i"){
+            player->InventoryDialogue();
+        }else if(playerChoice=="e"){
+            player->EquipedDialogue();
+        }else{
+            cout<<"Not Valid choice"<<endl;
         }
+       
     }
 }
 
@@ -141,7 +154,7 @@ bool Shop::PurchaseItem(Player *player){
 
                 if(playerChoice==1){  //if player chooses yes
                     
-                    if(this->GiveMoney(itemPrice) !=0){ //if store can afford
+                    if(this->GiveMoney(itemPrice) !=0 || itemPrice==0){ //if store can afford
 
                         //adds item to store inventory
                         this->AddItemToInventory(toBeSold);
@@ -271,7 +284,7 @@ void Shop::GenerateNewInventory(){
     for (i=0; i<10; i++){
         
         randValue=rand()%100;
-        cout<<"i:"<<i<<" randVal:"<<randValue<<endl;
+        
         //20% chance of armour
         if (randValue<20){
             classVal=rand()%3 +1;
@@ -344,11 +357,11 @@ void Shop::ViewItem(){
                 Weapon* w = dynamic_cast<Weapon*>(viewable);
                 w->DisplayDetails();
 		    }
-		    else if ((typeid(viewable) == typeid(Armor))) {
+		    else if ((typeid(*viewable) == typeid(Armor))) {
                 Armor* a = dynamic_cast<Armor*>(viewable);
                 a->DisplayDetails();
 		    }
-		    else if ((typeid(viewable) == typeid(Potion))) {
+		    else if ((typeid(*viewable) == typeid(Potion))) {
                 Potion* a = dynamic_cast<Potion*>(viewable);
                 a->DisplayDetails();
 		    }
@@ -356,6 +369,25 @@ void Shop::ViewItem(){
         }else{
             cout<<"not a valid choice"<<endl;
         }
+        getchar();
+		getchar();
 
     }
+}
+
+//get the shops position
+array<int,2> Shop::getPosition(){
+    return this->Position;
+}
+
+//sets the shops position if out of bounds it will set shop to 5,5
+void Shop::setPosition(array<int,2>pos){
+    if (pos[0]>8 ||pos[0]<1){
+        pos[0]=5;
+    }
+    if (pos[1]>8 ||pos[1]<1){
+        pos[1]=5;
+    }
+    this->Position=pos;
+
 }
