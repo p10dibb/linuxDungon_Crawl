@@ -735,7 +735,7 @@ Potion* Spawner::CreateHealthPotion(bool random , int level, int Tier) {
 	}
 	ret->setName("Tier " + to_string(ret->getTier()) + "Health Potion");
 
-
+	ret->setValue(5*ret->getTier());
 
 
 	return ret;
@@ -754,6 +754,7 @@ Potion* Spawner::CreateSpeedPotion(bool random , int level , int Tier ) {
 		ret->setTier(Tier);
 	}
 	ret->setName("Tier " + to_string(ret->getTier()) + "Speed Potion");
+	ret->setValue(5*ret->getTier());
 
 	return ret;
 }
@@ -771,7 +772,7 @@ Potion* Spawner::CreateStrengthPotion(bool random , int level , int Tier ) {
 		ret->setTier(Tier);
 	}
 	ret->setName("Tier " + to_string(ret->getTier()) + "Strength Potion");
-
+	ret->setValue(5*ret->getTier());	
 	return ret;
 }
 

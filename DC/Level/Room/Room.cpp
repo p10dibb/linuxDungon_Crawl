@@ -148,9 +148,10 @@ int Room::playerCollisionCheck() {
 
 		//checks for zed collision
 	for ( i = 0; i < this->getZeds().Size(); i++) {
-	
+		cout<<"zed check:"<<i<<endl;
 		
 		if (this->getPlayer()->getPosition() == this->getZeds().getNode(i)->getData().getPosition()) {
+cout<<"zed :"<<i<<"hit"<<endl;
 			result = PlayerVsZombieCombat(this->player, this->getZeds().getNode(i)->getData());
 			if (result == 0) {
 				this->player->RecieveLootDrop(this->spawner.GenerateZombieLootDrop(this->getZeds().getNode(i)->getData()));

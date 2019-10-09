@@ -4,11 +4,11 @@
 
 //player fighting zombie  return 0=zombie died -1=player died
 int PlayerVsZombieCombat(Player* player, Zombie zed) {
-
+	cout<<"player v zed combat"<<endl;
 	//speed totals who ever has the higher number gets to attack
 	int playerSpeedTot = player->ActualSpeed();
 	int ZombieSpeedTot = zed.getSpeed();
-
+	cout<<"player v zed combat2"<<endl;
 
 	int Damage = 0;
 	int round = 1;

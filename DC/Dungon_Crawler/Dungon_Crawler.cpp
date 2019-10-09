@@ -7,18 +7,16 @@ void Run() {
 	Player player = createPlayer();
 	
 
-	cout<<"defense:"<<player.getDefense()<<endl;
-	cout<<"tot def: "<<player.ActualDefense()<<endl;;
+	
+	Floor f;
 
-	// Floor f;
-
-	// for (int i = 0; i < 10; i++) {
-	// 	for (int j = 0; j < 10; j++) {
-	// 		f.createRoom(i, j);
-	// 	}
-	// }
-	// f.setPlayer(&player);
-	// f.NavigateFloor();
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			f.createRoom(i, j);
+		}
+	}
+	f.setPlayer(&player);
+	f.NavigateFloor();
 
 
 	
@@ -32,6 +30,19 @@ Player createPlayer() {
 	cin>> name;
 
 	ret.setName(name);
+
+
+	int points = 10;
+	int input = 0;
+	while (points != 0)
+	{
+		
+	cout << "you have " << points << " remaining what would you like to upgrade?" << endl;	
+		ret.addSkillPoint();
+
+
+		points--;
+	}
 
 	return ret;
 }

@@ -53,7 +53,7 @@ private:
 
 public:
 	bool addToInventory(Item *i);
-
+	Item *RemoveItemFromInventory(int pos);
 
 
 	//constructor
@@ -91,7 +91,13 @@ public:
 
 	int Navigation(char map[][10]);
 
+	void addSkillPoint();
 
+	//checks if money is > amount and subtracts from there and returns amount;
+	int GiveMoney(int amount);
+
+	//adds amount to money;
+	bool RecieveMoney(int amount);
 
 
 	//Getter and setters   code in PlayerGetSet.cpp++++++++++++++++

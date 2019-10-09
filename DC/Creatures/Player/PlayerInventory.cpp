@@ -41,6 +41,21 @@ bool Player::addToInventory(Item *i) {
 }
 
 
+Item *Player::RemoveItemFromInventory(int pos){
+	if (pos>this->InventorySize &&pos<0){
+		return NULL;
+	}
+	Item*temp=this->Inventory[pos].item;
+	this->Inventory[pos].amount--;
+	if (this->Inventory[pos].amount<=0){
+		this->Inventory[pos].item=new Item();
+		this->Inventory[pos].amount=0;
+	}
+	return temp;
+
+}
+
+
 //Displays whole inventory
 void Player::DisplayInventory() {
 	cout << "#\tItemName\tamount\t" << endl;
@@ -149,7 +164,6 @@ int Player::ViewInventory(int pos) {
 			Potion* a = dynamic_cast<Potion*>(this->Inventory[pos].item);
 			a->DisplayDetails();
 		}
-		system("pause");
 
 		return 0;
 	}
@@ -299,6 +313,7 @@ void Player::DisplayEquiped() {
 	cout << "Health: " << this->getHealth() << "/" << this->getMaxHealth()<<endl;
 	cout << "Level: " << this->getLevel() << endl;
 	cout << "XP: " << this->getXP() << "/" << this->getLevelUp() << endl;
+	cout << "Gold" << this->getMoney()<<endl;
 	
 	cout << "Armor:" << endl;
 	cout << "Head:\t" << this->getHead()->getName() << "\t" << "Level: " << this->getHead()->getLevel()<<endl;

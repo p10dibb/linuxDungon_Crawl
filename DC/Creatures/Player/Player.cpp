@@ -14,11 +14,11 @@ string toLower(string s) {
 Player::Player() {
 	Biped();
 	
-	this->setDamage(5) ;
-	this->setSpeed( 2);
-	this->setDefense(5);
-	this->setStamina(5);
-	this->setStrength(5);
+	this->setDamage(1) ;
+	this->setSpeed(1);
+	this->setDefense(1);
+	this->setStamina(1);
+	this->setStrength(1);
 
 	
 
@@ -71,20 +71,25 @@ void Player::DisplayDetails() {
 
 //calculates the players actual speed
 int Player::ActualSpeed() {
+	cout<<"player speed check"<<endl;
 	int speed = 0;
 	int ArmorWeight = this->getHead()->getWeight() + this->getTorso()->getWeight() + this->getHands()->getWeight() + this->getLegs()->getWeight() + this->getFeet()->getWeight();
-	
+	cout<<"player speed check"<<endl;
 	//if onehanded else dual wielding
 	if (this->Left->getType() == NULL_WeaponType) {
-		speed = this->getSpeed() + this->Right->getSpeed() - (ArmorWeight / (this->getStrength() / 2));
+		
+		speed = this->getSpeed() + this->Right->getSpeed() - (ArmorWeight / (1+(this->getStrength() / 2)));
 	}
 	else if(this->Right->getType() == NULL_WeaponType) {
+	
 		speed = this->getSpeed() + this->Left->getSpeed() - (ArmorWeight / (this->getStrength() / 2));
 	}
 	else {
 		//two weapons being used 2/3 the speed of both weapons added together so dual wielding is slower but has higher attack and defense
+		cout<<"Two handed"<<endl;
 		speed = this->getSpeed() +( (this->Left->getSpeed()+this->Right->getSpeed())/3 )- (ArmorWeight / (this->getStrength() / 2));
 	}
+	cout<<"player speed check"<<endl;
 
 	//if slwed effect is active then decrease speed by 25%
 	if (this->ContainEffect(Slowed)) {
@@ -101,6 +106,7 @@ int Player::ActualSpeed() {
 	if (speed < 1) {
 		speed = 1;
 	}
+	cout<<"player speed check"<<endl;
 	return speed;
 
 }
@@ -150,20 +156,9 @@ void Player::RecieveLootDrop(lootDrop loot) {
 
 }
 
-//level up dialogue for player
-void Player::NextLevel() {
-	//get 3 upgrade points when you level up
-	int points = 3;
-	int input = 0;
-	this->setLevel(this->getLevel() + 1);
-	this->setMaxHealth(this->getMaxHealth() + 10);
-	this->setHealth(this->getMaxHealth());
-	cout << "Congrats you leveled up!! \nMax Health is now: " << this->getMaxHealth() << endl;
-
-
-	while (points != 0)
-	{
-		cout << "you have " << points << " remaining what would you like to upgrade?" << endl;
+void Player::addSkillPoint(){
+		int input;
+		while(1){
 		cout << "#\tstat\tcurrent level\tDescription" << endl;
 		cout << "1\tMaxHealth\t" << this->getMaxHealth() <<"\tMaximum Health of the player"<< endl;
 		cout << "2\tStrength\t" << this->getStrength() <<"\tIncreases Carrying capacity and lessens handicap of speed for heavy armour"<< endl;
@@ -177,27 +172,51 @@ void Player::NextLevel() {
 
 			this->setMaxHealth(this->getMaxHealth() + 10);
 			this->setHealth(this->getMaxHealth());
+			break;
 
 		}
 		else if (input == 2) {
 			this->setStrength(this->getStrength()+1);
 			this->MaxWeight = this->getStrength() * 10;
 			
-			this->setOverWeighted(this->MaxWeight < this->CurrentWeight);			
+			this->setOverWeighted(this->MaxWeight < this->CurrentWeight);		
+			break;	
 		}
 		else if (input == 3) {
 			this->setSpeed(this->getSpeed() + 1);
+			break;
 		}
 		else if (input == 4) {
 			this->setDamage(this->getDamage()+1);
+			break;
 		}
 		else if (input == 5) {
 			this->setDefense(this->getDefense()+1);
+			break;
 		}
 		else {
 			cout << "Not a valid choice:" << endl;
-			points++;
+			
+			
 		}
+		}
+}
+
+//level up dialogue for player
+void Player::NextLevel() {
+	//get 3 upgrade points when you level up
+	int points = 3;
+	int input = 0;
+	this->setLevel(this->getLevel() + 1);
+	this->setMaxHealth(this->getMaxHealth() + 10);
+	this->setHealth(this->getMaxHealth());
+	cout << "Congrats you leveled up!! \nMax Health is now: " << this->getMaxHealth() << endl;
+
+	while (points != 0)
+	{
+		
+	cout << "you have " << points << " remaining what would you like to upgrade?" << endl;	
+		this->addSkillPoint();
 
 
 		points--;
@@ -209,7 +228,7 @@ void Player::NextLevel() {
 
 //0=left,1=up,2=right, 3=down
 int Player::move(char  map[][10], int direction) {
-cout<<"moving"<<endl;
+
 	   	 							
 	if (direction == 0&& map[this->getPosition()[0]][this->getPosition()[1]-1]!= '|') {
 		
@@ -276,7 +295,7 @@ DoubleLinkedList<DamageTypes> Player::getAllDamageTypes(){
 }
 
 
-	int Player::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
+int Player::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
 		int totalDamage=0;
 		DamageTypes current;
 
@@ -315,4 +334,23 @@ DoubleLinkedList<DamageTypes> Player::getAllDamageTypes(){
 		this->setHealth(this->getHealth() - taken);
 		return taken;
 
-	}
+}
+
+	//checks if money is > amount and subtracts from there and returns amount;
+int Player::GiveMoney(int amount){
+		if(this->getMoney()>amount){
+			this->setMoney(this->getMoney()-amount);
+			return amount;
+		}
+
+		return 0;
+}
+
+	//adds amount to money; can only be positive
+bool Player::RecieveMoney(int amount){
+		if (amount<0){
+			return false;
+		}
+		this->setMoney(this->getMoney()+amount);
+		return true;
+}

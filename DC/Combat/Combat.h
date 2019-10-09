@@ -1,5 +1,5 @@
 #pragma once
-#include "../Creatures/Player/Player.h"
+#include "../Shop/Shop.h"
 
 int PlayerVsZombieCombat(Player* player, Zombie zed);
 
