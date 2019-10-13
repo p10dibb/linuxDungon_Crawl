@@ -120,14 +120,22 @@ void DoubleLinkedList<T>::push(T info) {
 
 template<class T>
 void DoubleLinkedList<T>::pop() {
-	if (this->size > 0) {
-		Node<T>* temp = this->Tail;
+	Node<T>* temp = this->Tail;
+	if (this->size>1) {
+		
 		this->Tail = this->Tail->getPre();
 		this->Tail->setNext(NULL);
 
 		if (this->Tail == NULL) {
-			this->Head == NULL;
+			
 		}
+		free(temp);
+		
+		this->size--;
+	}else if(this->size==1){
+		this->Head == NULL;	
+		this->Tail == NULL;
+		this->size--;
 		free(temp);
 	}
 }

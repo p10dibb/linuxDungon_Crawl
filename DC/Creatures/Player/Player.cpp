@@ -90,10 +90,10 @@ int Player::ActualSpeed() {
 
 
 	//if slwed effect is active then decrease speed by 25%
-	if (this->ContainEffect(Slowed)) {
+	if (this->ContainEffect(Slowed_EffectType)) {
 		speed = speed * .75;
 	}
-	if (this->ContainEffect(Dazed)) {
+	if (this->ContainEffect(Dazed_EffectType)) {
 		speed = speed * .75;
 	}
 	//cuts speed in half if overweighted
@@ -127,7 +127,8 @@ void Player::RecieveLootDrop(lootDrop loot) {
 
 	if (loot.gold != 0) {
 		cout << "Gold: " << loot.gold << endl;
-		this->Money += loot.gold;
+		//this->Money += loot.gold;
+		this->RecieveMoney(loot.gold);
 	}
 
 
@@ -279,16 +280,41 @@ int Player::Navigation(char map[][10]) {
 
 DoubleLinkedList<DamageTypes> Player::getAllDamageTypes(){
 	DoubleLinkedList<DamageTypes> ret;
+	//adds base Damage;
 	ret.add(DamageTypes(this->getDamage()));
 	int i=0;
+
+	//gets all Damage types from right weapon
 	for(i=0;i<this->getRight()->getDamageTypes_Weapon().Size();i++){
 		ret.add(this->getRight()->getDamageTypes_Weapon().getData(i));
 	}
+	//gets all Damage types from left weapon
 	for(i=0;i<this->getLeft()->getDamageTypes_Weapon().Size();i++){
 		ret.add(this->getLeft()->getDamageTypes_Weapon().getData(i));
 	}
 
-	return ret;
+	int location=-1;
+	//if no damage booster
+	if (location=this->ContainEffect(DamageBoost_EffectType)==-1){
+		return ret;
+	}else// if there is a damage booster;
+	{
+		//gets the multiplier
+		int DamageMultiplier=this->getEffect(location).getDamage();
+		//new Linkedlist
+		DoubleLinkedList<DamageTypes> ret2;
+		DamageTypes cur;
+		for (int i=0;i<ret.Size();i++){
+			cur=ret.getData(i);
+			ret2.add(DamageTypes(cur.getType(),cur.getProbability(),cur.getDamage()*DamageMultiplier));
+			
+		}
+		return ret2;
+	}
+	
+
+
+	
 
 }
 
@@ -306,15 +332,15 @@ int Player::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
 				//checks if Effect needs to be added
 				if (current.getType()==Fire_DamageType){
 					cout<<"Burning"<<endl;
-					this->AddEffect(Burning,5);
+					this->AddEffect(Burning_EffectType,5);
 				}
 				else if (current.getType()==Blunt_DamageType){
 					cout<<"Dazed"<<endl;
-					this->AddEffect(Dazed,5);
+					this->AddEffect(Dazed_EffectType,5);
 				}
 				else if (current.getType()==Stabbing_DamageType){
 					cout<<"Bleeding"<<endl;
-					this->AddEffect(Bleeding,5);
+					this->AddEffect(Bleeding_EffectType,5);
 				}
 				else if (current.getType()==Critical_DamageType){
 					cout<<"Critical hit"<<endl;
@@ -325,7 +351,19 @@ int Player::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
 			}
 		}
 
-		int taken = totalDamage - this->ActualDefense();
+		int taken = 0;
+		int location=1;
+	
+		
+
+		if(location=ContainEffect(DefenseBoost_EffectType)==-1){
+			taken=taken=totalDamage - this->ActualDefense();
+		}else{
+			 
+			taken=totalDamage - this->ActualDefense()*this->getEffect(location).getDamage();
+		}
+
+	
 		if (taken < 1) {
 			taken = 1;
 		}
@@ -338,6 +376,7 @@ int Player::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
 int Player::GiveMoney(int amount){
 		if(this->getMoney()>amount){
 			this->setMoney(this->getMoney()-amount);
+			this->IncrementGoldSpent(amount);
 			return amount;
 		}
 
@@ -349,6 +388,8 @@ bool Player::RecieveMoney(int amount){
 		if (amount<0){
 			return false;
 		}
+		this->IncrementGoldCollected(amount);
+		this->RewardCheckMaxGoldHeld();
 		this->setMoney(this->getMoney()+amount);
 		return true;
 }

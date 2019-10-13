@@ -9,6 +9,10 @@ private:
 
 	Weapon* weapon;
 
+	//the current movement direction 0:left 1:up 2:right 3:down 4:stationary
+	int direction;
+	int moveAmt;
+
 
 public:
 	
@@ -26,6 +30,8 @@ public:
 	void DisplayDetails();
 	
 	int ActualSpeed();
+
+	void move(char  map[][10]);
 
 
 };

@@ -38,10 +38,13 @@ bool Potion::Use(Creature *c) {
 	switch (this->Type)
 	{
 
-	case NULL_PotionType: cout << "You drank water it did nothing" << endl; break;
+	case NULL_PotionType: cout << "You drank water, it did nothing" << endl; break;
 	case Health_PotionType: this->UseHealth(c); break;
 	case Speed_PotionType:this->UseSpeedBooster(c); break;
 	case Strength_PotionType: this->UseStrengthBooster(c); break;
+	case IncreaseDamage_PotionType: this->UseIncreaseDamage(c);break;
+	case IncreaseDefense_PotionType: this->UseIncreaseDefense(c);break;
+	case CureActiveEffects_PotionType:this->UseCureActiveEffects(c);break;
 	default:
 		break;
 	}
@@ -89,3 +92,29 @@ void Potion::setBaseBooster(int b) {
 	this->BaseBooster = b;
 
 }
+
+
+
+bool Potion::UseIncreaseSpeed(Creature *p){
+	p->AddEffect(SpeedBoost_EffectType,5,this->Tier,false);
+
+}
+//adds a damage multiplier of Tier active effect
+bool Potion::UseIncreaseDamage(Creature *p){
+	
+	p->AddEffect(DamageBoost_EffectType,5,this->Tier,false);
+	return true;
+
+}
+//adds a Damage reduction multiplier of Tier active effect
+bool Potion::UseIncreaseDefense(Creature *p){
+	p->AddEffect(DefenseBoost_EffectType,5,this->Tier,false);
+	return true;
+}
+//removes all active effects both good and bad
+bool Potion::UseCureActiveEffects(Creature *p){
+	p->ClearAllEffects();
+	cout<<"all Effects Removed"<<endl;
+	return true;
+}
+	

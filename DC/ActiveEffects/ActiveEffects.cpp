@@ -1,33 +1,51 @@
 #include "ActiveEffects.h"
 
 ActiveEffects::ActiveEffects() {
-	this->effect = Blank;
+	this->effect = NULL_EffectType;
 	this->roundsActive = 0;
 	this->damage = 0;
+	this->isDamage=true;
 }
-ActiveEffects::ActiveEffects(EffectType e, int r) {
+ActiveEffects::ActiveEffects(EffectType_enum e, int rounds) {
 	this->effect =e;
-	this->roundsActive = r;
+	this->roundsActive = rounds;
 	switch (this->effect)
 	{
 
-	case Burning: this->damage = 3; break;
-	case Bleeding: this->damage = 3; break;
+	case Burning_EffectType: this->damage = 3; break;
+	case Bleeding_EffectType: this->damage = 3; break;
 	default:
 		break;
 	}
+	this->isDamage=true;
 }
 
-EffectType ActiveEffects::getEffect() {
+
+ActiveEffects::ActiveEffects(EffectType_enum e, int rounds,int damage){
+	this->effect=e;
+	this->setRound(rounds);
+	this->damage=damage;
+	this->isDamage=true;
+
+}
+
+ActiveEffects::ActiveEffects(EffectType_enum e, int rounds,int damage,bool isdamage){
+	this->effect=e;
+	this->setRound(rounds);
+	this->damage=damage;
+	this->isDamage=isdamage;
+}
+
+EffectType_enum ActiveEffects::getEffect() {
 	return this->effect;
 }
-void ActiveEffects::setEffect(EffectType e) {
+void ActiveEffects::setEffect(EffectType_enum e) {
 	this->effect = e;
 	switch (this->effect)
 	{
 
-	case Burning: this->damage = 3; break;
-	case Bleeding: this->damage = 3; break;
+	case Burning_EffectType: this->damage = 3; break;
+	case Bleeding_EffectType: this->damage = 3; break;
 	default:
 		break;
 	}
@@ -67,17 +85,17 @@ bool ActiveEffects::isFinished() {
 }
 
 bool ActiveEffects::DisplayDetails() {
-	cout << "Type: ";
-	switch (this->effect){
-	case Burning: cout << "Burning"; break;
-	case Bleeding: cout << "Bleeding"; break;
-	case Blank: cout << "no effect"; break;
-	case Slowed: cout << "Slowed"; break;
-	case Dazed: cout << "Dazed"; break;
-	case Swiftness: cout << "Swiftness"; break;
-	default:
-		break;
-	}
+	cout << "Type: "<<this->getEffectName();
+	// switch (this->effect){
+	// case Burning_EffectType: cout << "Burning"; break;
+	// case Bleeding_EffectType: cout << "Bleeding"; break;
+	// case NULL_EffectType: cout << "no effect"; break;
+	// case Slowed_EffectType: cout << "Slowed"; break;
+	// case Dazed_EffectType: cout << "Dazed"; break;
+	// case SpeedBoost_EffectType: cout << "Swiftness"; break;
+	// default:
+	// 	break;
+	// }
 	cout << endl;
 	cout << "Rounds Left: " << this->roundsActive<<endl;
 
@@ -92,14 +110,30 @@ string ActiveEffects::getEffectName() {
 
 	string ret;
 	switch (this->effect) {
-	case Burning: ret="Burning"; break;
-	case Bleeding: ret = "Bleeding"; break;
-	case Blank: ret = "no effect"; break;
-	case Slowed: ret = "Slowed"; break;
-	case Dazed:ret = "Dazed"; break;
-	case Swiftness:ret = "Swiftness"; break;
+	case Burning_EffectType: ret="Burning"; break;
+	case Bleeding_EffectType: ret = "Bleeding"; break;
+	case NULL_EffectType: ret = "no effect"; break;
+	case Slowed_EffectType: ret = "Slowed"; break;
+	case Dazed_EffectType:ret = "Dazed"; break;
+	case SpeedBoost_EffectType:ret = "Swiftness"; break;
+	case DamageBoost_EffectType: ret="Increased Damage";break;
+	case DefenseBoost_EffectType: ret="Increased Defense";break;
 	default:
 		break;
 	}
 	return ret;
+}
+
+void ActiveEffects::setEffect(EffectType_enum e, int damage){
+	this->effect=e;
+	this->damage=damage;
+}
+
+
+bool ActiveEffects::getIsDamage(){
+	return this->isDamage;
+}
+
+void ActiveEffects::setIsDamage(bool damaging){
+	this->isDamage=damaging;
 }

@@ -120,7 +120,9 @@ int Room::RunRoom() {
 	while (1) {
 		
 		this->player->Navigation(this->BaseMap);
-		
+		for(int i=0;i<this->zeds.Size();i++){
+			this->zeds.getNode(i)->Data.move(this->BaseMap);
+		}
 
 		results=this->playerCollisionCheck();
 		//if hit exit
@@ -158,7 +160,7 @@ int Room::playerCollisionCheck() {
 		
 		if (this->getPlayer()->getPosition() == this->getZeds().getNode(i)->getData().getPosition()) {
 
-			result = PlayerVsZombieCombat(this->player, this->getZeds().getNode(i)->getData());
+			result = PlayerVsZombieCombat(this->player, &this->getZeds().getNode(i)->Data);
 			if (result == 0) {
 				this->player->RecieveLootDrop(this->spawner.GenerateZombieLootDrop(this->getZeds().getNode(i)->getData()));
 				this->zeds.removeNode(i+1);

@@ -41,10 +41,4 @@ public:
 
 	int TakeDamage(int attack);
 
-
-
-
-
-
-
 };

@@ -95,6 +95,18 @@ public:
 	//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
 	Potion* CreateStrengthPotion(bool random = false, int level = 1, int Tier = 1);
 
+	//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+	Potion* CreateDefenseBoostPotion(bool random = false, int level = 1, int Tier = 2);
+
+	//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+	Potion* CreateDamageBoostPotion(bool random = false, int level = 1, int Tier = 2);
+
+	//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+	Potion* CreateCureEffectsPotion(bool random = false, int level = 1, int Tier = 1);
+
+	
+
+
 
 };
 

@@ -318,7 +318,7 @@ void Shop::GenerateNewInventory(){
         }
         //50% chance of potion
         else {
-            randValue=rand()%10;
+            randValue=rand()%13;
             //10% chance for speed potion
             if (randValue==0){
                 this->Inventory[i]=this->spawner.CreateSpeedPotion(true,this->getLevel());
@@ -326,6 +326,16 @@ void Shop::GenerateNewInventory(){
             //10% chance of strength potion
             else if(randValue==1){
                 this->Inventory[i]=this->spawner.CreateStrengthPotion(true,this->getLevel());
+            }
+            //1/13chance of Damage boost
+             else if(randValue==2){
+                this->Inventory[i]=this->spawner.CreateDamageBoostPotion();
+            }
+             else if(randValue==3){
+                this->Inventory[i]=this->spawner.CreateDefenseBoostPotion();
+            }
+             else if(randValue==4){
+                this->Inventory[i]=this->spawner.CreateCureEffectsPotion();
             }
             //80% chanch health potion
             else{

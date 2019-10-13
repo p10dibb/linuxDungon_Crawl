@@ -37,21 +37,31 @@ public:
 	Creature();
 
 	//check if it contains effect and returns that effects location in list and -1 if it doesnt exist;
-	int ContainEffect(EffectType e);
+	int ContainEffect(EffectType_enum e);
 
 	//decrement the effect at the said position and removes effect if 0;
 	bool DecrementEffectTime(int pos);
 
 	//checks if effect is in list and if it is then increase time else add new effect.
-	bool AddEffect(EffectType e, int time);
+	bool AddEffect(EffectType_enum e, int time);
+
+	//checks if effect is in list and if it is then increase time else add new effect.
+	bool AddEffect(EffectType_enum e, int time, int damage);
 
 	//decrements all effect times by 1;
 	void DecrementAllEffects();
 
 	void DisplayAllEffects();
+	//removes all effects
+	bool ClearAllEffects();
+
+	//returns the Acctive effect at specified position. if no Acctive effect there then it returns default active effect
+	ActiveEffects getEffect(int pos);
+
+
 
 	//itterates through active effects and applies damage from damage effects
-	bool runDamageEffects();
+	int runDamageEffects();
 
 	int getDamage();
 	void setDamage(int i);
@@ -80,12 +90,7 @@ public:
 	bool setPosition(array<int,2> pos);
 
 	int move(char map[][10], int direction);
-
-
-
-
-
-
+	
 
 };
 

@@ -39,6 +39,9 @@ int Floor::NavigateFloor() {
 			return -1;
 		}//going left a room
 		else {
+			//stats incrementer
+			player->IncrementRoomsBeenToo();
+
 			 if (value == 1) {
 
 			if (this->currentRoom[1] - 1 >= 0) {

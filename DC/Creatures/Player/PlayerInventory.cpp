@@ -2,6 +2,10 @@
 
 //adds an Item to the players inventory;
 bool Player::addToInventory(Item *i) {
+
+	//stats incrementer
+	this->IncrementItemsRecieved();
+
 	if (FreeSlots != 0) {
 
 		//checks if there is already a stack of said item and if there is room in the stack for another one
@@ -59,9 +63,8 @@ Item *Player::RemoveItemFromInventory(int pos){
 //Displays whole inventory
 void Player::DisplayInventory() {
 	cout << "#\tItemName\tamount\t" << endl;
-	for (int i = 0; i < this->InventorySize / 2; i++) {
-		cout << i << "\t" << this->Inventory[i].item->getName() << "\t" << this->Inventory[i].amount << "\t" << i + this->InventorySize / 2 << "\t" << this->Inventory[i + this->InventorySize / 2].item->getName() << "\t" << this->Inventory[i + this->InventorySize / 2].amount << endl;
-
+	for (int i = 0; i < this->InventorySize ; i++) {
+		cout << i << "\t" << this->Inventory[i].item->getName() << "\t" << this->Inventory[i].amount << "" <<endl;
 	}
 }
 
@@ -261,12 +264,13 @@ int Player::UseInventory(int pos) {
 		return -1;
 
 	}
-	 if ((typeid(*this->Inventory[pos].item) == typeid(Potion))) {
-	Potion* a = dynamic_cast<Potion*>(this->Inventory[pos].item);
-	a->Use(this);
-	used = true;
+	if ((typeid(*this->Inventory[pos].item) == typeid(Potion))) {
+		Potion* a = dynamic_cast<Potion*>(this->Inventory[pos].item);
+		a->Use(this);
+		this->IncrementPotionDranked();
+		used = true;
 
-		}
+	}
 	 else {
 		 cout << "not a useable item" << endl;
 	 }

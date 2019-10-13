@@ -138,7 +138,7 @@ int Creature::move(char  map[][10],int direction) {
 
 
 //check if it contains effect and returns that effects location in list and -1 if it doesnt exist;
-int Creature::ContainEffect(EffectType e) {
+int Creature::ContainEffect(EffectType_enum e) {
 	for (int i = 0; i < this->Effects.Size(); i++) {
 		if (this->Effects.getNode(i)->getData().getEffect()== e) {
 			return i;
@@ -154,13 +154,28 @@ bool Creature::DecrementEffectTime(int pos) {
 }
 
 //checks if effect is in list and if it is then increase time else add new effect.
-bool Creature::AddEffect(EffectType e, int time) {
+bool Creature::AddEffect(EffectType_enum e, int time) {
 	int pos = this->ContainEffect(e);
 	if (pos!=-1) {
 		this->Effects.getNode(pos)->Data.addRounds(time);
 	}
 	else {
 		this->Effects.add(ActiveEffects(e, time));
+	}
+	
+	return true;
+}
+
+//checks if effect is in list and if it is then increase time else add new effect. add damage 
+bool Creature::AddEffect(EffectType_enum e, int time, int damage){
+	int pos = this->ContainEffect(e);
+	if (pos!=-1) {
+		this->Effects.getNode(pos)->Data.addRounds(time);
+	}
+	else {
+		ActiveEffects adder=ActiveEffects(e, time);
+		adder.setEffect(e,damage);
+		this->Effects.add(adder);
 	}
 	
 	return true;
@@ -175,17 +190,23 @@ void Creature::DecrementAllEffects() {
 
 
 void Creature::DisplayAllEffects() {
+	if(this->Effects.Size()==0){
+		cout<<"No Active effects"<<endl;
+	}
 	for (int i = 0; i < this->Effects.Size(); i++) {
 		 this->Effects.getData(i).DisplayDetails();
 	}
+	
 }
 
 //itterates through active effects and applies damage from damage effects returns -1 if dead
-bool Creature::runDamageEffects() {
+int Creature::runDamageEffects() {
 	int damage = 0;
+	int total=0;
 	for (int i = 0; i < this->Effects.Size(); i++) {
 		damage = this->Effects.getNode(i)->Data.getDamage();
-		if ( damage> 0) {
+		if ( damage> 0 && this->Effects.getData(i).getIsDamage()) {
+			total+=damage;
 			this->setHealth(this->getHealth() - damage);
 			cout << this->getName() << " Took " << damage << " damage from " << this->Effects.getNode(i)->Data.getEffectName() << endl;
 			if (this->getHealth() <= 0) {
@@ -196,4 +217,25 @@ bool Creature::runDamageEffects() {
 	}
 	this->DecrementAllEffects();
 	return 0;
+}
+
+
+bool Creature::ClearAllEffects(){
+	
+while(this->Effects.Size()!=0){
+
+	this->Effects.pop();
+}
+return true;
+}
+
+
+//returns the Acctive effect at specified position. if no Acctive effect there then it returns default active effect
+ActiveEffects Creature::getEffect(int pos){
+
+if (this->Effects.Size()>pos){
+	return this->Effects.getData(pos);
+}
+return ActiveEffects();
+
 }
