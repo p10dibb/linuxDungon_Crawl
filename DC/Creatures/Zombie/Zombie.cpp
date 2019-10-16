@@ -60,10 +60,10 @@ int Zombie::ActualSpeed() {
 		speed = this->getSpeed() + this->weapon->getSpeed() - (ArmorWeight / (this->getStrength() / 2));
 
 
-	if (this->ContainEffect(Slowed_EffectType)) {
+	if (this->ContainDeBuffEffect(Slowed_Effects)) {
 		speed = speed * .75;
 	}
-	if (this->ContainEffect(Dazed_EffectType)) {
+	if (this->ContainDeBuffEffect(Dazed_Effects)) {
 		speed = speed * .75;
 	}
 
@@ -80,18 +80,18 @@ DoubleLinkedList<DamageTypes> Zombie::getAllDamageTypes(){
 	}
 	
 	int location=-1;
-	if (location=this->ContainEffect(DamageBoost_EffectType)==-1){
+	if (location=this->ContainBuffEffect(DamageBoost_Effects)==-1){
 		return ret;
 	}else// if there is a damage booster;
 	{
 		//gets the multiplier
-		int DamageMultiplier=this->getEffect(location).getDamage();
+		int DamageMultiplier=this->getBuffEffect(location).getDamage();
 		//new Linkedlist
 		DoubleLinkedList<DamageTypes> ret2;
 		DamageTypes cur;
 		for (int i=0;i<ret.Size();i++){
 			cur=ret.getData(i);
-			ret2.add(DamageTypes(cur.getType(),cur.getProbability(),cur.getDamage()*DamageMultiplier));
+			ret2.add(DamageTypes(cur.getDamage(),cur.getProbability(),cur.getType(),cur.getIsDamageOverTime(),cur.getDamageOverTime_damage(),cur.getDamageOverTime_time()));
 			
 		}
 		return ret2;
@@ -113,16 +113,18 @@ int totalDamage=0;
 				//checks if Effect needs to be added
 				if (current.getType()==Fire_DamageType){
 					cout<<"Burning"<<endl;
-					this->AddEffect(Burning_EffectType,5);
+					this->AddEffect(ActiveEffects(DamageOverTime_EffectTypes,Burning_Effects,current.getDamageOverTime_damage(),current.getDamageOverTime_time()));		
 				}
 				else if (current.getType()==Blunt_DamageType){
 					cout<<"Dazed"<<endl;
-					this->AddEffect(Dazed_EffectType,5);
+					this->AddEffect(ActiveEffects(DamageOverTime_EffectTypes,Dazed_Effects,current.getDamageOverTime_damage(),current.getDamageOverTime_time()));
 				}
 				else if (current.getType()==Stabbing_DamageType){
 					cout<<"Bleeding"<<endl;
-					this->AddEffect(Bleeding_EffectType,5);
-				}else if (current.getType()==Critical_DamageType){
+					this->AddEffect(ActiveEffects(DamageOverTime_EffectTypes,Bleeding_Effects,current.getDamageOverTime_damage(),current.getDamageOverTime_time()));
+				
+				}
+				else if (current.getType()==Critical_DamageType){
 					cout<<"Critical hit"<<endl;
 				}
 
@@ -136,11 +138,11 @@ int totalDamage=0;
 	
 		
 
-		if(location=ContainEffect(DefenseBoost_EffectType)==-1){
+		if(location=ContainBuffEffect(DefenseBoost_Effects)==-1){
 			taken=taken=totalDamage - this->getDefense();
 		}else{
 			 
-			taken=totalDamage - this->getDefense()*this->getEffect(location).getDamage();
+			taken=totalDamage - this->getDefense()*this->getBuffEffect(location).getDamage();
 		}
 		if (taken < 1) {
 			taken = 1;

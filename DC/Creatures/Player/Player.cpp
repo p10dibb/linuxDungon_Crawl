@@ -90,10 +90,10 @@ int Player::ActualSpeed() {
 
 
 	//if slwed effect is active then decrease speed by 25%
-	if (this->ContainEffect(Slowed_EffectType)) {
+	if (this->ContainDeBuffEffect(Slowed_Effects)) {
 		speed = speed * .75;
 	}
-	if (this->ContainEffect(Dazed_EffectType)) {
+	if (this->ContainDeBuffEffect(Dazed_Effects)) {
 		speed = speed * .75;
 	}
 	//cuts speed in half if overweighted
@@ -295,18 +295,18 @@ DoubleLinkedList<DamageTypes> Player::getAllDamageTypes(){
 
 	int location=-1;
 	//if no damage booster
-	if (location=this->ContainEffect(DamageBoost_EffectType)==-1){
+	if (location=this->ContainBuffEffect(DamageBoost_Effects)==-1){
 		return ret;
 	}else// if there is a damage booster;
 	{
 		//gets the multiplier
-		int DamageMultiplier=this->getEffect(location).getDamage();
+		int DamageMultiplier=this->getBuffEffect(location).getDamage();
 		//new Linkedlist
 		DoubleLinkedList<DamageTypes> ret2;
 		DamageTypes cur;
 		for (int i=0;i<ret.Size();i++){
 			cur=ret.getData(i);
-			ret2.add(DamageTypes(cur.getType(),cur.getProbability(),cur.getDamage()*DamageMultiplier));
+			ret2.add(DamageTypes(cur.getDamage(),cur.getProbability(),cur.getType(),cur.getIsDamageOverTime(),cur.getDamageOverTime_damage(),cur.getDamageOverTime_time()));
 			
 		}
 		return ret2;
@@ -323,8 +323,6 @@ int Player::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
 		int totalDamage=0;
 		DamageTypes current;
 
-	
-
 		//itterates through all damage types
 		for(int i=0;i<damageTypes.Size();i++){
 			current=damageTypes.getData(i);
@@ -332,15 +330,16 @@ int Player::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
 				//checks if Effect needs to be added
 				if (current.getType()==Fire_DamageType){
 					cout<<"Burning"<<endl;
-					this->AddEffect(Burning_EffectType,5);
+					this->AddEffect(ActiveEffects(DamageOverTime_EffectTypes,Burning_Effects,current.getDamageOverTime_damage(),current.getDamageOverTime_time()));		
 				}
 				else if (current.getType()==Blunt_DamageType){
 					cout<<"Dazed"<<endl;
-					this->AddEffect(Dazed_EffectType,5);
+					this->AddEffect(ActiveEffects(DamageOverTime_EffectTypes,Dazed_Effects,current.getDamageOverTime_damage(),current.getDamageOverTime_time()));
 				}
 				else if (current.getType()==Stabbing_DamageType){
 					cout<<"Bleeding"<<endl;
-					this->AddEffect(Bleeding_EffectType,5);
+					this->AddEffect(ActiveEffects(DamageOverTime_EffectTypes,Bleeding_Effects,current.getDamageOverTime_damage(),current.getDamageOverTime_time()));
+				
 				}
 				else if (current.getType()==Critical_DamageType){
 					cout<<"Critical hit"<<endl;
@@ -352,15 +351,14 @@ int Player::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
 		}
 
 		int taken = 0;
-		int location=1;
-	
+		int location=1;	
 		
 
-		if(location=ContainEffect(DefenseBoost_EffectType)==-1){
+		if(location=ContainBuffEffect(DefenseBoost_Effects)==-1){
 			taken=taken=totalDamage - this->ActualDefense();
 		}else{
 			 
-			taken=totalDamage - this->ActualDefense()*this->getEffect(location).getDamage();
+			taken=totalDamage - this->ActualDefense()*this->getBuffEffect(location).getDamage();
 		}
 
 	

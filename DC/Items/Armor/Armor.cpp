@@ -52,3 +52,10 @@ void Armor::DisplayDetails() {
 	cout << "Defense: " << this->Defense << endl << "Level: " << this->Level << endl << "Type: " << this->Type << endl;
 	
 }
+
+ItemRarity_enum Armor::getRarity(){
+	return this->Rarity;
+}
+void Armor::setRarity(ItemRarity_enum rarity){
+	this->Rarity=rarity;
+}

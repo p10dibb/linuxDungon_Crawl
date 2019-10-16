@@ -68,8 +68,10 @@ int PlayerVsZombieCombat(Player* player, Zombie *zed) {
 			
 			
 		}
-		player->IncrementDamageRecieved(player->runDamageEffects());
-		zed->runDamageEffects();
+		player->IncrementDamageRecieved(player->runDamageOverTimeEffects());
+		player->DecrementAllEffects();
+		zed->runDamageOverTimeEffects();
+		zed->DecrementAllEffects();
 		cout<<"press enter to continue"<<endl;
 		
 		getchar();

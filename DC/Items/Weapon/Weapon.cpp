@@ -89,12 +89,20 @@ void Weapon::DisplayDetails() {
 
 }
 
-	DoubleLinkedList<DamageTypes> Weapon::getDamageTypes_Weapon(){
+DoubleLinkedList<DamageTypes> Weapon::getDamageTypes_Weapon(){
 		return this->DamageTypes_Weapon;
-			}
-	void Weapon::setDamageTypes_Weapon(DoubleLinkedList<DamageTypes> damagetypes){
+}
+void Weapon::setDamageTypes_Weapon(DoubleLinkedList<DamageTypes> damagetypes){
 		this->DamageTypes_Weapon=damagetypes;
-	}
-	void Weapon::addDamageType(DamageTypes type){
+}
+void Weapon::addDamageType(DamageTypes type){
 		this->DamageTypes_Weapon.add(type);
-	}
+}
+
+
+ItemRarity_enum Weapon::getRarity(){
+	return this->Rarity;
+}
+void Weapon::setRarity(ItemRarity_enum rarity){
+	this->Rarity=rarity;
+}

@@ -19,6 +19,8 @@ private:
 	int Speed;
 	int Level;
 	int Range;
+
+	ItemRarity_enum Rarity;
 public:
 	Weapon();
 	Weapon(int Dam, int Def, bool TH, int Sp, int Lvl, int Rng, WeaponTypes_enum type, DoubleLinkedList<DamageTypes> damageTypes);
@@ -34,6 +36,9 @@ public:
 	int getRange();
 	void setRange(int r);
 
+	ItemRarity_enum getRarity();
+	void setRarity(ItemRarity_enum rarity);
+
 	WeaponTypes_enum getType();
 	void setType(WeaponTypes_enum w);
 
@@ -42,6 +47,8 @@ public:
 	DoubleLinkedList<DamageTypes> getDamageTypes_Weapon();
 	void setDamageTypes_Weapon(DoubleLinkedList<DamageTypes> damagetypes);
 	void addDamageType(DamageTypes type);
+
+
 
 
 

@@ -96,19 +96,20 @@ void Potion::setBaseBooster(int b) {
 
 
 bool Potion::UseIncreaseSpeed(Creature *p){
-	p->AddEffect(SpeedBoost_EffectType,5,this->Tier,false);
+	p->AddEffect(ActiveEffects(Buff_EffectTypes,SpeedBoost_Effects,this->Tier,5));
 
 }
 //adds a damage multiplier of Tier active effect
 bool Potion::UseIncreaseDamage(Creature *p){
 	
-	p->AddEffect(DamageBoost_EffectType,5,this->Tier,false);
+	p->AddEffect(ActiveEffects(Buff_EffectTypes,DamageBoost_Effects,this->Tier,5));
 	return true;
 
 }
 //adds a Damage reduction multiplier of Tier active effect
 bool Potion::UseIncreaseDefense(Creature *p){
-	p->AddEffect(DefenseBoost_EffectType,5,this->Tier,false);
+	p->AddEffect(ActiveEffects(Buff_EffectTypes,DefenseBoost_Effects,this->Tier,5));
+
 	return true;
 }
 //removes all active effects both good and bad

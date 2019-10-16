@@ -74,17 +74,35 @@ public:
 	Zombie CreateZombie(int level, bool forceLevel=false );
 	LootDrop GenerateZombieLootDrop(Zombie zed);
 
-	Weapon* CreateClaws(int level, bool forceLevel=false);
-	Weapon* CreateSword(int level, bool forceLevel = false);
-	Weapon* CreateDagger(int level, bool forceLevel = false);
-	Weapon* CreateAxe(int level, bool forceLevel = false);
-	Weapon* CreateShield(int level, bool forceLevel = false);
+	//Weapons -----in SpawnerWeapons.cpp
+		Weapon* CreateClaws(int level, bool forceLevel=false,bool forceRarity=false,ItemRarity_enum rarity =Common_ItemRarity);
+		Weapon* CreateSword(int level, bool forceLevel = false,bool forceRarity=false,ItemRarity_enum rarity =Common_ItemRarity);
+		Weapon* CreateDagger(int level, bool forceLevel = false,bool forceRarity=false,ItemRarity_enum rarity =Common_ItemRarity);
+		Weapon* CreateAxe(int level, bool forceLevel = false,bool forceRarity=false,ItemRarity_enum rarity =Common_ItemRarity);
+		Weapon* CreateShield(int level, bool forceLevel = false,bool forceRarity=false,ItemRarity_enum rarity =Common_ItemRarity);
 
-	Armor* CreateHelmet(int level, ArmorClass_enum c, bool forceLevel=false);
-	Armor* CreateChest(int level, ArmorClass_enum c, bool forceLevel=false);
-	Armor* CreateGloves(int level, ArmorClass_enum c, bool forceLevel = false);
-	Armor* CreatePants(int level, ArmorClass_enum c, bool forceLevel = false);
-	Armor* CreateBoots (int level, ArmorClass_enum c, bool forceLevel = false);
+		//Creates a random weapon
+		Weapon* CreateRandomWeapon(int level,bool forceLevel=false, bool forceRarity=false,ItemRarity_enum rarity= Common_ItemRarity);
+	//---------------------
+
+
+	//Armor------------inSpawnerArmor.cpp
+		//Creates Helmet
+		Armor* CreateHelmet(int level, ArmorClass_enum c, bool forceLevel=false,bool forceRarity=false,ItemRarity_enum rarity =Common_ItemRarity);
+		//Creates Chest
+		Armor* CreateChest(int level, ArmorClass_enum c, bool forceLevel=false,bool forceRarity=false,ItemRarity_enum rarity =Common_ItemRarity);
+		//Creates Gloves
+		Armor* CreateGloves(int level, ArmorClass_enum c, bool forceLevel = false,bool forceRarity=false,ItemRarity_enum rarity =Common_ItemRarity);
+		//Creates Pants
+		Armor* CreatePants(int level, ArmorClass_enum c, bool forceLevel = false,bool forceRarity=false,ItemRarity_enum rarity =Common_ItemRarity);
+		//Creates Boots
+		Armor* CreateBoots (int level, ArmorClass_enum c, bool forceLevel = false,bool forceRarity=false,ItemRarity_enum rarity =Common_ItemRarity);
+		//creates a random piece of armor
+		Armor* CreateRandomArmor(int level, bool forceLevel=false, bool forceRarity=false,ItemRarity_enum rarity=Common_ItemRarity);
+	
+	//------------
+
+	
 
 	//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
 	Potion* CreateHealthPotion(bool random = false, int level = 1, int Tier = 1);
@@ -105,8 +123,30 @@ public:
 	Potion* CreateCureEffectsPotion(bool random = false, int level = 1, int Tier = 1);
 
 	
+	//Dev Items------- all items are level 1  but are very very good
+		Armor* CreateDevHelmet( ArmorClass_enum c);
+		Armor* CreateDevChest(ArmorClass_enum c);
+		Armor* CreateDevGloves( ArmorClass_enum c);
+		Armor* CreateDevPants( ArmorClass_enum c);
+		Armor* CreateDevBoots ( ArmorClass_enum c);
+		
+		Weapon* CreateDevSword();
+	//-------------------
 
+	//Extinctionist Items------- creature kill Rewards Unique item levels
+		Item * CreateRandomExtinctionistItem(int level);
 
+		Weapon* CreateExtinctionistSword(int level);
+		Weapon* CreateExtinctionistDagger(int level);
+		Weapon* CreateExtinctionistAxe(int level);
+		
+		Armor* CreateExtinctionistHelmet(int level);
+		Armor* CreateExtinctionistChest(int level);
+		Armor* CreateExtinctionistGloves(int level);
+		Armor* CreateExtinctionistPants(int level);
+		Armor* CreateExtinctionistBoots (int level);
+
+	//---------------------
 
 };
 

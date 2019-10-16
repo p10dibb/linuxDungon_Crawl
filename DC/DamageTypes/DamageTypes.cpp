@@ -1,25 +1,46 @@
 #include "DamageTypes.h"
 
 
- //sets Type to Normal, Probability to 100 and Damage 0;
-    DamageTypes::DamageTypes(){
-        this->Type=Normal_DamageType;
-        this->Probability=100;
-        this->Damage=0;
-    }
-    
-    //sets Type to Normal, Probability to 100 and Damage to damage;
-    DamageTypes::DamageTypes(int damage){
-        this->Type=Normal_DamageType;
-        this->Probability=100;
+    DamageTypes::DamageTypes(int damage,int probability,DamageTypes_enum type,bool isdot, int dot_damage, int dot_time){
         this->setDamage(damage);
+        this->setProbability(probability);
+        this->setType(type);
+        this->setIsDamageOverTime(isdot);
+        this->setDamageOverTime_damage(dot_damage);
+        this->setDamageOverTime_time(dot_time);
     }
 
-    //sets Type to type, Probability to probability and Damage to damage;
-    DamageTypes::DamageTypes(DamageTypes_enum type, int probability, int damage){
-        this->Type=type;
-        this->setProbability(probability);
-        this->setDamage(damage);
+    bool DamageTypes::getIsDamageOverTime(){
+        return this->isDamageOverTime;
+    }
+    void DamageTypes::setIsDamageOverTime(bool dot){
+        if(dot==true){
+            if(this->getDamageOverTime_damage()<=0){
+                this->setDamageOverTime_damage(1);
+            }
+            if(this->getDamageOverTime_time()<=0){
+                this->setDamageOverTime_time(1);
+            }
+        }
+        this->isDamageOverTime=dot;
+    }
+    int DamageTypes::getDamageOverTime_damage(){
+        return this->DamageOverTime_damage;
+    }
+    void DamageTypes::setDamageOverTime_damage(int damage){
+        if(damage<0){
+            damage=0;
+        }
+        this->DamageOverTime_damage=damage;
+    }
+    int DamageTypes::getDamageOverTime_time(){
+        return this->DamageOverTime_time;
+    }
+    void DamageTypes::setDamageOverTime_time(int time){
+        if(time<0){
+            time=0;
+        }
+        this->DamageOverTime_time=time;
     }
 
     DamageTypes_enum DamageTypes::getType(){

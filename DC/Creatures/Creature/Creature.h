@@ -28,7 +28,12 @@ private:
 
 	//x,y position
 	array<int, 2> position; 
-	DoubleLinkedList<ActiveEffects> Effects;
+	//DoubleLinkedList<ActiveEffects> Effects;
+
+	DoubleLinkedList<ActiveEffects> DeBuffEffects;
+	DoubleLinkedList<ActiveEffects> BuffEffects;
+	DoubleLinkedList<ActiveEffects> CombatEffects;
+	DoubleLinkedList<ActiveEffects> DamageOverTimeEffects;
 
 public:
 
@@ -37,31 +42,82 @@ public:
 	Creature();
 
 	//check if it contains effect and returns that effects location in list and -1 if it doesnt exist;
-	int ContainEffect(EffectType_enum e);
+	int ContainDamageOverTimeEffect(Effects_enum effect);
+	//check if it contains effect and returns that effects location in list and -1 if it doesnt exist;
+	int ContainCombatEffect(Effects_enum effect);
+	//check if it contains effect and returns that effects location in list and -1 if it doesnt exist;
+	int ContainBuffEffect(Effects_enum effect);
+	//check if it contains effect and returns that effects location in list and -1 if it doesnt exist;
+	int ContainDeBuffEffect(Effects_enum effect);
+	
 
 	//decrement the effect at the said position and removes effect if 0;
 	bool DecrementEffectTime(int pos);
 
+	
 	//checks if effect is in list and if it is then increase time else add new effect.
-	bool AddEffect(EffectType_enum e, int time);
+	bool AddEffect(ActiveEffects effect);
+		//checks if effect is in list and if it is then increase time else add new effect.
+	bool AddDamageOverTimeEffect(ActiveEffects effect);
+		//checks if effect is in list and if it is then increase time else add new effect.
+	bool AddCombatEffect(ActiveEffects effect);
+		//checks if effect is in list and if it is then increase time else add new effect.
+	bool AddBuffEffect(ActiveEffects effect);
+		//checks if effect is in list and if it is then increase time else add new effect.
+	bool AddDeBuffEffect(ActiveEffects effect);
 
-	//checks if effect is in list and if it is then increase time else add new effect.
-	bool AddEffect(EffectType_enum e, int time, int damage);
+
+
 
 	//decrements all effect times by 1;
 	void DecrementAllEffects();
+	//decrements all effect times by 1;
+	void DecrementAllDeBuffEffects();
+	//decrements all effect times by 1;
+	void DecrementAllBuffEffects();
+	//decrements all effect times by 1;
+	void DecrementAllCombatEffects();
+	//decrements all effect times by 1;
+	void DecrementAllDamageOverTimeEffects();
 
+
+	//Displays Effects
+	void DisplayAllDeBuffEffects();
+	//Displays Effects
+	void DisplayAllBuffEffects();
+	//Displays Effects
+	void DisplayAllCombatEffects();
+	//Displays Effects
+	void DisplayAllDamageOverTimeEffects();
+	//Displays Effects
 	void DisplayAllEffects();
+
+	//removes all effects
+	bool ClearAllDeBuffEffects();
+	//removes all effects
+	bool ClearAllBuffEffects();
+	//removes all effects
+	bool ClearAllCombatEffects();
+	//removes all effects
+	bool ClearAllDamageOverTimeEffects();
 	//removes all effects
 	bool ClearAllEffects();
 
 	//returns the Acctive effect at specified position. if no Acctive effect there then it returns default active effect
-	ActiveEffects getEffect(int pos);
+	ActiveEffects getDeBuffEffect(int pos);
+	//returns the Acctive effect at specified position. if no Acctive effect there then it returns default active effect
+	ActiveEffects getBuffEffect(int pos);
+	//returns the Acctive effect at specified position. if no Acctive effect there then it returns default active effect
+	ActiveEffects getCombatEffect(int pos);
+	//returns the Acctive effect at specified position. if no Acctive effect there then it returns default active effect
+	ActiveEffects getDamageOverTimeEffect(int pos);
+
+
 
 
 
 	//itterates through active effects and applies damage from damage effects
-	int runDamageEffects();
+	int runDamageOverTimeEffects();
 
 	int getDamage();
 	void setDamage(int i);

@@ -11,6 +11,7 @@ private:
 	int Level;
 	ArmorType_enum Type;
 	ArmorClass_enum Class;
+	ItemRarity_enum Rarity;
 
 
 public:
@@ -20,6 +21,8 @@ public:
 	void setDefense(int d);
 	int getLevel();
 	void setLevel(int l);
+	ItemRarity_enum getRarity();
+	void setRarity(ItemRarity_enum rarity);
 	ArmorType_enum getType();
 	void setType(ArmorType_enum t);
 	ArmorClass_enum getClass();
