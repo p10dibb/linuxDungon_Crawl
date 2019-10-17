@@ -1,5 +1,28 @@
 #include "Player.h"
 
+
+//displays all the players stats
+void Player::DisplayStats(){
+    cout<<"----------STATS----------"<<endl;
+    cout<<"Max Health: "<<this->getMaxHealth()<<endl;
+    cout<<"Speed: "<<this->getSpeed()<<endl;
+    cout<<"Defense: "<<this->getDefense()<<endl;
+    cout<<"Damage: "<<this->getDamage()<<endl;
+    cout<<"Strength: "<<this->getStrength()<<endl;
+    cout<<"Stamina: "<<this->getStamina()<<endl;
+    cout<<endl<<"Creatures Killed: "<<this->getCreaturesKilled()<<endl;
+    cout<<"Items Recieved: "<<this->getItemsRecieved()<<endl;
+    cout<<"Total Gold Collected: "<<this->getGoldCollected()<<endl;
+    cout<<"Total Gold Spent: "<<this->getGoldSpent()<<endl;
+    cout<<"Rooms Been Too: "<<this->getRoomsBeenToo()<<endl;
+    cout<<"Total Damage Dealt: "<<this->getDamageDealt()<<endl;
+    cout<<"Total Damage Recieved: "<<this->getDamageRecieved()<<endl;
+    cout<<"Potions Taken: "<<this->getPotionsDranked()<<endl;
+    cout<<"Most Gold Held: "<<this->getMaxGoldHeld()<<endl;
+    cout<<"Most Damage Dealt: "<<this->getMaxDamageDealt()<<endl;
+
+}
+
 //returns the amount of creatures player has killed
 int Player::getCreaturesKilled(){
     return this->CreaturesKilled;
@@ -17,16 +40,110 @@ int Player::RewardCheckCreaturesKilled(){
     //this is vaugue model for rewards
     Weapon* RewardWeapon;
     Armor* RewardArmor;
+    Item* RewardItem;
     int ArmourChance=-1;
     if(this->getCreaturesKilled()>1000000){
         cout<<"what are you doing with your life"<<endl;
-    }else if(this->getCreaturesKilled()>10){
+    }
+    else if(this->getCreaturesKilled()==500){
+        
+        RewardItem=spawner.CreateRandomExtinctionistItem(this->getLevel());
+
+        cout<<this->getName()<<"has killed 500 Opponents and is rewarded "<<RewardItem->getName()<<endl;
+        this->addToInventory(RewardItem);
+     
+       
+       return 500;
+    }
+    else if(this->getCreaturesKilled()==420){
+        
+        RewardItem=spawner.CreateTheMarly(this->getLevel());
+
+        cout<<this->getName()<<"has killed 420 Opponents and is rewarded "<<RewardItem->getName()<<endl;
+        this->addToInventory(RewardItem);
+     
+       
+       return 420;
+    }
+    else if(this->getCreaturesKilled()==400){
+        
+        RewardItem=spawner.CreateRandomExtinctionistItem(this->getLevel());
+
+        cout<<this->getName()<<"has killed 400 Opponents and is rewarded "<<RewardItem->getName()<<endl;
+        this->addToInventory(RewardItem);
+     
+       
+       return 400;
+    }
+    else if(this->getCreaturesKilled()==300){
+        
+        RewardItem=spawner.CreateRandomExtinctionistItem(this->getLevel());
+
+        cout<<this->getName()<<"has killed 300 Opponents and is rewarded "<<RewardItem->getName()<<endl;
+        this->addToInventory(RewardItem);
+     
+       
+       return 300;
+    }
+    else if(this->getCreaturesKilled()==200){
+        
+        RewardItem=spawner.CreateRandomExtinctionistItem(this->getLevel());
+
+        cout<<this->getName()<<"has killed 200 Opponents and is rewarded "<<RewardItem->getName()<<endl;
+        this->addToInventory(RewardItem);
+     
+       
+       return 200;
+    }
+    else if(this->getCreaturesKilled()==125){
+        
+        RewardItem=spawner.CreateRandomExtinctionistItem(this->getLevel());
+
+        cout<<this->getName()<<"has killed 125 Opponents and is rewarded "<<RewardItem->getName()<<endl;
+        this->addToInventory(RewardItem);
+     
+       
+       return 125;
+    }
+    else if(this->getCreaturesKilled()==75){
+        
+        RewardItem=spawner.CreateRandomExtinctionistItem(this->getLevel());
+
+        cout<<this->getName()<<"has killed 75 Opponents and is rewarded "<<RewardItem->getName()<<endl;
+        this->addToInventory(RewardItem);
+     
+       
+       return 75;
+    }
+    else if(this->getCreaturesKilled()==69){
+        
+        RewardItem=spawner.CreateNICE(this->getLevel());
+
+        cout<<this->getName()<<"has killed 69 Opponents and is rewarded "<<RewardItem->getName()<<endl;
+        this->addToInventory(RewardItem);
+     
+       
+       return 69;
+    }
+    else if(this->getCreaturesKilled()==25){
+        
+        RewardItem=spawner.CreateRandomExtinctionistItem(this->getLevel());
+
+        cout<<this->getName()<<"has killed 25 Opponents and is rewarded "<<RewardItem->getName()<<endl;
+        this->addToInventory(RewardItem);
+     
+       
+       return 25;
+    }
+    else if(this->getCreaturesKilled()==10){
         
         if(rand()%2 ==0){
-            RewardWeapon=spawner.CreateDagger(this->getLevel());
+            RewardItem=spawner.CreateDagger(this->getLevel());
         }else{
-            RewardArmor=spawner.CreateChest(this->getLevel(),Light_ArmorClass);
+            RewardItem=spawner.CreateChest(this->getLevel(),Light_ArmorClass);
         }
+        cout<<this->getName()<<"has killed 10 Opponents and is rewarded "<<RewardItem->getName()<<endl;
+        this->addToInventory(RewardItem);
        return 10;
     }
     return -1;

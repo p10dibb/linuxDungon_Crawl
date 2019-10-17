@@ -87,6 +87,8 @@ public:
 
 	Spawner spawner;
 
+	int PauseMenue();
+
 
 	//Combat related functions
 		//players attack
@@ -163,6 +165,9 @@ public:
 
 	//Stats Related Functions  code in PlayerStats.cpp
 
+		//displays all the players stats
+		void DisplayStats();
+
 		//returns the amount of creatures player has killed
 		int getCreaturesKilled();
 		//increases CreaturesKilled by 1
@@ -237,3 +242,6 @@ public:
 
 //converts string to all lowercase
 string toLower(string s);
+
+//takes in a string and a array of strings and shows the position that that function is located
+int getFunc(string str, string options[], int size);

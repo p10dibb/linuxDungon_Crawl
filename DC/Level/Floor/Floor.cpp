@@ -37,48 +37,49 @@ int Floor::NavigateFloor() {
 		
 		if (value == -1) {
 			return -1;
-		}//going left a room
-		else {
-			//stats incrementer
-			player->IncrementRoomsBeenToo();
+		}
+		else {	
+			//going left a room
+			if (value == 1) {
 
-			 if (value == 1) {
+				if (this->currentRoom[1] - 1 >= 0) {
+					this->currentRoom[1] -= 1;
 
-			if (this->currentRoom[1] - 1 >= 0) {
-				this->currentRoom[1] -= 1;
+					this->player->setPosition({ 1,1 });
+					this->player->setPosition({ this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[2][0]  ,this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[2][1] - 1 });
+					//stats incrementer
+					player->IncrementRoomsBeenToo();
 
-				this->player->setPosition({ 1,1 });
-				this->player->setPosition({ this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[2][0]  ,this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[2][1] - 1 });
-
-
-			}
-		}//going  up a room
+				}
+			}//going  up a room
 			else if (value == 2) {
 				if (this->currentRoom[0] - 1 >= 0) {
 					this->currentRoom[0] -= 1;
 					this->player->setPosition({ 1,1 });
 					this->player->setPosition({ this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[3][0] - 1 ,this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[3][1] });
-
+					//stats incrementer
+					player->IncrementRoomsBeenToo();
 				}
-		}//going right a room
+			}//going right a room
 			else if (value == 3) {
 				if (this->currentRoom[1] + 1 <= 9) {
 					this->currentRoom[1] += 1;
 					this->player->setPosition({ 1,1 });
 					this->player->setPosition({ this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[0][0]  ,this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[0][1] + 1 });
-
+					//stats incrementer
+					player->IncrementRoomsBeenToo();
 				}
-		}//going down a room
+			}//going down a room
 			else if (value == 4) {
 				if (this->currentRoom[0] + 1 <= 9) {
 					this->currentRoom[0] += 1;
 					this->player->setPosition({ this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[1][0] + 1 ,this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[1][1] });
+					//stats incrementer
+					player->IncrementRoomsBeenToo();
 				}
 		}
 			if (this->FloorMap[this->getCurrentRoom()[0]][this->getCurrentRoom()[1]].getZeds().Size() !=this->FloorMap[this->getCurrentRoom()[0]][this->getCurrentRoom()[1]].getEnemyAmt()) {
-				
-			
-				 this->initializeRoom(this->player->getLevel(),currentRoom[0],currentRoom[1]);
+				this->initializeRoom(this->player->getLevel(),currentRoom[0],currentRoom[1]);
 			 }
 
 		}

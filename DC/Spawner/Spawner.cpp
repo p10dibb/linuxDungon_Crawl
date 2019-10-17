@@ -86,27 +86,7 @@ LootDrop Spawner::GenerateZombieLootDrop(Zombie zed) {
 
 	//20% chance of potion
 	if (rand() % 5 == 0) {
-		chance = rand() % 13;
-
-		//80% chance of health potion
-		if (chance < 8) {
-			ret.potion = this->CreateHealthPotion();
-		}//10% chance of speed booster
-		else if (chance == 8) {
-			ret.potion = this->CreateSpeedPotion();
-		}
-		else if (chance == 9) {
-			ret.potion = this->CreateStrengthPotion();
-		}
-		else if (chance == 10) {
-			ret.potion = this->CreateDamageBoostPotion();
-		}
-		else if (chance == 11) {
-			ret.potion = this->CreateDefenseBoostPotion();
-		}
-		else if (chance == 12) {
-			ret.potion = this->CreateCureEffectsPotion();
-		}
+		ret.potion=this->CreateRandomPotion_MoreHealth();
 
 	}
 	//other drops when added
@@ -114,93 +94,4 @@ LootDrop Spawner::GenerateZombieLootDrop(Zombie zed) {
 }
 
 
-
-//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
-Potion* Spawner::CreateHealthPotion(bool random , int level, int Tier) {
-	Potion * ret = new Potion();
-	ret->setType(Health_PotionType);
-	ret->setBaseBooster(20);
-	if (random) {
-		//change later based on level
-		ret->setTier(rand() % 5);
-	}
-	else {
-		ret->setTier(Tier);
-	}
-	ret->setName("Tier " + to_string(ret->getTier()) + "Health Potion");
-
-	ret->setValue(5*ret->getTier());
-
-
-	return ret;
-}
-
-//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
-Potion* Spawner::CreateSpeedPotion(bool random , int level , int Tier ) {
-	Potion * ret = new Potion();
-	ret->setType(Speed_PotionType);
-	ret->setBaseBooster(1);
-	if (random) {
-		//change later based on level
-		ret->setTier(rand() % 5);
-	}
-	else {
-		ret->setTier(Tier);
-	}
-	ret->setName("Tier " + to_string(ret->getTier()) + "Speed Potion");
-	ret->setValue(5*ret->getTier());
-
-	return ret;
-}
-
-//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
-Potion* Spawner::CreateStrengthPotion(bool random , int level , int Tier ) {
-	Potion * ret = new Potion();
-	ret->setType(Strength_PotionType);
-	ret->setBaseBooster(1);
-	if (random) {
-		//change later based on level
-		ret->setTier(rand() % 5);
-	}
-	else {
-		ret->setTier(Tier);
-	}
-	ret->setName("Tier " + to_string(ret->getTier()) + "Strength Potion");
-	ret->setValue(5*ret->getTier());	
-	return ret;
-}
-
-
-Potion* Spawner::CreateDefenseBoostPotion(bool random , int level , int Tier ){
-		Potion * ret=new Potion();
-
-		ret->setType(IncreaseDefense_PotionType);
-		ret->setTier(Tier);
-		ret->setValue(10*ret->getTier());
-		ret->setName("Tier "+ to_string(ret->getTier())+" Defense Boost");
-		return ret;
-
-}
-
-	//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
-Potion* Spawner::CreateDamageBoostPotion(bool random , int level , int Tier ){
-		Potion * ret=new Potion();
-
-		ret->setType(IncreaseDamage_PotionType);
-		ret->setTier(Tier);
-		ret->setValue(10*ret->getTier());
-		ret->setName("Tier "+ to_string(ret->getTier())+" Damage Boost");
-		return ret;
-}
-
-	//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
-Potion* Spawner::CreateCureEffectsPotion(bool random , int level , int Tier){
-		Potion * ret=new Potion();
-
-		ret->setType( CureActiveEffects_PotionType);
-		ret->setTier(Tier);
-		ret->setValue(20);
-		ret->setName("Cure All Potion");
-		return ret;
-}
 

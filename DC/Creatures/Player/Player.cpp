@@ -10,6 +10,19 @@ string toLower(string s) {
 	return ret;
 }
 
+//takes in a string and a array of strings and shows the position that that function is located, -1 if not contained
+int getFunc(string str, string options[], int size){
+	
+	for(int i=0;i<size;i++){
+		if(options[i]==str){
+			return i;
+		}
+	}
+	//if not in options
+	return -1;
+
+}
+
 //Default constructor
 Player::Player() {
 	Biped();
@@ -46,6 +59,38 @@ Player::Player() {
 	}
 }
 
+int Player::PauseMenue(){
+	string options[10]={"resume","inventory","stats","equiped","save","exit"};
+	int func=-2;
+	string choice;
+	cout<<"-----PAUSED-------"<<endl;
+
+	//while resume command not run
+	while(func!=0){
+		cout<<"Choices:"<<endl;
+		for (int i=0;i<6;i++){
+			cout<<options[i]<<endl;
+		}
+		cout<<"Enter Choice:"<<endl;
+		cin>>choice;
+		func=getFunc(toLower(choice),options,5);
+
+		switch (func)
+		{
+		case -1:cout<<"Not a valid choice"<<endl;break;
+		case 1:this->InventoryDialogue();break;
+		case 2:this->DisplayStats();break;
+		case 3:this->EquipedDialogue();break;
+		case 4:cout<<"saving(doesnt do anyhing yet)"<<endl;break;
+		case 5: cout<<"Exiting (doesnt do anything yet)"<<endl;
+		
+		default:
+			break;
+		}
+
+	}
+
+}
 
 //Displays all data for character
 void Player::DisplayDetails() {
@@ -67,7 +112,6 @@ void Player::DisplayDetails() {
 	cout << "Right: \t" << this->getRight()->getName() << endl;
 	cout << "Left: \t" << this->getLeft()->getName() << endl;
 }
-
 
 //calculates the players actual speed
 int Player::ActualSpeed() {
@@ -108,16 +152,12 @@ int Player::ActualSpeed() {
 
 }
 
-
 //calculates Players actual Defense
 int Player::ActualDefense() {
 	//total of all defensive items
 	return this->getDefense() + this->getHead()->getDefense() + this->getTorso()->getDefense() + this->getHands()->getDefense() + this->getLegs()->getDefense() + this->getFeet()->getDefense() + this->Right->getDefense() + this->Left->getDefense();
 
 }
-
-
-
 
 //player recieves lootdrop from enemy
 void Player::RecieveLootDrop(lootDrop loot) {
@@ -155,8 +195,11 @@ void Player::RecieveLootDrop(lootDrop loot) {
 }
 
 void Player::addSkillPoint(){
-		string input="";
-		while(1){
+	string options[10]={"1","2","3","4","5","6"};
+				
+	string input="";
+	int exit=0;
+	while(exit!=1){
 		cout << "#\tstat\tcurrent level\tDescription" << endl;
 		cout << "1\tMaxHealth\t" << this->getMaxHealth() <<"\tMaximum Health of the player"<< endl;
 		cout << "2\tStrength\t" << this->getStrength() <<"\tIncreases Carrying capacity and lessens handicap of speed for heavy armour"<< endl;
@@ -167,38 +210,24 @@ void Player::addSkillPoint(){
 		cout << "Choice: ";
 		cin >> input;
 		
-		if (input == "1") {
-
-			this->setMaxHealth(this->getMaxHealth() + 10);
-			this->setHealth(this->getMaxHealth());
-			break;
-
-		}
-		else if (input == "2") {
-			this->setStrength(this->getStrength()+1);
-			this->MaxWeight = this->getStrength() * 10;
-			
-			this->setOverWeighted(this->MaxWeight < this->CurrentWeight);		
-			break;	
-		}
-		else if (input == "3") {
-			this->setSpeed(this->getSpeed() + 1);
-			break;
-		}
-		else if (input == "4") {
-			this->setDamage(this->getDamage()+1);
-			break;
-		}
-		else if (input == "5") {
-			this->setDefense(this->getDefense()+1);
-			break;
-		}
-		else {
-			cout << "Not a valid choice:" << endl;
-			
-			
-		}
-		}
+		switch(getFunc(input,options,6)){
+			case 0:this->setMaxHealth(this->getMaxHealth() + 10);
+				this->setHealth(this->getMaxHealth());
+				exit=1;
+				break;
+			case 1: this->setStrength(this->getStrength()+1);
+				this->MaxWeight = this->getStrength() * 10;			
+				this->setOverWeighted(this->MaxWeight < this->CurrentWeight);	
+				exit=1;	
+				break;
+			case 2:this->setSpeed(this->getSpeed() + 1);exit=1;break;
+			case 3:this->setDamage(this->getDamage()+1);exit=1;break;
+			case 4:this->setDefense(this->getDefense()+1);exit=1;break;
+			case 5:this->setStamina(this->getStamina()+1);exit=1;break;
+			default: cout << "Not a valid choice:" << endl;break;
+		}			
+	}
+	
 }
 
 //level up dialogue for player
@@ -212,25 +241,19 @@ void Player::NextLevel() {
 	cout << "Congrats you leveled up!! \nMax Health is now: " << this->getMaxHealth() << endl;
 
 	while (points != 0)
-	{
-		
-	cout << "you have " << points << " remaining what would you like to upgrade?" << endl;	
+	{	
+		cout << "you have " << points << " remaining what would you like to upgrade?" << endl;	
 		this->addSkillPoint();
-
-
 		points--;
-
 	}
-
 	this->setLevelUp(this->getLevelUp() * 2);
 }
 
 //0=left,1=up,2=right, 3=down
-int Player::move(char  map[][10], int direction) {
+int Player::move(char map[][10], int direction) {
 
 	   	 							
-	if (direction == 0&& map[this->getPosition()[0]][this->getPosition()[1]-1]!= '|') {
-		
+	if (direction == 0&& map[this->getPosition()[0]][this->getPosition()[1]-1]!= '|') {	
 		
 		this->setPosition({ this->getPosition()[0],this->getPosition()[1] - 1 });
 	}
@@ -250,12 +273,12 @@ int Player::move(char  map[][10], int direction) {
 
 }
 
-
 int Player::Navigation(char map[][10]) {
 
 	while (1) { 
+		
 		char input = '\0';
-		cout << "enter [a,w,d,s] for movement or i for inventory or e to view stats" << endl;
+		cout << "enter [a,w,d,s] for movement or i for inventory or e to view equiped or p to pause fo more options" << endl;
 		input = getchar();
 		//cin>>input;
 		//cout<<endl<<"input: "<<input<<endl;
@@ -272,12 +295,15 @@ int Player::Navigation(char map[][10]) {
 
 		case 'e':this->EquipedDialogue(); break;
 
+		case 'p':this->PauseMenue();break;
+
 		}
 
 	}
 
 }
 
+//gets all damage types from variouse weapons
 DoubleLinkedList<DamageTypes> Player::getAllDamageTypes(){
 	DoubleLinkedList<DamageTypes> ret;
 	//adds base Damage;
@@ -318,59 +344,46 @@ DoubleLinkedList<DamageTypes> Player::getAllDamageTypes(){
 
 }
 
-
+//recieves a linked list of damage types and and runs through the damage taken
 int Player::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
-		int totalDamage=0;
 		DamageTypes current;
+		int location=1,totalDamage=0;;
 
 		//itterates through all damage types
 		for(int i=0;i<damageTypes.Size();i++){
 			current=damageTypes.getData(i);
+
+			//checks to see if damage type happens
 			if(rand()%100<=current.getProbability()){
 				//checks if Effect needs to be added
-				if (current.getType()==Fire_DamageType){
-					cout<<"Burning"<<endl;
-					this->AddEffect(ActiveEffects(DamageOverTime_EffectTypes,Burning_Effects,current.getDamageOverTime_damage(),current.getDamageOverTime_time()));		
+				switch (current.getType())
+				{
+					case Fire_DamageType:cout<<"Burning"<<endl;	this->AddEffect(ActiveEffects(DamageOverTime_EffectTypes,Burning_Effects,current.getDamageOverTime_damage(),current.getDamageOverTime_time()));	break;
+					case Blunt_DamageType:cout<<"Dazed"<<endl;this->AddEffect(ActiveEffects(DamageOverTime_EffectTypes,Dazed_Effects,current.getDamageOverTime_damage(),current.getDamageOverTime_time()));break;
+					case Stabbing_DamageType:cout<<"Bleeding"<<endl;this->AddEffect(ActiveEffects(DamageOverTime_EffectTypes,Bleeding_Effects,current.getDamageOverTime_damage(),current.getDamageOverTime_time()));break;
+					case Critical_DamageType:cout<<"Critical hit"<<endl;break;
+					default:break;
 				}
-				else if (current.getType()==Blunt_DamageType){
-					cout<<"Dazed"<<endl;
-					this->AddEffect(ActiveEffects(DamageOverTime_EffectTypes,Dazed_Effects,current.getDamageOverTime_damage(),current.getDamageOverTime_time()));
-				}
-				else if (current.getType()==Stabbing_DamageType){
-					cout<<"Bleeding"<<endl;
-					this->AddEffect(ActiveEffects(DamageOverTime_EffectTypes,Bleeding_Effects,current.getDamageOverTime_damage(),current.getDamageOverTime_time()));
-				
-				}
-				else if (current.getType()==Critical_DamageType){
-					cout<<"Critical hit"<<endl;
-				}
-
 				totalDamage+=current.getDamage();
-
 			}
-		}
+		}			
 
-		int taken = 0;
-		int location=1;	
-		
-
+		// checks if there is a defense boost and suptracks total armor from damage
 		if(location=ContainBuffEffect(DefenseBoost_Effects)==-1){
-			taken=taken=totalDamage - this->ActualDefense();
-		}else{
-			 
-			taken=totalDamage - this->ActualDefense()*this->getBuffEffect(location).getDamage();
+			totalDamage=totalDamage - this->ActualDefense();
+		}else{			 
+			totalDamage=totalDamage - this->ActualDefense()*this->getBuffEffect(location).getDamage();
 		}
-
 	
-		if (taken < 1) {
-			taken = 1;
+		if (totalDamage< 1) {
+			totalDamage = 1;
 		}
-		this->setHealth(this->getHealth() - taken);
-		return taken;
+		this->setHealth(this->getHealth() - totalDamage);
+		return totalDamage;
 
 }
 
-	//checks if money is > amount and subtracts from there and returns amount;
+//checks if money is > amount and subtracts from there and returns amount;
 int Player::GiveMoney(int amount){
 		if(this->getMoney()>amount){
 			this->setMoney(this->getMoney()-amount);
@@ -381,13 +394,14 @@ int Player::GiveMoney(int amount){
 		return 0;
 }
 
-	//adds amount to money; can only be positive
+//adds amount to money; can only be positive
 bool Player::RecieveMoney(int amount){
 		if (amount<0){
 			return false;
 		}
 		this->IncrementGoldCollected(amount);
-		this->RewardCheckMaxGoldHeld();
 		this->setMoney(this->getMoney()+amount);
+		
+		this->RewardCheckMaxGoldHeld();
 		return true;
 }

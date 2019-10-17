@@ -14,12 +14,13 @@ private:
 	int Value;
 	int Weight;
 	int StackSize;
+	string Description;
 
 
 public:
 	virtual ~Item()=default;
 	Item();
-	Item(string name, int val, int weight, int stacksize);
+	Item(string name, int val, int weight, int stacksize, string description="");
 	string getName();
 	void setName(string n);
 	int getValue();
@@ -30,6 +31,9 @@ public:
 	void setStackSize(int s);
 
 	void DisplayDetails();
+
+	string getDescription();
+	void setDescription(string description);
 
 
 };

@@ -86,7 +86,7 @@ public:
 	//---------------------
 
 
-	//Armor------------inSpawnerArmor.cpp
+	//Armor------------in SpawnerArmor.cpp
 		//Creates Helmet
 		Armor* CreateHelmet(int level, ArmorClass_enum c, bool forceLevel=false,bool forceRarity=false,ItemRarity_enum rarity =Common_ItemRarity);
 		//Creates Chest
@@ -103,25 +103,53 @@ public:
 	//------------
 
 	
+	//Potions---------------- in SpawnerPotion.cpp
 
-	//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
-	Potion* CreateHealthPotion(bool random = false, int level = 1, int Tier = 1);
+		//will create a random potion (true Random)
+		Potion* CreateRandomPotion();
+		//will create a random potion (leans more towards health potions)
+		Potion* CreateRandomPotion_MoreHealth();
 
-	//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
-	Potion* CreateSpeedPotion(bool random = false, int level = 1, int Tier = 1);
+		//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+		Potion* CreateHealthPotion(bool random = false, int level = 1, int Tier = 1);
 
-	//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
-	Potion* CreateStrengthPotion(bool random = false, int level = 1, int Tier = 1);
+		//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+		Potion* CreateSpeedStatPotion(bool random = false, int level = 1, int Tier = 1);
 
-	//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
-	Potion* CreateDefenseBoostPotion(bool random = false, int level = 1, int Tier = 2);
+		//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+		Potion* CreateStrengthStatPotion(bool random = false, int level = 1, int Tier = 1);
 
-	//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
-	Potion* CreateDamageBoostPotion(bool random = false, int level = 1, int Tier = 2);
+		//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+		Potion* CreateMaxHealthStatPotion(bool random = false, int level = 1, int Tier = 1);
+		
+		//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+		Potion* CreateDefenseStatPotion(bool random = false, int level = 1, int Tier = 1);
+		
+		//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+		Potion* CreateDamageStatPotion(bool random = false, int level = 1, int Tier = 1);
+		
+		//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+		Potion* CreateStaminaStatPotion(bool random = false, int level = 1, int Tier = 1);
+		
 
-	//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
-	Potion* CreateCureEffectsPotion(bool random = false, int level = 1, int Tier = 1);
+		//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+		Potion* CreateDefenseBoostPotion(bool random = false, int level = 1, int Tier = 2);
 
+		//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+		Potion* CreateDamageBoostPotion(bool random = false, int level = 1, int Tier = 2);
+
+		//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+		Potion* CreateSpeedBoostPotion(bool random = false, int level = 1, int Tier = 2);
+
+		//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+		Potion* CreateCureEffectsPotion(bool random = false, int level = 1, int Tier = 1);
+		
+		//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+		Potion* CreateCureNegativeEffectsPotion(bool random = false, int level = 1, int Tier = 1);
+		
+
+
+	//------------------
 	
 	//Dev Items------- all items are level 1  but are very very good
 		Armor* CreateDevHelmet( ArmorClass_enum c);
@@ -147,6 +175,15 @@ public:
 		Armor* CreateExtinctionistBoots (int level);
 
 	//---------------------
+
+	//a Unique Dagger that has increase stabbing Damage  Reward for getting 69 related stats
+	Weapon* CreateNICE(int level);
+
+	//a unique Shield with garenteed blunt damage and high  42% chance of burning
+	Weapon* CreateTheMarly(int level);
+
+	
+
 
 };
 

@@ -594,3 +594,109 @@
 		}
 	}
 //------------------
+
+
+//a Unique Dagger that has increase stabbing Damage  Reward for getting 69 related stats
+Weapon* Spawner::CreateNICE(int level){
+	Weapon* ret = new Weapon();
+		//the actual weapon level multipied by its rarity used for random generation;
+		int RelativeLevel=1;
+
+		ret->setType(Dagger_WeaponType);		
+		
+		ret->setRarity(Unique_ItemRarity);
+
+		ret->setLevel(level);
+
+
+		RelativeLevel=ret->getLevel()*(Legendary_ItemRarity+1);
+		
+
+		ret->setName("NICE");
+
+		//sets damage to medium, speed to medium, defense to extra medium
+		ret->addDamageType(DamageTypes(ret->getLevel() + rand() % (RelativeLevel * Weak)));
+		//adds a critical damage chance
+		ret->addDamageType(DamageTypes(RelativeLevel/2 + rand() % (RelativeLevel * Weak),rand()%(10*(ret->getRarity()+1)),Critical_DamageType));
+
+
+		ret->setSpeed(ret->getLevel() + rand() % (RelativeLevel * Strong));
+		ret->setDefense((ret->getLevel() / 2) + rand() % (RelativeLevel * Medium));
+		ret->setRange(Medium);
+		ret->setStackSize(1);
+		ret->setTwoHanded(false);
+		ret->setWeight((rand() % 3) + 2);
+
+		//adds random other effects Sword gets Fire(5%), stabing(10%),Blunt(10%)  //max of 25 Probability
+
+		//garenteed 50 % chance of bleeding
+		ret->addDamageType(DamageTypes(RelativeLevel/2,100,Stabbing_DamageType,true,RelativeLevel/8,rand()%8));
+			
+
+		if (rand()%20==0){		
+			ret->addDamageType(DamageTypes(RelativeLevel/2,(rand()%10*(ret->getRarity()+1))+1,Fire_DamageType,true,RelativeLevel/4,rand()%8));
+		}
+			ret->addDamageType(DamageTypes(RelativeLevel/2,50,Stabbing_DamageType,true,RelativeLevel/4,rand()%8));
+		
+		ret->setDescription("Great at penetrating the enemy");
+
+		if(ret->getLevel()<25){
+			ret->setValue(69);
+		}else{
+			ret->setValue(420);
+		}
+		
+		return ret;
+}
+
+//a unique Shield with garenteed blunt damage and high  42% chance of burning
+Weapon* Spawner::CreateTheMarly(int level) {
+	Weapon* ret=new Weapon();
+	//the actual weapon level multipied by its rarity used for random generation;
+	int RelativeLevel=1;
+
+		int chance=rand()%20;
+
+	
+		ret->setRarity(Unique_ItemRarity);
+
+	
+		ret->setLevel(level);
+	
+	
+
+	ret->setType(Shield_WeaponType);
+
+	RelativeLevel=ret->getLevel()*(ret->getRarity()+1);
+
+
+
+	ret->setName("The Marley");
+
+	//sets damage to extra weak ,speed to medium and defense to extra strong //adds default Normal damage type;
+	ret->addDamageType(DamageTypes(ret->getLevel()/2 + rand() % (RelativeLevel * Weak)));
+	
+	//adds a critical damage chance
+	ret->addDamageType(DamageTypes(RelativeLevel/2 + rand() % (RelativeLevel * Weak),rand()%(10*(ret->getRarity()+1)),Critical_DamageType));
+
+	ret->setSpeed(ret->getLevel() + rand() % (RelativeLevel * Medium));
+	ret->setDefense((ret->getLevel() ) + rand() % RelativeLevel*Strong);
+	ret->setRange(Weak);
+	ret->setStackSize(1);
+	ret->setTwoHanded(false);
+	ret->setWeight((rand() % 3) + 1);
+
+
+	
+
+	
+	
+	ret->addDamageType(DamageTypes(RelativeLevel/2,100,Blunt_DamageType,true,RelativeLevel/4,rand()%8));
+	ret->addDamageType(DamageTypes(RelativeLevel/2,42,Fire_DamageType,true,RelativeLevel/4,rand()%8));
+	ret->setDescription("Great at Doing Blunt Damage and Blazing Enemies");
+	
+
+	ret->setValue(420);
+
+	return ret;
+}

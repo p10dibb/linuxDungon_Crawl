@@ -8,14 +8,16 @@ Item::Item() {
 	this->Value = 0;
 	this->Weight = 0;
 	this->StackSize = 1;
+	this->Description="";
 }
 
 
-Item::Item(string name, int val, int weight, int stacksize) {
+Item::Item(string name, int val, int weight, int stacksize,string description) {
 	this->Name = name;
 	this->Value = val;
 	this->Weight = weight;
 	this->StackSize = stacksize;
+	this->Description=description;
 }
 
 string Item::getName() {
@@ -63,3 +65,9 @@ void Item::DisplayDetails() {
 	cout << "Name: \t" << this->Name << endl << "Value: \t" << this->Value << endl << "Weight: \t" << this->Weight << endl << "StackSize: \t" << this->StackSize << endl;
 }
 
+string Item::getDescription(){
+	return this->Description;
+}
+void Item::setDescription(string description){
+	this->Description=description;
+}
