@@ -93,7 +93,12 @@ public:
 	//Combat related functions
 		//players attack
 		int Attack();
+		//Gets all the damage types from weapons and player
 		DoubleLinkedList<DamageTypes> getAllDamageTypes();
+
+		//Gets all Resistance types
+		DoubleLinkedList<ActiveEffects> getAllResistanceTypes();
+
 		//calculates the players actual speed
 		int ActualSpeed();
 
@@ -187,7 +192,7 @@ public:
 		//increases GoldCollected by amount
 		void IncrementGoldCollected(int amount);
 		//checks if the GoldCollected meets RewardRequirements
-		int RewardCheckGoldCollected();
+		int RewardCheckGoldCollected(int amount);
 
 		//returns the total amount of Gold Spent
 		int getGoldSpent();
@@ -245,3 +250,6 @@ string toLower(string s);
 
 //takes in a string and a array of strings and shows the position that that function is located
 int getFunc(string str, string options[], int size);
+
+
+

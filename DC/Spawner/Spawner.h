@@ -161,7 +161,7 @@ public:
 		Weapon* CreateDevSword();
 	//-------------------
 
-	//Extinctionist Items------- creature kill Rewards Unique item levels
+	//Extinctionist gear------- creature kill Rewards Unique item Rewards,  has a garenteed chance to have stabbing damage
 		Item * CreateRandomExtinctionistItem(int level);
 
 		Weapon* CreateExtinctionistSword(int level);
@@ -182,8 +182,44 @@ public:
 	//a unique Shield with garenteed blunt damage and high  42% chance of burning
 	Weapon* CreateTheMarly(int level);
 
-	
 
+	//Goldmonger gear --------   Reward for Total Gold Collected  Rewards is extra heavy and extra valuable
+		//spawns a random Goldmanger Item
+		Item * CreateRandomGoldMongerItem(int level);
+
+		//Reward for GoldCollected 
+		Weapon* CreateGoldMongerAxe(int level);
+		//Reward for GoldCollected
+		Weapon* CreateGoldMongerShield(int level);
+		
+		//Reward for GoldCollected
+		Armor* CreateGoldMongerHelmet(int level);
+		//Reward for GoldCollected
+		Armor* CreateGoldMongerChest(int level);
+		//Reward for GoldCollected
+		Armor* CreateGoldMongerGloves(int level);
+		//Reward for GoldCollected
+		Armor* CreateGoldMongerPants(int level);
+		//Reward for GoldCollected
+		Armor* CreateGoldMongerBoots (int level);
+	//---------------------------------------
+	
+	//Collector gear ------ Reward  for Items collected
+		Item * CreateRandomCollectorItem(int level);
+
+		Weapon* CreateCollectorSword(int level);
+		Weapon* CreateCollectorDagger(int level);
+		Weapon* CreateCollectorAxe(int level);
+		Weapon* CreateCollectorShield(int level);
+		Weapon* CreateCollectorClaws(int level);
+		
+		Armor* CreateCollectorHelmet(int level);
+		Armor* CreateCollectorChest(int level);
+		Armor* CreateCollectorGloves(int level);
+		Armor* CreateCollectorPants(int level);
+		Armor* CreateCollectorBoots (int level);
+
+	//-------------------
 
 };
 

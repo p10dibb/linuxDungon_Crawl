@@ -1,15 +1,17 @@
+#pragma once
 #include <iostream>
 #include <string>
 //#include <conio.h>
 using namespace::std;
 
 
-enum EffectTypes_enum {NULL_EffectTypes,DamageOverTime_EffectTypes,DeBuff_EffectTypes,Buff_EffectTypes,Combat_EffectTypes};
+enum EffectTypes_enum {NULL_EffectTypes,DamageOverTime_EffectTypes,DeBuff_EffectTypes,Buff_EffectTypes,Combat_EffectTypes,Resistance_EffectTypes};
 
 enum Effects_enum {NULL_Effects,		//NULL
 Burning_Effects, Bleeding_Effects, Poison_Effects,    //Damage over Time
-Slowed_Effects,Dazed_Effects,Weakness_Effects,BattleFatigue_Effects,		//De-Bebuff
+Slowed_Effects,Dazed_Effects,Weakness_Effects,BattleFatigue_Effects, //De-Bebuff
 SpeedBoost_Effects,DamageBoost_Effects,DefenseBoost_Effects,	//Buffs
+FireResistance_Effects, StabbingResistance_Effects,BluntResistance_Effects, NormalResistance_Effects,PoisonResistance_Effects, //Damage Resistance
 Bezerk_Effects, DefensiveStance_Effects, QuickStrike_Effects,Swordsman_Effects,AnimalFury_Effects}; //Combat effects
 
 //Effects Descriptions---
@@ -48,7 +50,9 @@ private:
 	EffectTypes_enum EffectType;
 	int RoundsActive;
 
-	int Damage;
+	
+	//Damagefor damage types, multiplier for buffs, percent resistance for damageresister 
+	int Modifier;
 
 
 
@@ -59,7 +63,7 @@ public:
 	// ActiveEffects(Effects_enum e, int rounds,int damage);
 	// ActiveEffects(Effects_enum e, int rounds,int damage,bool isdamage);
 
-	ActiveEffects(EffectTypes_enum type,Effects_enum effect,int damage,int rounds);
+	ActiveEffects(EffectTypes_enum type,Effects_enum effect,int modifier,int rounds);
 
 	
 	Effects_enum getEffect();
@@ -80,9 +84,24 @@ public:
 
 	bool DisplayDetails();
 
-	int getDamage();
+	
+
+	
+
+	//------get/set resistance,Damage, multiplier,and modifier all change Modifier
+
+	void setResistance(int Resistance);
+	int getResistance();
+
+	void setMultiplier(int multiplier);
+	int getMultiplier();
+
+	void setModifier(int modifier);
+	int getModifier();
 
 	void setDamage(int damage);
+	int getDamage();
+	
 
 	string getEffectName();
 

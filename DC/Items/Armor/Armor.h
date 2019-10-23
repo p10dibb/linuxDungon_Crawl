@@ -7,18 +7,18 @@ enum ArmorType_enum {NULL_ArmorType, Helmet_ArmorType, Chest_ArmorType, Gloves_A
 class Armor :public Item {
 friend class Item;
 private:
-	int Defense;
+
 	int Level;
 	ArmorType_enum Type;
 	ArmorClass_enum Class;
 	ItemRarity_enum Rarity;
+	DoubleLinkedList<ActiveEffects> ResistanceTypes;
 
 
 public:
 	Armor();
 	Armor(int def, int lvl, ArmorType_enum type, ArmorClass_enum c);
-	int getDefense();
-	void setDefense(int d);
+	
 	int getLevel();
 	void setLevel(int l);
 	ItemRarity_enum getRarity();
@@ -28,6 +28,18 @@ public:
 	ArmorClass_enum getClass();
 	void setClass(ArmorClass_enum c);
 
+	DoubleLinkedList<ActiveEffects> getResistanceTypes();
+	void setResistanceTypes(DoubleLinkedList<ActiveEffects> types);
 
+	//return the string equivilent of rarity
+	string getRarity_text();
+	//returns the string equivilent of Type (Armor Type)	
+	string getType_text();
+	//returns the string equivilent of Class (Armor Class)
+	string getClass_text();
+
+	//Displays all relevent Armor details
 	void DisplayDetails();
+
+
 };

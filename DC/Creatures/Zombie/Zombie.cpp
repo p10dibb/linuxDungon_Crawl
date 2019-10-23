@@ -13,6 +13,7 @@ Zombie::Zombie() {
 
 
 
+
 Weapon* Zombie::getWeapon() {
 	return this->weapon;
 }
@@ -21,24 +22,52 @@ void Zombie::setWeapon(Weapon* w) {
 }
 
 
+DoubleLinkedList<ActiveEffects> Zombie::getAllResistanceTypes(){
+	DoubleLinkedList<ActiveEffects> ret=this->getResistanceEffects();
+	
+	//takes current damage stat and converts to an active effect
+	ret.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,this->getDefense(),10));
+	
+	ret.add(this->weapon->getDefense());
+	return ret;
+}
 
+//recieves a linked list of damage types and and runs through the damage taken
+int Zombie::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
+		DamageTypes current;
+		int location=1,totalDamage=0;;
 
-int Zombie::TakeDamage(int attack) {
-	int health = this->getHealth();
-	int damageTaken = 0;
-	if ((attack - (this->getDefense()+this->weapon->getDefense())) < 0) {
-		health = health - 1;
-		damageTaken = 1;
-	}
-	else {
-		damageTaken = attack - (this->getDefense() + this->weapon->getDefense());
-		health = health - damageTaken;
-	}
-	if (health < 0) {
-		health = 0;
-	}
-	this->setHealth(health);
-	return damageTaken;	
+		DoubleLinkedList<ActiveEffects> resistances =this->getAllResistanceTypes();
+		//itterates through all damage types
+		for(int i=0;i<damageTypes.Size();i++){
+			current=damageTypes.getData(i);
+
+			//checks to see if damage type happens
+			if(rand()%100<=current.getProbability()){
+				//checks if Effect needs to be added
+				switch (current.getType())
+				{
+					case Fire_DamageType:cout<<"Burning"<<endl;	this->AddEffect(ActiveEffects(DamageOverTime_EffectTypes,Burning_Effects,current.getDamageOverTime_damage(),current.getDamageOverTime_time()));	break;
+					case Blunt_DamageType:cout<<"Dazed"<<endl;this->AddEffect(ActiveEffects(DamageOverTime_EffectTypes,Dazed_Effects,current.getDamageOverTime_damage(),current.getDamageOverTime_time()));break;
+					case Stabbing_DamageType:cout<<"Bleeding"<<endl;this->AddEffect(ActiveEffects(DamageOverTime_EffectTypes,Bleeding_Effects,current.getDamageOverTime_damage(),current.getDamageOverTime_time()));break;
+					case Critical_DamageType:cout<<"Critical hit"<<endl;break;
+					default:break;
+				}
+				totalDamage+= ReduceDamage(current.getDamage(),current.getType(),resistances) ;
+			}
+		}			
+
+		// checks if there is a defense boost and suptracks total armor from damage
+		if(location=ContainBuffEffect(DefenseBoost_Effects)!=-1){
+			totalDamage=totalDamage /this->getBuffEffect(location).getMultiplier();
+		}
+	
+		if (totalDamage< 1) {
+			totalDamage = 1;
+		}
+		this->setHealth(this->getHealth() - totalDamage);
+		return totalDamage;
+
 }
 
 
@@ -46,7 +75,7 @@ void Zombie:: DisplayDetails() {
 	Display();
 	cout << "Damage: " << this->getDamage() << endl;
 	cout << "Speed: " << this->getSpeed() << endl;
-	cout << "Defense: " << this->getDefense() << endl;
+	//cout << "Defense: " << this->getDefense() << endl;
 	cout << "Stamina: " << this->getStamina() << endl;
 	cout << "Weapon: " << endl;
 	this->weapon->DisplayDetails();
@@ -72,7 +101,7 @@ int Zombie::ActualSpeed() {
 }
 
 DoubleLinkedList<DamageTypes> Zombie::getAllDamageTypes(){
- DoubleLinkedList<DamageTypes> ret;
+ 	DoubleLinkedList<DamageTypes> ret;
 	ret.add(DamageTypes(this->getDamage()));
 	int i=0;
 	for(i=0;i<this->getWeapon()->getDamageTypes_Weapon().Size();i++){
@@ -85,13 +114,13 @@ DoubleLinkedList<DamageTypes> Zombie::getAllDamageTypes(){
 	}else// if there is a damage booster;
 	{
 		//gets the multiplier
-		int DamageMultiplier=this->getBuffEffect(location).getDamage();
+		int DamageMultiplier=this->getBuffEffect(location).getMultiplier();
 		//new Linkedlist
 		DoubleLinkedList<DamageTypes> ret2;
 		DamageTypes cur;
 		for (int i=0;i<ret.Size();i++){
 			cur=ret.getData(i);
-			ret2.add(DamageTypes(cur.getDamage(),cur.getProbability(),cur.getType(),cur.getIsDamageOverTime(),cur.getDamageOverTime_damage(),cur.getDamageOverTime_time()));
+			ret2.add(DamageTypes(cur.getDamage()*DamageMultiplier,cur.getProbability(),cur.getType(),cur.getIsDamageOverTime(),cur.getDamageOverTime_damage(),cur.getDamageOverTime_time()));
 			
 		}
 		return ret2;
@@ -100,57 +129,7 @@ DoubleLinkedList<DamageTypes> Zombie::getAllDamageTypes(){
 	return ret;
 }
 
-int Zombie::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
-int totalDamage=0;
-		DamageTypes current;
 
-	
-
-		//itterates through all damage types
-		for(int i=0;i<damageTypes.Size();i++){
-			current=damageTypes.getData(i);
-			if(rand()%100<=current.getProbability()){
-				//checks if Effect needs to be added
-				if (current.getType()==Fire_DamageType){
-					cout<<"Burning"<<endl;
-					this->AddEffect(ActiveEffects(DamageOverTime_EffectTypes,Burning_Effects,current.getDamageOverTime_damage(),current.getDamageOverTime_time()));		
-				}
-				else if (current.getType()==Blunt_DamageType){
-					cout<<"Dazed"<<endl;
-					this->AddEffect(ActiveEffects(DamageOverTime_EffectTypes,Dazed_Effects,current.getDamageOverTime_damage(),current.getDamageOverTime_time()));
-				}
-				else if (current.getType()==Stabbing_DamageType){
-					cout<<"Bleeding"<<endl;
-					this->AddEffect(ActiveEffects(DamageOverTime_EffectTypes,Bleeding_Effects,current.getDamageOverTime_damage(),current.getDamageOverTime_time()));
-				
-				}
-				else if (current.getType()==Critical_DamageType){
-					cout<<"Critical hit"<<endl;
-				}
-
-				totalDamage+=current.getDamage();
-
-			}
-		}
-
-		int taken = 0;
-		int location=1;
-	
-		
-
-		if(location=ContainBuffEffect(DefenseBoost_Effects)==-1){
-			taken=taken=totalDamage - this->getDefense();
-		}else{
-			 
-			taken=totalDamage - this->getDefense()*this->getBuffEffect(location).getDamage();
-		}
-		if (taken < 1) {
-			taken = 1;
-		}
-		this->setHealth(this->getHealth() - taken);
-
-		return taken;
-}
 
 void Zombie::move(char  map[][10]){
 

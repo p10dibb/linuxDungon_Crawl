@@ -86,17 +86,15 @@
 
         switch (this->Type)
         {
-        case NULL_DamageType: return "NULL"; break;
-        case Normal_DamageType: return "Normal"; break;
-        case Fire_DamageType: return "Fire"; break;
-        case Stabbing_DamageType: return "Stabbing"; break;
-        case Blunt_DamageType: return "Blunt Damage"; break;
-        case Critical_DamageType: return "Critical Damage"; break;
+       // case NULL_DamageType: return "NULL"; break;
+        case Normal_DamageType: return "Normal"; 
+        case Fire_DamageType: return "Fire"; 
+        case Stabbing_DamageType: return "Stabbing";
+        case Blunt_DamageType: return "Blunt Damage"; 
+        case Critical_DamageType: return "Critical Damage"; 
         
         
-        default:
-        return "";
-            break;
+        default: return "NULL";
         }
 
 

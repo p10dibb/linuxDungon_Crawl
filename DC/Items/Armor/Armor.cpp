@@ -4,25 +4,20 @@
 
 Armor::Armor() {
 	Item();
-	this->Defense = 0;
 	this->Level = 0;
 	this->Type = NULL_ArmorType;
 	this->Class = NULL_ArmorClass;
+	this->ResistanceTypes.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,5,15));
 }
 Armor::Armor(int def, int lvl, ArmorType_enum type, ArmorClass_enum c) {
 	Item();
-	this->Defense = def;
+
 	this->Level = lvl;
 	this->Type = type;
-	this->Class = c;
+	this->Class = c;	
+	this->ResistanceTypes.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,def,15));
 }
-int Armor::getDefense() {
-	return this->Defense;
-}
-void Armor::setDefense(int d) {
-	this->Defense = d;
 
-}
 int Armor::getLevel() {
 	return this->Level;
 }
@@ -47,9 +42,22 @@ void Armor::setClass(ArmorClass_enum c) {
 }
 
 void Armor::DisplayDetails() {
-	cout << "Name: " << this->getName() << endl << "Value: " << this->getValue() << endl << "Weight: " << this->getWeight() << endl << "StackSize: " << this->getStackSize() << endl;
-
-	cout << "Defense: " << this->Defense << endl << "Level: " << this->Level << endl << "Type: " << this->Type << endl;
+	cout << "Name: " << this->getName() << endl;
+	cout << "Value: " << this->getValue() << endl;
+	cout << "Weight: " << this->getWeight() << endl;
+	cout << "StackSize: " << this->getStackSize() << endl;	
+	cout << "Level: " << this->Level << endl ;
+	cout << "Type: " << this->getType_text()<<endl;
+	cout <<"Class: "<< this->getClass_text()<<endl;
+	cout << "Resistances: "; //<< //this->Defense << endl; 
+	ActiveEffects temp;
+	for(int i=0; i<this->getResistanceTypes().Size();i++){
+		temp=this->getResistanceTypes().getData(i);
+		cout<<"\t-----"<<i+1<<"---- "<<endl;
+		cout<<"\tResistance Type: "<<temp.getEffectName()<<endl; 
+		cout<<"\t Resistance percent"<<temp.getResistance()<<endl;
+		
+	}
 	
 }
 
@@ -58,4 +66,46 @@ ItemRarity_enum Armor::getRarity(){
 }
 void Armor::setRarity(ItemRarity_enum rarity){
 	this->Rarity=rarity;
+}
+
+
+DoubleLinkedList<ActiveEffects> Armor::getResistanceTypes(){
+	return this->ResistanceTypes;
+}
+void Armor::setResistanceTypes(DoubleLinkedList<ActiveEffects> types){
+	this->ResistanceTypes=types;
+}
+
+//return the text equivilent of rarity
+string Armor::getRarity_text(){
+	switch (this->getRarity())
+	{
+	case Common_ItemRarity:return "Common";
+	case UnCommon_ItemRarity: return "UnCommon";
+	case Rare_ItemRarity: return "Rare";
+	case Legendary_ItemRarity: return "Legendary";
+	case Unique_ItemRarity: return "Unique";
+	case DEVELOPER_ItemRarity: "DEVELOPER";
+	default:return "Null";
+	}
+}
+//returns the string equivilent of Type (Armor Type)	
+string Armor::getType_text(){
+	switch(this->getType()){
+		case Boots_ArmorType:return "Boots";
+		case Pants_ArmorType:return "Leggings";
+		case Chest_ArmorType:return "Chest Piece";
+		case Gloves_ArmorType:return "Gloves";
+		case Helmet_ArmorType:return "Helmet";
+		default: return "NULL";
+	}
+}
+//returns the string equivilent of Class (Armor Class)
+string Armor::getClass_text(){
+	switch(this->getClass()){
+		case Heavy_ArmorClass: return "Heavy Armor";
+		case Normal_ArmorClass:return "Medium Armor";
+		case Light_ArmorClass:return "Light Armor";
+		default:return "NULL";
+	}
 }

@@ -170,9 +170,11 @@ void DoubleLinkedList<T>::removeNode(int position) {
 			
 			this->Head = this->Head->getNext();
 			free(temp);
+			
 			if (this->Head == NULL) {
 				this->Tail == NULL;
 			}
+			this->size--;
 		}
 		else if (position == size) {
 			this->pop();
@@ -187,10 +189,11 @@ void DoubleLinkedList<T>::removeNode(int position) {
 			temp->getPre()->setNext(temp->getNext());
 			temp->getNext()->setPre(temp->getPre());
 			free(temp);
+			this->size--;
 		}
 		
 
-		this->size--;
+		
 	}
 
 }

@@ -4,44 +4,23 @@ ActiveEffects::ActiveEffects() {
 	this->Effect = NULL_Effects;
 	this->EffectType=NULL_EffectTypes;
 	this->RoundsActive = 0;
-	this->Damage = 0;
+	this->Modifier = 0;
 }
-// ActiveEffects::ActiveEffects(Effects_enum e, int rounds) {
-// 	this->effect =e;
-// 	this->roundsActive = rounds;
-// 	switch (this->effect)
-// 	{
-
-// 	case Burning_Effects: this->damage = 3; break;
-// 	case Bleeding_Effects: this->damage = 3; break;
-// 	default:
-// 		break;
-// 	}
-// 	//this->isDamage=true;
-// }
 
 
-// ActiveEffects::ActiveEffects(Effects_enum e, int rounds,int damage){
-// 	this->effect=e;
-// 	this->setRound(rounds);
-// 	this->damage=damage;
-// 	//this->isDamage=true;
-
-// }
-
-// ActiveEffects::ActiveEffects(Effects_enum e, int rounds,int damage,bool isdamage){
-// 	this->effect=e;
-// 	this->setRound(rounds);
-// 	this->damage=damage;
-// 	//this->isDamage=isdamage;
-// }
-
-ActiveEffects::ActiveEffects(EffectTypes_enum type,Effects_enum effect,int damage,int rounds){
+ActiveEffects::ActiveEffects(EffectTypes_enum type,Effects_enum effect,int modifier,int rounds){
 
 	this->EffectType=type;
-	this->Effect=effect;
-	this->Damage=damage;
+	this->Effect=effect;	
 	this->RoundsActive=rounds;
+
+
+	switch(this->getEffectType()){
+		case Buff_EffectTypes: this->setMultiplier(modifier);break;
+		case Resistance_EffectTypes: this->setResistance(modifier);break;
+		case DamageOverTime_EffectTypes: this->setDamage(modifier);break;
+	    default: this->Modifier=modifier;break;
+	}
 
 }
 
@@ -96,9 +75,7 @@ bool ActiveEffects::DisplayDetails() {
 	return true;
 }
 
-int ActiveEffects::getDamage() {
-	return this->Damage;
-}
+
 
 //!!!!!!!Need to update!!!!!!
 string ActiveEffects::getEffectName() {
@@ -120,12 +97,59 @@ string ActiveEffects::getEffectName() {
 }
 
 
+int ActiveEffects::getDamage() {
+	return this->Modifier;
+}
+//only useable for DamageOverTime_EffectTypeused to set damage>=0
 void ActiveEffects::setDamage(int damage){
-	if(damage<0){
-		damage=0;
+	if(this->EffectType=DamageOverTime_EffectTypes){
+		if(damage<0){
+			damage=0;
+		}
+		this->Modifier=damage;
+	}else{
+		this->Modifier=0;
 	}
-	this->Damage=damage;
+	
+}
+//only useable for Resistance_EffectType used to set a resistance between 0 and 100
+void ActiveEffects::setResistance(int Resistance){
+	if(this->EffectType==Resistance_EffectTypes){
+		if(Resistance<0){
+			this->Modifier=0;
+		}else if(Resistance>100){
+			this->Modifier=100;
+		}
+		this->Modifier=Resistance;
+	}else{
+		this->Modifier=0;
+	}
+
 }
 
+int ActiveEffects::getResistance(){
+	return this->Modifier;
+}
 
+//only useable for Buff_EffectTypeused to set multiplier>=0
+void ActiveEffects::setMultiplier(int multiplier){
+	if(this->EffectType==Buff_EffectTypes){
+		if(multiplier<0){
+			multiplier=0;
+		}
+		this->Modifier=multiplier;
+	}else{
+		this->Modifier=0;
+	}
+}
+int ActiveEffects::getMultiplier(){
+	return this->Modifier;
+}
 
+//used to set modifier
+void ActiveEffects::setModifier(int modifier){
+
+}
+int ActiveEffects::getModifier(){
+	return this->Modifier;
+}

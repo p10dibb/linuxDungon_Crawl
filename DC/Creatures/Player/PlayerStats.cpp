@@ -38,22 +38,11 @@ void Player::IncrementCreaturesKilled(){
 int Player::RewardCheckCreaturesKilled(){
 
     //this is vaugue model for rewards
-    Weapon* RewardWeapon;
-    Armor* RewardArmor;
+   
     Item* RewardItem;
     int ArmourChance=-1;
     if(this->getCreaturesKilled()>1000000){
         cout<<"what are you doing with your life"<<endl;
-    }
-    else if(this->getCreaturesKilled()==500){
-        
-        RewardItem=spawner.CreateRandomExtinctionistItem(this->getLevel());
-
-        cout<<this->getName()<<"has killed 500 Opponents and is rewarded "<<RewardItem->getName()<<endl;
-        this->addToInventory(RewardItem);
-     
-       
-       return 500;
     }
     else if(this->getCreaturesKilled()==420){
         
@@ -64,36 +53,17 @@ int Player::RewardCheckCreaturesKilled(){
      
        
        return 420;
-    }
-    else if(this->getCreaturesKilled()==400){
+    }   
+    //rewarded every 200 kills
+    else if(this->getCreaturesKilled()%200==0){
         
         RewardItem=spawner.CreateRandomExtinctionistItem(this->getLevel());
 
-        cout<<this->getName()<<"has killed 400 Opponents and is rewarded "<<RewardItem->getName()<<endl;
+        cout<<this->getName()<<"has killed "<<this->getCreaturesKilled()<<" Opponents and is rewarded "<<RewardItem->getName()<<endl;
         this->addToInventory(RewardItem);
      
        
-       return 400;
-    }
-    else if(this->getCreaturesKilled()==300){
-        
-        RewardItem=spawner.CreateRandomExtinctionistItem(this->getLevel());
-
-        cout<<this->getName()<<"has killed 300 Opponents and is rewarded "<<RewardItem->getName()<<endl;
-        this->addToInventory(RewardItem);
-     
-       
-       return 300;
-    }
-    else if(this->getCreaturesKilled()==200){
-        
-        RewardItem=spawner.CreateRandomExtinctionistItem(this->getLevel());
-
-        cout<<this->getName()<<"has killed 200 Opponents and is rewarded "<<RewardItem->getName()<<endl;
-        this->addToInventory(RewardItem);
-     
-       
-       return 200;
+       return this->getCreaturesKilled();
     }
     else if(this->getCreaturesKilled()==125){
         
@@ -171,9 +141,62 @@ int Player::getGoldCollected(){
 //increases GoldCollected by amount
 void Player::IncrementGoldCollected(int amount){
     this->GoldCollected+=amount;
+
 }
 //checks if the GoldCollected meets RewardRequirements
-int Player::RewardCheckGoldCollected(){
+int Player::RewardCheckGoldCollected(int amount){
+    Item *RewardItem;
+    if(amount>1000000000){
+        cout<<"why are you still playing"<<endl;
+    }
+    else if(this->GoldCollected>=690&&this->GoldCollected-amount<690){
+       
+        RewardItem=spawner.CreateNICE(this->getLevel());
+        cout<<this->getName()<<"has collected a total of 690 Gold is rewarded "<<RewardItem->getName()<<endl;
+        this->addToInventory(RewardItem);
+       return 690;
+    }
+    //rewards on multiples of 500
+    else if(this->GoldCollected%500>0&&this->GoldCollected%500-amount<0){
+        //this should round to nearest 500        
+        int rounder=(this->GoldCollected/500)*500;
+        RewardItem=spawner.CreateRandomGoldMongerItem(this->getLevel());
+        cout<<this->getName()<<"has collected a total of "<<rounder<<" Gold is rewarded "<<RewardItem->getName()<<endl;
+        this->addToInventory(RewardItem);
+       return rounder;
+    }
+    else if(this->GoldCollected>=420&&this->GoldCollected-amount<420){
+       
+        RewardItem=spawner.CreateTheMarly(this->getLevel());
+        cout<<this->getName()<<"has collected a total of 420 Gold is rewarded "<<RewardItem->getName()<<endl;
+        this->addToInventory(RewardItem);
+       return 420;
+    }
+    else if(this->GoldCollected>=300&&this->GoldCollected-amount<300){
+       
+        RewardItem=spawner.CreateRandomGoldMongerItem(this->getLevel());
+        cout<<this->getName()<<"has collected a total of 300 Gold is rewarded "<<RewardItem->getName()<<endl;
+        this->addToInventory(RewardItem);
+       return 300;
+    }
+    else if(this->GoldCollected>=150&&this->GoldCollected-amount<150){
+       
+        RewardItem=spawner.CreateRandomGoldMongerItem(this->getLevel());
+        cout<<this->getName()<<"has collected a total of 150 Gold is rewarded "<<RewardItem->getName()<<endl;
+        this->addToInventory(RewardItem);
+       return 150;
+    }    
+    else if(this->GoldCollected>=50&&this->GoldCollected-amount<50){
+        if(rand()%2 ==0){
+            RewardItem=spawner.CreateDagger(this->getLevel());
+        }else{
+            RewardItem=spawner.CreateChest(this->getLevel(),Light_ArmorClass);
+        }
+        cout<<this->getName()<<"has collected a total of 50 Gold is rewarded "<<RewardItem->getName()<<endl;
+        this->addToInventory(RewardItem);
+       return 50;
+    }
+
     return -1;
 }
 

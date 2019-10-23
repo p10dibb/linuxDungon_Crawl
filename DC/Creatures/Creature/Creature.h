@@ -34,6 +34,7 @@ private:
 	DoubleLinkedList<ActiveEffects> BuffEffects;
 	DoubleLinkedList<ActiveEffects> CombatEffects;
 	DoubleLinkedList<ActiveEffects> DamageOverTimeEffects;
+	DoubleLinkedList<ActiveEffects> ResistanceEffects;
 
 public:
 
@@ -49,6 +50,9 @@ public:
 	int ContainBuffEffect(Effects_enum effect);
 	//check if it contains effect and returns that effects location in list and -1 if it doesnt exist;
 	int ContainDeBuffEffect(Effects_enum effect);
+	//check if it contains effect and returns that effects location in list and -1 if it doesnt exist;
+	int ContainResistanceEffect(Effects_enum effect);
+	
 	
 
 	//decrement the effect at the said position and removes effect if 0;
@@ -65,6 +69,8 @@ public:
 	bool AddBuffEffect(ActiveEffects effect);
 		//checks if effect is in list and if it is then increase time else add new effect.
 	bool AddDeBuffEffect(ActiveEffects effect);
+		//checks if effect is in list and if it is then increase time else add new effect.
+	bool AddResistanceEffect(ActiveEffects effect);
 
 
 
@@ -79,6 +85,8 @@ public:
 	void DecrementAllCombatEffects();
 	//decrements all effect times by 1;
 	void DecrementAllDamageOverTimeEffects();
+	//decrements all effect times by 1;
+	void DecrementAllResistanceEffects();
 
 
 	//Displays Effects
@@ -90,6 +98,8 @@ public:
 	//Displays Effects
 	void DisplayAllDamageOverTimeEffects();
 	//Displays Effects
+	void DisplayAllResistanceEffects();
+	//Displays Effects
 	void DisplayAllEffects();
 
 	//removes all effects
@@ -98,6 +108,8 @@ public:
 	bool ClearAllBuffEffects();
 	//removes all effects
 	bool ClearAllCombatEffects();
+	//removes all effects
+	bool ClearAllResistanceEffects();
 	//removes all effects
 	bool ClearAllDamageOverTimeEffects();
 	//removes all effects
@@ -111,7 +123,11 @@ public:
 	ActiveEffects getCombatEffect(int pos);
 	//returns the Acctive effect at specified position. if no Acctive effect there then it returns default active effect
 	ActiveEffects getDamageOverTimeEffect(int pos);
+	//returns the Acctive effect at specified position. if no Acctive effect there then it returns default active effect
+	ActiveEffects getResistanceEffect(int pos);
 
+	//the Double linked list Resistance Effects
+	DoubleLinkedList<ActiveEffects> getResistanceEffects();
 
 
 
@@ -149,5 +165,3 @@ public:
 	
 
 };
-
-

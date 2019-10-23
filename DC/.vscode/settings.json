@@ -3,6 +3,7 @@
         "iostream": "cpp",
         "array": "cpp",
         "ostream": "cpp",
-        "spawner.h": "c"
+        "spawner.h": "c",
+        "*.tcc": "cpp"
     }
 }

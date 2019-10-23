@@ -14,18 +14,19 @@ private:
 	WeaponTypes_enum Type;
 	
 	DoubleLinkedList<DamageTypes> DamageTypes_Weapon;
-	int Defense;
+	
+	ActiveEffects Defense;
 	bool TwoHanded;
 	int Speed;
 	int Level;
 	int Range;
-
 	ItemRarity_enum Rarity;
+
 public:
 	Weapon();
 	Weapon(int Dam, int Def, bool TH, int Sp, int Lvl, int Rng, WeaponTypes_enum type, DoubleLinkedList<DamageTypes> damageTypes);
 
-	int getDefense();
+	ActiveEffects getDefense();
 	void setDefense(int d);
 	bool getTwoHanded();
 	void setTwoHanded(bool t);
@@ -48,8 +49,7 @@ public:
 	void setDamageTypes_Weapon(DoubleLinkedList<DamageTypes> damagetypes);
 	void addDamageType(DamageTypes type);
 
-
-
-
+	//return the text equivilent of rarity
+	string getRarity_text();
 
 };

@@ -23,6 +23,34 @@ int getFunc(string str, string options[], int size){
 
 }
 
+//inputs a damage amount , damage type, and resistances and reduces damage to the proper damage
+int ReduceDamage(int damage,DamageTypes_enum damageTypes,DoubleLinkedList<ActiveEffects> resistances){
+	ActiveEffects temp;
+
+	for(int i=0; i<resistances.Size();i++){
+		temp=resistances.getData(i);
+		if(temp.getEffect()==FireResistance_Effects && damageTypes==Fire_DamageType){
+			damage=(damage*(100-temp.getResistance())/100);
+		}else if(temp.getEffect()==StabbingResistance_Effects && damageTypes==Stabbing_DamageType){
+			damage=(damage*(100-temp.getResistance())/100);	
+		}else if(temp.getEffect()==BluntResistance_Effects && damageTypes==Blunt_DamageType){
+			damage=(damage*(100-temp.getResistance())/100);	
+		}else if(temp.getEffect()==StabbingResistance_Effects && damageTypes==Stabbing_DamageType){
+			damage=(damage*(100-temp.getResistance())/100);	
+		}else if(temp.getEffect()==NormalResistance_Effects && damageTypes==Normal_DamageType){
+			damage=(damage*(100-temp.getResistance())/100);	
+		}else if(temp.getEffect()==NormalResistance_Effects && damageTypes==Critical_DamageType){
+			damage=(damage*(100-temp.getResistance())/100);	
+		}else if(temp.getEffect()==PoisonResistance_Effects && damageTypes==Poison_DamageType){
+			damage=(damage*(100-temp.getResistance())/100);	
+		}
+		
+	}
+
+	return damage;
+}
+
+
 //Default constructor
 Player::Player() {
 	Biped();
@@ -149,13 +177,6 @@ int Player::ActualSpeed() {
 		speed = 1;
 	}
 	return speed;
-
-}
-
-//calculates Players actual Defense
-int Player::ActualDefense() {
-	//total of all defensive items
-	return this->getDefense() + this->getHead()->getDefense() + this->getTorso()->getDefense() + this->getHands()->getDefense() + this->getLegs()->getDefense() + this->getFeet()->getDefense() + this->Right->getDefense() + this->Left->getDefense();
 
 }
 
@@ -326,13 +347,13 @@ DoubleLinkedList<DamageTypes> Player::getAllDamageTypes(){
 	}else// if there is a damage booster;
 	{
 		//gets the multiplier
-		int DamageMultiplier=this->getBuffEffect(location).getDamage();
+		int DamageMultiplier=this->getBuffEffect(location).getMultiplier();
 		//new Linkedlist
 		DoubleLinkedList<DamageTypes> ret2;
 		DamageTypes cur;
 		for (int i=0;i<ret.Size();i++){
 			cur=ret.getData(i);
-			ret2.add(DamageTypes(cur.getDamage(),cur.getProbability(),cur.getType(),cur.getIsDamageOverTime(),cur.getDamageOverTime_damage(),cur.getDamageOverTime_time()));
+			ret2.add(DamageTypes(cur.getDamage()*DamageMultiplier,cur.getProbability(),cur.getType(),cur.getIsDamageOverTime(),cur.getDamageOverTime_damage(),cur.getDamageOverTime_time()));
 			
 		}
 		return ret2;
@@ -344,11 +365,50 @@ DoubleLinkedList<DamageTypes> Player::getAllDamageTypes(){
 
 }
 
+//Gets all Resistance types
+DoubleLinkedList<ActiveEffects> Player::getAllResistanceTypes(){
+	DoubleLinkedList<ActiveEffects> ret=this->getResistanceEffects();
+	DoubleLinkedList<ActiveEffects> temp;	
+	int i;
+
+	//takes current damage stat and converts to an active effect
+	ret.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,this->getDefense(),10));
+
+	ret.add(this->Right->getDefense());
+	ret.add(this->Left->getDefense());
+
+	
+	temp=this->getHead()->getResistanceTypes();
+	for( i=0; i<temp.Size();i++){
+		ret.add(temp.getData(i));
+	}
+	temp=this->getTorso()->getResistanceTypes();
+	for( i=0; i<temp.Size();i++){
+		ret.add(temp.getData(i));
+	}
+	temp=this->getFeet()->getResistanceTypes();
+	for( i=0; i<temp.Size();i++){
+		ret.add(temp.getData(i));
+	}
+	temp=this->getLegs()->getResistanceTypes();
+	for( i=0; i<temp.Size();i++){
+		ret.add(temp.getData(i));
+	}
+	temp=this->getHands()->getResistanceTypes();
+	for( i=0; i<temp.Size();i++){
+		ret.add(temp.getData(i));
+	}
+
+	return ret;
+
+}
+
 //recieves a linked list of damage types and and runs through the damage taken
 int Player::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
 		DamageTypes current;
 		int location=1,totalDamage=0;;
 
+		DoubleLinkedList<ActiveEffects> resistances =this->getAllResistanceTypes();
 		//itterates through all damage types
 		for(int i=0;i<damageTypes.Size();i++){
 			current=damageTypes.getData(i);
@@ -364,15 +424,14 @@ int Player::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
 					case Critical_DamageType:cout<<"Critical hit"<<endl;break;
 					default:break;
 				}
-				totalDamage+=current.getDamage();
+				totalDamage+= ReduceDamage(current.getDamage(),current.getType(),resistances) ;
 			}
 		}			
 
 		// checks if there is a defense boost and suptracks total armor from damage
-		if(location=ContainBuffEffect(DefenseBoost_Effects)==-1){
-			totalDamage=totalDamage - this->ActualDefense();
-		}else{			 
-			totalDamage=totalDamage - this->ActualDefense()*this->getBuffEffect(location).getDamage();
+		if(location=ContainBuffEffect(DefenseBoost_Effects)!=-1){
+				 
+			totalDamage=totalDamage /this->getBuffEffect(location).getMultiplier();
 		}
 	
 		if (totalDamage< 1) {

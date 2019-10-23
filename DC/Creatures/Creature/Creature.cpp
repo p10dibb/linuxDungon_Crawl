@@ -19,6 +19,8 @@ Creature::Creature() {
 	this->XP = 0;
 	this->Name;
 
+	//this->ResistanceEffects.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,0,15));
+
 
 }
 int Creature::getMaxHealth() {
@@ -175,20 +177,36 @@ int Creature::ContainDeBuffEffect(Effects_enum effect){
 	}
 	return -1;
 }
+//check if it contains effect and returns that effects location in list and -1 if it doesnt exist;
+int Creature::ContainResistanceEffect(Effects_enum effect){
+	for (int i = 0; i < this->ResistanceEffects.Size(); i++) {
+		if (this->ResistanceEffects.getNode(i)->getData().getEffect()== effect) {
+			return i;
+		}
+	}
+	return -1;
+}
+
+
 
 
 
 //checks if effect is in list and if it is then increase time else add new effect.
 bool Creature::AddEffect(ActiveEffects effect){
 	switch(effect.getEffectType()){
-		case DamageOverTime_EffectTypes: this->AddDamageOverTimeEffect(effect);break;
-		case Combat_EffectTypes: this->AddCombatEffect(effect);break;
-		case Buff_EffectTypes: this->AddBuffEffect(effect);break;
-		case DeBuff_EffectTypes:this->AddDeBuffEffect(effect);break;
+		case DamageOverTime_EffectTypes: return this->AddDamageOverTimeEffect(effect);
+		case Combat_EffectTypes: return this->AddCombatEffect(effect);
+		case Buff_EffectTypes: return this->AddBuffEffect(effect);
+		case DeBuff_EffectTypes:return this->AddDeBuffEffect(effect);
+		case Resistance_EffectTypes:return this->AddResistanceEffect(effect);
+		default: return false;
 	}
 }
 //checks if effect is in list and if it is then increase time else add new effect.
 bool Creature::AddDamageOverTimeEffect(ActiveEffects effect){
+	if (effect.getEffectType()!=DamageOverTime_EffectTypes){
+		return false;
+	}
 	int pos = this->ContainDamageOverTimeEffect(effect.getEffect());
 	if(pos==-1){
 		this->DamageOverTimeEffects.add(effect);
@@ -205,18 +223,26 @@ bool Creature::AddDamageOverTimeEffect(ActiveEffects effect){
 				this->DamageOverTimeEffects.getNode(pos)->Data.addRounds(effect.getRound());
 			}
 	}
+	return true;
 }
 //checks if effect is in list and if it is then increase time else add new effect.
 bool Creature::AddCombatEffect(ActiveEffects effect){
+	if (effect.getEffectType()!=Combat_EffectTypes){
+		return false;
+	}
 	int pos = this->ContainCombatEffect(effect.getEffect());
 	if(pos==-1){
 		this->CombatEffects.add(effect);
 	}else {		
 		this->CombatEffects.getNode(pos)->Data.addRounds(effect.getRound());			
 	}
+	return true;
 }
 //checks if effect is in list and if it is then increase time else add new effect.
 bool Creature::AddBuffEffect(ActiveEffects effect){
+	if (effect.getEffectType()!=Buff_EffectTypes){
+		return false;
+	}
 	int pos = this->ContainBuffEffect(effect.getEffect());
 	if(pos==-1){
 		this->BuffEffects.add(effect);
@@ -233,15 +259,33 @@ bool Creature::AddBuffEffect(ActiveEffects effect){
 				this->BuffEffects.getNode(pos)->Data.addRounds(effect.getRound());
 			}
 	}
+	return true;
 }
 //checks if effect is in list and if it is then increase time else add new effect.
 bool Creature::AddDeBuffEffect(ActiveEffects effect){
+	if (effect.getEffectType()!=DeBuff_EffectTypes){
+		return false;
+	}
 	int pos = this->ContainDeBuffEffect(effect.getEffect());
 	if(pos==-1){
-		this->CombatEffects.add(effect);
+		this->DeBuffEffects.add(effect);
 	}else {		
-		this->CombatEffects.getNode(pos)->Data.addRounds(effect.getRound());			
+		this->DeBuffEffects.getNode(pos)->Data.addRounds(effect.getRound());			
 	}
+	return true;
+}
+//checks if effect is in list and if it is then increase time else add new effect.
+bool Creature::AddResistanceEffect(ActiveEffects effect){
+	if (effect.getEffectType()!=Resistance_EffectTypes){
+		return false;
+	}
+	int pos = this->ContainResistanceEffect(effect.getEffect());
+	if(pos==-1){
+		this->ResistanceEffects.add(effect);
+	}else {		
+		this->ResistanceEffects.getNode(pos)->Data.addRounds(effect.getRound());			
+	}
+	return true;
 }
 
 
@@ -252,17 +296,33 @@ void Creature::DecrementAllEffects(){
 	this->DecrementAllBuffEffects();
 	this->DecrementAllDamageOverTimeEffects();
 	this->DecrementAllDeBuffEffects();
+	this->DecrementAllResistanceEffects();
 }
 //decrements all effect times by 1;
 void Creature::DecrementAllDeBuffEffects(){
 	for (int i = 0; i < this->DeBuffEffects.Size(); i++) {
 		this->DeBuffEffects.getNode(i)->Data.Decrement();
 	}
+	for(int i=this->DeBuffEffects.Size()-1;i>=0;i--){
+		if (this->DeBuffEffects.getData(i).getRound()==0){
+			cout<<"removing "<<this->BuffEffects.getData(i).getEffectName()<<endl;
+			//i+1 because remove Node goes from 1 ->Size instead of 0->Size-1			
+			this->DeBuffEffects.removeNode(i+1);
+		}
+	}
+	
 }
 //decrements all effect times by 1;
 void Creature::DecrementAllBuffEffects(){
 	for (int i = 0; i < this->BuffEffects.Size(); i++) {
 		this->BuffEffects.getNode(i)->Data.Decrement();
+	}
+	for(int i=this->BuffEffects.Size()-1;i>=0;i--){
+		if (this->BuffEffects.getData(i).getRound()==0){
+			cout<<"removing "<<this->BuffEffects.getData(i).getEffectName()<<endl;
+			//i+1 because remove Node goes from 1 ->Size instead of 0->Size-1			
+			this->BuffEffects.removeNode(i+1);
+		}
 	}
 }
 //decrements all effect times by 1;
@@ -270,52 +330,86 @@ void Creature::DecrementAllCombatEffects(){
 	for (int i = 0; i < this->CombatEffects.Size(); i++) {
 		this->CombatEffects.getNode(i)->Data.Decrement();
 	}
+	for(int i=this->CombatEffects.Size()-1;i>=0;i--){
+		if (this->CombatEffects.getData(i).getRound()==0){
+			cout<<"removing "<<this->CombatEffects.getData(i).getEffectName()<<endl;
+			//i+1 because remove Node goes from 1 ->Size instead of 0->Size-1			
+			this->CombatEffects.removeNode(i+1);
+		}
+	}
 }
 //decrements all effect times by 1;
 void Creature::DecrementAllDamageOverTimeEffects(){
 	for (int i = 0; i < this->DamageOverTimeEffects.Size(); i++) {
 		this->DamageOverTimeEffects.getNode(i)->Data.Decrement();
 	}
+	for(int i=this->DamageOverTimeEffects.Size()-1;i>=0;i--){
+		if (this->DamageOverTimeEffects.getData(i).getRound()==0){
+			cout<<"removing "<<this->DamageOverTimeEffects.getData(i).getEffectName()<<endl;
+			//i+1 because remove Node goes from 1 ->Size instead of 0->Size-1			
+			this->DamageOverTimeEffects.removeNode(i+1);
+		}
+	}
+}
+//decrements all effect times by 1;
+void Creature::DecrementAllResistanceEffects(){
+	for (int i = 0; i < this->ResistanceEffects.Size(); i++) {
+		this->ResistanceEffects.getNode(i)->Data.Decrement();
+	}
+	for(int i=this->ResistanceEffects.Size()-1;i>=0;i--){
+		if (this->ResistanceEffects.getData(i).getRound()==0){
+			cout<<"removing "<<this->ResistanceEffects.getData(i).getEffectName()<<endl;
+			//i+1 because remove Node goes from 1 ->Size instead of 0->Size-1			
+			this->ResistanceEffects.removeNode(i+1);
+		}
+	}
 }
 
-
-
-	//Displays Effects
-	void Creature::DisplayAllDeBuffEffects(){
+//Displays Effects
+void Creature::DisplayAllDeBuffEffects(){
 		if(this->DeBuffEffects.Size()==0){
 			cout<<"No Active DeBuffeffects"<<endl;
 		}
 		for (int i = 0; i < this->DeBuffEffects.Size(); i++) {
 		 	this->DeBuffEffects.getData(i).DisplayDetails();
 		}
-	}
+}
 	//Displays Effects
-	void Creature::DisplayAllBuffEffects(){
+void Creature::DisplayAllBuffEffects(){
 		if(this->BuffEffects.Size()==0){
 			cout<<"No Active Buffeffects"<<endl;
 		}
 		for (int i = 0; i < this->DeBuffEffects.Size(); i++) {
 		 	this->BuffEffects.getData(i).DisplayDetails();
 		}
-	}
+}
 	//Displays Effects
-	void Creature::DisplayAllCombatEffects(){
+void Creature::DisplayAllCombatEffects(){
 		if(this->CombatEffects.Size()==0){
 			cout<<"No Active CombatBuffeffects"<<endl;
 		}
 		for (int i = 0; i < this->CombatEffects.Size(); i++) {
 		 	this->CombatEffects.getData(i).DisplayDetails();
 		}
-	}
+}
 	//Displays Effects
-	void Creature::DisplayAllDamageOverTimeEffects(){
+void Creature::DisplayAllDamageOverTimeEffects(){
 		if(this->DamageOverTimeEffects.Size()==0){
 			cout<<"No Active DamageOverTimeeffects"<<endl;
 		}
 		for (int i = 0; i < this->DamageOverTimeEffects.Size(); i++) {
 		 	this->DamageOverTimeEffects.getData(i).DisplayDetails();
 		}
-	}
+}
+	//Displays Effects
+void Creature::DisplayAllResistanceEffects(){
+		if(this->CombatEffects.Size()==0){
+			cout<<"No ActiveResistanceBuffeffects"<<endl;
+		}
+		for (int i = 0; i < this->ResistanceEffects.Size(); i++) {
+		 	this->ResistanceEffects.getData(i).DisplayDetails();
+		}
+}
 	//Displays Effects
 void Creature::DisplayAllEffects(){
 		cout<<"ACTIVE EFFECTS"<<endl;
@@ -324,6 +418,8 @@ void Creature::DisplayAllEffects(){
 		cout<<endl<<"Buffs:"<<endl;
 		this->DisplayAllBuffEffects();
 		cout<<endl<<"Combat:"<<endl;
+		this->DisplayAllResistanceEffects();
+		cout<<endl<<"Resistance:"<<endl;
 		this->DisplayAllCombatEffects();
 		cout<<endl<<"Damage Over Time:"<<endl;
 		this->DisplayAllDamageOverTimeEffects();	
@@ -376,6 +472,14 @@ bool Creature::ClearAllCombatEffects(){
 	return true;
 }
 //removes all effects
+bool Creature::ClearAllResistanceEffects(){
+	while(this->ResistanceEffects.Size()!=0){
+
+		this->ResistanceEffects.pop();
+	}
+	return true;
+}
+//removes all effects
 bool Creature::ClearAllDamageOverTimeEffects(){
 	while(this->DamageOverTimeEffects.Size()!=0){
 
@@ -389,6 +493,7 @@ bool Creature::ClearAllEffects(){
 	this->ClearAllCombatEffects();
 	this->ClearAllDamageOverTimeEffects();
 	this->ClearAllDeBuffEffects();
+	this->ClearAllResistanceEffects();
 	return true;
 }
 
@@ -420,6 +525,18 @@ ActiveEffects Creature::getDamageOverTimeEffect(int pos){
 		return this->DamageOverTimeEffects.getData(pos);
 	}
 	return ActiveEffects();
+}
+//returns the Acctive effect at specified position. if no Acctive effect there then it returns default active effect
+ActiveEffects Creature::getResistanceEffect(int pos){
+	if (this->ResistanceEffects.Size()>pos&& pos>=0){
+		return this->ResistanceEffects.getData(pos);
+	}
+	return ActiveEffects();
+}
+
+//the Double linked list Resistance Effects
+DoubleLinkedList<ActiveEffects> Creature::getResistanceEffects(){
+	return this->ResistanceEffects;
 }
 
 

@@ -6,19 +6,26 @@ void Run() {
 	 Spawner s;
 	Player player = createPlayer();
 	
-	player.addToInventory(s.CreateDevSword());
+	// player.addToInventory(s.CreateDevSword());
 	
-	player.addToInventory(s.CreateDevSword());
+	// player.addToInventory(s.CreateDevSword());
 	
-	player.addToInventory(s.CreateDevHelmet(Light_ArmorClass));
+	// player.addToInventory(s.CreateDevHelmet(Light_ArmorClass));
 
-	player.addToInventory(s.CreateDevChest(Light_ArmorClass));
+	// player.addToInventory(s.CreateDevChest(Light_ArmorClass));
 	
-	player.addToInventory(s.CreateDevBoots(Light_ArmorClass));
+	// player.addToInventory(s.CreateDevBoots(Light_ArmorClass));
 	
-	player.addToInventory(s.CreateDevGloves(Light_ArmorClass));
+	// player.addToInventory(s.CreateDevGloves(Light_ArmorClass));
 	
-	player.addToInventory(s.CreateDevPants(Light_ArmorClass));
+	// player.addToInventory(s.CreateDevPants(Light_ArmorClass));
+	player.addToInventory(s.CreateAxe(1,true));
+	player.addToInventory(s.CreateDagger(1,true));
+	player.addToInventory(s.CreateBoots(1,Light_ArmorClass,true));
+	player.addToInventory(s.CreatePants(1,Light_ArmorClass,true));	
+	player.addToInventory(s.CreateChest(1,Light_ArmorClass,true));
+	player.addToInventory(s.CreateGloves(1,Light_ArmorClass,true));
+	player.addToInventory(s.CreateHelmet(1,Light_ArmorClass,true));
 	
 	Floor f;
 

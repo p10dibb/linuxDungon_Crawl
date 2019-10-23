@@ -6,7 +6,7 @@ Weapon::Weapon() {
 	this->Type = NULL_WeaponType;
 	this->DamageTypes_Weapon.add(DamageTypes());
 
-	this->Defense = 0;
+	this->Defense = this->Defense= ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,0,15);;
 	this->TwoHanded = false;
 	this->Speed = 0;
 	this->Level = 0;
@@ -15,7 +15,7 @@ Weapon::Weapon() {
 Weapon::Weapon(int Dam, int Def, bool TH, int Sp, int Lvl, int Rng,WeaponTypes_enum type, DoubleLinkedList<DamageTypes> damageTypes) {
 	Item();
 	this->Type = type;
-	this->Defense = Def;
+	this->Defense= ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,Def,15);
 	this->TwoHanded = TH;
 	this->Speed = Sp;
 	this->Level = Lvl;
@@ -23,15 +23,19 @@ Weapon::Weapon(int Dam, int Def, bool TH, int Sp, int Lvl, int Rng,WeaponTypes_e
 	this->DamageTypes_Weapon=damageTypes;
 }
 
-int Weapon::getDefense() {
+ActiveEffects Weapon::getDefense() {
 	return this->Defense;
 
 }
 void Weapon::setDefense(int d) {
-	if (d < 1) {
-		d = 1;
+	if (d < 0) {
+		d = 0;
 	}
-	this->Defense = d;
+	else if(d>100){
+		d=100;
+	}
+	this->Defense= ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,d,15);
+
 }
 bool Weapon::getTwoHanded() {
 	return this->TwoHanded;
@@ -78,10 +82,11 @@ void Weapon::setType(WeaponTypes_enum w) {
 void Weapon::DisplayDetails() {
 	cout << "Name: \t" << this->getName() << endl << "Value: \t" << this->getValue() << endl << "Weight: \t" << this->getWeight() << endl << "StackSize: \t" << this->getStackSize() << endl;
 	cout << "Level: \t" << this->Level << endl;
-	cout << "Defense: \t" << this->Defense << endl;
+	cout << "Damage Resistance: \t" << this->Defense.getResistance()<<endl;
 	cout << "Speed: \t" << this->Speed << endl;
 	cout << "Is TwoHanded:\t" << this->TwoHanded << endl;
 	cout << "Range: \t" << this->Range << endl;
+	cout << "Rarity:\t"<<this->getRarity_text()<<endl;
 	cout<<"Damage Types:"<<endl;
 	for(int i=0;i<this->DamageTypes_Weapon.Size();i++){
 		this->DamageTypes_Weapon.getData(i).DisplayDetails();
@@ -105,4 +110,20 @@ ItemRarity_enum Weapon::getRarity(){
 }
 void Weapon::setRarity(ItemRarity_enum rarity){
 	this->Rarity=rarity;
+}
+
+
+//return the text equivilent of rarity
+string Weapon::getRarity_text(){
+	switch (this->getRarity())
+	{
+	case Common_ItemRarity:return "Common";
+	case UnCommon_ItemRarity: return "UnCommon";
+	case Rare_ItemRarity: return "Rare";
+	case Legendary_ItemRarity: return "Legendary";
+	case Unique_ItemRarity: return "Unique";
+	case DEVELOPER_ItemRarity: "DEVELOPER";
+	default:return "Null";
+	}
+
 }
