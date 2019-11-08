@@ -8,6 +8,7 @@ Armor::Armor() {
 	this->Type = NULL_ArmorType;
 	this->Class = NULL_ArmorClass;
 	this->ResistanceTypes.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,5,15));
+	this->TotalResistance=5;
 }
 Armor::Armor(int def, int lvl, ArmorType_enum type, ArmorClass_enum c) {
 	Item();
@@ -16,6 +17,7 @@ Armor::Armor(int def, int lvl, ArmorType_enum type, ArmorClass_enum c) {
 	this->Type = type;
 	this->Class = c;	
 	this->ResistanceTypes.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,def,15));
+	this->TotalResistance=def;
 }
 
 int Armor::getLevel() {
@@ -47,6 +49,8 @@ void Armor::DisplayDetails() {
 	cout << "Weight: " << this->getWeight() << endl;
 	cout << "StackSize: " << this->getStackSize() << endl;	
 	cout << "Level: " << this->Level << endl ;
+	cout <<"Rarity: "<<RarityToString(this->Rarity)<<endl;
+	cout<<"Total Defense: "<<getTotalResistance()<<endl;
 	cout << "Type: " << this->getType_text()<<endl;
 	cout <<"Class: "<< this->getClass_text()<<endl;
 	cout << "Resistances: "; //<< //this->Defense << endl; 
@@ -73,6 +77,11 @@ DoubleLinkedList<ActiveEffects> Armor::getResistanceTypes(){
 	return this->ResistanceTypes;
 }
 void Armor::setResistanceTypes(DoubleLinkedList<ActiveEffects> types){
+	this->TotalResistance=0;
+	//adds up all of the resistances for armor
+	for(int i=0;i<types.Size();i++){
+		this->TotalResistance+=types.getData(i).getResistance();
+	}
 	this->ResistanceTypes=types;
 }
 
@@ -108,4 +117,8 @@ string Armor::getClass_text(){
 		case Light_ArmorClass:return "Light Armor";
 		default:return "NULL";
 	}
+}
+
+int Armor::getTotalResistance(){
+	return this->TotalResistance;
 }

@@ -35,7 +35,7 @@ Armor* Spawner::CreateHelmet(int level, ArmorClass_enum c,bool forceLevel ,bool 
 
 	RelativeLevel=ret->getLevel()*(ret->getRarity()+1);
 
-
+	ret->setClass(c);
 	switch (c)
 	{
 	case Light_ArmorClass: classMultiplier = this->L; classType = " Light";
@@ -73,21 +73,21 @@ Armor* Spawner::CreateHelmet(int level, ArmorClass_enum c,bool forceLevel ,bool 
 	ret->setWeight(this->small*classMultiplier+rand()%classMultiplier);
 
 	DoubleLinkedList<ActiveEffects> Resistance;
-	Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+	Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->small),15));
 
 	//10% chance for each resistance
 	//Fire Resistance
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->small),15));
 	}
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->small),15));
 	}
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->small),15));
 	}
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->small),15));
 	}
 
 	ret->setResistanceTypes(Resistance);
@@ -140,6 +140,7 @@ Armor* Spawner::CreateChest(int level, ArmorClass_enum c, bool forceLevel ,bool 
 
 	RelativeLevel=ret->getLevel()*(ret->getRarity()+1);
 
+	ret->setClass(c);
 	switch (c)
 	{
 	case Light_ArmorClass: classMultiplier = this->L; classType = " Light";
@@ -177,21 +178,21 @@ Armor* Spawner::CreateChest(int level, ArmorClass_enum c, bool forceLevel ,bool 
 
 	ret->setWeight(this->Large*classMultiplier + rand() % (classMultiplier));
 	DoubleLinkedList<ActiveEffects> Resistance;
-	Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
+	Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->Large),15));
 
 	//10% chance for each resistance
 	//Fire Resistance
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->Large),15));
 	}
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->Large),15));
 	}
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->Large),15));
 	}
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->Large),15));
 	}
 
 	ret->setResistanceTypes(Resistance);
@@ -237,7 +238,7 @@ Armor* Spawner::CreateGloves(int level, ArmorClass_enum c, bool forceLevel ,bool
 
 	RelativeLevel=ret->getLevel()*(ret->getRarity()+1);
 
-
+	ret->setClass(c);
 	switch (c)
 	{
 	case Light_ArmorClass: classMultiplier = this->L; classType = " Light";
@@ -275,21 +276,21 @@ Armor* Spawner::CreateGloves(int level, ArmorClass_enum c, bool forceLevel ,bool
 	ret->setWeight(this->small*classMultiplier + rand() % classMultiplier);
 
 	DoubleLinkedList<ActiveEffects> Resistance;
-	Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+	Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->small),15));
 
 	//10% chance for each resistance
 	//Fire Resistance
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->small),15));
 	}
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->small),15));
 	}
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->small),15));
 	}
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->small),15));
 	}
 
 	ret->setResistanceTypes(Resistance);
@@ -337,7 +338,7 @@ Armor* Spawner::CreatePants(int level, ArmorClass_enum c, bool forceLevel ,bool 
 
 	RelativeLevel=ret->getLevel()*(ret->getRarity()+1);
 
-
+	ret->setClass(c);
 	switch (c)
 	{
 	case Light_ArmorClass: classMultiplier = this->L; classType = " Light";
@@ -375,24 +376,24 @@ Armor* Spawner::CreatePants(int level, ArmorClass_enum c, bool forceLevel ,bool 
 	ret->setWeight(this->Med*classMultiplier + rand() % classMultiplier);
 
 	DoubleLinkedList<ActiveEffects> Resistance;
-	Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+	Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->Med),15));
 
 	//10% chance for each resistance
 	//Fire Resistance
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->Med),15));
 	}
 	//StabbingResistance
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->Med),15));
 	}
 	//Poison Resistance
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->Med),15));
 	}
 	//Blunt Resistance
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->Med),15));
 	}
 
 	ret->setResistanceTypes(Resistance);
@@ -441,6 +442,7 @@ Armor* Spawner::CreateBoots(int level, ArmorClass_enum c, bool forceLevel ,bool 
 
 	RelativeLevel=ret->getLevel()*(ret->getRarity()+1);
 
+	ret->setClass(c);
 	switch (c)
 	{
 	case Light_ArmorClass: classMultiplier = this->L; classType = " Light";
@@ -478,21 +480,21 @@ Armor* Spawner::CreateBoots(int level, ArmorClass_enum c, bool forceLevel ,bool 
 	ret->setWeight(this->Med*classMultiplier + rand() % classMultiplier);
 
 	DoubleLinkedList<ActiveEffects> Resistance;
-	Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+	Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->Med),15));
 
 	//10% chance for each resistance
 	//Fire Resistance
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->Med),15));
 	}
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->Med),15));
 	}
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->Med),15));
 	}
 	if(rand()%10==0){
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,(classMultiplier+(rand() % RelativeLevel)*classMultiplier*this->Med),15));
 	}
 
 	ret->setResistanceTypes(Resistance);

@@ -4,6 +4,9 @@
         "array": "cpp",
         "ostream": "cpp",
         "spawner.h": "c",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "vector": "cpp"
     }
 }

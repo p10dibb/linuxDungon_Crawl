@@ -11,34 +11,32 @@
 
 class Creature {
 
-private:
-	int Damage;
-	int Defense;
-	int Speed;
-	int Stamina;
-	int Strength;
+	private:
+		int Damage;
+		int Defense;
+		int Speed;
+		int Stamina;
+		int Strength;
 
-	int MaxHealth;
-	int Health;
-	int Level;
-	int XP;
-	string Name;
+		int MaxHealth;
+		int Health;
+		int Level;
+		int XP;
+		string Name;
 
-	
+		
 
-	//x,y position
-	array<int, 2> position; 
-	//DoubleLinkedList<ActiveEffects> Effects;
+		//x,y position
+		array<int, 2> position; 
+		//DoubleLinkedList<ActiveEffects> Effects;
 
-	DoubleLinkedList<ActiveEffects> DeBuffEffects;
-	DoubleLinkedList<ActiveEffects> BuffEffects;
-	DoubleLinkedList<ActiveEffects> CombatEffects;
-	DoubleLinkedList<ActiveEffects> DamageOverTimeEffects;
-	DoubleLinkedList<ActiveEffects> ResistanceEffects;
+		DoubleLinkedList<ActiveEffects> DeBuffEffects;
+		DoubleLinkedList<ActiveEffects> BuffEffects;
+		DoubleLinkedList<ActiveEffects> CombatEffects;
+		DoubleLinkedList<ActiveEffects> DamageOverTimeEffects;
+		DoubleLinkedList<ActiveEffects> ResistanceEffects;
 
-public:
-
-
+	public:
 
 	Creature();
 
@@ -126,8 +124,19 @@ public:
 	//returns the Acctive effect at specified position. if no Acctive effect there then it returns default active effect
 	ActiveEffects getResistanceEffect(int pos);
 
+
 	//the Double linked list Resistance Effects
 	DoubleLinkedList<ActiveEffects> getResistanceEffects();
+	//the Double linked list DeBuff Effects
+	DoubleLinkedList<ActiveEffects> getDeBuffEffects();
+	//the Double linked list Buff Effects
+	DoubleLinkedList<ActiveEffects> getBuffEffects();
+	//the Double linked list Combat Effects
+	DoubleLinkedList<ActiveEffects> getCombatEffects();
+	//the Double linked list DamageOverTime Effects
+	DoubleLinkedList<ActiveEffects> getDamageOverTimeEffects();
+
+	
 
 
 
@@ -162,6 +171,6 @@ public:
 	bool setPosition(array<int,2> pos);
 
 	int move(char map[][10], int direction);
-	
 
+	
 };

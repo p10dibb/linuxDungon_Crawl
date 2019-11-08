@@ -91,8 +91,7 @@ public:
 
 
 	//Combat related functions
-		//players attack
-		int Attack();
+		
 		//Gets all the damage types from weapons and player
 		DoubleLinkedList<DamageTypes> getAllDamageTypes();
 

@@ -7,11 +7,17 @@ enum ArmorType_enum {NULL_ArmorType, Helmet_ArmorType, Chest_ArmorType, Gloves_A
 class Armor :public Item {
 friend class Item;
 private:
-
+	//Armor's Level
 	int Level;
+	//the total resistance percentage
+	int TotalResistance;
+	//the armor type of this piece
 	ArmorType_enum Type;
+	//class (light, normal, or heavy)
 	ArmorClass_enum Class;
+	//items rarity
 	ItemRarity_enum Rarity;
+	//all of the resistances
 	DoubleLinkedList<ActiveEffects> ResistanceTypes;
 
 
@@ -40,6 +46,8 @@ public:
 
 	//Displays all relevent Armor details
 	void DisplayDetails();
+
+	int getTotalResistance();
 
 
 };

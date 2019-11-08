@@ -15,6 +15,15 @@ Weapon::Weapon() {
 Weapon::Weapon(int Dam, int Def, bool TH, int Sp, int Lvl, int Rng,WeaponTypes_enum type, DoubleLinkedList<DamageTypes> damageTypes) {
 	Item();
 	this->Type = type;
+	switch (type)
+	{
+	case Sword_WeaponType:this->CombatEffect=ActiveEffects(Combat_EffectTypes,Swordsman_Effects,1,5);break;
+	case Dagger_WeaponType:this->CombatEffect=ActiveEffects(Combat_EffectTypes,Swordsman_Effects,1,5);break;
+	case Axe_WeaponType:this->CombatEffect=ActiveEffects(Combat_EffectTypes,Bezerk_Effects,1,5); break;
+	case Claw_WeaponType:this->CombatEffect=ActiveEffects(Combat_EffectTypes,AnimalFury_Effects,1,5);break;
+	case Shield_WeaponType:this->CombatEffect=ActiveEffects(Combat_EffectTypes,DefensiveStance_Effects,1,5);break;	
+	default:break;
+	}
 	this->Defense= ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,Def,15);
 	this->TwoHanded = TH;
 	this->Speed = Sp;
@@ -77,6 +86,15 @@ WeaponTypes_enum Weapon:: getType() {
 }
 void Weapon::setType(WeaponTypes_enum w) {
 	this->Type = w;
+	switch (w)
+	{
+		case Sword_WeaponType:this->CombatEffect=ActiveEffects(Combat_EffectTypes,Swordsman_Effects,1,5);break;
+		case Dagger_WeaponType:this->CombatEffect=ActiveEffects(Combat_EffectTypes,Swordsman_Effects,1,5);break;
+		case Axe_WeaponType:this->CombatEffect=ActiveEffects(Combat_EffectTypes,Bezerk_Effects,1,5); break;
+		case Claw_WeaponType:this->CombatEffect=ActiveEffects(Combat_EffectTypes,AnimalFury_Effects,1,5);break;
+		case Shield_WeaponType:this->CombatEffect=ActiveEffects(Combat_EffectTypes,DefensiveStance_Effects,1,5);break;	
+		default:break;
+	}
 }
 
 void Weapon::DisplayDetails() {
@@ -126,4 +144,8 @@ string Weapon::getRarity_text(){
 	default:return "Null";
 	}
 
+}
+
+ActiveEffects Weapon::getCombatEffect(){
+	return this->CombatEffect;
 }

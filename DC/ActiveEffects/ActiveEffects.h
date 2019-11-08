@@ -33,12 +33,18 @@ Bezerk_Effects, DefensiveStance_Effects, QuickStrike_Effects,Swordsman_Effects,A
 		//DefenseBoost: increases player defense gotten from Defense boost potion
 	//----------
 	//------Combat effects--
-		//Bezerk: //(not yet implemented) will increase damage but decrease defense gotten from using an axe
-		//DefensiveStance: //(not yet implemented) will increase defense but decrease damage  gotten from using a shield
-		//QuickStrike: //(not yet implemented) will increase speed but decrease defense gotten from using a dagger
-		//Swordsman: //(not yet implemented) will increase defense and damage slightly but decreases damage gotten from using sword
-		//AnimalFury://(not yet implemented)will increase speed but decrease defense gotten from using claws
+		//Bezerk: // will increase damage but decrease defense gotten from using an axe
+		//DefensiveStance: // will increase defense but decrease Speed  gotten from using a shield
+		//QuickStrike: // will increase speed but decrease defense gotten from using a dagger
+		//Swordsman: // will increase defense and damage slightly but decreases speed gotten from using sword
+		//AnimalFury://will increase speed but decrease defense gotten from using claws
 	//
+	//-----Damage Resistance
+		//Normal:  reduces the amount of normal damage that is taken
+		//Fire:	reduces the amount of fire damage that is taken
+		//Stabbing: reduces the amount of stabbing damage that is taken
+		//Blunt:	reduces the amount of Blunt damage that is taken
+		//Poison:	reduces the amount of poison damage that is taken
 //-----------------
 
 

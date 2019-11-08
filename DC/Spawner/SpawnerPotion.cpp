@@ -2,7 +2,7 @@
 
 //will create a random potion (true Random)
 Potion* Spawner::CreateRandomPotion(){
-    switch(rand()%12){
+    switch(rand()%17){
         case 0:return CreateSpeedStatPotion();
         case 1:return CreateStrengthStatPotion();
         case 2:return CreateMaxHealthStatPotion();
@@ -15,13 +15,18 @@ Potion* Spawner::CreateRandomPotion(){
         case 9: return CreateCureEffectsPotion();
         case 10: return CreateCureNegativeEffectsPotion();
         case 11:return CreateHealthPotion();
+		case 12: return CreateBluntResistancePotion();
+		case 13: return CreateNormalResistancePotion();
+		case 14: return CreateFireResistancePotion();
+		case 15: return CreateStabbingResistancePotion();
+		case 16: return CreatePoisonResistancePotion();
         default:return CreateHealthPotion();
 
     }
 }
 //will create a random potion (leans more towards health potions) 55%chance
 Potion* Spawner::CreateRandomPotion_MoreHealth(){
-   switch(rand()%20){
+   switch(rand()%25){
         case 0:return CreateSpeedStatPotion();
         case 1:return CreateStrengthStatPotion();
         case 2:return CreateMaxHealthStatPotion();
@@ -33,6 +38,11 @@ Potion* Spawner::CreateRandomPotion_MoreHealth(){
         case 8: return CreateSpeedBoostPotion();
         case 9: return CreateCureEffectsPotion();
         case 10: return CreateCureNegativeEffectsPotion();
+		case 12: return CreateBluntResistancePotion();
+		case 13: return CreateNormalResistancePotion();
+		case 14: return CreateFireResistancePotion();
+		case 15: return CreateStabbingResistancePotion();
+		case 16: return CreatePoisonResistancePotion();
         default:return CreateHealthPotion();
 
     }
@@ -179,7 +189,6 @@ Potion* Spawner::CreateStaminaStatPotion(bool random , int level , int Tier ){
 	return ret;
 }
 
-
 Potion* Spawner::CreateDefenseBoostPotion(bool random , int level , int Tier ){
 		Potion * ret=new Potion();
 
@@ -239,5 +248,89 @@ Potion* Spawner::CreateCureNegativeEffectsPotion(bool random , int level , int T
         ret->setDescription("Removes all Damage over Time and Debuff effects");
 		return ret;
 }
-		
 
+
+//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+Potion* Spawner::CreateNormalResistancePotion(bool random , int level , int Tier ){
+    Potion * ret = new Potion();
+	ret->setType(NormalResistance_PotionType);
+
+	ret->setBaseBooster(1);
+	if (random) {
+		//change later based on level
+		ret->setTier(rand() % 5);
+	}
+	else {
+		ret->setTier(Tier);
+	}
+	ret->setName("Tier " + to_string(ret->getTier()) + "Normal Resistance Potion");
+	ret->setValue(5*ret->getTier());
+    ret ->setDescription("increases the users stamina stat");
+
+	return ret;
+}
+
+//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+Potion* Spawner::CreateFireResistancePotion(bool random , int level , int Tier ){
+    Potion * ret = new Potion();
+	ret->setType(FireResistance_PotionType);
+
+	ret->setBaseBooster(1);
+	if (random) {
+		//change later based on level
+		ret->setTier(rand() % 5);
+	}
+	else {
+		ret->setTier(Tier);
+	}
+	ret->setName("Tier " + to_string(ret->getTier()) + "Fire Resistance Potion");
+	ret->setValue(5*ret->getTier());
+    ret ->setDescription("increases the users stamina stat");
+
+	return ret;
+}
+
+//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+Potion* Spawner::CreateBluntResistancePotion(bool random , int level , int Tier ){
+    Potion * ret = new Potion();
+	ret->setType(BluntResistance_PotionType);
+
+	ret->setBaseBooster(1);
+	if (random) {
+		//change later based on level
+		ret->setTier(rand() % 5);
+	}
+	else {
+		ret->setTier(Tier);
+	}
+	ret->setName("Tier " + to_string(ret->getTier()) + "Blunt Resistance Potion");
+	ret->setValue(5*ret->getTier());
+    ret ->setDescription("increases the users stamina stat");
+
+	return ret;
+}
+
+//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+Potion* Spawner::CreateStabbingResistancePotion(bool random , int level , int Tier ){
+
+}
+
+//if random is true it will randomly assign a tier based on the level input else it will make it with the inputed tier
+Potion* Spawner::CreatePoisonResistancePotion(bool random , int level , int Tier ){
+    Potion * ret = new Potion();
+	ret->setType(PoisonResistance_PotonType);
+
+	ret->setBaseBooster(1);
+	if (random) {
+		//change later based on level
+		ret->setTier(rand() % 5);
+	}
+	else {
+		ret->setTier(Tier);
+	}
+	ret->setName("Tier " + to_string(ret->getTier()) + "Poison Resistance Potion");
+	ret->setValue(5*ret->getTier());
+    ret ->setDescription("increases the users stamina stat");
+
+	return ret;
+}

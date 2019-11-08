@@ -34,6 +34,9 @@ int Player::getMoney() {
 
 }
 void Player::setMoney(int m) {
+	if (m<0){
+		m=0;
+	}
 	this->Money = m;
 
 }

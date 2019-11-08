@@ -222,3 +222,10 @@ void DoubleLinkedList<T>::setData(int position, T data) {
 	}
 	
 }
+
+template<class T>
+void DoubleLinkedList<T>::clear(){
+	while (this->Size()!=0){
+		this->pop();
+	}
+}

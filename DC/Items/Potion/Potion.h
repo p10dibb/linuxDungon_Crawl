@@ -4,7 +4,8 @@
 enum PotionTypes_enum { NULL_PotionType, 
 Health_PotionType, CureActiveEffects_PotionType,CureNegativeEffects_PotionType,		//benefits the creatures
 SpeedStat_PotionType, StrengthStat_PotionType, MaxHealthStat_PotionType, DefenseStat_PotionType,DamageStat_PotionType,StaminaStat_PotionType, //increases stats
-IncreaseSpeed_PotionType,IncreaseDamage_PotionType,IncreaseDefense_PotionType };  //buff potions
+IncreaseSpeed_PotionType,IncreaseDamage_PotionType,IncreaseDefense_PotionType,//buff potions
+NormalResistance_PotionType, FireResistance_PotionType,PoisonResistance_PotonType,BluntResistance_PotionType,StabbingResistance_PotionType };  //Resistance Potions
 
 //Potion Descriptions-----
 	//NULL: does Nothing
@@ -26,6 +27,13 @@ IncreaseSpeed_PotionType,IncreaseDamage_PotionType,IncreaseDefense_PotionType };
 		//IncreaseDamage: adds a damage boost effect to the creature
 		//IncreaseDefense: adds a defence boost effect to the creature
 	//--------
+	//Resistance Potions
+		//Normal
+		//Fire
+		//Poison
+		//Blunt
+		//Stabbing
+	//------------------
 
 //-----------
 
@@ -69,6 +77,10 @@ private:
 	bool UseCureActiveEffects(Creature *creature);
 	//removes all DOT and DeBuff effects from creature
 	bool UseCureNegativeEffects(Creature *creature);
+	
+	//adds a Resistance effect to the  creature
+	bool UseResistancePotion(Creature *creature);
+
 
 	
 public:

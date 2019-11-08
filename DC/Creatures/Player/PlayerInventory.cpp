@@ -28,6 +28,7 @@ bool Player::addToInventory(Item *i) {
 			if (this->Inventory[k].amount == 0) {
 				this->Inventory[k].amount = 1;
 				this->Inventory[k].item = i;
+				this->setCurrentWeight(this->getCurrentWeight() + i->getWeight());
 				this->setOverWeighted(this->getMaxWeight() < this->getCurrentWeight());
 				return true;
 			}
@@ -49,12 +50,17 @@ Item *Player::RemoveItemFromInventory(int pos){
 	if (pos>this->InventorySize &&pos<0){
 		return NULL;
 	}
-	Item*temp=this->Inventory[pos].item;
+	Item* temp=this->Inventory[pos].item;
 	this->Inventory[pos].amount--;
 	if (this->Inventory[pos].amount<=0){
 		this->Inventory[pos].item=new Item();
 		this->Inventory[pos].amount=0;
+		
 	}
+	this->setCurrentWeight(this->getCurrentWeight()-temp->getWeight());
+	this->setOverWeighted(this->getMaxWeight() < this->getCurrentWeight());
+		
+	
 	return temp;
 
 }

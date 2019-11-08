@@ -39,3 +39,6 @@ public:
 
 
 };
+
+//takes a rarity level and returns a string
+string RarityToString(ItemRarity_enum rarity);

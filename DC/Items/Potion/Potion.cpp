@@ -73,6 +73,11 @@ bool Potion::Use(Creature *creature) {
 	case IncreaseSpeed_PotionType: this->UseIncreaseSpeed(creature);break;
 	case CureActiveEffects_PotionType:this->UseCureActiveEffects(creature);break;
 	case CureNegativeEffects_PotionType: this->UseCureNegativeEffects(creature);break;
+	case NormalResistance_PotionType: this->UseResistancePotion(creature);break;
+	case PoisonResistance_PotonType: this->UseResistancePotion(creature);break;
+	case FireResistance_PotionType: this->UseResistancePotion(creature);break;
+	case BluntResistance_PotionType:this->UseResistancePotion(creature);break;
+	case StabbingResistance_PotionType: this->UseResistancePotion(creature);break;
 	default: return false;
 		break;
 	}
@@ -154,22 +159,41 @@ bool Potion::UseCureNegativeEffects(Creature *creature){
 string Potion::getTypeName(){
 	switch (this->Type)
 	{
-
-	case NULL_PotionType: return "NULL";
-	case Health_PotionType: return "Restore Health";
-	case SpeedStat_PotionType:return "Speed Stat Boost";
-	case StrengthStat_PotionType: return "Strength Stat Boost";
-	case MaxHealthStat_PotionType: return "MaxHealth Stat Boost";
-	case DefenseStat_PotionType: return "Defense Stat Boost";
-	case DamageStat_PotionType: return "Damage Stat Boost";
-	case StaminaStat_PotionType: return "Stamina Stat Boost";
-	case IncreaseDamage_PotionType: return "Damage Boost Effect";
-	case IncreaseDefense_PotionType: return "Defense Boost Effect";
-	case IncreaseSpeed_PotionType: return "Speed Boost Effect";
-	case CureActiveEffects_PotionType:return "Cure All Effects";
-	case CureNegativeEffects_PotionType: return "Cure All Negativve Effects";
-	default:
-		break;
+		case NULL_PotionType: return "NULL";
+		case Health_PotionType: return "Restore Health";
+		case SpeedStat_PotionType:return "Speed Stat Boost";
+		case StrengthStat_PotionType: return "Strength Stat Boost";
+		case MaxHealthStat_PotionType: return "MaxHealth Stat Boost";
+		case DefenseStat_PotionType: return "Defense Stat Boost";
+		case DamageStat_PotionType: return "Damage Stat Boost";
+		case StaminaStat_PotionType: return "Stamina Stat Boost";
+		case IncreaseDamage_PotionType: return "Damage Boost Effect";
+		case IncreaseDefense_PotionType: return "Defense Boost Effect";
+		case IncreaseSpeed_PotionType: return "Speed Boost Effect";
+		case CureActiveEffects_PotionType:return "Cure All Effects";
+		case CureNegativeEffects_PotionType: return "Cure All Negativve Effects";
+		case NormalResistance_PotionType: return "Normal Resistance";
+		case PoisonResistance_PotonType: return "Poison Resistance";
+		case FireResistance_PotionType: return "Fire Resistance";
+		case BluntResistance_PotionType:return "Blunt Resistance";
+		case StabbingResistance_PotionType: "Stabbing Resistance";
+		default:
+			break;
 	}
 	return "";
+}
+
+//adds a Resistance effect to the  creature
+bool Potion::UseResistancePotion(Creature *creature){
+	switch (this->Type)
+	{
+	case FireResistance_PotionType:return creature->AddResistanceEffect(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,this->Tier*5,5));
+	case PoisonResistance_PotonType: return creature->AddResistanceEffect(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,this->Tier*5,5));
+	case BluntResistance_PotionType: return creature->AddResistanceEffect(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,this->Tier*5,5));
+	case StabbingResistance_PotionType: return creature->AddResistanceEffect(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,this->Tier*5,5));
+	case NormalResistance_PotionType: return creature->AddResistanceEffect(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,this->Tier*5,5));
+
+	default:return false;
+	}
+
 }

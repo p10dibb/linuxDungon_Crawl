@@ -1,6 +1,20 @@
 #pragma once
 #include "Item.h"
 
+//takes a rarity level and returns a string
+string RarityToString(ItemRarity_enum rarity){
+	switch (rarity)
+	{
+	case Common_ItemRarity:return "Common";
+	case UnCommon_ItemRarity: return "UnCommon";
+	case Rare_ItemRarity:return "Rare";
+	case Legendary_ItemRarity:return "Legendary";
+	case Unique_ItemRarity: return "Unique";
+	case DEVELOPER_ItemRarity: return "DEVELOPER";
+	
+	default:return "NULL";
+	}
+}
 
 
 Item::Item() {

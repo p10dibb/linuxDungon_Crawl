@@ -8,16 +8,17 @@ Creature::Creature() {
 	//sets y=1
 	this->position[1] = 1;
 
-	this->Damage = 0;
-	this->Speed = 0;
+	this->Damage = 1;
+	this->Speed = 1;
 	this->Defense = 0;
-	this->Stamina = 0;
+	this->Stamina = 1;
+	this->Strength=0;
 
 	this->MaxHealth = 100;
 	this->Health = 100;
 	this->Level = 1;
 	this->XP = 0;
-	this->Name;
+	this->Name="";
 
 	//this->ResistanceEffects.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,0,15));
 
@@ -28,7 +29,10 @@ int Creature::getMaxHealth() {
 }
 void Creature::setMaxHealth(int m) {
 	if (m < 1) {
-		m = 0;
+		m = 1;
+	}
+	if(m<this->getHealth()){
+		this->setHealth(m);
 	}
 	this->MaxHealth = m;
 }
@@ -40,6 +44,9 @@ int Creature::getHealth() {
 void Creature::setHealth(int h) {
 	if (h < 0) {
 		h = 0;
+	}
+	if(h>this->getMaxHealth()){
+		h=this->getMaxHealth();
 	}
 	this->Health = h;
 }
@@ -60,6 +67,9 @@ int Creature::getXP() {
 	return this->XP;
 }
 void Creature::setXP(int x) {
+	if(x<0){
+		x=0;
+	}
 	this->XP = x;
 }
 string Creature::getName() {
@@ -119,6 +129,9 @@ int  Creature::getStrength() {
 	return this->Strength;
 }
 void  Creature::setStrength(int s) {
+	if (s < 0) {
+		s=0;
+	}
 	this->Strength = s;
 }
 
@@ -141,8 +154,10 @@ int Creature::move(char  map[][10],int direction) {
 
 
 
+
 //check if it contains effect and returns that effects location in list and -1 if it doesnt exist;
 int Creature::ContainDamageOverTimeEffect(Effects_enum effect){
+
 	for (int i = 0; i < this->DamageOverTimeEffects.Size(); i++) {
 		if (this->DamageOverTimeEffects.getNode(i)->getData().getEffect()== effect) {
 			return i;
@@ -247,7 +262,7 @@ bool Creature::AddBuffEffect(ActiveEffects effect){
 	if(pos==-1){
 		this->BuffEffects.add(effect);
 	}else {
-		ActiveEffects temp=this->DamageOverTimeEffects.getData(pos);
+		ActiveEffects temp=this->BuffEffects.getData(pos);
 		//if it is damage over time or Buff it compares the damage and adds the higher of the 2 plus half the lower ones rounds
 			if (temp.getDamage()<effect.getDamage()){
 				this->BuffEffects.getNode(pos)->Data.setDamage(effect.getDamage());
@@ -269,11 +284,24 @@ bool Creature::AddDeBuffEffect(ActiveEffects effect){
 	int pos = this->ContainDeBuffEffect(effect.getEffect());
 	if(pos==-1){
 		this->DeBuffEffects.add(effect);
-	}else {		
-		this->DeBuffEffects.getNode(pos)->Data.addRounds(effect.getRound());			
+	}else {
+		ActiveEffects temp=this->DeBuffEffects.getData(pos);
+		//if it is damage over time or Buff it compares the damage and adds the higher of the 2 plus half the lower ones rounds
+			if (temp.getModifier()<effect.getModifier()){
+				this->DeBuffEffects.getNode(pos)->Data.setModifier(effect.getModifier());
+				this->DeBuffEffects.getNode(pos)->Data.setRound((temp.getRound()/2)+effect.getRound());
+			}else if (temp.getModifier()>effect.getModifier()){
+				
+				this->DeBuffEffects.getNode(pos)->Data.setRound((effect.getRound()/2)+temp.getRound());
+			}
+			else{
+				
+				this->DeBuffEffects.getNode(pos)->Data.addRounds(effect.getRound());
+			}
 	}
 	return true;
 }
+
 //checks if effect is in list and if it is then increase time else add new effect.
 bool Creature::AddResistanceEffect(ActiveEffects effect){
 	if (effect.getEffectType()!=Resistance_EffectTypes){
@@ -282,8 +310,20 @@ bool Creature::AddResistanceEffect(ActiveEffects effect){
 	int pos = this->ContainResistanceEffect(effect.getEffect());
 	if(pos==-1){
 		this->ResistanceEffects.add(effect);
-	}else {		
-		this->ResistanceEffects.getNode(pos)->Data.addRounds(effect.getRound());			
+	}else {
+		ActiveEffects temp=this->ResistanceEffects.getData(pos);
+		//if it is damage over time or Buff it compares the damage and adds the higher of the 2 plus half the lower ones rounds
+			if (temp.getResistance()<effect.getResistance()){
+				this->ResistanceEffects.getNode(pos)->Data.setResistance(effect.getResistance());
+				this->ResistanceEffects.getNode(pos)->Data.setRound((temp.getRound()/2)+effect.getRound());
+			}else if (temp.getResistance()>effect.getResistance()){
+				
+				this->ResistanceEffects.getNode(pos)->Data.setRound((effect.getRound()/2)+temp.getRound());
+			}
+			else{
+				
+				this->ResistanceEffects.getNode(pos)->Data.addRounds(effect.getRound());
+			}
 	}
 	return true;
 }
@@ -443,7 +483,7 @@ int Creature::runDamageOverTimeEffects() {
 		}
 	}
 	this->DecrementAllEffects();
-	return 0;
+	return total;
 }
 
 
@@ -539,4 +579,21 @@ DoubleLinkedList<ActiveEffects> Creature::getResistanceEffects(){
 	return this->ResistanceEffects;
 }
 
+
+//the Double linked list DeBuff Effects
+DoubleLinkedList<ActiveEffects> Creature::getDeBuffEffects(){
+	return this->DeBuffEffects;
+}
+//the Double linked list Buff Effects
+DoubleLinkedList<ActiveEffects> Creature::getBuffEffects(){
+	return this->BuffEffects;
+}
+//the Double linked list Combat Effects
+DoubleLinkedList<ActiveEffects> Creature::getCombatEffects(){
+	return this->CombatEffects;
+}
+//the Double linked list DamageOverTime Effects
+DoubleLinkedList<ActiveEffects> Creature::getDamageOverTimeEffects(){
+	return this->DamageOverTimeEffects;
+}
 

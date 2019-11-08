@@ -56,9 +56,9 @@ int PlayerVsZombieCombat(Player* player, Zombie *zed) {
 				player->IncrementDamageRecieved(Damage);
 
 				cout << player->getName() << " takes " << Damage << "damage while trying to escape" << endl<<endl;
-			if (player->getHealth() <= 0) {
-				cout << player->getName()<<" Died while running away" << endl;
-				return -1; //died in escape
+				if (player->getHealth() <= 0) {
+					cout << player->getName()<<" Died while running away" << endl;
+					return -1; //died in escape
 				}else{
 					return -2; //successfull escape
 				}
@@ -101,18 +101,31 @@ int PlayerVsZombieCombat(Player* player, Zombie *zed) {
 int PlayersChoices(Player* player){
 	
 	string input="-1";
-	
+	//int i=0;
 
 	while(1){
-	cout<<"would you like to [attack:1|Run:2|View inventory:3]: ";
+	cout<<"would you like to [attack:1| "<<player->getRight()->getCombatEffect().getEffectName()<<":2| "<<player->getLeft()->getCombatEffect().getEffectName()<<":3| ";
+	cout<<"Run:4|View inventory:5]: ";
 	cin>>input ;
 
 	if (input=="1"){// attack
 		return 0;
-	}else if(input=="2"){// run away
-		return 1;
+	}
+	else if(input=="2"){
+		player->AddCombatEffect(player->getRight()->getCombatEffect());
+		cout<<player->getName()<<" used "<<player->getRight()->getCombatEffect().getEffectName()<<endl;
+		return 2;
 	}
 	else if(input=="3"){
+		player->AddCombatEffect(player->getLeft()->getCombatEffect());
+		cout<<player->getName()<<" used "<<player->getLeft()->getCombatEffect().getEffectName()<<endl;
+		return 3;
+
+	}
+	else if(input=="4"){// run away
+		return 1;
+	}
+	else if(input=="5"){
 		player->InventoryDialogue();
 	}else{
 		cout<<"not valid choice"<<endl;
@@ -120,3 +133,41 @@ int PlayersChoices(Player* player){
 	}
 
 }
+
+
+
+
+// //Applys a bezerk effect to the creature
+// bool ApplyBezerk(Creature * creature){
+// 	creature->AddCombatEffect(ActiveEffects(Combat_EffectTypes,Bezerk_Effects,0,5));
+// 	cout<<creature->getName()<<" Used Bezerk which boosts thier Damage but Decreases Defense"<<endl;
+// 	return true;
+// }
+
+// //Adds a Deffensive stance effect to the creature
+// bool ApplyDefensiveStance(Creature *creature){
+// 	creature->AddCombatEffect(ActiveEffects(Combat_EffectTypes,DefensiveStance_Effects,0,5));
+// 	cout<<creature->getName()<<" Used Defensive Stance which boosts thier Defense but Decreases Speed"<<endl;
+// 	return true;
+// }
+
+// //Applys QuickStrike effect to the creature
+// bool ApplyQuickStrike(Creature *creature){
+// 	creature->AddCombatEffect(ActiveEffects(Combat_EffectTypes,QuickStrike_Effects,0,5));
+// 	cout<<creature->getName()<<" Used Quick Strike which boosts thier Speed but Decreases Defense"<<endl;
+// 	return true;
+// }
+
+// //Adds a Swordsman effect to the creature
+// bool ApplySwordsman(Creature *creature){
+// 	creature->AddCombatEffect(ActiveEffects(Combat_EffectTypes,Swordsman_Effects,0,5));
+// 	cout<<creature->getName()<<" Used Defensive Stance which boosts thier Defense and Damage but Decreases Speed"<<endl;
+// 	return true;
+// }
+
+// //Adds an Animal Fury effect to creature
+// bool ApplyAnimalFury(Creature *creature){
+// 	creature->AddCombatEffect(ActiveEffects(Combat_EffectTypes,AnimalFury_Effects,0,5));
+// 	cout<<creature->getName()<<" Used Animal Fury which boosts thier Speed but Decreases Defense"<<endl;
+// 	return true;
+// }

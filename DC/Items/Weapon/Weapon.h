@@ -21,6 +21,7 @@ private:
 	int Level;
 	int Range;
 	ItemRarity_enum Rarity;
+	ActiveEffects CombatEffect;
 
 public:
 	Weapon();
@@ -51,5 +52,7 @@ public:
 
 	//return the text equivilent of rarity
 	string getRarity_text();
+
+	ActiveEffects getCombatEffect();
 
 };

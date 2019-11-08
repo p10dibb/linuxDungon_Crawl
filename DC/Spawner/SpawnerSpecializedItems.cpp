@@ -1342,7 +1342,7 @@ Weapon* Spawner::CreateTheMarly(int level) {
 
 		RelativeLevel=ret->getLevel()*(Legendary_ItemRarity+1);
 
-
+		ret->setClass(c);
 		switch (c)
 		{
 		case Light_ArmorClass: classMultiplier = this->L; classType = " Light";
@@ -1398,6 +1398,7 @@ Weapon* Spawner::CreateTheMarly(int level) {
 
 		RelativeLevel=ret->getLevel()*(Legendary_ItemRarity+1);
 
+		ret->setClass(c);
 		switch (c)
 		{
 		case Light_ArmorClass: classMultiplier = this->L; classType = " Light";
@@ -1452,7 +1453,7 @@ Weapon* Spawner::CreateTheMarly(int level) {
 
 		RelativeLevel=ret->getLevel()*(Legendary_ItemRarity+1);
 
-
+		ret->setClass(c);
 		switch (c)
 		{
 		case Light_ArmorClass: classMultiplier = this->L; classType = " Light";
@@ -1508,7 +1509,7 @@ Weapon* Spawner::CreateTheMarly(int level) {
 
 		RelativeLevel=ret->getLevel()*(Legendary_ItemRarity+1);
 
-
+		ret->setClass(c);
 		switch (c)
 		{
 		case Light_ArmorClass: classMultiplier = this->L; classType = " Light";
@@ -1564,7 +1565,7 @@ Weapon* Spawner::CreateTheMarly(int level) {
 
 		RelativeLevel=ret->getLevel()*(Legendary_ItemRarity+1);
 
-
+		ret->setClass(c);
 		switch (c)
 		{
 		case Light_ArmorClass: classMultiplier = this->L; classType = " Light";
