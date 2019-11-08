@@ -28,9 +28,9 @@ Item::Item() {
 
 Item::Item(string name, int val, int weight, int stacksize,string description) {
 	this->Name = name;
-	this->Value = val;
-	this->Weight = weight;
-	this->StackSize = stacksize;
+	this->setValue(val);
+	this->setWeight(weight);
+	this->setStackSize(stacksize);
 	this->Description=description;
 }
 
@@ -46,8 +46,8 @@ int Item::getValue() {
 }
 
 void Item::setValue(int v) {
-	if (v < 1) {
-		v = 1;
+	if (v < 0) {
+		v = 0;
 	}
 	this->Value = v;
 }

@@ -65,9 +65,6 @@ private:
 
 public:
 	 ActiveEffects();
-	// ActiveEffects(Effects_enum e, int rounds);
-	// ActiveEffects(Effects_enum e, int rounds,int damage);
-	// ActiveEffects(Effects_enum e, int rounds,int damage,bool isdamage);
 
 	ActiveEffects(EffectTypes_enum type,Effects_enum effect,int modifier,int rounds);
 
@@ -80,7 +77,7 @@ public:
 	void setRound(int r);
 
 	// increases effect time by r
-	void addRounds(int r);
+	bool addRounds(int r);
 
 	//devreases Effect time by x
 	bool Decrement(int x = 1);
@@ -88,15 +85,11 @@ public:
 	//checks if effect time is finnished
 	bool isFinished();
 
-	bool DisplayDetails();
-
-	
-
-	
+	bool DisplayDetails();	
 
 	//------get/set resistance,Damage, multiplier,and modifier all change Modifier
 
-	void setResistance(int Resistance);
+	void setResistance(int Resist);
 	int getResistance();
 
 	void setMultiplier(int multiplier);

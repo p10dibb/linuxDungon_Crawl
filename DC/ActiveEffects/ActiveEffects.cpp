@@ -3,7 +3,7 @@
 ActiveEffects::ActiveEffects() {
 	this->Effect = NULL_Effects;
 	this->EffectType=NULL_EffectTypes;
-	this->RoundsActive = 0;
+	this->setRound(0);
 	this->Modifier = 0;
 }
 
@@ -12,7 +12,7 @@ ActiveEffects::ActiveEffects(EffectTypes_enum type,Effects_enum effect,int modif
 
 	this->EffectType=type;
 	this->Effect=effect;	
-	this->RoundsActive=rounds;
+	this->setRound(rounds);
 
 
 	switch(this->getEffectType()){
@@ -45,13 +45,22 @@ void ActiveEffects::setRound(int r) {
 }
 
 // increases effect time by r
-void ActiveEffects::addRounds(int r) {
+bool ActiveEffects::addRounds(int r) {
+	if(r<1){
+		return false;
+	}
 	this->RoundsActive += r;
+	return true;
 }
 
 //devreases Effect time by x
 bool ActiveEffects::Decrement(int x) {
+	//so it doesnt go negative
 	if (this->RoundsActive == 0){
+		return false;
+	}
+	//so it doesnt go negative
+	if(this->RoundsActive<x){
 		return false;
 	}
 
@@ -65,6 +74,7 @@ bool ActiveEffects::isFinished() {
 	if (RoundsActive == 0) {
 		return true;
 	}
+	return false;
 }
 
 bool ActiveEffects::DisplayDetails() {
@@ -130,14 +140,12 @@ void ActiveEffects::setDamage(int damage){
 	
 }
 //only useable for Resistance_EffectType used to set a resistance between 0 and 100
-void ActiveEffects::setResistance(int Resistance){
+void ActiveEffects::setResistance(int Resist){
 	if(this->EffectType==Resistance_EffectTypes){
-		if(Resistance<0){
-			this->Modifier=0;
-		}else if(Resistance>100){
-			this->Modifier=100;
+		if(Resist>100){
+			Resist=100;
 		}
-		this->Modifier=Resistance;
+		this->Modifier=Resist;
 	}else{
 		this->Modifier=0;
 	}
