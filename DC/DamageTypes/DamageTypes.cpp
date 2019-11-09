@@ -21,7 +21,15 @@
             if(this->getDamageOverTime_time()<=0){
                 this->setDamageOverTime_time(1);
             }
+        }else{
+            if(this->getDamageOverTime_damage()>=1){
+                this->setDamageOverTime_damage(0);
+            }
+            if(this->getDamageOverTime_time()>=1){
+                this->setDamageOverTime_time(0);
+            } 
         }
+        
         this->isDamageOverTime=dot;
     }
     int DamageTypes::getDamageOverTime_damage(){
