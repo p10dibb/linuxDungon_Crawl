@@ -22,12 +22,12 @@ public:
 	void setWeapon(Weapon* w);
 
 	//gets all the attack types as Damage types
-	DoubleLinkedList<DamageTypes> getAllDamageTypes();
+	vector<DamageTypes> getAllDamageTypes();
 	
-	DoubleLinkedList<ActiveEffects> getAllResistanceTypes();
+	vector<ActiveEffects> getAllResistanceTypes();
 
 	//int TakeDamage(int attack);
-	int TakeDamage(DoubleLinkedList<DamageTypes> damageTypes);
+	int TakeDamage(vector<DamageTypes> damageTypes);
 
 
 	void DisplayDetails();
@@ -39,4 +39,4 @@ public:
 
 };
 //inputs a damage amount , damage type, and resistances and reduces damage to the proper damage
-int ReduceDamage(int damage,DamageTypes_enum damageTypes,DoubleLinkedList<ActiveEffects> resistances);
+int ReduceDamage(int damage,DamageTypes_enum damageTypes,vector<ActiveEffects> resistances);

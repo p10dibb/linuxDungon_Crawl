@@ -7,7 +7,7 @@ Armor::Armor() {
 	this->Level = 1;
 	this->Type = NULL_ArmorType;
 	this->Class = NULL_ArmorClass;
-	this->ResistanceTypes.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,5,15));
+	this->ResistanceTypes[NormalResistance_Effects]=ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,5,15);
 	this->TotalResistance=5;
 }
 Armor::Armor(int def, int lvl, ArmorType_enum type, ArmorClass_enum c) {
@@ -16,8 +16,8 @@ Armor::Armor(int def, int lvl, ArmorType_enum type, ArmorClass_enum c) {
 	this->setLevel(lvl);
 	this->Type = type;
 	this->Class = c;	
-	this->ResistanceTypes.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,def,15));
-	this->TotalResistance=this->ResistanceTypes.getData(0).getResistance();
+	this->ResistanceTypes[NormalResistance_Effects]=ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,def,15);
+	this->TotalResistance=this->ResistanceTypes[NormalResistance_Effects].getResistance();
 }
 
 int Armor::getLevel() {
@@ -54,13 +54,16 @@ void Armor::DisplayDetails() {
 	cout << "Type: " << this->getType_text()<<endl;
 	cout <<"Class: "<< this->getClass_text()<<endl;
 	cout << "Resistances: "; //<< //this->Defense << endl; 
+	map<Effects_enum,ActiveEffects>::const_iterator it=this->ResistanceTypes.begin();
 	ActiveEffects temp;
-	for(int i=0; i<this->getResistanceTypes().Size();i++){
-		temp=this->getResistanceTypes().getData(i);
-		cout<<"\t-----"<<i+1<<"---- "<<endl;
+	while(it!=this->ResistanceTypes.end()){
+		temp=it->second;
+		
+		cout<<"\t--------- "<<endl;
 		cout<<"\tResistance Type: "<<temp.getEffectName()<<endl; 
 		cout<<"\t Resistance percent"<<temp.getResistance()<<endl;
 		
+		it++;
 	}
 	
 }
@@ -73,16 +76,33 @@ void Armor::setRarity(ItemRarity_enum rarity){
 }
 
 
-DoubleLinkedList<ActiveEffects> Armor::getResistanceTypes(){
-	return this->ResistanceTypes;
-}
-void Armor::setResistanceTypes(DoubleLinkedList<ActiveEffects> types){
-	this->TotalResistance=0;
-	//adds up all of the resistances for armor
-	for(int i=0;i<types.Size();i++){
-		this->TotalResistance+=types.getData(i).getResistance();
+vector<ActiveEffects> Armor::getResistanceTypes(){
+	vector<ActiveEffects> ret;
+	map<Effects_enum,ActiveEffects>::const_iterator it=this->ResistanceTypes.begin();
+	ActiveEffects temp;
+	while(it!=this->ResistanceTypes.end()){
+		temp=it->second;
+		ret.push_back(temp);
+		it++;
 	}
+	
+
+	return ret;
+}
+void Armor::setResistanceTypes(map<Effects_enum,ActiveEffects> types){
+	this->TotalResistance=0;
 	this->ResistanceTypes=types;
+	//adds up all of the resistances for armor
+	map<Effects_enum,ActiveEffects>::const_iterator it=this->ResistanceTypes.begin();
+	ActiveEffects temp;
+	while(it!=this->ResistanceTypes.end()){
+		temp=it->second;
+		this->TotalResistance+=temp.getResistance();
+	
+		it++;
+	}
+	
+	
 }
 
 //return the text equivilent of rarity
@@ -121,4 +141,20 @@ string Armor::getClass_text(){
 
 int Armor::getTotalResistance(){
 	return this->TotalResistance;
+}
+
+
+bool Armor::addResistanceType(ActiveEffects resistance){
+	if (resistance.getEffectType()!=Resistance_EffectTypes){
+		return false;
+	}
+	
+	if(!this->ResistanceTypes.count(resistance.getEffect())){
+		this->ResistanceTypes[resistance.getEffect()]=resistance;
+	}else{
+		
+		this->ResistanceTypes[resistance.getEffect()].setResistance(resistance.getResistance()+ResistanceTypes[resistance.getEffect()].getResistance());
+	}
+	this->TotalResistance+=resistance.getResistance();
+	return true;
 }

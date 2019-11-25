@@ -1,6 +1,7 @@
 #pragma once
 #include "../Item/Item.h"
 
+
 enum ArmorClass_enum {  NULL_ArmorClass,Light_ArmorClass, Normal_ArmorClass, Heavy_ArmorClass };
 enum ArmorType_enum {NULL_ArmorType, Helmet_ArmorType, Chest_ArmorType, Gloves_ArmorType, Pants_ArmorType, Boots_ArmorType};
 
@@ -18,7 +19,8 @@ private:
 	//items rarity
 	ItemRarity_enum Rarity;
 	//all of the resistances
-	DoubleLinkedList<ActiveEffects> ResistanceTypes;
+	map<Effects_enum,ActiveEffects> ResistanceTypes;
+	//DoubleLinkedList<ActiveEffects> ResistanceTypes;
 
 
 public:
@@ -34,8 +36,10 @@ public:
 	ArmorClass_enum getClass();
 	void setClass(ArmorClass_enum c);
 
-	DoubleLinkedList<ActiveEffects> getResistanceTypes();
-	void setResistanceTypes(DoubleLinkedList<ActiveEffects> types);
+	
+	vector<ActiveEffects> getResistanceTypes();
+	void setResistanceTypes(map<Effects_enum,ActiveEffects> types);
+	bool addResistanceType(ActiveEffects resistance);
 
 	//return the string equivilent of rarity
 	string getRarity_text();

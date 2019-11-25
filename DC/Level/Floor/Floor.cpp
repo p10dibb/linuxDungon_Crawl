@@ -78,7 +78,7 @@ int Floor::NavigateFloor() {
 					player->IncrementRoomsBeenToo();
 				}
 		}
-			if (this->FloorMap[this->getCurrentRoom()[0]][this->getCurrentRoom()[1]].getZeds().Size() !=this->FloorMap[this->getCurrentRoom()[0]][this->getCurrentRoom()[1]].getEnemyAmt()) {
+			if (this->FloorMap[this->getCurrentRoom()[0]][this->getCurrentRoom()[1]].getZeds().size() !=this->FloorMap[this->getCurrentRoom()[0]][this->getCurrentRoom()[1]].getEnemyAmt()) {
 				this->initializeRoom(this->player->getLevel(),currentRoom[0],currentRoom[1]);
 			 }
 
@@ -109,9 +109,9 @@ bool Floor::createRoom( int x, int y, int zedamt,bool isShop ) {
 
 bool Floor::initializeRoom(int level, int x, int y ) {
 	
-	DoubleLinkedList<Zombie> z;
+	vector<Zombie> z;
 	for (int i = 0; i < this->FloorMap[x][y].getEnemyAmt();i++) {
-		z.add(spawner.CreateZombie(level));
+		z.push_back(spawner.CreateZombie(level));
 	}
 	this->FloorMap[x][y].setZeds(z);
 

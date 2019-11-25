@@ -24,13 +24,13 @@ int getFunc(string str, string options[], int size){
 }
 
 //inputs a damage amount , damage type, and resistances and reduces damage to the proper damage
-int ReduceDamage(int damage,DamageTypes_enum damageTypes,DoubleLinkedList<ActiveEffects> resistances){
+int ReduceDamage(int damage,DamageTypes_enum damageTypes,vector<ActiveEffects> resistances){
 	ActiveEffects temp;
 	//cout<<"Entering reduceDamage"<<endl;
 	//cout<<"Resistance Size: "<<resistances.Size()<<endl;
-	for(int i=0; i<resistances.Size();i++){
+	for(int i=0; i<resistances.size();i++){
 		//cout<<"---------------"<<i<<"------------"<<endl;
-		temp=resistances.getData(i);
+		temp=resistances[i];
 		//cout<<"i: "<<i<<temp.getEffectName()<<endl;
 		if(temp.getEffect()==FireResistance_Effects && damageTypes==Fire_DamageType){
 			damage=(damage*(100-temp.getResistance())/100);
@@ -350,66 +350,67 @@ int Player::Navigation(char map[][10]) {
 }
 
 //gets all damage types from variouse weapons
-DoubleLinkedList<DamageTypes> Player::getAllDamageTypes(){
-	DoubleLinkedList<DamageTypes> ret;
-	DoubleLinkedList<DamageTypes> ret2;
+vector<DamageTypes> Player::getAllDamageTypes(){
+	vector<DamageTypes> ret,ret2,temp;
 	//adds base Damage;
-	ret.add(DamageTypes(this->getDamage()));
+	ret.push_back(DamageTypes(this->getDamage()));
 	int i=0;
 
 	//gets all Damage types from right weapon
-	for(i=0;i<this->getRight()->getDamageTypes_Weapon().Size();i++){
-		ret.add(this->getRight()->getDamageTypes_Weapon().getData(i));
+	temp=this->getRight()->getDamageTypes_Weapon();
+	for(i=0;i<temp.size();i++){
+		ret.push_back(temp[i]);
 	}
 	//gets all Damage types from left weapon
-	for(i=0;i<this->getLeft()->getDamageTypes_Weapon().Size();i++){
-		ret.add(this->getLeft()->getDamageTypes_Weapon().getData(i));
+	temp=this->getLeft()->getDamageTypes_Weapon();
+	for(i=0;i<temp.size();i++){
+		ret.push_back(temp[i]);
 	}
 
 	int location=-1;
 	//if no damage booster
-	if (location=this->ContainBuffEffect(DamageBoost_Effects)!=-1){
+	if (location=this->ContainBuffEffect(DamageBoost_Effects)){
 		
 		//gets the multiplier
-		int DamageMultiplier=this->getBuffEffect(location).getMultiplier();
+		int DamageMultiplier=this->getBuffEffect(DamageBoost_Effects).getMultiplier();
 		//new Linkedlist
 		
 		DamageTypes cur;
-		for (int i=0;i<ret.Size();i++){
-			cur=ret.getData(i);
-			ret2.add(DamageTypes(cur.getDamage()*DamageMultiplier,cur.getProbability(),cur.getType(),cur.getIsDamageOverTime(),cur.getDamageOverTime_damage(),cur.getDamageOverTime_time()));
+		for (int i=0;i<ret.size();i++){
+			cur=ret[i];
+			ret2.push_back(DamageTypes(cur.getDamage()*DamageMultiplier,cur.getProbability(),cur.getType(),cur.getIsDamageOverTime(),cur.getDamageOverTime_damage(),cur.getDamageOverTime_time()));
 			
 		}
 		ret= ret2;
 		ret2.clear();
 	}
 	//if bezerk effect is active
-	if (location=this->ContainBuffEffect(Bezerk_Effects)!=-1){
+	if (location=this->ContainBuffEffect(Bezerk_Effects)){
 		
 		//gets the multiplier
-		int DamageMultiplier=this->getBuffEffect(location).getMultiplier();
+		int DamageMultiplier=this->getBuffEffect(Bezerk_Effects).getMultiplier();
 		//new Linkedlist
 		
 		DamageTypes cur;
-		for (int i=0;i<ret.Size();i++){
-			cur=ret.getData(i);
-			ret2.add(DamageTypes(cur.getDamage()*1.25,cur.getProbability(),cur.getType(),cur.getIsDamageOverTime(),cur.getDamageOverTime_damage(),cur.getDamageOverTime_time()));
+		for (int i=0;i<ret.size();i++){
+			cur=ret[i];
+			ret2.push_back(DamageTypes(cur.getDamage()*1.25,cur.getProbability(),cur.getType(),cur.getIsDamageOverTime(),cur.getDamageOverTime_damage(),cur.getDamageOverTime_time()));
 			
 		}
 		ret= ret2;
 		ret2.clear();
 	}
 	//if swordsman effect is active
-	if (location=this->ContainBuffEffect(Swordsman_Effects)!=-1){
+	if (location=this->ContainBuffEffect(Swordsman_Effects)){
 		
 		//gets the multiplier
-		int DamageMultiplier=this->getBuffEffect(location).getMultiplier();
+		int DamageMultiplier=this->getBuffEffect(Swordsman_Effects).getMultiplier();
 		//new Linkedlist
 		
 		DamageTypes cur;
-		for (int i=0;i<ret.Size();i++){
-			cur=ret.getData(i);
-			ret2.add(DamageTypes(cur.getDamage()*1.15,cur.getProbability(),cur.getType(),cur.getIsDamageOverTime(),cur.getDamageOverTime_damage(),cur.getDamageOverTime_time()));
+		for (int i=0;i<ret.size();i++){
+			cur=ret[i];
+			ret2.push_back(DamageTypes(cur.getDamage()*1.15,cur.getProbability(),cur.getType(),cur.getIsDamageOverTime(),cur.getDamageOverTime_damage(),cur.getDamageOverTime_time()));
 			
 		}
 		ret= ret2;
@@ -427,88 +428,96 @@ DoubleLinkedList<DamageTypes> Player::getAllDamageTypes(){
 }
 
 //Gets all Resistance types
-DoubleLinkedList<ActiveEffects> Player::getAllResistanceTypes(){
+vector<ActiveEffects> Player::getAllResistanceTypes(){
 	//cout<<"entering get resistance"<<endl;
-	DoubleLinkedList<ActiveEffects> ret=this->getResistanceEffects();
-	DoubleLinkedList<ActiveEffects> temp;	
+	vector<ActiveEffects> ret;
+	vector<ActiveEffects> temp;	
 	ActiveEffects tempEffect;
 	int tempResistance;
 	int i;
 
-	//takes current damage stat and converts to an active effect
-	ret.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,this->getDefense(),10));
+	if(!this->getResistanceEffects().empty()){
+		map<Effects_enum,ActiveEffects>::const_iterator it =this->getResistanceEffects().begin();
+		while(it!=this->getResistanceEffects().end()){
+			ret.push_back(it->second);
+			it++;
+		}
+	}
 
-	ret.add(this->Right->getDefense());
-	ret.add(this->Left->getDefense());
+	//takes current damage stat and converts to an active effect
+	ret.push_back(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,this->getDefense(),10));
+
+	ret.push_back(this->Right->getDefense());
+	ret.push_back(this->Left->getDefense());
 
 	
 	temp=this->getHead()->getResistanceTypes();
-	for( i=0; i<temp.Size();i++){
-		ret.add(temp.getData(i));
+	for( i=0; i<temp.size();i++){
+		ret.push_back(temp[i]);
 	}
 	temp=this->getTorso()->getResistanceTypes();
-	for( i=0; i<temp.Size();i++){
-		ret.add(temp.getData(i));
+	for( i=0; i<temp.size();i++){
+		ret.push_back(temp[i]);
 	}
 	temp=this->getFeet()->getResistanceTypes();
-	for( i=0; i<temp.Size();i++){
-		ret.add(temp.getData(i));
+	for( i=0; i<temp.size();i++){
+		ret.push_back(temp[i]);
 	}
 	temp=this->getLegs()->getResistanceTypes();
-	for( i=0; i<temp.Size();i++){
-		ret.add(temp.getData(i));
+	for( i=0; i<temp.size();i++){
+		ret.push_back(temp[i]);
 	}
 	temp=this->getHands()->getResistanceTypes();
-	for( i=0; i<temp.Size();i++){
-		ret.add(temp.getData(i));
+	for( i=0; i<temp.size();i++){
+		ret.push_back(temp[i]);
 	}
 
 	if(this->ContainCombatEffect(DefensiveStance_Effects)!=-1){
 		temp.clear();
-		for (i=0;i<ret.Size();i++){
-			tempEffect=ret.getData(i);
+		for (i=0;i<ret.size();i++){
+			tempEffect=ret[i];
 			tempResistance=tempEffect.getResistance()*1.25;
-			temp.add(ActiveEffects(tempEffect.getEffectType(),tempEffect.getEffect(),tempResistance,tempEffect.getRound()));
+			temp.push_back(ActiveEffects(tempEffect.getEffectType(),tempEffect.getEffect(),tempResistance,tempEffect.getRound()));
 		}
 		ret=temp;
 	}
 	if(this->ContainCombatEffect(QuickStrike_Effects)!=-1){
 		temp.clear();
-		for (i=0;i<ret.Size();i++){
-			tempEffect=ret.getData(i);
+		for (i=0;i<ret.size();i++){
+			tempEffect=ret[i];
 			tempResistance=tempEffect.getResistance()*.75;
-			temp.add(ActiveEffects(tempEffect.getEffectType(),tempEffect.getEffect(),tempResistance,tempEffect.getRound()));
+			temp.push_back(ActiveEffects(tempEffect.getEffectType(),tempEffect.getEffect(),tempResistance,tempEffect.getRound()));
 		}
 		ret=temp;
 	}
 	if(this->ContainCombatEffect(AnimalFury_Effects)!=-1){
 		temp.clear();
-		for (i=0;i<ret.Size();i++){
-			tempEffect=ret.getData(i);
+		for (i=0;i<ret.size();i++){
+			tempEffect=ret[i];
 			
 			tempResistance=tempEffect.getResistance()*.75;
-			temp.add(ActiveEffects(tempEffect.getEffectType(),tempEffect.getEffect(),tempResistance,tempEffect.getRound()));
+			temp.push_back(ActiveEffects(tempEffect.getEffectType(),tempEffect.getEffect(),tempResistance,tempEffect.getRound()));
 		}
 		ret=temp;
 	}
 	if(this->ContainCombatEffect(Bezerk_Effects)!=-1){
 		temp.clear();
-		for (i=0;i<ret.Size();i++){
-			tempEffect=ret.getData(i);
+		for (i=0;i<ret.size();i++){
+			tempEffect=ret[i];
 			tempResistance=tempEffect.getResistance()*.75;
 			//temp.add(ActiveEffects(tempEffect.getEffectType(),tempEffect.getEffect(),tempEffect.getResistance()*.75,tempEffect.getRound()));
 		
-			temp.add(ActiveEffects(tempEffect.getEffectType(),tempEffect.getEffect(),tempResistance,tempEffect.getRound()));
+			temp.push_back(ActiveEffects(tempEffect.getEffectType(),tempEffect.getEffect(),tempResistance,tempEffect.getRound()));
 
 		}
 		ret=temp;
 	}
 	if(this->ContainCombatEffect(Swordsman_Effects)!=-1){
 		temp.clear();
-		for (i=0;i<ret.Size();i++){
-			tempEffect=ret.getData(i);
+		for (i=0;i<ret.size();i++){
+			tempEffect=ret[i];
 			tempResistance=tempEffect.getResistance()*1.15;
-			temp.add(ActiveEffects(tempEffect.getEffectType(),tempEffect.getEffect(),tempResistance,tempEffect.getRound()));
+			temp.push_back(ActiveEffects(tempEffect.getEffectType(),tempEffect.getEffect(),tempResistance,tempEffect.getRound()));
 		}
 		ret=temp;
 	}
@@ -519,17 +528,17 @@ DoubleLinkedList<ActiveEffects> Player::getAllResistanceTypes(){
 }
 
 //recieves a linked list of damage types and and runs through the damage taken
-int Player::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
+int Player::TakeDamage(vector<DamageTypes> damageTypes){
 	//cout<<"entering take damage"<<endl;
 		DamageTypes current;
 		int location=1,totalDamage=0;;
 
-		DoubleLinkedList<ActiveEffects> resistances =this->getAllResistanceTypes();
+		vector<ActiveEffects> resistances =this->getAllResistanceTypes();
 		//itterates through all damage types
 		//cout<<"damageTypes:"<<damageTypes.Size()<<endl;
-		for(int i=0;i<damageTypes.Size();i++){
+		for(int i=0;i<damageTypes.size();i++){
 			
-			current=damageTypes.getData(i);
+			current=damageTypes[i];
 		//	cout<<"i: "<<i<<current.getName()<<endl;
 			//checks to see if damage type happens
 			if(rand()%100<=current.getProbability()){
@@ -547,9 +556,9 @@ int Player::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
 		}			
 
 		// checks if there is a defense boost and suptracks total armor from damage
-		if(location=ContainBuffEffect(DefenseBoost_Effects)!=-1){
+		if(location=ContainBuffEffect(DefenseBoost_Effects)){
 				 
-			totalDamage=totalDamage /this->getBuffEffect(location).getMultiplier();
+			totalDamage=totalDamage /this->getBuffEffect(DefenseBoost_Effects).getMultiplier();
 		}
 	
 		if (totalDamage< 1) {

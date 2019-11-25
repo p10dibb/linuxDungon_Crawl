@@ -4,17 +4,18 @@
 Weapon::Weapon() {
 	Item();
 	this->Type = NULL_WeaponType;
-	this->DamageTypes_Weapon.add(DamageTypes());
+	this->DamageTypes_Weapon[Normal_DamageType]=DamageTypes();
 
 	this->Defense = this->Defense= ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,0,15);;
-	this->TwoHanded = false;
-	this->Speed = 0;
-	this->Level = 0;
-	this->Range = 0;
+	this->TwoHanded = false;//doesnt do anything yet
+	this->Speed = 1;
+	this->Level = 1;
+	this->Range = 1;
+	this->calculateWeaponRank();
 }
-Weapon::Weapon(int Dam, int Def, bool TH, int Sp, int Lvl, int Rng,WeaponTypes_enum type, DoubleLinkedList<DamageTypes> damageTypes) {
+Weapon::Weapon( int Def, bool TH, int Sp, int Lvl, int Rng,WeaponTypes_enum type, map<DamageTypes_enum,DamageTypes> damageTypes) {
 	Item();
-	this->Type = type;
+	this->setType(type);
 	switch (type)
 	{
 	case Sword_WeaponType:this->CombatEffect=ActiveEffects(Combat_EffectTypes,Swordsman_Effects,1,5);break;
@@ -24,12 +25,13 @@ Weapon::Weapon(int Dam, int Def, bool TH, int Sp, int Lvl, int Rng,WeaponTypes_e
 	case Shield_WeaponType:this->CombatEffect=ActiveEffects(Combat_EffectTypes,DefensiveStance_Effects,1,5);break;	
 	default:break;
 	}
-	this->Defense= ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,Def,15);
-	this->TwoHanded = TH;
-	this->Speed = Sp;
-	this->Level = Lvl;
-	this->Range = Rng;
-	this->DamageTypes_Weapon=damageTypes;
+	this->setDefense(Def);
+	this->setTwoHanded(TH);
+	this->setSpeed(Sp);
+	this->setLevel(Lvl);
+	this->setRange(Rng);
+	this->setDamageTypes_Weapon(damageTypes);
+	this->calculateWeaponRank();
 }
 
 ActiveEffects Weapon::getDefense() {
@@ -106,26 +108,53 @@ void Weapon::DisplayDetails() {
 	cout << "Range: \t" << this->Range << endl;
 	cout << "Rarity:\t"<<this->getRarity_text()<<endl;
 	cout<<"Damage Types:"<<endl;
-	for(int i=0;i<this->DamageTypes_Weapon.Size();i++){
-		this->DamageTypes_Weapon.getData(i).DisplayDetails();
+
+	DamageTypes temp;
+	map<DamageTypes_enum,DamageTypes>::const_iterator it =this->DamageTypes_Weapon.begin();
+	while(it!=DamageTypes_Weapon.end()){
+		temp=it->second;
+		temp.DisplayDetails();
+		it++;
 	}
-
 }
 
-DoubleLinkedList<DamageTypes> Weapon::getDamageTypes_Weapon(){
-		return this->DamageTypes_Weapon;
+vector<DamageTypes> Weapon::getDamageTypes_Weapon(){
+	vector<DamageTypes> ret;
+
+	map<DamageTypes_enum,DamageTypes>::const_iterator it= this->DamageTypes_Weapon.begin();
+
+	while (it!=this->DamageTypes_Weapon.end())
+	{
+		ret.push_back(it->second);
+		it++;
+	}
+	
+	return ret;
 }
-void Weapon::setDamageTypes_Weapon(DoubleLinkedList<DamageTypes> damagetypes){
+void Weapon::setDamageTypes_Weapon(map<DamageTypes_enum,DamageTypes> damagetypes){
 		this->DamageTypes_Weapon=damagetypes;
+		this->calculateWeaponRank();
 }
 void Weapon::addDamageType(DamageTypes type){
-		this->DamageTypes_Weapon.add(type);
+
+	if(this->DamageTypes_Weapon.count(type.getType())!=1){
+		this->DamageTypes_Weapon[type.getType()]=type;
+	}else{
+		//averages the probability
+		this->DamageTypes_Weapon[type.getType()].setProbability((this->DamageTypes_Weapon[type.getType()].getProbability()+type.getProbability())/2);
+		//adds the damages
+		this->DamageTypes_Weapon[type.getType()].setDamage(this->DamageTypes_Weapon[type.getType()].getDamage()+type.getDamage());
+	}
+	this->calculateWeaponRank();
+	
 }
 
 
 ItemRarity_enum Weapon::getRarity(){
 	return this->Rarity;
 }
+
+
 void Weapon::setRarity(ItemRarity_enum rarity){
 	this->Rarity=rarity;
 }
@@ -149,3 +178,29 @@ string Weapon::getRarity_text(){
 ActiveEffects Weapon::getCombatEffect(){
 	return this->CombatEffect;
 }
+
+int Weapon::getWeaponRank(){
+	return this->WeaponRank;
+	
+
+}
+
+//calculates the DamageRank
+int Weapon::calculateWeaponRank(){
+	int total=0;
+	map<DamageTypes_enum,DamageTypes>::const_iterator it=this->DamageTypes_Weapon.begin();
+	DamageTypes temp;
+	while(it!=this->DamageTypes_Weapon.end()){
+		temp=it->second;
+		total+=(temp.getProbability()*temp.getDamage())/100;
+		it++;
+	}	
+	total*=this->Speed;
+	this->WeaponRank=total;
+	return total;
+}
+
+map<DamageTypes_enum,DamageTypes> Weapon::getDamageTypes_Weapon_Map(){
+	return this->DamageTypes_Weapon;
+}
+	

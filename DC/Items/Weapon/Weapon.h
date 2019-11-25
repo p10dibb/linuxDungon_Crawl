@@ -13,7 +13,7 @@ class Weapon :public Item {
 private:
 	WeaponTypes_enum Type;
 	
-	DoubleLinkedList<DamageTypes> DamageTypes_Weapon;
+	map<DamageTypes_enum,DamageTypes> DamageTypes_Weapon;
 	
 	ActiveEffects Defense;
 	bool TwoHanded;
@@ -23,9 +23,13 @@ private:
 	ItemRarity_enum Rarity;
 	ActiveEffects CombatEffect;
 
+	
+	//sum of all(damage*probability)*speed
+	int WeaponRank;
+
 public:
 	Weapon();
-	Weapon(int Dam, int Def, bool TH, int Sp, int Lvl, int Rng, WeaponTypes_enum type, DoubleLinkedList<DamageTypes> damageTypes);
+	Weapon(int Def, bool TH, int Sp, int Lvl, int Rng, WeaponTypes_enum type, map<DamageTypes_enum,DamageTypes> damageTypes);
 
 	ActiveEffects getDefense();
 	void setDefense(int d);
@@ -37,17 +41,17 @@ public:
 	void setLevel(int l);
 	int getRange();
 	void setRange(int r);
-
-	ItemRarity_enum getRarity();
 	void setRarity(ItemRarity_enum rarity);
+	ItemRarity_enum getRarity();
 
 	WeaponTypes_enum getType();
 	void setType(WeaponTypes_enum w);
 
 	void DisplayDetails();
 
-	DoubleLinkedList<DamageTypes> getDamageTypes_Weapon();
-	void setDamageTypes_Weapon(DoubleLinkedList<DamageTypes> damagetypes);
+	vector<DamageTypes> getDamageTypes_Weapon();
+	map<DamageTypes_enum,DamageTypes> getDamageTypes_Weapon_Map();
+	void setDamageTypes_Weapon(map<DamageTypes_enum,DamageTypes> damagetypes);
 	void addDamageType(DamageTypes type);
 
 	//return the text equivilent of rarity
@@ -55,4 +59,8 @@ public:
 
 	ActiveEffects getCombatEffect();
 
+	//used to see how "good" weapon is 
+	int getWeaponRank();
+	//calculates the DamageRank
+	int calculateWeaponRank();
 };

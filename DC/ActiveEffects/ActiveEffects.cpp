@@ -53,7 +53,7 @@ bool ActiveEffects::addRounds(int r) {
 	return true;
 }
 
-//devreases Effect time by x
+//decreases Effect time by x
 bool ActiveEffects::Decrement(int x) {
 	//so it doesnt go negative
 	if (this->RoundsActive == 0){

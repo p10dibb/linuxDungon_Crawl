@@ -67,10 +67,10 @@ Player* Room::getPlayer() {
 void Room::setPlayer(Player* p) {
 	this->player = p;
 }
-DoubleLinkedList<Zombie> Room::getZeds() {
+vector<Zombie> Room::getZeds() {
 	return this->zeds;
 }
-void Room::setZeds(DoubleLinkedList<Zombie> z) {
+void Room::setZeds(vector<Zombie> z) {
 	this->zeds = z;
 }
 
@@ -92,8 +92,8 @@ void Room::RenderRoom() {
 	}
 
 	//sets zeds
-	for ( i = 0; i < this->zeds.Size(); i++) {
-		this->BaseMap[this->getZeds().getNode(i)->getData().getPosition()[0]][this->getZeds().getNode(i)->getData().getPosition()[1]] = 'Z';
+	for ( i = 0; i < this->zeds.size(); i++) {
+		this->BaseMap[this->getZeds()[i].getPosition()[0]][this->getZeds()[i].getPosition()[1]] = 'Z';
 	}
 
 	
@@ -120,8 +120,8 @@ int Room::RunRoom() {
 	while (1) {
 		
 		this->player->Navigation(this->BaseMap);
-		for(int i=0;i<this->zeds.Size();i++){
-			this->zeds.getNode(i)->Data.move(this->BaseMap);
+		for(int i=0;i<this->zeds.size();i++){
+			this->zeds[i].move(this->BaseMap);
 		}
 
 		results=this->playerCollisionCheck();
@@ -155,15 +155,15 @@ int Room::playerCollisionCheck() {
 	}
 
 		//checks for zed collision
-	for ( i = 0; i < this->getZeds().Size(); i++) {
+	for ( i = 0; i < this->getZeds().size(); i++) {
 		
 		
-		if (this->getPlayer()->getPosition() == this->getZeds().getNode(i)->getData().getPosition()) {
+		if (this->getPlayer()->getPosition() == this->getZeds()[i].getPosition()) {
 
-			result = PlayerVsZombieCombat(this->player, &this->getZeds().getNode(i)->Data);
+			result = PlayerVsZombieCombat(this->player, &this->getZeds()[i]);
 			if (result == 0) {
-				this->player->RecieveLootDrop(this->spawner.GenerateZombieLootDrop(this->getZeds().getNode(i)->getData()));
-				this->zeds.removeNode(i+1);
+				this->player->RecieveLootDrop(this->spawner.GenerateZombieLootDrop(this->getZeds()[i]));
+				this->zeds.erase(zeds.begin()+i+1);
 				this->setEnemyAmt(this->getEnemyAmt() - 1);
 			}
 			else if(result ==-2){

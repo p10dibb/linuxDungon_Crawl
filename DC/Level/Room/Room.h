@@ -17,7 +17,7 @@ private:
 	bool isShop;
 
 	int enemyCount;
-	DoubleLinkedList<Zombie> zeds;
+	vector<Zombie> zeds;
 
 
 	//0=left, 1=up, 2=right,3=down
@@ -34,8 +34,8 @@ public:
 
 	Player* getPlayer();
 	void setPlayer(Player* p);
-	DoubleLinkedList<Zombie> getZeds();
-	void setZeds(DoubleLinkedList<Zombie> z);
+	vector<Zombie> getZeds();
+	void setZeds(vector<Zombie> z);
 	
 
 

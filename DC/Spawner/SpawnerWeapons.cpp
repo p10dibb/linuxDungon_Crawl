@@ -63,7 +63,7 @@ Weapon* Spawner::CreateClaws(int level , bool forceLevel,bool forceRarity,ItemRa
 		ret->addDamageType(DamageTypes(RelativeLevel/2,(rand()%(10*(ret->getRarity()+1)))+1,Blunt_DamageType,true,RelativeLevel/4,rand()%8));
 	}
 
-	ret->setValue((RelativeLevel / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-3)*level);
+	ret->setValue((RelativeLevel / 2) + (ret->getDamageTypes_Weapon()[1].getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().size()-3)*level);
 
 
 		return ret;
@@ -153,7 +153,7 @@ Weapon* Spawner::CreateSword(int level, bool forceLevel,bool forceRarity,ItemRar
 	
 	}
 
-	ret->setValue((RelativeLevel/ 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-3)*level );
+	ret->setValue((RelativeLevel/ 2) + (ret->getDamageTypes_Weapon()[1].getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().size()-3)*level );
 
 	return ret;
 
@@ -248,7 +248,7 @@ Weapon* Spawner::CreateDagger(int level, bool forceLevel ,bool forceRarity,ItemR
 
 
 
-	ret->setValue((RelativeLevel / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-3)*level);
+	ret->setValue((RelativeLevel / 2) + (ret->getDamageTypes_Weapon()[1].getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().size()-3)*level);
 
 
 	return ret;
@@ -335,7 +335,7 @@ Weapon* Spawner::CreateAxe(int level, bool forceLevel,bool forceRarity,ItemRarit
 	
 	}
 
-	ret->setValue((RelativeLevel / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage()/ 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-3)*level);
+	ret->setValue((RelativeLevel / 2) + (ret->getDamageTypes_Weapon()[1].getDamage()/ 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().size()-3)*level);
 
 
 	return ret;
@@ -421,7 +421,7 @@ Weapon* Spawner::CreateShield(int level, bool forceLevel ,bool forceRarity,ItemR
 	
 	}
 
-	ret->setValue((RelativeLevel / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-2)*level+(ret->getDamageTypes_Weapon().Size()-3)*level);
+	ret->setValue((RelativeLevel / 2) + (ret->getDamageTypes_Weapon()[1].getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().size()-2)*level+(ret->getDamageTypes_Weapon().size()-3)*level);
 
 
 	return ret;

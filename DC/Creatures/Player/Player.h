@@ -93,10 +93,10 @@ public:
 	//Combat related functions
 		
 		//Gets all the damage types from weapons and player
-		DoubleLinkedList<DamageTypes> getAllDamageTypes();
+		vector<DamageTypes> getAllDamageTypes();
 
 		//Gets all Resistance types
-		DoubleLinkedList<ActiveEffects> getAllResistanceTypes();
+		vector<ActiveEffects> getAllResistanceTypes();
 
 		//calculates the players actual speed
 		int ActualSpeed();
@@ -104,7 +104,7 @@ public:
 		//calculates Players actual Defense
 		int ActualDefense();
 
-		int TakeDamage(DoubleLinkedList<DamageTypes> damageTypes);
+		int TakeDamage(vector<DamageTypes> damageTypes);
 		//takes in the enemies loot and adds to inventory
 		void RecieveLootDrop(lootDrop loot);
 	//-----------------------

@@ -27,9 +27,9 @@
 
 		
 		ret->setWeight(1);
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,100,15));
-		ret->setResistanceTypes(Resistance);
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,100,15));
+		
 		ret->setStackSize(1);
 		ret->setValue(0);
 
@@ -63,9 +63,9 @@
 		
 		ret->setWeight(1);
 
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,100,15));
-		ret->setResistanceTypes(Resistance);
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,100,15));
+		
 		ret->setStackSize(1);
 		ret->setValue(0);
 
@@ -99,9 +99,9 @@
 		
 		ret->setWeight(1);
 
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,100,15));
-		ret->setResistanceTypes(Resistance);
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,100,15));
+		
 		ret->setStackSize(1);
 		ret->setValue(0);
 
@@ -137,9 +137,9 @@
 		
 		ret->setWeight(1);
 
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,100,15));
-		ret->setResistanceTypes(Resistance);
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,100,15));
+		
 		ret->setStackSize(1);
 		ret->setValue(0);
 
@@ -180,9 +180,9 @@
 		
 		ret->setWeight(1);
 
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,100,15));
-		ret->setResistanceTypes(Resistance);
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,100,15));
+		
 		ret->setStackSize(1);
 		ret->setValue(0);
 
@@ -280,7 +280,7 @@
 	
 		}
 
-		ret->setValue((RelativeLevel/ 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-3)*level );
+		ret->setValue((RelativeLevel/ 2) + (ret->getDamageTypes_Weapon()[1].getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().size()-3)*level );
 
 		return ret;
 
@@ -327,7 +327,7 @@
 			ret->addDamageType(DamageTypes(RelativeLevel/2,50,Stabbing_DamageType,true,RelativeLevel/4,rand()%8));
 		
 
-		ret->setValue((RelativeLevel/ 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-3)*level );
+		ret->setValue((RelativeLevel/ 2) + (ret->getDamageTypes_Weapon()[1].getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().size()-3)*level );
 
 		return ret;
 
@@ -378,7 +378,7 @@
 		}
 
 
-		ret->setValue((RelativeLevel/ 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-3)*level );
+		ret->setValue((RelativeLevel/ 2) + (ret->getDamageTypes_Weapon()[1].getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().size()-3)*level );
 
 		return ret;
 
@@ -413,14 +413,14 @@
 		
 		ret->setWeight(this->small*classMultiplier+rand()%classMultiplier);
 
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		//garenteed stabbing resistance
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
-		ret->setResistanceTypes(Resistance);
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		
 
 		ret->setStackSize(1);
-		ret->setValue(ret->getLevel() + ret->getResistanceTypes().Size()+ ret->getWeight());
+		ret->setValue(ret->getLevel() + ret->getResistanceTypes().size()+ ret->getWeight());
 
 		return ret;
 
@@ -454,13 +454,13 @@
 		
 		ret->setWeight(this->Large*classMultiplier+rand()%classMultiplier);
 
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
 		//garenteed stabbing resistance
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
-		ret->setResistanceTypes(Resistance);
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
+		
 		ret->setStackSize(1);
-		ret->setValue(ret->getLevel() + (ret->getResistanceTypes().Size()+ ret->getWeight()));
+		ret->setValue(ret->getLevel() + (ret->getResistanceTypes().size()+ ret->getWeight()));
 
 		return ret;
 
@@ -494,13 +494,13 @@
 		
 		ret->setWeight(this->small*classMultiplier+rand()%classMultiplier);
 
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		//garenteed stabbing resistance
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
-		ret->setResistanceTypes(Resistance);
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		
 		ret->setStackSize(1);
-		ret->setValue(ret->getLevel() + (ret->getResistanceTypes().Size()+ ret->getWeight()));
+		ret->setValue(ret->getLevel() + (ret->getResistanceTypes().size()+ ret->getWeight()));
 
 		return ret;
 
@@ -534,13 +534,13 @@
 		
 		ret->setWeight(this->Med*classMultiplier+rand()%classMultiplier);
 
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		//garenteed stabbing resistance
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
-		ret->setResistanceTypes(Resistance);
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		
 		ret->setStackSize(1);
-		ret->setValue(ret->getLevel() + (ret->getResistanceTypes().Size()+ ret->getWeight()));
+		ret->setValue(ret->getLevel() + (ret->getResistanceTypes().size()+ ret->getWeight()));
 
 		return ret;
 
@@ -574,13 +574,13 @@
 		
 		ret->setWeight(this->Med*classMultiplier+rand()%classMultiplier);
 
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		//garenteed stabbing resistance
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
-		ret->setResistanceTypes(Resistance);
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		
 		ret->setStackSize(1);
-		ret->setValue(ret->getLevel() + (ret->getResistanceTypes().Size()+ ret->getWeight()));
+		ret->setValue(ret->getLevel() + (ret->getResistanceTypes().size()+ ret->getWeight()));
 		return ret;
 
 	}
@@ -738,28 +738,28 @@
 		
 		ret->setWeight((this->small*classMultiplier+rand()%classMultiplier)*3);
 
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 
 		//10% chance for each resistance
 		//Fire Resistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		}
 		//StabbingResistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		}
 		//Poison Resistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		}
 		//Blunt Resistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		}
 
-		ret->setResistanceTypes(Resistance);
+		
 		ret->setStackSize(1);
 		ret->setValue(ret->getLevel()*10);
 		ret->setDescription("Solid Gold so extra heavy and extra valuable");
@@ -789,28 +789,28 @@
 		//extra heavy
 		ret->setWeight((this->Large*classMultiplier+rand()%classMultiplier)*3);
 
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
 
 		//10% chance for each resistance
 		//Fire Resistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
 		}
 		//StabbingResistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
 		}
 		//Poison Resistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
 		}
 		//Blunt Resistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
 		}
 
-		ret->setResistanceTypes(Resistance);
+		
 		ret->setStackSize(1);
 		ret->setValue(ret->getLevel()*10);
 		ret->setDescription("Solid Gold so extra heavy and extra valuable");
@@ -838,28 +838,28 @@
 		ret->setName("Goldmonger's Gloves");
 		
 		ret->setWeight((this->small*classMultiplier+rand()%classMultiplier)*10);
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 
 		//10% chance for each resistance
 		//Fire Resistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		}
 		//StabbingResistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		}
 		//Poison Resistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		}
 		//Blunt Resistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		}
 
-		ret->setResistanceTypes(Resistance);
+		
 		ret->setStackSize(1);
 		ret->setValue(ret->getLevel() *10);
 		ret->setDescription("Solid Gold so extra heavy and extra valuable");
@@ -887,28 +887,28 @@
 		ret->setName("Goldmonger's Leggings");
 		
 		ret->setWeight((this->Med*classMultiplier+rand()%classMultiplier)*3);
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 
 		//10% chance for each resistance
 		//Fire Resistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		}
 		//StabbingResistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		}
 		//Poison Resistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		}
 		//Blunt Resistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		}
 
-		ret->setResistanceTypes(Resistance);
+		
 		ret->setStackSize(1);
 		ret->setValue(ret->getLevel()*10);
 		ret->setDescription("Solid Gold so extra heavy and extra valuable");
@@ -936,28 +936,28 @@
 		ret->setName("Goldmonger's Helmet");
 		
 		ret->setWeight((this->Med*classMultiplier+rand()%classMultiplier)*3);
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 
 		//10% chance for each resistance
 		//Fire Resistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		}
 		//StabbingResistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		}
 		//Poison Resistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		}
 		//Blunt Resistance
 		if(rand()%10==0){
-			Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+			ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		}
 
-		ret->setResistanceTypes(Resistance);
+		
 		ret->setStackSize(1);
 		ret->setValue(ret->getLevel()*10);
 
@@ -1129,7 +1129,7 @@ Weapon* Spawner::CreateTheMarly(int level) {
 		//garenteed chance of each damage type
 		ret->addDamageType(DamageTypes(RelativeLevel/2,(rand()%(10*(ret->getRarity()+1)))+1,Poison_DamageType,true,RelativeLevel/4,rand()%8));
 				
-		ret->setValue((RelativeLevel / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-3)*level);
+		ret->setValue((RelativeLevel / 2) + (ret->getDamageTypes_Weapon()[1].getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().size()-3)*level);
 
 		ret->setDescription("Gotta have it All");
 		return ret;
@@ -1175,7 +1175,7 @@ Weapon* Spawner::CreateTheMarly(int level) {
 		//garenteed chance of each damage type
 		ret->addDamageType(DamageTypes(RelativeLevel/2,(rand()%(10*(ret->getRarity()+1)))+1,Poison_DamageType,true,RelativeLevel/4,rand()%8));
 				
-		ret->setValue((RelativeLevel / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-3)*level);
+		ret->setValue((RelativeLevel / 2) + (ret->getDamageTypes_Weapon()[1].getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().size()-3)*level);
 
 		ret->setDescription("Gotta have it All");
 		return ret;
@@ -1226,7 +1226,7 @@ Weapon* Spawner::CreateTheMarly(int level) {
 		ret->addDamageType(DamageTypes(RelativeLevel/2,(rand()%(10*(ret->getRarity()+1)))+1,Poison_DamageType,true,RelativeLevel/4,rand()%8));
 					
 		ret->setDescription("Gotta have it All");
-		ret->setValue((RelativeLevel / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage()/ 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-3)*level);
+		ret->setValue((RelativeLevel / 2) + (ret->getDamageTypes_Weapon()[1].getDamage()/ 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().size()-3)*level);
 
 
 		return ret;
@@ -1274,7 +1274,7 @@ Weapon* Spawner::CreateTheMarly(int level) {
 		ret->addDamageType(DamageTypes(RelativeLevel/2,(rand()%(10*(ret->getRarity()+1)))+1,Poison_DamageType,true,RelativeLevel/4,rand()%8));				
 
 
-		ret->setValue((RelativeLevel / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-2)*level+(ret->getDamageTypes_Weapon().Size()-3)*level);
+		ret->setValue((RelativeLevel / 2) + (ret->getDamageTypes_Weapon()[1].getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().size()-2)*level+(ret->getDamageTypes_Weapon().size()-3)*level);
 		ret->setDescription("Gotta have it All");
 
 		return ret;
@@ -1322,7 +1322,7 @@ Weapon* Spawner::CreateTheMarly(int level) {
 
 		ret->setDescription("Gotta have it All");
 
-		ret->setValue((RelativeLevel / 2) + (ret->getDamageTypes_Weapon().getData(1).getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().Size()-3)*level);
+		ret->setValue((RelativeLevel / 2) + (ret->getDamageTypes_Weapon()[1].getDamage() / 4) + (ret->getDefense().getResistance() / 4) + (ret->getSpeed() / 4)+(ret->getDamageTypes_Weapon().size()-3)*level);
 
 
 			return ret;
@@ -1363,23 +1363,23 @@ Weapon* Spawner::CreateTheMarly(int level) {
 		ret->setWeight(this->small*classMultiplier+rand()%classMultiplier);
 
 		RelativeLevel=ret->getLevel()*(Common_ItemRarity+1);
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		
 
-		ret->setResistanceTypes(Resistance);
+		
 
 
 		ret->setStackSize(1);
-		ret->setValue(RelativeLevel+ret->getResistanceTypes().Size() + ret->getWeight());
+		ret->setValue(RelativeLevel+ret->getResistanceTypes().size() + ret->getWeight());
 
 		return ret;
 
@@ -1418,23 +1418,23 @@ Weapon* Spawner::CreateTheMarly(int level) {
 		ret->setWeight(this->Large*classMultiplier+rand()%classMultiplier);
 
 		RelativeLevel=ret->getLevel()*(Common_ItemRarity+1);
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Large),15));
 		
 
-		ret->setResistanceTypes(Resistance);
+		
 
 
 		ret->setStackSize(1);
-		ret->setValue(RelativeLevel+ret->getResistanceTypes().Size() + ret->getWeight());
+		ret->setValue(RelativeLevel+ret->getResistanceTypes().size() + ret->getWeight());
 
 		return ret;
 
@@ -1474,23 +1474,23 @@ Weapon* Spawner::CreateTheMarly(int level) {
 		ret->setWeight(this->small*classMultiplier+rand()%classMultiplier);
 
 		RelativeLevel=ret->getLevel()*(Common_ItemRarity+1);
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->small),15));
 		
 
-		ret->setResistanceTypes(Resistance);
+		
 
 
 		ret->setStackSize(1);
-		ret->setValue(RelativeLevel+ret->getResistanceTypes().Size() + ret->getWeight());
+		ret->setValue(RelativeLevel+ret->getResistanceTypes().size() + ret->getWeight());
 
 		return ret;
 
@@ -1530,23 +1530,23 @@ Weapon* Spawner::CreateTheMarly(int level) {
 		ret->setWeight(this->Med*classMultiplier+rand()%classMultiplier);
 
 		RelativeLevel=ret->getLevel()*(Common_ItemRarity+1);
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		
 
-		ret->setResistanceTypes(Resistance);
+		
 
 
 		ret->setStackSize(1);
-		ret->setValue(RelativeLevel+ret->getResistanceTypes().Size() + ret->getWeight());
+		ret->setValue(RelativeLevel+ret->getResistanceTypes().size() + ret->getWeight());
 
 		return ret;
 
@@ -1586,23 +1586,23 @@ Weapon* Spawner::CreateTheMarly(int level) {
 		ret->setWeight(this->Med*classMultiplier+rand()%classMultiplier);
 
 		RelativeLevel=ret->getLevel()*(Common_ItemRarity+1);
-		DoubleLinkedList<ActiveEffects> Resistance;
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,FireResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,StabbingResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		
-		Resistance.add(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,PoisonResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
+		
+		ret->addResistanceType(ActiveEffects(Resistance_EffectTypes,BluntResistance_Effects,((rand() % RelativeLevel)*classMultiplier*this->Med),15));
 		
 
-		ret->setResistanceTypes(Resistance);
+		
 
 
 		ret->setStackSize(1);
-		ret->setValue(RelativeLevel+ret->getResistanceTypes().Size() + ret->getWeight());
+		ret->setValue(RelativeLevel+ret->getResistanceTypes().size() + ret->getWeight());
 
 		return ret;
 

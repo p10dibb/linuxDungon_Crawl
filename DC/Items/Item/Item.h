@@ -1,8 +1,9 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include "../../DataStructures/DoubleLinkedList.h"
 
+#include <map>
+#include <vector>
 #include "../../ActiveEffects/ActiveEffects.h"
 
 using namespace::std;

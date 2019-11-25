@@ -2,12 +2,8 @@
 
 #include <array>
 #include "../../ActiveEffects/ActiveEffects.h"
-#include "../../DataStructures/DoubleLinkedList.h"
-
-
-
-
-
+#include <vector>
+#include <map>
 
 class Creature {
 
@@ -23,33 +19,35 @@ class Creature {
 		int Level;
 		int XP;
 		string Name;
-
 		
 
-		//x,y position
 		array<int, 2> position; 
-		//DoubleLinkedList<ActiveEffects> Effects;
+		std::map<Effects_enum,ActiveEffects>  DeBuffEffects;
+		std::map<Effects_enum,ActiveEffects>  BuffEffects;		
+		std::map<Effects_enum,ActiveEffects>  CombatEffects;
+		std::map<Effects_enum,ActiveEffects> DamageOverTimeEffects;
+		std::map<Effects_enum,ActiveEffects>  ResistanceEffects;
 
-		DoubleLinkedList<ActiveEffects> DeBuffEffects;
-		DoubleLinkedList<ActiveEffects> BuffEffects;
-		DoubleLinkedList<ActiveEffects> CombatEffects;
-		DoubleLinkedList<ActiveEffects> DamageOverTimeEffects;
-		DoubleLinkedList<ActiveEffects> ResistanceEffects;
+		//DoubleLinkedList<ActiveEffects> BuffEffects;
+		//DoubleLinkedList<ActiveEffects> CombatEffects;
+		//DoubleLinkedList<ActiveEffects> DamageOverTimeEffects;
+		// DoubleLinkedList<ActiveEffects> ResistanceEffects;
 
 	public:
+	//map<Effects_enum,ActiveEffects> DeBuffmap;
 
 	Creature();
 
 	//check if it contains effect and returns that effects location in list and -1 if it doesnt exist;
-	int ContainDamageOverTimeEffect(Effects_enum effect);
+	bool ContainDamageOverTimeEffect(Effects_enum effect);
 	//check if it contains effect and returns that effects location in list and -1 if it doesnt exist;
-	int ContainCombatEffect(Effects_enum effect);
+	bool ContainCombatEffect(Effects_enum effect);
 	//check if it contains effect and returns that effects location in list and -1 if it doesnt exist;
-	int ContainBuffEffect(Effects_enum effect);
+	bool ContainBuffEffect(Effects_enum effect);
 	//check if it contains effect and returns that effects location in list and -1 if it doesnt exist;
-	int ContainDeBuffEffect(Effects_enum effect);
+	bool ContainDeBuffEffect(Effects_enum effect);
 	//check if it contains effect and returns that effects location in list and -1 if it doesnt exist;
-	int ContainResistanceEffect(Effects_enum effect);
+	bool ContainResistanceEffect(Effects_enum effect);
 	
 	
 
@@ -114,27 +112,27 @@ class Creature {
 	bool ClearAllEffects();
 
 	//returns the Acctive effect at specified position. if no Acctive effect there then it returns default active effect
-	ActiveEffects getDeBuffEffect(int pos);
+	ActiveEffects getDeBuffEffect(Effects_enum effect);
 	//returns the Acctive effect at specified position. if no Acctive effect there then it returns default active effect
-	ActiveEffects getBuffEffect(int pos);
+	ActiveEffects getBuffEffect(Effects_enum effect);
 	//returns the Acctive effect at specified position. if no Acctive effect there then it returns default active effect
-	ActiveEffects getCombatEffect(int pos);
+	ActiveEffects getCombatEffect(Effects_enum effect);
 	//returns the Acctive effect at specified position. if no Acctive effect there then it returns default active effect
-	ActiveEffects getDamageOverTimeEffect(int pos);
+	ActiveEffects getDamageOverTimeEffect(Effects_enum effect);
 	//returns the Acctive effect at specified position. if no Acctive effect there then it returns default active effect
-	ActiveEffects getResistanceEffect(int pos);
+	ActiveEffects getResistanceEffect(Effects_enum effect);
 
 
 	//the Double linked list Resistance Effects
-	DoubleLinkedList<ActiveEffects> getResistanceEffects();
+	map<Effects_enum,ActiveEffects> getResistanceEffects();
 	//the Double linked list DeBuff Effects
-	DoubleLinkedList<ActiveEffects> getDeBuffEffects();
+	map<Effects_enum,ActiveEffects> getDeBuffEffects();
 	//the Double linked list Buff Effects
-	DoubleLinkedList<ActiveEffects> getBuffEffects();
+	map<Effects_enum,ActiveEffects> getBuffEffects();
 	//the Double linked list Combat Effects
-	DoubleLinkedList<ActiveEffects> getCombatEffects();
+	map<Effects_enum,ActiveEffects> getCombatEffects();
 	//the Double linked list DamageOverTime Effects
-	DoubleLinkedList<ActiveEffects> getDamageOverTimeEffects();
+	map<Effects_enum,ActiveEffects> getDamageOverTimeEffects();
 
 	
 

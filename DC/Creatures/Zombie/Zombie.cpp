@@ -22,25 +22,37 @@ void Zombie::setWeapon(Weapon* w) {
 }
 
 
-DoubleLinkedList<ActiveEffects> Zombie::getAllResistanceTypes(){
-	DoubleLinkedList<ActiveEffects> ret=this->getResistanceEffects();
+vector<ActiveEffects> Zombie::getAllResistanceTypes(){
+	vector<ActiveEffects> ret;
+	//DoubleLinkedList<ActiveEffects> ret=this->getResistanceEffects();
+	if(!this->getResistanceEffects().empty()){
+		map<Effects_enum,ActiveEffects>::const_iterator it=this->getResistanceEffects().begin();
+		ActiveEffects t;
+		
+		while(it!=this->getResistanceEffects().end()){
+			t=it->second;
+			ret.push_back(t);
+			it++;
+		}
+	}
+
 	
 	//takes current damage stat and converts to an active effect
-	ret.add(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,this->getDefense(),10));
+	ret.push_back(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,this->getDefense(),10));
 	
-	ret.add(this->weapon->getDefense());
+	ret.push_back(this->weapon->getDefense());
 	return ret;
 }
 
 //recieves a linked list of damage types and and runs through the damage taken
-int Zombie::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
+int Zombie::TakeDamage(vector<DamageTypes> damageTypes){
 		DamageTypes current;
 		int location=1,totalDamage=0;;
 
-		DoubleLinkedList<ActiveEffects> resistances =this->getAllResistanceTypes();
+		vector<ActiveEffects> resistances =this->getAllResistanceTypes();
 		//itterates through all damage types
-		for(int i=0;i<damageTypes.Size();i++){
-			current=damageTypes.getData(i);
+		for(int i=0;i<damageTypes.size();i++){
+			current=damageTypes[i];
 
 			//checks to see if damage type happens
 			if(rand()%100<=current.getProbability()){
@@ -58,8 +70,8 @@ int Zombie::TakeDamage(DoubleLinkedList<DamageTypes> damageTypes){
 		}			
 
 		// checks if there is a defense boost and suptracks total armor from damage
-		if(location=ContainBuffEffect(DefenseBoost_Effects)!=-1){
-			totalDamage=totalDamage /this->getBuffEffect(location).getMultiplier();
+		if(location=ContainBuffEffect(DefenseBoost_Effects)){
+			totalDamage=totalDamage /this->getBuffEffect(DefenseBoost_Effects).getMultiplier();
 		}
 	
 		if (totalDamage< 1) {
@@ -100,27 +112,24 @@ int Zombie::ActualSpeed() {
 
 }
 
-DoubleLinkedList<DamageTypes> Zombie::getAllDamageTypes(){
- 	DoubleLinkedList<DamageTypes> ret;
-	ret.add(DamageTypes(this->getDamage()));
-	int i=0;
-	for(i=0;i<this->getWeapon()->getDamageTypes_Weapon().Size();i++){
-		ret.add(this->getWeapon()->getDamageTypes_Weapon().getData(i));
-	}
+vector<DamageTypes> Zombie::getAllDamageTypes(){
+ 	vector<DamageTypes> ret;
+	ret=this->getWeapon()->getDamageTypes_Weapon();
+	ret.push_back(DamageTypes(this->getDamage()));
+		
 	
-	int location=-1;
-	if (location=this->ContainBuffEffect(DamageBoost_Effects)==-1){
+	if (!this->ContainBuffEffect(DamageBoost_Effects)){
 		return ret;
 	}else// if there is a damage booster;
 	{
 		//gets the multiplier
-		int DamageMultiplier=this->getBuffEffect(location).getMultiplier();
+		int DamageMultiplier=this->getBuffEffect(DamageBoost_Effects).getMultiplier();
 		//new Linkedlist
-		DoubleLinkedList<DamageTypes> ret2;
+		vector<DamageTypes> ret2;
 		DamageTypes cur;
-		for (int i=0;i<ret.Size();i++){
-			cur=ret.getData(i);
-			ret2.add(DamageTypes(cur.getDamage()*DamageMultiplier,cur.getProbability(),cur.getType(),cur.getIsDamageOverTime(),cur.getDamageOverTime_damage(),cur.getDamageOverTime_time()));
+		for (int i=0;i<ret.size();i++){
+			cur=ret[i];
+			ret2.push_back(DamageTypes(cur.getDamage()*DamageMultiplier,cur.getProbability(),cur.getType(),cur.getIsDamageOverTime(),cur.getDamageOverTime_damage(),cur.getDamageOverTime_time()));
 			
 		}
 		return ret2;
