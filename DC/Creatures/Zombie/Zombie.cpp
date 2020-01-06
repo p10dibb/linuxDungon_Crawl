@@ -11,7 +11,13 @@ Zombie::Zombie() {
 
 }
 
+int Zombie::getDirection(){
+	return this->direction;
+}
 
+int Zombie::getMoveAmt(){
+	return this->moveAmt;
+}	
 
 
 Weapon* Zombie::getWeapon() {
@@ -24,6 +30,7 @@ void Zombie::setWeapon(Weapon* w) {
 
 vector<ActiveEffects> Zombie::getAllResistanceTypes(){
 	vector<ActiveEffects> ret;
+	vector<ActiveEffects> temp;
 	//DoubleLinkedList<ActiveEffects> ret=this->getResistanceEffects();
 	if(!this->getResistanceEffects().empty()){
 		map<Effects_enum,ActiveEffects>::const_iterator it=this->getResistanceEffects().begin();
@@ -40,7 +47,46 @@ vector<ActiveEffects> Zombie::getAllResistanceTypes(){
 	//takes current damage stat and converts to an active effect
 	ret.push_back(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,this->getDefense(),10));
 	
+	//adds zombie default defense
 	ret.push_back(this->weapon->getDefense());
+
+	//gets helmet resistance 
+	temp=this->getHead()->getResistanceTypes();
+	for(int i=0; i<temp.size();i++){
+		ret.push_back(temp[i]);
+	}
+
+	//gets chestpiece resistance
+	temp=this->getTorso()->getResistanceTypes();
+	for(int i=0; i<temp.size();i++){
+		ret.push_back(temp[i]);
+	}
+
+	//gets glove resistance
+	temp=this->getHands()->getResistanceTypes();
+	for(int i=0; i<temp.size();i++){
+		ret.push_back(temp[i]);
+	}
+
+	//gets Pant resistance
+	temp=this->getLegs()->getResistanceTypes();
+	for(int i=0; i<temp.size();i++){
+		ret.push_back(temp[i]);
+	}
+
+	//gets boots resistance
+	temp=this->getFeet()->getResistanceTypes();
+	for(int i=0; i<temp.size();i++){
+		ret.push_back(temp[i]);
+	}
+
+	if(this->ContainBuffEffect(DefenseBoost_Effects)){
+		int DefenseBoost=this->getBuffEffect(DefenseBoost_Effects).getMultiplier();
+		for(int i=0;i<ret.size();i++){
+			ret[i].setResistance(ret[i].getResistance()*DefenseBoost);
+		}
+	}
+	
 	return ret;
 }
 
@@ -98,7 +144,7 @@ int Zombie::ActualSpeed() {
 	int ArmorWeight = this->getHead()->getWeight() + this->getTorso()->getWeight() + this->getHands()->getWeight() + this->getLegs()->getWeight() + this->getFeet()->getWeight();
 
 	
-		speed = this->getSpeed() + this->weapon->getSpeed() - (ArmorWeight / (this->getStrength() / 2));
+	speed = this->getSpeed() + this->weapon->getSpeed() - (ArmorWeight / (this->getStrength() / 2));
 
 
 	if (this->ContainDeBuffEffect(Slowed_Effects)) {
@@ -124,6 +170,7 @@ vector<DamageTypes> Zombie::getAllDamageTypes(){
 	{
 		//gets the multiplier
 		int DamageMultiplier=this->getBuffEffect(DamageBoost_Effects).getMultiplier();
+		
 		//new Linkedlist
 		vector<DamageTypes> ret2;
 		DamageTypes cur;

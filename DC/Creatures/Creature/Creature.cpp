@@ -286,6 +286,7 @@ bool Creature::AddResistanceEffect(ActiveEffects effect){
 	if (effect.getEffectType()!=Resistance_EffectTypes){
 		return false;
 	}
+	
 	if(!this->ContainResistanceEffect(effect.getEffect())){
 		this->ResistanceEffects[effect.getEffect()]=effect;
 	}else {
@@ -589,8 +590,9 @@ ActiveEffects Creature::getDeBuffEffect(Effects_enum effect){
 }
 //returns the Acctive effect at specified position. if no Acctive effect there then it returns default active effect
 ActiveEffects Creature::getBuffEffect(Effects_enum effect){
-	if(this->ContainDeBuffEffect(effect)){
-		return this->DeBuffEffects[effect];
+	if(this->ContainBuffEffect(effect)){
+		
+		return this->BuffEffects[effect];
 	}
 	return ActiveEffects();
 }

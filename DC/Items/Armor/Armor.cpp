@@ -7,8 +7,8 @@ Armor::Armor() {
 	this->Level = 1;
 	this->Type = NULL_ArmorType;
 	this->Class = NULL_ArmorClass;
-	this->ResistanceTypes[NormalResistance_Effects]=ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,5,15);
-	this->TotalResistance=5;
+	this->ResistanceTypes[NormalResistance_Effects]=ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,0,15);
+	this->TotalResistance=0;
 }
 Armor::Armor(int def, int lvl, ArmorType_enum type, ArmorClass_enum c) {
 	Item();
@@ -149,10 +149,9 @@ bool Armor::addResistanceType(ActiveEffects resistance){
 		return false;
 	}
 	
-	if(!this->ResistanceTypes.count(resistance.getEffect())){
+	if(this->ResistanceTypes.count(resistance.getEffect())==0){
 		this->ResistanceTypes[resistance.getEffect()]=resistance;
 	}else{
-		
 		this->ResistanceTypes[resistance.getEffect()].setResistance(resistance.getResistance()+ResistanceTypes[resistance.getEffect()].getResistance());
 	}
 	this->TotalResistance+=resistance.getResistance();

@@ -30,6 +30,7 @@ bool Player::addToInventory(Item *i) {
 				this->Inventory[k].item = i;
 				this->setCurrentWeight(this->getCurrentWeight() + i->getWeight());
 				this->setOverWeighted(this->getMaxWeight() < this->getCurrentWeight());
+				this->setFreeSlots(this->getFreeSlots()-1);
 				return true;
 			}
 		}
@@ -45,10 +46,12 @@ bool Player::addToInventory(Item *i) {
 
 }
 
-
+//Removes an item from specified position
 Item *Player::RemoveItemFromInventory(int pos){
-	if (pos>this->InventorySize &&pos<0){
-		return NULL;
+	if (pos>this->InventorySize ||pos<0){
+		Item *fail= new Item();
+		cout<<"woot scoot"<<endl;
+		return fail;
 	}
 	Item* temp=this->Inventory[pos].item;
 	this->Inventory[pos].amount--;
@@ -62,7 +65,6 @@ Item *Player::RemoveItemFromInventory(int pos){
 		
 	
 	return temp;
-
 }
 
 
@@ -321,7 +323,6 @@ int Player::MoveInventory(int pos) {
 	return 0;
 }
 
-
 void Player::DisplayEquiped() {
 	cout <<"\t" <<this->getName() << endl;
 	cout << "Health: " << this->getHealth() << "/" << this->getMaxHealth()<<endl;
@@ -340,8 +341,6 @@ void Player::DisplayEquiped() {
 	cout << "Left Hand:\t" << this->getLeft()->getName() << "\tLevel: " << this->getLeft()->getLevel() << endl;
 
 }
-
-
 
 int Player::EquipedDialogue() {
 	array<string, 8> commands = { "right","left","head","torso","hands","legs","feet","exit" };

@@ -29,6 +29,9 @@ public:
 	//int TakeDamage(int attack);
 	int TakeDamage(vector<DamageTypes> damageTypes);
 
+	int getDirection();
+
+	int getMoveAmt();
 
 	void DisplayDetails();
 	

@@ -16,8 +16,10 @@ private:
 	//weapon equiped in right hand
 	Weapon* Right;
 	
+	//the masize of inventory
+	int inventoryMax=100;
 	//The players inventory
-	InventorySlot Inventory[40];
+	InventorySlot Inventory[100];
 	//the amount of free slots of the inventory
 	int FreeSlots;
 	//the size of players inventory
@@ -67,6 +69,9 @@ private:
 
 	
 
+
+
+public:
 	//Private Inventory Functions+++++++++
 		//displays info on specific item in inventory
 		int ViewInventory(int pos);
@@ -79,8 +84,6 @@ private:
 		//takes in user string and returns an int
 		int getFuncInventory(string s);
 	//++++++++++++++++++++++++
-
-public:
 
 	//constructor
 	Player();	
