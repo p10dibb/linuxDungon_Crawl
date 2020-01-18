@@ -1,9 +1,6 @@
 #pragma once
-#include <string>
-#include <iostream>
-using namespace::std;
+#include "../Enumerations.h"
 
-enum DamageTypes_enum{NULL_DamageType,Normal_DamageType,Fire_DamageType,Stabbing_DamageType,Blunt_DamageType,Critical_DamageType,Poison_DamageType};
 
 class DamageTypes{
     private:

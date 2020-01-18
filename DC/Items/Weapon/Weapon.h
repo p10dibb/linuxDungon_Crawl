@@ -2,7 +2,7 @@
 #include "../Item/Item.h"
 #include "../../DamageTypes/DamageTypes.h"
 
-enum WeaponTypes_enum{NULL_WeaponType,Sword_WeaponType, Shield_WeaponType, Dagger_WeaponType, Axe_WeaponType, Claw_WeaponType};
+
 //None is basically nothing
 //sword =med speed, attack, def
 //shield = med speed, low attack, high defense

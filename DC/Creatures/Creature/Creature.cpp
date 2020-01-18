@@ -186,11 +186,13 @@ bool Creature::ContainResistanceEffect(Effects_enum effect){
 
 //checks if effect is in list and if it is then increase time else add new effect.
 bool Creature::AddEffect(ActiveEffects effect){
+	
 	switch(effect.getEffectType()){
 		case DamageOverTime_EffectTypes: return this->AddDamageOverTimeEffect(effect);
 		case Combat_EffectTypes: return this->AddCombatEffect(effect);
 		case Buff_EffectTypes: return this->AddBuffEffect(effect);
 		case DeBuff_EffectTypes:return this->AddDeBuffEffect(effect);
+	
 		case Resistance_EffectTypes:return this->AddResistanceEffect(effect);
 		default: return false;
 	}
@@ -287,9 +289,12 @@ bool Creature::AddResistanceEffect(ActiveEffects effect){
 		return false;
 	}
 	
+	//does not contain the effect
 	if(!this->ContainResistanceEffect(effect.getEffect())){
 		this->ResistanceEffects[effect.getEffect()]=effect;
-	}else {
+	}
+	//does contain the effect
+	else {
 		ActiveEffects temp=this->ResistanceEffects[effect.getEffect()];
 		//if it is damage over time or Buff it compares the damage and adds the higher of the 2 plus half the lower ones rounds
 			if (temp.getResistance()<effect.getResistance()){

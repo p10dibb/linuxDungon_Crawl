@@ -43,13 +43,8 @@ int ReduceDamage(int damage,DamageTypes_enum damageTypes,vector<ActiveEffects> r
 		}
 		
 		else if(temp.getEffect()==NormalResistance_Effects && damageTypes==Normal_DamageType){
-			//cout<< "normal resistance reduction"<<endl;
-			//cout<<"damage:"<<damage<<endl;
-			//cout<<"resistance: "<<temp.getResistance()<<endl;	
-			//int t= (100-temp.getResistance());
-			//cout<<"t: "<<t<<endl;
+		
 			damage=(damage*(100-temp.getResistance())/100);	
-			//cout<<"normal end damage: "<<damage<<endl;
 		}
 		
 		else if(temp.getEffect()==NormalResistance_Effects && damageTypes==Critical_DamageType){
@@ -59,10 +54,9 @@ int ReduceDamage(int damage,DamageTypes_enum damageTypes,vector<ActiveEffects> r
 		}
 		
 	}
-	//cout<<"Exiting ReduceDamage"<<endl;
+	
 	return damage;
 }
-
 
 //Default constructor
 Player::Player() {
@@ -160,17 +154,21 @@ int Player::ActualSpeed() {
 	int ArmorWeight = this->getHead()->getWeight() + this->getTorso()->getWeight() + this->getHands()->getWeight() + this->getLegs()->getWeight() + this->getFeet()->getWeight();
 
 	//if onehanded else dual wielding
-	if (this->Left->getType() == NULL_WeaponType) {
+	if (this->Left->getType() == NULL_WeaponType&&this->Right->getType() == NULL_WeaponType){
+		speed = (int)(this->getSpeed() - (ArmorWeight / (double)(this->getStrength() / (double)2)));
+	
+	}
+	else if (this->Left->getType() == NULL_WeaponType) {
 		
-		speed = this->getSpeed() + this->Right->getSpeed() - (ArmorWeight / (1+(this->getStrength() / 2)));
+		speed = (int)(this->getSpeed() + this->Right->getSpeed() - (ArmorWeight / (double)(this->getStrength() / (double)2)));
 	}
 	else if(this->Right->getType() == NULL_WeaponType) {
 	
-		speed = this->getSpeed() + this->Left->getSpeed() - (ArmorWeight / (this->getStrength() / 2));
+		speed = (int)(this->getSpeed() + this->Left->getSpeed() - (ArmorWeight / (double)(this->getStrength() / (double)2)));
 	}
 	else {
 		//two weapons being used 2/3 the speed of both weapons added together so dual wielding is slower but has higher attack and defense
-		speed = this->getSpeed() +( (this->Left->getSpeed()+this->Right->getSpeed())/3 )- (ArmorWeight / (this->getStrength() / 2));
+		speed = (this->getSpeed() +( (this->Left->getSpeed()+this->Right->getSpeed())/3 )- (ArmorWeight / (double)(this->getStrength() / (double)2)));
 	}
 
 
@@ -296,22 +294,25 @@ void Player::NextLevel() {
 }
 
 //0=left,1=up,2=right, 3=down
-int Player::move(char map[][10], int direction) {
+int Player::move(array<array<RoomPieces_enum, 50>,50> map, int direction) {
 
-	   	 							
-	if (direction == 0&& map[this->getPosition()[0]][this->getPosition()[1]-1]!= '|') {	
+	//Left					
+	if (direction == 0&& map[this->getPosition()[0]][this->getPosition()[1]-1]!= Wall_RoomPieces) {	
 		
 		this->setPosition({ this->getPosition()[0],this->getPosition()[1] - 1 });
 	}
-	else if (direction == 2&& map[this->getPosition()[0]][this->getPosition()[1] + 1] != '|') {
+	//Right
+	else if (direction == 2&& map[this->getPosition()[0]][this->getPosition()[1] + 1] != Wall_RoomPieces) {
 		
 		this->setPosition({ this->getPosition()[0],this->getPosition()[1] + 1 });
 	}
-	else if (direction == 3&& map[this->getPosition()[0]+1][this->getPosition()[1] ] != '-') {
+	//Down
+	else if (direction == 3&& map[this->getPosition()[0]+1][this->getPosition()[1] ] != Wall_RoomPieces) {
 	
 		this->setPosition({this->getPosition()[0]+1,this->getPosition()[1]});
 	}
-	else if (direction == 1&& map[this->getPosition()[0]-1][this->getPosition()[1]] != '-') {
+	//Up
+	else if (direction == 1&& map[this->getPosition()[0]-1][this->getPosition()[1]] != Wall_RoomPieces) {
 		
 		this->setPosition({this->getPosition()[0]-1,this->getPosition()[1]});
 	}
@@ -319,7 +320,7 @@ int Player::move(char map[][10], int direction) {
 
 }
 
-int Player::Navigation(char map[][10]) {
+int Player::Navigation(array<array<RoomPieces_enum, 50>,50> map) {
 
 	while (1) { 
 		
@@ -418,70 +419,91 @@ vector<DamageTypes> Player::getAllDamageTypes(){
 	}
 
 
-
 	return ret;
-	
-
-
-	
-
 }
 
 //Gets all Resistance types
 vector<ActiveEffects> Player::getAllResistanceTypes(){
-	//cout<<"entering get resistance"<<endl;
 	vector<ActiveEffects> ret;
 	vector<ActiveEffects> temp;	
 	ActiveEffects tempEffect;
 	int tempResistance;
 	int i;
 
+	//Resistance effects Map
+
+	int x=0;
 	if(!this->getResistanceEffects().empty()){
-		map<Effects_enum,ActiveEffects>::const_iterator it =this->getResistanceEffects().begin();
-		while(it!=this->getResistanceEffects().end()){
-			ret.push_back(it->second);
+		map<Effects_enum, ActiveEffects >::const_iterator it = this->getResistanceEffects().begin();
+		while (it!=this->getResistanceEffects().end()){
+	
+			ActiveEffects a=it->second;
+			
+			ret.push_back(a);
 			it++;
 		}
 	}
+	// if(!this->getResistanceEffects().empty()){
+	// 	map<Effects_enum,ActiveEffects>::const_iterator it =this->getResistanceEffects().begin();
+	// 	while(it!=this->getResistanceEffects().end()){
+	// 		ret.push_back(it->second);
+	// 		it++;
+	// 		cout<<x<<endl;
+	// 		x++;
+	// 	}
+	// }
 
-	//takes current damage stat and converts to an active effect
+	//takes current defense stat and converts to an active effect
 	ret.push_back(ActiveEffects(Resistance_EffectTypes,NormalResistance_Effects,this->getDefense(),10));
 
+	//Weapons
 	ret.push_back(this->Right->getDefense());
 	ret.push_back(this->Left->getDefense());
 
-	
+	//Armor pieces
+	//Head
 	temp=this->getHead()->getResistanceTypes();
 	for( i=0; i<temp.size();i++){
 		ret.push_back(temp[i]);
 	}
+	//Torso
 	temp=this->getTorso()->getResistanceTypes();
 	for( i=0; i<temp.size();i++){
 		ret.push_back(temp[i]);
 	}
+	//Feet
 	temp=this->getFeet()->getResistanceTypes();
 	for( i=0; i<temp.size();i++){
 		ret.push_back(temp[i]);
 	}
+	//Legs
 	temp=this->getLegs()->getResistanceTypes();
 	for( i=0; i<temp.size();i++){
 		ret.push_back(temp[i]);
 	}
+	//Hands
 	temp=this->getHands()->getResistanceTypes();
 	for( i=0; i<temp.size();i++){
 		ret.push_back(temp[i]);
 	}
 
-	if(this->ContainCombatEffect(DefensiveStance_Effects)!=-1){
+
+	//multipliers
+
+	//defensive stance
+	if(this->ContainCombatEffect(DefensiveStance_Effects)){
 		temp.clear();
 		for (i=0;i<ret.size();i++){
+			
 			tempEffect=ret[i];
 			tempResistance=tempEffect.getResistance()*1.25;
 			temp.push_back(ActiveEffects(tempEffect.getEffectType(),tempEffect.getEffect(),tempResistance,tempEffect.getRound()));
 		}
 		ret=temp;
 	}
-	if(this->ContainCombatEffect(QuickStrike_Effects)!=-1){
+
+	//quick strike
+	if(this->ContainCombatEffect(QuickStrike_Effects)){
 		temp.clear();
 		for (i=0;i<ret.size();i++){
 			tempEffect=ret[i];
@@ -490,7 +512,9 @@ vector<ActiveEffects> Player::getAllResistanceTypes(){
 		}
 		ret=temp;
 	}
-	if(this->ContainCombatEffect(AnimalFury_Effects)!=-1){
+
+	//Animal Fury
+	if(this->ContainCombatEffect(AnimalFury_Effects)){
 		temp.clear();
 		for (i=0;i<ret.size();i++){
 			tempEffect=ret[i];
@@ -500,19 +524,21 @@ vector<ActiveEffects> Player::getAllResistanceTypes(){
 		}
 		ret=temp;
 	}
-	if(this->ContainCombatEffect(Bezerk_Effects)!=-1){
+
+	//Bezerk Effect
+	if(this->ContainCombatEffect(Bezerk_Effects)){
 		temp.clear();
 		for (i=0;i<ret.size();i++){
 			tempEffect=ret[i];
 			tempResistance=tempEffect.getResistance()*.75;
-			//temp.add(ActiveEffects(tempEffect.getEffectType(),tempEffect.getEffect(),tempEffect.getResistance()*.75,tempEffect.getRound()));
-		
+
 			temp.push_back(ActiveEffects(tempEffect.getEffectType(),tempEffect.getEffect(),tempResistance,tempEffect.getRound()));
 
 		}
 		ret=temp;
 	}
-	if(this->ContainCombatEffect(Swordsman_Effects)!=-1){
+	//Swordsman effect
+	if(this->ContainCombatEffect(Swordsman_Effects)){
 		temp.clear();
 		for (i=0;i<ret.size();i++){
 			tempEffect=ret[i];
@@ -521,25 +547,20 @@ vector<ActiveEffects> Player::getAllResistanceTypes(){
 		}
 		ret=temp;
 	}
-	
-	//cout<<"exiting get resistance"<<endl;
 	return ret;
 
 }
 
 //recieves a linked list of damage types and and runs through the damage taken
 int Player::TakeDamage(vector<DamageTypes> damageTypes){
-	//cout<<"entering take damage"<<endl;
 		DamageTypes current;
 		int location=1,totalDamage=0;;
 
 		vector<ActiveEffects> resistances =this->getAllResistanceTypes();
 		//itterates through all damage types
-		//cout<<"damageTypes:"<<damageTypes.Size()<<endl;
 		for(int i=0;i<damageTypes.size();i++){
 			
 			current=damageTypes[i];
-		//	cout<<"i: "<<i<<current.getName()<<endl;
 			//checks to see if damage type happens
 			if(rand()%100<=current.getProbability()){
 				//checks if Effect needs to be added
@@ -566,7 +587,6 @@ int Player::TakeDamage(vector<DamageTypes> damageTypes){
 		}
 		this->setHealth(this->getHealth() - totalDamage);
 		
-	//cout<<"exiting take damage"<<endl;
 		return totalDamage;
 
 }

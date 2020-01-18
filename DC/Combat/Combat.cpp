@@ -89,9 +89,6 @@ int PlayerVsZombieCombat(Player* player, Zombie *zed) {
 			return 0; //zed died
 		}
 
-
-
-
 	}
 
 

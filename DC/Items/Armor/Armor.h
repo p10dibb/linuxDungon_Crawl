@@ -2,8 +2,6 @@
 #include "../Item/Item.h"
 
 
-enum ArmorClass_enum {  NULL_ArmorClass,Light_ArmorClass, Normal_ArmorClass, Heavy_ArmorClass };
-enum ArmorType_enum {NULL_ArmorType, Helmet_ArmorType, Chest_ArmorType, Gloves_ArmorType, Pants_ArmorType, Boots_ArmorType};
 
 class Armor :public Item {
 friend class Item;

@@ -1,18 +1,5 @@
 #pragma once
-#include <iostream>
-#include <string>
-//#include <conio.h>
-using namespace::std;
-
-
-enum EffectTypes_enum {NULL_EffectTypes,DamageOverTime_EffectTypes,DeBuff_EffectTypes,Buff_EffectTypes,Combat_EffectTypes,Resistance_EffectTypes};
-
-enum Effects_enum {NULL_Effects,		//NULL
-Burning_Effects, Bleeding_Effects, Poison_Effects,    //Damage over Time
-Slowed_Effects,Dazed_Effects,Weakness_Effects,BattleFatigue_Effects, //De-Bebuff
-SpeedBoost_Effects,DamageBoost_Effects,DefenseBoost_Effects,	//Buffs
-FireResistance_Effects, StabbingResistance_Effects,BluntResistance_Effects, NormalResistance_Effects,PoisonResistance_Effects, //Damage Resistance
-Bezerk_Effects, DefensiveStance_Effects, QuickStrike_Effects,Swordsman_Effects,AnimalFury_Effects}; //Combat effects
+#include "../Enumerations.h"
 
 //Effects Descriptions---
 	//Null: default does nothing
@@ -46,8 +33,6 @@ Bezerk_Effects, DefensiveStance_Effects, QuickStrike_Effects,Swordsman_Effects,A
 		//Blunt:	reduces the amount of Blunt damage that is taken
 		//Poison:	reduces the amount of poison damage that is taken
 //-----------------
-
-
 
 class ActiveEffects {
 private:	

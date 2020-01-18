@@ -1,14 +1,5 @@
 #pragma once
-#include <iostream>
-#include <string>
-
-#include <map>
-#include <vector>
 #include "../../ActiveEffects/ActiveEffects.h"
-
-using namespace::std;
-
-enum ItemRarity_enum{Common_ItemRarity, UnCommon_ItemRarity, Rare_ItemRarity,Legendary_ItemRarity,Unique_ItemRarity,DEVELOPER_ItemRarity};
 
 class Item {
 

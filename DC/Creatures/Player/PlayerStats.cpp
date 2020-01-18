@@ -27,12 +27,11 @@ void Player::DisplayStats(){
 int Player::getCreaturesKilled(){
     return this->CreaturesKilled;
 }
+
 //increases CreaturesKilled by 1
 void Player::IncrementCreaturesKilled(){
     this->CreaturesKilled+=1;
     RewardCheckCreaturesKilled();
-    
-
 }
 //checks to see if the amount meets a reward requirment
 int Player::RewardCheckCreaturesKilled(){
@@ -123,11 +122,13 @@ int Player::RewardCheckCreaturesKilled(){
 int Player::getItemsRecieved(){
     return this->ItemsRecieved;
 }
+
 //increments the ItemsRecieved by 1
 void Player::IncrementItemsRecieved(){
     this->ItemsRecieved+=1;
     this->RewardCheckItemsRecieved();
 }
+
 //checks to see if the ItemsRecieved meets reward requirments
 int Player::RewardCheckItemsRecieved(){
 
@@ -216,11 +217,13 @@ int Player::RewardCheckItemsRecieved(){
 int Player::getGoldCollected(){
     return this->GoldCollected;
 }
+
 //increases GoldCollected by amount
 void Player::IncrementGoldCollected(int amount){
     this->GoldCollected+=amount;
 
 }
+
 //checks if the GoldCollected meets RewardRequirements
 int Player::RewardCheckGoldCollected(int amount){
     Item *RewardItem;
@@ -282,10 +285,12 @@ int Player::RewardCheckGoldCollected(int amount){
 int Player::getGoldSpent(){
     return this->GoldSpent;
 }
+
 //increases GoldSpent by amount
 void Player::IncrementGoldSpent(int amount){
     this->GoldSpent+=amount;
 }
+
 //checks if the GoldSpent meets reward Requirements
 int Player::RewardCheckGoldSpent(){
     return -1;
@@ -295,10 +300,12 @@ int Player::RewardCheckGoldSpent(){
 int Player::getRoomsBeenToo(){
     return this->RoomsBeenToo;
 }
+
 //increases RoomsBeenToo by 1
 void Player::IncrementRoomsBeenToo(){
     this->RoomsBeenToo+=1;
 }
+
 //checks if the RoomsBeenToo meets reward requirements
 int Player::RewardCheckRoomsBeenToo(){
     return -1;
@@ -308,10 +315,12 @@ int Player::RewardCheckRoomsBeenToo(){
 int Player::getDamageRecieved(){
     return this->DamageRecieved;
 }
+
 //increase DamageRecieved by amount;
 void Player::IncrementDamageRecieved(int amount){
     this->DamageRecieved+=amount;
 }
+
 //checks if the DamageRecieved meetsReward requirements
 int Player::RewardCheckDamageRecieved(){
     return -1;
@@ -321,10 +330,12 @@ int Player::RewardCheckDamageRecieved(){
 int Player::getDamageDealt(){
     return this->DamageDealt;
 }
+
 //increases DamageDealt by amount
 void Player::IncrementDamageDealt(int amount){
     this->DamageDealt+=amount;
 }
+
 // checks if DamageDealt meets reward requirements
 int Player::RewardCheckDamageDealt(){
     return -1;
@@ -334,6 +345,7 @@ int Player::RewardCheckDamageDealt(){
 int Player::getMaxGoldHeld(){
     return this->MaxGoldHeld;
 }
+
 //checks to see if MaxGold meets reqard requirements
 int Player::RewardCheckMaxGoldHeld(){
     if(this->getMoney()>this->MaxGoldHeld){
@@ -348,6 +360,7 @@ int Player::getMaxDamageDealt(){
     return this->MaxDamageDealt;
 
 }
+
 //checks if MaxDamageDealt meets Reward Requirements
 int Player::RewardCheckMaxDamageDealt(int damage){
     if(damage>this->MaxDamageDealt){
@@ -360,10 +373,12 @@ int Player::RewardCheckMaxDamageDealt(int damage){
 int Player::getPotionsDranked(){
     return this->PotionsDranked;
 }
+
 //increases Potion Dranked by 1
 void Player::IncrementPotionDranked(){
     this->PotionsDranked+=1;
 }
+
 //checks if the PotionsDranked meets reward requirements
 int Player::RewardCheckPotionDranked(){
     return -1;

@@ -1,11 +1,6 @@
 #include "../Item/Item.h"
 #include "../../Creatures/Creature/Creature.h"
-						//Nothing	    resores health,   adds one speed point,adds 1 strength point,increases combat speed, increases combat Damage, increases combat Defense , removes all active effects
-enum PotionTypes_enum { NULL_PotionType, 
-Health_PotionType, CureActiveEffects_PotionType,CureNegativeEffects_PotionType,		//benefits the creatures
-SpeedStat_PotionType, StrengthStat_PotionType, MaxHealthStat_PotionType, DefenseStat_PotionType,DamageStat_PotionType,StaminaStat_PotionType, //increases stats
-IncreaseSpeed_PotionType,IncreaseDamage_PotionType,IncreaseDefense_PotionType,//buff potions
-NormalResistance_PotionType, FireResistance_PotionType,PoisonResistance_PotonType,BluntResistance_PotionType,StabbingResistance_PotionType };  //Resistance Potions
+
 
 //Potion Descriptions-----
 	//NULL: does Nothing

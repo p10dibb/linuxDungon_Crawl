@@ -4,14 +4,14 @@
 
 Zombie::Zombie() {
 	Biped();
-	this->direction=0;
+	
 	this->moveAmt=0;
 
 	this->weapon = new Weapon();
 
 }
 
-int Zombie::getDirection(){
+Direction_enum Zombie::getDirection(){
 	return this->direction;
 }
 
@@ -19,14 +19,13 @@ int Zombie::getMoveAmt(){
 	return this->moveAmt;
 }	
 
-
 Weapon* Zombie::getWeapon() {
 	return this->weapon;
 }
+
 void Zombie::setWeapon(Weapon* w) {
 	this->weapon = w;
 }
-
 
 vector<ActiveEffects> Zombie::getAllResistanceTypes(){
 	vector<ActiveEffects> ret;
@@ -128,7 +127,6 @@ int Zombie::TakeDamage(vector<DamageTypes> damageTypes){
 
 }
 
-
 void Zombie:: DisplayDetails() {
 	Display();
 	cout << "Damage: " << this->getDamage() << endl;
@@ -185,46 +183,48 @@ vector<DamageTypes> Zombie::getAllDamageTypes(){
 	return ret;
 }
 
-
-
-void Zombie::move(char  map[][10]){
+void Zombie::move(array<array<RoomPieces_enum, 50>,50> map){
 
 	//if not moving in a set direction then pick new direction and distance
-	if (moveAmt==0){
-		moveAmt=rand()%5+1;
-		direction=rand()%5;
+	if (this->moveAmt==0){
+		this->moveAmt=rand()%5+1;
+		int d=rand()%5;
+		switch (d)
+		{
+		case 0:this->direction=Left_Direction;break;
+		case 1:this->direction=Up_Direction;break;
+		case 2:this->direction=Right_Direction;break;
+		case 3:this->direction=Down_Direction;break;
+		default:this->direction=Left_Direction;break;
+		}
 	}
 
 	//move left
-	if(direction==0){
+	if(direction==Left_Direction){
 		//check for wall
-		if (map[this->getPosition()[0]][this->getPosition()[1]-1]!='|' &&map[this->getPosition()[0]][this->getPosition()[1]-1]!='E'){
+		if (map[this->getPosition()[0]][this->getPosition()[1]-1]==Empty_RoomPieces||map[this->getPosition()[0]][this->getPosition()[1]-1]==Player_RoomPieces){
 			this->setPosition({this->getPosition()[0],this->getPosition()[1]-1});
 		}
 	}// move right
-	else if(direction==2){
+	else if(direction==Right_Direction){
 		//check for wall
-		if (map[this->getPosition()[0]][this->getPosition()[1]+1]!='|' &&map[this->getPosition()[0]][this->getPosition()[1]+1]!='E'){
+		if (map[this->getPosition()[0]][this->getPosition()[1]+1]==Empty_RoomPieces &&map[this->getPosition()[0]][this->getPosition()[1]+1]==Player_RoomPieces){
 			this->setPosition({this->getPosition()[0],this->getPosition()[1]+1});
 		}
 	}
 	//move up
-	else if(direction==1){
+	else if(direction==Up_Direction){
 		//check for wall
-		if (map[this->getPosition()[0]-1][this->getPosition()[1]]!='-' &&map[this->getPosition()[0]-1][this->getPosition()[1]]!='E'){
+		if (map[this->getPosition()[0]-1][this->getPosition()[1]]==Empty_RoomPieces &&map[this->getPosition()[0]-1][this->getPosition()[1]]==Player_RoomPieces){
 			this->setPosition({this->getPosition()[0]-1,this->getPosition()[1]});
 		}
 	}// move down
-	else if(direction==3){
+	else if(direction==Down_Direction){
 		//check for wall
-		if (map[this->getPosition()[0]+1][this->getPosition()[1]]!='-' &&map[this->getPosition()[0]+1][this->getPosition()[1]]!='E'){
+		if (map[this->getPosition()[0]+1][this->getPosition()[1]]==Empty_RoomPieces &&map[this->getPosition()[0]+1][this->getPosition()[1]]==Player_RoomPieces){
 			this->setPosition({this->getPosition()[0]+1,this->getPosition()[1]});
 		}
 	} 
-
 	
 	this->moveAmt--;
-
-
-
 }

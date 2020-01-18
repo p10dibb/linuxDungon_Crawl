@@ -9,8 +9,10 @@ private:
 
 	Weapon* weapon;
 
-	//the current movement direction 0:left 1:up 2:right 3:down 4:stationary
-	int direction;
+	//the direction that the zombie is moving
+	Direction_enum direction;
+
+	//the distance that the zombie moves
 	int moveAmt;
 
 
@@ -29,7 +31,7 @@ public:
 	//int TakeDamage(int attack);
 	int TakeDamage(vector<DamageTypes> damageTypes);
 
-	int getDirection();
+	Direction_enum getDirection();
 
 	int getMoveAmt();
 
@@ -37,7 +39,7 @@ public:
 	
 	int ActualSpeed();
 
-	void move(char  map[][10]);
+	void move(array<array<RoomPieces_enum, 50>,50> map);
 
 
 };

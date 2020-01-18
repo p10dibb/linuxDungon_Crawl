@@ -131,9 +131,9 @@ public:
 
 	//-----------------------------
 	
-	int move(char  map[][10], int direction);
+	int move(array<array<RoomPieces_enum, 50>,50> map, int direction);
 
-	int Navigation(char map[][10]);
+	int Navigation(array<array<RoomPieces_enum, 50>,50> map);
 
 	void addSkillPoint();
 
@@ -177,67 +177,85 @@ public:
 
 		//returns the amount of creatures player has killed
 		int getCreaturesKilled();
+
 		//increases CreaturesKilled by 1
 		void IncrementCreaturesKilled();
+
 		//checks to see if the amount meets a reward requirment
 		int RewardCheckCreaturesKilled();
 
 		//returns the total amount of items recieved;
 		int getItemsRecieved();
+
 		//increments the ItemsRecieved by 1
 		void IncrementItemsRecieved();
+
 		//checks to see if the ItemsRecieved meets reward requirments
 		int RewardCheckItemsRecieved();
 
 		//returns total amount of gold Collected
 		int getGoldCollected();
+
 		//increases GoldCollected by amount
 		void IncrementGoldCollected(int amount);
+
 		//checks if the GoldCollected meets RewardRequirements
 		int RewardCheckGoldCollected(int amount);
 
 		//returns the total amount of Gold Spent
 		int getGoldSpent();
+
 		//increases GoldSpent by amount
 		void IncrementGoldSpent(int amount);
+
 		//checks if the GoldSpent meets reward Requirements
 		int RewardCheckGoldSpent();
 
 		//returns total amount of floors player has been too
 		int getRoomsBeenToo();
+
 		//increases RoomsBeenToo by 1
 		void IncrementRoomsBeenToo();
+
 		//checks if the RoomsBeenToo meets reward requirements
 		int RewardCheckRoomsBeenToo();
 
 		//returns total amount of damage recieved
 		int getDamageRecieved();
+
 		//increase DamageRecieved by amount;
 		void IncrementDamageRecieved(int amount);
+
 		//checks if the DamageRecieved meetsReward requirements
 		int RewardCheckDamageRecieved();
 
 		//returns total amount of Damage Dealt
 		int getDamageDealt();
+
 		//increases DamageDealt by amount
 		void IncrementDamageDealt(int amount);
+
 		// checks if DamageDealt meets reward requirements
 		int RewardCheckDamageDealt();
 
 		//returns largest amount of Money the player has had
 		int getMaxGoldHeld();
+
 		//checks to see if MaxGold meets reqard requirements
 		int RewardCheckMaxGoldHeld();
 
 		//returns the maxDamage Dealt
 		int getMaxDamageDealt();
+
 		//checks if MaxDamageDealt meets Reward Requirements
 		int RewardCheckMaxDamageDealt(int damage);
 
 		//returns total amount of potions the player has drunk
 		int getPotionsDranked();
+
 		//increases Potion Dranked by 1
 		void IncrementPotionDranked();
+
 		//checks if the PotionsDranked meets reward requirements
 		int RewardCheckPotionDranked();
 	

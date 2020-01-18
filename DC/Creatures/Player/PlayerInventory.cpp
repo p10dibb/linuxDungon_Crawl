@@ -50,7 +50,6 @@ bool Player::addToInventory(Item *i) {
 Item *Player::RemoveItemFromInventory(int pos){
 	if (pos>this->InventorySize ||pos<0){
 		Item *fail= new Item();
-		cout<<"woot scoot"<<endl;
 		return fail;
 	}
 	Item* temp=this->Inventory[pos].item;
