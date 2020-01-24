@@ -11,3 +11,7 @@ void TestArmorStuff();
 
 //visually see the effects of the Combat effects in a controlled enviornment;
 void TestResistanceEffects();
+
+Room createRoom0_0();
+Room createRoom1_0();
+Room createRoom0_1();

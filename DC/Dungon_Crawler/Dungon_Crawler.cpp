@@ -4,20 +4,21 @@
 void Run() {
 	srand(time(NULL));
 	 Spawner s;
-	Player player = createPlayer();
-	
+	Player player;
+	// = createPlayer();
+
 	// player.addToInventory(s.CreateDevSword());
-	
+
 	// player.addToInventory(s.CreateDevSword());
-	
+
 	// player.addToInventory(s.CreateDevHelmet(Light_ArmorClass));
 
 	// player.addToInventory(s.CreateDevChest(Light_ArmorClass));
-	
+
 	// player.addToInventory(s.CreateDevBoots(Light_ArmorClass));
-	
+
 	// player.addToInventory(s.CreateDevGloves(Light_ArmorClass));
-	
+
 	// player.addToInventory(s.CreateDevPants(Light_ArmorClass));
 	player.addToInventory(s.CreateAxe(1,true));
 	player.addToInventory(s.CreateDagger(1,true));
@@ -28,34 +29,21 @@ void Run() {
 	a->setResistanceTypes(e);
 	player.addToInventory(a);
 
-	player.addToInventory(s.CreatePants(1,Light_ArmorClass,true));	
+	player.addToInventory(s.CreatePants(1,Light_ArmorClass,true));
 	player.addToInventory(s.CreateChest(1,Light_ArmorClass,true));
 	player.addToInventory(s.CreateGloves(1,Light_ArmorClass,true));
 	player.addToInventory(s.CreateHelmet(1,Light_ArmorClass,true));
-	
+
 	Floor f;
 
-	for (int i = 0; i < 10; i++) {
-		for (int j = 0; j < 10; j++) {
-			f.createRoom(i, j);
-		}
-	}
 
-	f.createRoom(2,2,3,true);
-	
-	f.createRoom(1,0,3,true);
-	
-	f.createRoom(5,5,3,true);
-	
-	f.createRoom(6,4,3,true);
-	
-	f.createRoom(7,9,3,true);
-
+	f.setRoom(createRoom0_0(),0,0);
+	f.setRoom(createRoom1_0(),1,0);
 	f.setPlayer(&player);
 	f.NavigateFloor();
 
 
-	
+
 }
 
 Player createPlayer() {
@@ -72,8 +60,8 @@ Player createPlayer() {
 	int input = 0;
 	while (points != 0)
 	{
-		
-	cout << "you have " << points << " remaining what would you like to upgrade?" << endl;	
+
+	cout << "you have " << points << " remaining what would you like to upgrade?" << endl;
 		ret.addSkillPoint();
 
 
@@ -83,418 +71,41 @@ Player createPlayer() {
 	return ret;
 }
 
-// void TestArmorStuff(){
-// 	  Spawner s;
-// 	Armor *a;
-// 	int avgC=0,avgU=0,avgR=0,avgL=0;
-// 	//Light
-// 		cout<<"Light"<<endl;
-// 		//Boots
-// 			cout<<"Boots"<<endl;
-// 			cout<<"Common,Uncommon,Rare,Legendary"<<endl;
-			
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(1,Light_ArmorClass,true,true);
-// 				avgC+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(1,Light_ArmorClass,true,true,UnCommon_ItemRarity);
-// 				avgU+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(1,Light_ArmorClass,true,true,Rare_ItemRarity);
-// 				avgR+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(1,Light_ArmorClass,true,true,Legendary_ItemRarity);
-// 				avgL+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			cout<<"level 1: "<<avgC/1000<<", " <<avgU/1000<<", "<<avgR/1000<<", "<<avgL/1000<<endl;
-// 			avgC=0;
-// 			avgU=0;
-// 			avgR=0;
-// 			avgL=0;
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(5,Light_ArmorClass,true,true);
-// 				avgC+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}	for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(5,Light_ArmorClass,true,true,UnCommon_ItemRarity);
-// 				avgU+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(5,Light_ArmorClass,true,true,Rare_ItemRarity);
-// 				avgR+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(5,Light_ArmorClass,true,true,Legendary_ItemRarity);
-// 				avgL+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			cout<<"level 5: "<<avgC/1000<<", " <<avgU/1000<<", "<<avgR/1000<<", "<<avgL/1000<<endl;
-// 			avgC=0;
-// 			avgU=0;
-// 			avgR=0;
-// 			avgL=0;
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(10,Light_ArmorClass,true,true);
-// 				avgC+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 				for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(10,Light_ArmorClass,true,true,UnCommon_ItemRarity);
-// 				avgU+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(10,Light_ArmorClass,true,true,Rare_ItemRarity);
-// 				avgR+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(10,Light_ArmorClass,true,true,Legendary_ItemRarity);
-// 				avgL+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			cout<<"level 10: "<<avgC/1000<<", " <<avgU/1000<<", "<<avgR/1000<<", "<<avgL/1000<<endl;
-// 			avgC=0;
-// 			avgU=0;
-// 			avgR=0;
-// 			avgL=0;
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(15,Light_ArmorClass,true,true);
-// 				avgC+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}	
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(15,Light_ArmorClass,true,true,UnCommon_ItemRarity);
-// 				avgU+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(15,Light_ArmorClass,true,true,Rare_ItemRarity);
-// 				avgR+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(15,Light_ArmorClass,true,true,Legendary_ItemRarity);
-// 				avgL+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			cout<<"level 15: "<<avgC/1000<<", " <<avgU/1000<<", "<<avgR/1000<<", "<<avgL/1000<<endl;
-// 			avgC=0;
-// 			avgU=0;
-// 			avgR=0;
-// 			avgL=0;
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(20,Light_ArmorClass,true,true);
-// 				avgC+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}	
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(20,Light_ArmorClass,true,true,UnCommon_ItemRarity);
-// 				avgU+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(20,Light_ArmorClass,true,true,Rare_ItemRarity);
-// 				avgR+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateBoots(20,Light_ArmorClass,true,true,Legendary_ItemRarity);
-// 				avgL+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			cout<<"level 20: "<<avgC/1000<<", " <<avgU/1000<<", "<<avgR/1000<<", "<<avgL/1000<<endl;
-// 			avgC=0;
-// 			avgU=0;
-// 			avgR=0;
-// 			avgL=0;
-// 		//----------
-// 		//Pants
-// 			cout<<"Pants"<<endl;
-// 			cout<<"Common,Uncommon,Rare,Legendary"<<endl;
-			
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(1,Light_ArmorClass,true,true);
-// 				avgC+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(1,Light_ArmorClass,true,true,UnCommon_ItemRarity);
-// 				avgU+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(1,Light_ArmorClass,true,true,Rare_ItemRarity);
-// 				avgR+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(1,Light_ArmorClass,true,true,Legendary_ItemRarity);
-// 				avgL+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			cout<<"level 1: "<<avgC/1000<<", " <<avgU/1000<<", "<<avgR/1000<<", "<<avgL/1000<<endl;
-// 			avgC=0;
-// 			avgU=0;
-// 			avgR=0;
-// 			avgL=0;
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(5,Light_ArmorClass,true,true);
-// 				avgC+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}	for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(5,Light_ArmorClass,true,true,UnCommon_ItemRarity);
-// 				avgU+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(5,Light_ArmorClass,true,true,Rare_ItemRarity);
-// 				avgR+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(5,Light_ArmorClass,true,true,Legendary_ItemRarity);
-// 				avgL+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			cout<<"level 5: "<<avgC/1000<<", " <<avgU/1000<<", "<<avgR/1000<<", "<<avgL/1000<<endl;
-// 			avgC=0;
-// 			avgU=0;
-// 			avgR=0;
-// 			avgL=0;
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(10,Light_ArmorClass,true,true);
-// 				avgC+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 				for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(10,Light_ArmorClass,true,true,UnCommon_ItemRarity);
-// 				avgU+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(10,Light_ArmorClass,true,true,Rare_ItemRarity);
-// 				avgR+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(10,Light_ArmorClass,true,true,Legendary_ItemRarity);
-// 				avgL+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			cout<<"level 10: "<<avgC/1000<<", " <<avgU/1000<<", "<<avgR/1000<<", "<<avgL/1000<<endl;
-// 			avgC=0;
-// 			avgU=0;
-// 			avgR=0;
-// 			avgL=0;
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(15,Light_ArmorClass,true,true);
-// 				avgC+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}	
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(15,Light_ArmorClass,true,true,UnCommon_ItemRarity);
-// 				avgU+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(15,Light_ArmorClass,true,true,Rare_ItemRarity);
-// 				avgR+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(15,Light_ArmorClass,true,true,Legendary_ItemRarity);
-// 				avgL+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			cout<<"level 15: "<<avgC/1000<<", " <<avgU/1000<<", "<<avgR/1000<<", "<<avgL/1000<<endl;
-// 			avgC=0;
-// 			avgU=0;
-// 			avgR=0;
-// 			avgL=0;
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(20,Light_ArmorClass,true,true);
-// 				avgC+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}	
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(20,Light_ArmorClass,true,true,UnCommon_ItemRarity);
-// 				avgU+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(20,Light_ArmorClass,true,true,Rare_ItemRarity);
-// 				avgR+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreatePants(20,Light_ArmorClass,true,true,Legendary_ItemRarity);
-// 				avgL+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			cout<<"level 20: "<<avgC/1000<<", " <<avgU/1000<<", "<<avgR/1000<<", "<<avgL/1000<<endl;
-// 			avgC=0;
-// 			avgU=0;
-// 			avgR=0;
-// 			avgL=0;
-// 		//----------
-// 		//Chest
-// 			cout<<"Chest"<<endl;
-// 			cout<<"Common,Uncommon,Rare,Legendary"<<endl;
-			
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(1,Light_ArmorClass,true,true);
-// 				avgC+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(1,Light_ArmorClass,true,true,UnCommon_ItemRarity);
-// 				avgU+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(1,Light_ArmorClass,true,true,Rare_ItemRarity);
-// 				avgR+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(1,Light_ArmorClass,true,true,Legendary_ItemRarity);
-// 				avgL+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			cout<<"level 1: "<<avgC/1000<<", " <<avgU/1000<<", "<<avgR/1000<<", "<<avgL/1000<<endl;
-// 			avgC=0;
-// 			avgU=0;
-// 			avgR=0;
-// 			avgL=0;
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(5,Light_ArmorClass,true,true);
-// 				avgC+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}	for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(5,Light_ArmorClass,true,true,UnCommon_ItemRarity);
-// 				avgU+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(5,Light_ArmorClass,true,true,Rare_ItemRarity);
-// 				avgR+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(5,Light_ArmorClass,true,true,Legendary_ItemRarity);
-// 				avgL+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			cout<<"level 5: "<<avgC/1000<<", " <<avgU/1000<<", "<<avgR/1000<<", "<<avgL/1000<<endl;
-// 			avgC=0;
-// 			avgU=0;
-// 			avgR=0;
-// 			avgL=0;
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(10,Light_ArmorClass,true,true);
-// 				avgC+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 				for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(10,Light_ArmorClass,true,true,UnCommon_ItemRarity);
-// 				avgU+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(10,Light_ArmorClass,true,true,Rare_ItemRarity);
-// 				avgR+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(10,Light_ArmorClass,true,true,Legendary_ItemRarity);
-// 				avgL+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			cout<<"level 10: "<<avgC/1000<<", " <<avgU/1000<<", "<<avgR/1000<<", "<<avgL/1000<<endl;
-// 			avgC=0;
-// 			avgU=0;
-// 			avgR=0;
-// 			avgL=0;
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(15,Light_ArmorClass,true,true);
-// 				avgC+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}	
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(15,Light_ArmorClass,true,true,UnCommon_ItemRarity);
-// 				avgU+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(15,Light_ArmorClass,true,true,Rare_ItemRarity);
-// 				avgR+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(15,Light_ArmorClass,true,true,Legendary_ItemRarity);
-// 				avgL+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			cout<<"level 15: "<<avgC/1000<<", " <<avgU/1000<<", "<<avgR/1000<<", "<<avgL/1000<<endl;
-// 			avgC=0;
-// 			avgU=0;
-// 			avgR=0;
-// 			avgL=0;
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(20,Light_ArmorClass,true,true);
-// 				avgC+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}	
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(20,Light_ArmorClass,true,true,UnCommon_ItemRarity);
-// 				avgU+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(20,Light_ArmorClass,true,true,Rare_ItemRarity);
-// 				avgR+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			for(int j=0; j<1000;j++){
-// 				a=s.CreateChest(20,Light_ArmorClass,true,true,Legendary_ItemRarity);
-// 				avgL+=a->getTotalResistance();
-// 				//cout<<a->getTotalResistance()<<endl;
-// 			}
-// 			cout<<"level 20: "<<avgC/1000<<", " <<avgU/1000<<", "<<avgR/1000<<", "<<avgL/1000<<endl;
-// 			avgC=0;
-// 			avgU=0;
-// 			avgR=0;
-// 			avgL=0;
-// 		//----------
-		
-// 	//----------
-// }
 
-// void TestResistanceEffects(){
-// 	Player p;
-// 	Armor * a = new Armor(10,1,Chest_ArmorType,Light_ArmorClass);
-	
-// 	Armor * a1 = new Armor(10,1,Boots_ArmorType,Light_ArmorClass);
-// 	p.setHealth(500);
-// 	p.setDefense(0);
-// 	p.setTorso(a);
-// 	//p.setFeet(a1);
-// 	p.AddCombatEffect(ActiveEffects(Combat_EffectTypes,Bezerk_Effects,1,1));
-	
-	
-// 	vector<DamageTypes> dam;
-// 	dam.push_back(DamageTypes(100));
-// 	p.DisplayAllResistanceEffects();
-// 	cout<<"player takes" <<p.TakeDamage(dam)<<endl;
+Room createRoom0_0(){
+	Room ret;
 
-// }
+	ret.setMaxX(20);
+	ret.setMaxY(10);
+
+	ret.addWalls(0,0,0,9);
+
+	ret.addWalls(1,0,19,0);
+	ret.addWalls(19,1,19,5);
+	ret.addDownDoor(2,2);
+	ret.addWalls(19,7,19,9);
+	ret.addWalls(1,9,4,9);
+	ret.addRightDoor(5,9);
+	ret.addWalls(6,9,18,9);
+
+	return ret;
+
+}
+
+Room createRoom1_0(){
+
+	Room ret;
+	ret.setMaxX(10);
+	ret.setMaxY(20);
+	ret.addUpDoor(0,4);
+	ret.addWalls(0,0,0,3);
+	ret.addWalls(0,4,0,19);
+	ret.addWalls(0,0,9,0);
+	ret.addWalls(9,0,9,19);
+	ret.addWalls(9,0,9,19);
+
+
+}
+Room createRoom0_1(){
+
+}

@@ -46,7 +46,8 @@ int Floor::NavigateFloor() {
 					this->currentRoom[1] -= 1;
 
 					this->player->setPosition({ 1,1 });
-					this->player->setPosition({ this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[2][0]  ,this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[2][1] - 1 });
+					this->player->setPosition({ this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getRightDoorPosition()[0] ,this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getRightDoorPosition()[1] - 1 });
+					
 					//stats incrementer
 					player->IncrementRoomsBeenToo();
 
@@ -56,7 +57,7 @@ int Floor::NavigateFloor() {
 				if (this->currentRoom[0] - 1 >= 0) {
 					this->currentRoom[0] -= 1;
 					this->player->setPosition({ 1,1 });
-					this->player->setPosition({ this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[3][0] - 1 ,this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[3][1] });
+					this->player->setPosition({ this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getDownDoorPosition()[0] - 1 ,this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getDownDoorPosition()[1] });
 					//stats incrementer
 					player->IncrementRoomsBeenToo();
 				}
@@ -65,7 +66,8 @@ int Floor::NavigateFloor() {
 				if (this->currentRoom[1] + 1 <= 9) {
 					this->currentRoom[1] += 1;
 					this->player->setPosition({ 1,1 });
-					this->player->setPosition({ this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[0][0]  ,this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[0][1] + 1 });
+					this->player->setPosition({ this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getLeftDoorPosition()[0]  ,this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getLeftDoorPosition()[1] + 1 });
+					
 					//stats incrementer
 					player->IncrementRoomsBeenToo();
 				}
@@ -73,14 +75,16 @@ int Floor::NavigateFloor() {
 			else if (value == 4) {
 				if (this->currentRoom[0] + 1 <= 9) {
 					this->currentRoom[0] += 1;
-					this->player->setPosition({ this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[1][0] + 1 ,this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getExits()[1][1] });
+					this->player->setPosition({ this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getUpDoorPosition()[0] + 1 ,this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getUpDoorPosition()[1] });
 					//stats incrementer
 					player->IncrementRoomsBeenToo();
 				}
 		}
-			if (this->FloorMap[this->getCurrentRoom()[0]][this->getCurrentRoom()[1]].getZeds().size() !=this->FloorMap[this->getCurrentRoom()[0]][this->getCurrentRoom()[1]].getEnemyAmt()) {
+			if (this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getVisited()) {
 				this->initializeRoom(this->player->getLevel(),currentRoom[0],currentRoom[1]);
 			 }
+			this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].setVisited(true);
+
 
 		}
 		
@@ -94,29 +98,24 @@ array<int, 2>  Floor::getCurrentRoom() {
 	return this->currentRoom;
 }
 
-bool Floor::createRoom( int x, int y, int zedamt,bool isShop ) {
-	int actual = zedamt;
-	if (zedamt == -1) {
-		actual = rand() % 5 + 1;
-	}
 
-	this->FloorMap[x][y].setEnemyAmt(actual);
-	this->FloorMap[x][y].setIsShop(isShop);
-
-	return true;
-
-}
 
 bool Floor::initializeRoom(int level, int x, int y ) {
 	
-	vector<Zombie> z;
-	for (int i = 0; i < this->FloorMap[x][y].getEnemyAmt();i++) {
-		z.push_back(spawner.CreateZombie(level));
-	}
-	this->FloorMap[x][y].setZeds(z);
+	Zombie z;
+	for (int i = 0; i < this->FloorMap[x][y].getStartingEnemyAmount();i++) {
 
+		z=spawner.CreateZombie(level);
+
+
+		//adds zombie at unigue location
+		while(!this->FloorMap[x][y].addEnemy(z,rand()%this->FloorMap[x][y].getMaxX(),rand()%this->FloorMap[x][y].getMaxY() ));
+
+	}
+
+	//if there is a shop it sets it to appropriate level
 	if (this->FloorMap[x][y].getIsShop()){
-		this->FloorMap[x][y].setShopPosition({rand()%5 +2,rand()%5 +2});
+
 		this->FloorMap[x][y].setShopLevel(this->getPlayer()->getLevel());
 	}
 
