@@ -199,7 +199,7 @@ Room createRoom0_1()
 
 Room createDefaultRoom()
 {
-
+	Spawner s;
 	Room ret;
 
 	ret.setMaxX(10);
@@ -238,7 +238,7 @@ Room createDefaultRoom()
 
 	ret.addWalls(6, 9, 9, 9);
 
-	ret.setStartingEnemyAmount(1);
+	ret.addEnemy(s.CreateZombie(1),4,4);
 
 	return ret;
 }
@@ -480,7 +480,6 @@ Room createRoom9_9()
 }
 
 //top Right corner room
-
 Room createRoom0_9()
 {
 

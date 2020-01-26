@@ -439,6 +439,7 @@ void Room::DisplayRoom()
 int Room::RunRoom()
 {
 	int results = 0;
+	array<int,2> tempPos;
 
 	this->DisplayRoom();
 	while (1)
@@ -453,9 +454,10 @@ int Room::RunRoom()
 				this->PlaceShop(this->shop.getPosition()[0], this->shop.getPosition()[1]);
 			}
 		}
+		tempPos=player->getPosition();
 		this->player->Navigation(this->RoomMap);
 		results = this->playerCollisionCheck();
-		this->PlacePlayer(player->getPosition()[0], player->getPosition()[1]);
+
 
 		//if hit exit
 		if (results == -1)
@@ -464,9 +466,10 @@ int Room::RunRoom()
 		}
 		else if (results > 0 && results <= 4)
 		{
+			player->setPosition(tempPos);
 			return results;
 		}
-
+		this->PlacePlayer(player->getPosition()[0], player->getPosition()[1]);
 		//run Zombies
 		map<array<int, 2>, Zombie> temp;
 		map<array<int, 2>, Zombie>::const_iterator it = this->Enemies.begin();
@@ -476,6 +479,7 @@ int Room::RunRoom()
 
 			this->ClearSpot(z.getPosition()[0], z.getPosition()[1]);
 
+			tempPos=z.getPosition();
 			z.move(this->RoomMap);
 			results = this->zombieCollisionCheck(&z);
 			//player dies
@@ -483,10 +487,18 @@ int Room::RunRoom()
 			{
 				return -1;
 			}
-			else if (results == -2)
+			else if (results <0)
 			{
+				if(results==-2){
+					z.setPosition(tempPos);
+				}
+				
 				temp[z.getPosition()] = z;
+				this->PlaceEnemy(z.getPosition()[0],z.getPosition()[1]);				
 			}
+			
+			
+			it++;
 		}
 		Enemies = temp;
 
@@ -549,7 +561,7 @@ int Room::playerCollisionCheck()
 
 int Room::zombieCollisionCheck(Zombie *zed)
 {
-	int result = 0;
+	int result = -3;
 	if (RoomMap[zed->getPosition()[0]][zed->getPosition()[1]] == Player_RoomPieces)
 	{
 
@@ -564,14 +576,12 @@ int Room::zombieCollisionCheck(Zombie *zed)
 			//removes the zombie from the array
 			this->Enemies.erase(player->getPosition());
 		}
-		//if the player escapes the zombie
-		else if (result == -2)
-		{
-			return -2;
-		}
-		//player dies
-		return result;
+		
+		
+		
 	}
+	// -3 if not-2 if the player escapes the zombie -1 if player dies 0 if zombie dies
+	return result;
 }
 
 void Room::setIsShop(bool shop)
