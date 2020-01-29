@@ -195,7 +195,7 @@ void Zombie::move(array<array<RoomPieces_enum, 50>,50> map){
 		case 1:this->direction=Up_Direction;break;
 		case 2:this->direction=Right_Direction;break;
 		case 3:this->direction=Down_Direction;break;
-		default:this->direction=Left_Direction;break;
+		default:this->direction=No_Direction;break;
 		}
 	}
 

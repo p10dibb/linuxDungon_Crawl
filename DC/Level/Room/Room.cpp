@@ -97,7 +97,7 @@ bool Room::addEnemy(Zombie enemy, int x, int y)
 		return false;
 	}
 
-	Enemies[{x, y}] = enemy;
+	this->Enemies[{x, y}] = enemy;
 	return true;
 }
 
@@ -136,9 +136,9 @@ bool Room::addWalls(int x1, int y1, int x2, int y2)
 
 		currentPoint = y1;
 		//checks to make sure nothing is in the way of building the walls
-		while (currentPoint != y2+direction)
+		while (currentPoint != y2 + direction)
 		{
-			if (this->RoomMap[x1][currentPoint] != Empty_RoomPieces&&this->RoomMap[x1][currentPoint]!=Wall_RoomPieces)
+			if (this->RoomMap[x1][currentPoint] != Empty_RoomPieces && this->RoomMap[x1][currentPoint] != Wall_RoomPieces)
 			{
 				return false;
 			}
@@ -147,7 +147,7 @@ bool Room::addWalls(int x1, int y1, int x2, int y2)
 
 		currentPoint = y1;
 		//places walls down
-		while (currentPoint != y2+direction)
+		while (currentPoint != y2 + direction)
 		{
 			this->RoomMap[x1][currentPoint] = Wall_RoomPieces;
 			currentPoint += direction;
@@ -167,9 +167,9 @@ bool Room::addWalls(int x1, int y1, int x2, int y2)
 		currentPoint = x1;
 
 		//checks to make sure nothing is in the way of building the walls
-		while (currentPoint != x2+direction)
+		while (currentPoint != x2 + direction)
 		{
-			if (this->RoomMap[currentPoint][y1] != Empty_RoomPieces&&this->RoomMap[currentPoint][y1] != Wall_RoomPieces)
+			if (this->RoomMap[currentPoint][y1] != Empty_RoomPieces && this->RoomMap[currentPoint][y1] != Wall_RoomPieces)
 			{
 				return false;
 			}
@@ -178,7 +178,7 @@ bool Room::addWalls(int x1, int y1, int x2, int y2)
 
 		currentPoint = x1;
 		//places walls down
-		while (currentPoint != x2+direction)
+		while (currentPoint != x2 + direction)
 		{
 			this->RoomMap[currentPoint][y1] = Wall_RoomPieces;
 			currentPoint += direction;
@@ -303,7 +303,7 @@ bool Room::addUpDoor(int x, int y)
 	}
 
 	this->RoomMap[x][y] = UpDoor_RoomPieces;
-	this->UpDoorPosition={x,y};
+	this->UpDoorPosition = {x, y};
 	this->isUpDoor = true;
 	return true;
 }
@@ -327,7 +327,7 @@ bool Room::addDownDoor(int x, int y)
 	}
 
 	this->RoomMap[x][y] = DownDoor_RoomPieces;
-	this->DownDoorPosition={x,y};
+	this->DownDoorPosition = {x, y};
 	this->isDownDoor = true;
 	return true;
 }
@@ -351,7 +351,7 @@ bool Room::addLeftDoor(int x, int y)
 	}
 
 	this->RoomMap[x][y] = LeftDoor_RoomPieces;
-	this->LeftDoorPosition={x,y};
+	this->LeftDoorPosition = {x, y};
 	this->isLeftDoor = true;
 	return true;
 }
@@ -375,7 +375,7 @@ bool Room::addRightDoor(int x, int y)
 	}
 
 	this->RoomMap[x][y] = RightDoor_RoomPieces;
-	this->RightDoorPosition={x,y};
+	this->RightDoorPosition = {x, y};
 	this->isRightDoor = true;
 	return true;
 }
@@ -439,65 +439,87 @@ void Room::DisplayRoom()
 int Room::RunRoom()
 {
 	int results = 0;
-	array<int,2> tempPos;
+	array<int, 2> tempPos;
 
 	this->DisplayRoom();
 	while (1)
 	{
 		//runs Player
-		this->ClearSpot(player->getPosition()[0], player->getPosition()[1]);
-		//checks if shop needs to be replaced
-		if (this->isShop)
+		int steps = 0;
+
+		//lets player take as many steps as thier stamina allows
+		while (steps < player->getStamina())
 		{
-			if (this->shop.getPosition() == player->getPosition())
+			this->ClearSpot(player->getPosition()[0], player->getPosition()[1]);
+			//checks if shop needs to be replaced
+			if (this->isShop)
 			{
-				this->PlaceShop(this->shop.getPosition()[0], this->shop.getPosition()[1]);
+				if (this->shop.getPosition() == player->getPosition())
+				{
+					this->PlaceShop(this->shop.getPosition()[0], this->shop.getPosition()[1]);
+				}
 			}
-		}
-		tempPos=player->getPosition();
-		this->player->Navigation(this->RoomMap);
-		results = this->playerCollisionCheck();
+			tempPos = player->getPosition();
+			this->player->Navigation(this->RoomMap);
+			results = this->playerCollisionCheck();
 
-
-		//if hit exit
-		if (results == -1)
-		{
-			return -1;
+			//if hit exit
+			if (results == -1)
+			{
+				return -1;
+			}
+			else if (results > 0 && results <= 4)
+			{
+				player->setPosition(tempPos);
+				return results;
+			}
+			this->PlacePlayer(player->getPosition()[0], player->getPosition()[1]);
+			this->DisplayRoom();
+			cout<<"player steps: "<<steps<<endl;
+			steps++;
 		}
-		else if (results > 0 && results <= 4)
-		{
-			player->setPosition(tempPos);
-			return results;
-		}
-		this->PlacePlayer(player->getPosition()[0], player->getPosition()[1]);
 		//run Zombies
 		map<array<int, 2>, Zombie> temp;
 		map<array<int, 2>, Zombie>::const_iterator it = this->Enemies.begin();
 		while (it != this->Enemies.end())
 		{
 			Zombie z = it->second;
-
-			this->ClearSpot(z.getPosition()[0], z.getPosition()[1]);
-
-			tempPos=z.getPosition();
-			z.move(this->RoomMap);
-			results = this->zombieCollisionCheck(&z);
-			//player dies
-			if (results == -1)
+			steps = 0;
+			while (steps < z.getStamina())
 			{
-				return -1;
-			}
-			else if (results <0)
-			{
-				if(results==-2){
-					z.setPosition(tempPos);
+				this->ClearSpot(z.getPosition()[0], z.getPosition()[1]);
+
+				tempPos = z.getPosition();
+				z.move(this->RoomMap);
+				results = this->zombieCollisionCheck(&z);
+				cout<<"results "<<results<<endl;
+				//player dies
+				if (results == -1)
+				{
+					return -1;
 				}
-				
-				temp[z.getPosition()] = z;
-				this->PlaceEnemy(z.getPosition()[0],z.getPosition()[1]);				
+				else if (results < 0)
+				{
+					if (results == -2)
+					{
+						z.setPosition(tempPos);
+					}
+
+					this->PlaceEnemy(z.getPosition()[0], z.getPosition()[1]);
+				}
+				else if (results == 0)
+				{
+					break;
+				}
+				steps++;
+			//	this->DisplayRoom();
+				cout<<"zed steps: "<<steps<<endl;
+
 			}
-			
-			
+			if (results != 0)
+			{
+				temp[z.getPosition()] = z;
+			}
 			it++;
 		}
 		Enemies = temp;
@@ -576,9 +598,6 @@ int Room::zombieCollisionCheck(Zombie *zed)
 			//removes the zombie from the array
 			this->Enemies.erase(player->getPosition());
 		}
-		
-		
-		
 	}
 	// -3 if not-2 if the player escapes the zombie -1 if player dies 0 if zombie dies
 	return result;
@@ -702,12 +721,14 @@ array<int, 2> Room::getRightDoorPosition()
 	}
 }
 
-	//sets if the room has been visited
-	void Room::setVisited(bool v){
-		this->visited=v;
-	}
+//sets if the room has been visited
+void Room::setVisited(bool v)
+{
+	this->visited = v;
+}
 
-	//gets if the room has been visited
-	bool Room::getVisited(){
-		return this->visited;
-	}
+//gets if the room has been visited
+bool Room::getVisited()
+{
+	return this->visited;
+}

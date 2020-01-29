@@ -8,7 +8,7 @@ using namespace::std;
 
 
 //Directional Enumeration;
-enum Direction_enum {Left_Direction, Up_Direction, Right_Direction, Down_Direction };
+enum Direction_enum {Left_Direction, Up_Direction, Right_Direction, Down_Direction, No_Direction};
 
 //Types of Active Effect Described in ActiveEffects.h
 enum EffectTypes_enum {NULL_EffectTypes,DamageOverTime_EffectTypes,DeBuff_EffectTypes,Buff_EffectTypes,Combat_EffectTypes,Resistance_EffectTypes};

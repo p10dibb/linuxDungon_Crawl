@@ -404,40 +404,34 @@ Room createDownRoom()
 //botton Left corner room
 Room createRoom9_0()
 {
-
+	Spawner s;
 	Room ret;
 
 	ret.setMaxX(20);
-
 	ret.setMaxY(20);
 
 	//Left Wall
-
 	ret.addWalls(0, 0, 19, 0);
 
 	//Bottom Wall
-
 	ret.addWalls(19, 0, 19, 19);
 
 	//Top Wall
-
 	ret.addWalls(0, 0, 0, 4);
-
 	ret.addUpDoor(0, 5);
-
 	ret.addWalls(0, 6, 0, 8);
-
 	ret.addWalls(12, 8, 12, 19);
 
 	//Right Wall
-
 	ret.addWalls(0, 8, 12, 8);
-
 	ret.addWalls(12, 19, 16, 19);
-
 	ret.addRightDoor(17, 19);
-
 	ret.addWalls(18, 19, 19, 19);
+
+	Zombie z= s.CreateZombie(1);
+	z.setStamina(2);
+
+	ret.addEnemy(z,3,3);
 
 	return ret;
 }
@@ -449,31 +443,22 @@ Room createRoom9_9()
 	Room ret;
 
 	ret.setMaxX(30);
-
 	ret.setMaxY(30);
 
 	//Top Wall
-
 	ret.addWalls(0, 0, 0, 7);
-
 	ret.addUpDoor(0, 8);
-
 	ret.addWalls(0, 9, 0, 29);
 
 	//Left Wall
-
 	ret.addWalls(0, 0, 11, 0);
-
 	ret.addLeftDoor(12, 0);
-
 	ret.addWalls(13, 0, 29, 0);
 
 	//Right Wall;
-
 	ret.addWalls(29, 0, 29, 29);
 
 	//Bottom Wall
-
 	ret.addWalls(0, 29, 29, 29);
 
 	return ret;
@@ -490,36 +475,23 @@ Room createRoom0_9()
 	ret.setMaxY(25);
 
 	//top Wall
-
 	ret.addWalls(0, 0, 0, 24);
-
 	ret.addWalls(18, 0, 18, 18);
 
 	//right Wall
-
 	ret.addWalls(0, 24, 24, 24);
 
 	//Left Wall
-
 	ret.addWalls(0, 0, 4, 0);
-
 	ret.addLeftDoor(5, 0);
-
 	ret.addWalls(6, 0, 7, 0);
-
 	ret.addWalls(7, 18, 18, 18);
-
 	ret.addWalls(18, 0, 24, 0);
 
 	// Bottom Wall
-
 	ret.addWalls(24, 0, 24, 3);
-
 	ret.addDownDoor(24, 4);
-
 	ret.addWalls(24, 5, 24, 24);
-
 	ret.addWalls(7, 0, 7, 18);
-
 	return ret;
 }
