@@ -455,8 +455,7 @@ int Room::RunRoom()
 		}
 		this->player->Navigation(this->RoomMap);
 		results = this->playerCollisionCheck();
-		this->PlacePlayer(player->getPosition()[0], player->getPosition()[1]);
-
+		
 		//if hit exit
 		if (results == -1)
 		{
@@ -466,6 +465,7 @@ int Room::RunRoom()
 		{
 			return results;
 		}
+		this->PlacePlayer(player->getPosition()[0], player->getPosition()[1]);
 
 		//run Zombies
 		map<array<int, 2>, Zombie> temp;

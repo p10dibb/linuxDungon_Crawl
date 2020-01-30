@@ -47,7 +47,7 @@ int Floor::NavigateFloor() {
 
 					this->player->setPosition({ 1,1 });
 					this->player->setPosition({ this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getRightDoorPosition()[0] ,this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getRightDoorPosition()[1] - 1 });
-					
+					this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].PlacePlayer(player->getPosition()[0],player->getPosition()[1]);
 					//stats incrementer
 					player->IncrementRoomsBeenToo();
 
@@ -58,6 +58,8 @@ int Floor::NavigateFloor() {
 					this->currentRoom[0] -= 1;
 					this->player->setPosition({ 1,1 });
 					this->player->setPosition({ this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getDownDoorPosition()[0] - 1 ,this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getDownDoorPosition()[1] });
+					this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].PlacePlayer(player->getPosition()[0],player->getPosition()[1]);
+					
 					//stats incrementer
 					player->IncrementRoomsBeenToo();
 				}
@@ -67,6 +69,7 @@ int Floor::NavigateFloor() {
 					this->currentRoom[1] += 1;
 					this->player->setPosition({ 1,1 });
 					this->player->setPosition({ this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getLeftDoorPosition()[0]  ,this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getLeftDoorPosition()[1] + 1 });
+					this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].PlacePlayer(player->getPosition()[0],player->getPosition()[1]);
 					
 					//stats incrementer
 					player->IncrementRoomsBeenToo();
@@ -76,6 +79,8 @@ int Floor::NavigateFloor() {
 				if (this->currentRoom[0] + 1 <= 9) {
 					this->currentRoom[0] += 1;
 					this->player->setPosition({ this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getUpDoorPosition()[0] + 1 ,this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getUpDoorPosition()[1] });
+					this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].PlacePlayer(player->getPosition()[0],player->getPosition()[1]);
+					
 					//stats incrementer
 					player->IncrementRoomsBeenToo();
 				}
