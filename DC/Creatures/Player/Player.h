@@ -1,11 +1,8 @@
 #pragma once
 
-#include "../../Spawner/Spawner.h"
+#include "../../LootBox/LootBox.h"
 
-typedef struct inventorySlot {
-	Item* item;
-	int amount = 0;
-}InventorySlot;
+
 
 class Player : public  Biped {
 
