@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/school/Desktop/linuxDungon_Crawl/DC/Testing
+CMAKE_SOURCE_DIR = /home/paul/Desktop/linuxDungon_Crawl/DC/Testing
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/school/Desktop/linuxDungon_Crawl/DC/Testing
+CMAKE_BINARY_DIR = /home/paul/Desktop/linuxDungon_Crawl/DC/Testing
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/school/Desktop/linuxDungon_Crawl/DC/Testing/CMakeFiles /home/school/Desktop/linuxDungon_Crawl/DC/Testing/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paul/Desktop/linuxDungon_Crawl/DC/Testing/CMakeFiles /home/paul/Desktop/linuxDungon_Crawl/DC/Testing/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/school/Desktop/linuxDungon_Crawl/DC/Testing/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/paul/Desktop/linuxDungon_Crawl/DC/Testing/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -123,977 +123,977 @@ executeTests/fast:
 	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/build
 .PHONY : executeTests/fast
 
-home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.o: home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.o: home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.o
-
-# target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.o
-
-home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.i: home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.i
-
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.i
-
-# target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.i
-
-home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.s: home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.s
-
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.s
-
-# target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.s
-
-home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.o: home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.o
-
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.i: home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.i: home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.s: home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.s: home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.o: home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.o: home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.i: home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.i: home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.s: home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.s: home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.o: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.o: home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.i: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.i: home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.s: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.s: home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.o: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.o: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.i: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.i: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.s: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.s: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.o: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.o: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.i: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.i: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.s: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.s: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.o: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.o: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.i: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.i: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.s: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.s: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.o: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.o: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.i: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.i: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.s: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.s: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.o: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.o: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.i: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.i: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.s: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.s: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.o: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.o: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.i: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.i: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.s: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.s: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.o: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.o: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.i: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.i: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.s: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.s: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.o: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.o: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.i: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.i: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.s: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.s: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.o: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.o: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.i: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.i: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.s: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.s: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.o: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.o: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.i: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.i: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.s: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.s: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.o: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.o: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.i: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.i: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.s: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.s: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.o: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.o: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.i: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.i: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.s: home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.s: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.o: home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.o: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.i: home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.i: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.s: home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.s: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.o: home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.o: home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.i: home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.i: home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.s: home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.s: home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.o: home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.o: home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.i: home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.i: home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.s: home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.s: home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.o: home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.o: home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.i: home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.i: home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.s: home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.s: home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.o: home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.o: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.i: home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.i: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.s: home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.s: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.o: home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.o: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.i: home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.i: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.s: home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.s: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.o: home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.o: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.i: home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.i: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.s: home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.s: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.o: home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.o: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.i: home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.i: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.s: home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.s: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.o: home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.o: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.i: home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.i: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.s: home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.s: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.o: home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.o: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.i: home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.i: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.s: home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.s: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.o: home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.o: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.i: home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.i: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.s: home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.s: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.o: home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.o: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.i: home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.i: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.s: home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.s: home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.o: home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.o: home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.i: home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.i: home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.s: home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.s: home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.o: home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.o: home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.i: home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.i: home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.s: home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.s: home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.o: home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.o: home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.i: home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.i: home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.s: home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.s: home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.o: home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.o: home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.i: home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.i: home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.s: home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.s: home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.o: home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.o: home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.i: home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.i: home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.s: home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.s: home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.o: home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.o: home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.i: home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.i: home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.s: home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.s: home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.s
 
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.o: home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.o: home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.o
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.o
 
 # target to build an object file
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.o
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.o
 
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.i: home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.i: home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.i
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.i
 
 # target to preprocess a source file
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.i
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.i
 
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.s: home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.s: home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.s
 
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.s
 
 # target to generate assembly for a file
-home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.s
-.PHONY : home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.s
 
-main_test.o: main_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.o: home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.o
 
-.PHONY : main_test.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.o
 
 # target to build an object file
-main_test.cpp.o:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/main_test.cpp.o
-.PHONY : main_test.cpp.o
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.o
 
-main_test.i: main_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.i: home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.i
 
-.PHONY : main_test.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.i
 
 # target to preprocess a source file
-main_test.cpp.i:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/main_test.cpp.i
-.PHONY : main_test.cpp.i
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.i
 
-main_test.s: main_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.s: home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.s
 
-.PHONY : main_test.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.s
 
 # target to generate assembly for a file
-main_test.cpp.s:
-	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/main_test.cpp.s
-.PHONY : main_test.cpp.s
+home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.s
+
+sqrt_test.o: sqrt_test.cpp.o
+
+.PHONY : sqrt_test.o
+
+# target to build an object file
+sqrt_test.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/sqrt_test.cpp.o
+.PHONY : sqrt_test.cpp.o
+
+sqrt_test.i: sqrt_test.cpp.i
+
+.PHONY : sqrt_test.i
+
+# target to preprocess a source file
+sqrt_test.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/sqrt_test.cpp.i
+.PHONY : sqrt_test.cpp.i
+
+sqrt_test.s: sqrt_test.cpp.s
+
+.PHONY : sqrt_test.s
+
+# target to generate assembly for a file
+sqrt_test.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/sqrt_test.cpp.s
+.PHONY : sqrt_test.cpp.s
 
 # Help Target
 help:
@@ -1104,114 +1104,114 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... executeTests"
 	@echo "... edit_cache"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Combat/Combat.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Shop/Shop.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.s"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.o"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.i"
-	@echo "... home/school/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.s"
-	@echo "... main_test.o"
-	@echo "... main_test.i"
-	@echo "... main_test.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects_test.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped_test.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature_test.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet_test.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory_test.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie_test.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes_test.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor_test.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item_test.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion_test.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon_test.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.s"
+	@echo "... sqrt_test.o"
+	@echo "... sqrt_test.i"
+	@echo "... sqrt_test.s"
 .PHONY : help
 
 

@@ -5,8 +5,7 @@ find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
  
 # Link runTests with what we want to test and the GTest and pthread library
-add_executable(executeTests  main_test.cpp  
-../ActiveEffects/ActiveEffects.cpp ../ActiveEffects/ActiveEffects.h  ../ActiveEffects/ActiveEffects_test.cpp 
+add_executable(executeTests sqrt_test.cpp   ../ActiveEffects/ActiveEffects.cpp ../ActiveEffects/ActiveEffects.h  ../ActiveEffects/ActiveEffects_test.cpp 
 ../Creatures/Creature/Creature.cpp ../Creatures/Creature/Creature.h ../Creatures/Creature/Creature_test.cpp 
 ../Items/Item/Item.h ../Items/Item/Item.cpp ../Items/Item/Item_test.cpp 
 ../Items/Armor/Armor.cpp ../Items/Armor/Armor_test.cpp ../Items/Armor/Armor.h 
@@ -24,5 +23,5 @@ add_executable(executeTests  main_test.cpp
 ../Level/Room/Room.h ../Level/Room/Room.cpp 
 ../Level/Floor/Floor.h ../Level/Floor/Floor.cpp 
 ../DamageTypes/DamageTypes.h ../DamageTypes/DamageTypes_test.cpp ../DamageTypes/DamageTypes.cpp 
-../Dungon_Crawler/Dungon_Crawler.h ../Dungon_Crawler/Dungon_Crawler.cpp  )
+../Dungon_Crawler/Dungon_Crawler.h ../Dungon_Crawler/Dungon_Crawler.cpp)
 target_link_libraries(executeTests ${GTEST_LIBRARIES} pthread)
