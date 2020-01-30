@@ -21,6 +21,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.o"
   "CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.o"
   "CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.o"
+  "CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.o"
+  "CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.o"
   "CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.o"
   "CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player_test.cpp.o"
   "CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp.o"

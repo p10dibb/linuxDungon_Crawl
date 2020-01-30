@@ -6,8 +6,10 @@ Zombie::Zombie() {
 	Biped();
 	
 	this->moveAmt=0;
+	this->direction=No_Direction;
 
 	this->weapon = new Weapon();
+
 
 }
 

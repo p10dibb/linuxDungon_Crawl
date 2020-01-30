@@ -6,7 +6,7 @@
 TEST(ZombieTest,Constructor){
     Zombie z;
 
-    EXPECT_EQ(0,z.getDirection());
+    EXPECT_EQ(No_Direction,z.getDirection());
     EXPECT_EQ(0,z.getMoveAmt());
     EXPECT_EQ(NULL_WeaponType,z.getWeapon()->getType());
 }

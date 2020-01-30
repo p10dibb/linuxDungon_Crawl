@@ -14,6 +14,7 @@ add_executable(executeTests sqrt_test.cpp   ../ActiveEffects/ActiveEffects.cpp .
 ../Creatures/Zombie/Zombie.h ../Creatures/Zombie/Zombie.cpp   ../Creatures/Zombie/Zombie_test.cpp
 ../Items/Potion/Potion.h ../Items/Potion/Potion.cpp  ../Items/Potion/Potion_test.cpp 
 ../Spawner/Spawner.cpp ../Spawner/Spawner.h ../Spawner/SpawnerWeapons.cpp ../Spawner/SpawnerPotion.cpp ../Spawner/SpawnerArmor.cpp ../Spawner/SpawnerSpecializedItems.cpp 
+../LootBox/LootBox.cpp ../LootBox/LootBox.h ../LootBox/LootBox_test.cpp
 ../Creatures/Player/Player.h ../Creatures/Player/Player.cpp  ../Creatures/Player/Player_test.cpp 
 ../Creatures/Player/PlayerGetSet.cpp ../Creatures/Player/PlayerGetSet_test.cpp 
 ../Creatures/Player/PlayerInventory.cpp ../Creatures/Player/PlayerInventory_test.cpp 

@@ -230,9 +230,19 @@ Room.h
 ../../Combat/Combat.h
 /home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.h
 
+/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp
+LootBox.h
+/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
+
 /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
 ../Spawner/Spawner.h
 /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
+
+/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp
+LootBox.h
+/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
+gtest/gtest.h
+-
 
 /home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp
 Shop.h

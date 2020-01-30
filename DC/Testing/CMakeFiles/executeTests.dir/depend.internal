@@ -298,6 +298,34 @@ CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Ro
  /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
+CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.o
+ /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp
+ /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
+CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.o
+ /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.o
  /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h

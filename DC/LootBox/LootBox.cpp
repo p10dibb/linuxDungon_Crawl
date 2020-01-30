@@ -5,6 +5,8 @@ LootBox::LootBox()
 {
     this->money = 0;
     this->name = "LootBox";
+    this->position[0]=0;
+    this->position[1]=0;
 }
 
 //setter for name
@@ -66,12 +68,12 @@ array<int, 2> LootBox::getPosition()
 //takes another loot box and adds it to itself
 bool LootBox::Merge(LootBox *newLoot)
 {
-    this->addMoney(newLoot->getMoney());
-    newLoot->removeMoney(newLoot->getMoney());
+    this->addMoney(newLoot->removeMoney(newLoot->getMoney()));
+    
 
     for(int i=newLoot->loot.size()-1;i>=0;i--){
-        for(int j=0; j<newLoot->loot[i].amount;j++){
-            this->addItem(*newLoot->removeItem(i));
+        for(int j=0; j<=newLoot->loot[i].amount;j++){
+            this->addItem(newLoot->removeItem(i));
 
         }
     }
@@ -80,28 +82,28 @@ bool LootBox::Merge(LootBox *newLoot)
 }
 
 //adds a new item to the Loot box
-bool LootBox::addItem(Item newItem)
+bool LootBox::addItem(Item *newItem)
 {
     InventorySlot newIS;
 
-    if (newItem.getStackSize() < 2)
+    if (newItem->getStackSize() < 2)
     {
         newIS.amount = 1;
-        newIS.item = &newItem;
+        newIS.item = newItem;
         this->loot.push_back(newIS);
         return true;
     }
     int i = 0;
     for (i; i < this->loot.size(); i++)
     {
-        if (this->loot[i].item->getName() == newItem.getName() && this->loot[i].amount < newItem.getStackSize())
+        if (this->loot[i].item->getName() == newItem->getName() && this->loot[i].amount < newItem->getStackSize())
         {
             this->loot[i].amount++;
             return true;
         }
     }
     newIS.amount = 1;
-    newIS.item = &newItem;
+    newIS.item = newItem;
     this->loot.push_back(newIS);
     return true;
 }
@@ -152,7 +154,8 @@ Item *LootBox::removeItem(int position)
 
     if (this->loot[position].amount == 0)
     {
-         this->loot.erase(this->loot.begin() + position - 1);
+        
+         this->loot.erase(this->loot.begin() + position);
     }
     return item;
 }

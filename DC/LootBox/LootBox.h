@@ -53,7 +53,7 @@ public:
     bool Merge(LootBox *newLoot);
 
     //adds a new item to the Loot box
-    bool addItem(Item newItem);
+    bool addItem(Item *newItem);
 
     //adds money to the Loot box
     bool addMoney(int newMoney);

@@ -906,6 +906,60 @@ home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.s:
 	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.s
 .PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.s
 
+home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.o: home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.o
+
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.o
+
+# target to build an object file
+home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.o
+
+home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.i: home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.i
+
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.i
+
+# target to preprocess a source file
+home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.i
+
+home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.s: home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.s
+
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.s
+
+# target to generate assembly for a file
+home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.s
+
+home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.o: home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.o
+
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.o
+
+# target to build an object file
+home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.o:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.o
+
+home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.i: home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.i
+
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.i
+
+# target to preprocess a source file
+home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.i:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.i
+
+home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.s: home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.s
+
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.s
+
+# target to generate assembly for a file
+home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.s:
+	$(MAKE) -f CMakeFiles/executeTests.dir/build.make CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.s
+
 home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.o: home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.o
 
 .PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.o
@@ -1191,6 +1245,12 @@ help:
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.o"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.i"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.s"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.o"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.i"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.s"
