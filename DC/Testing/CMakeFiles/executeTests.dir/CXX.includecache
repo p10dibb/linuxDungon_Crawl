@@ -73,8 +73,8 @@ cstdio
 -
 
 /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.h
-../../LootBox/LootBox.h
-/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
+../../Spawner/Spawner.h
+/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
 
 /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp
 Player.h
@@ -235,8 +235,10 @@ LootBox.h
 /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
 
 /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
-../Spawner/Spawner.h
-/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
+../Creatures/Zombie/Zombie.h
+/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
+../Items/Potion/Potion.h
+/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.h
 
 /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp
 LootBox.h
@@ -257,10 +259,8 @@ Spawner.h
 /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
 
 /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
-../Creatures/Zombie/Zombie.h
-/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
-../Items/Potion/Potion.h
-/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.h
+../LootBox/LootBox.h
+/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
 
 /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp
 Spawner.h

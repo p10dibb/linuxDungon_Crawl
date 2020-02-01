@@ -169,3 +169,19 @@ bool LootBox::isEmpty()
     }
     return false;
 }
+
+//displays all the contents
+bool LootBox::displayContents(){
+    cout<<"Name: "<<this->getName()<<endl;
+    if(this->money!=0){
+        cout<<"Money: "<<this->getMoney()<<endl;
+    }
+    if(this->loot.size()>0){
+        cout<<"slot\tamount\tname"<<endl;
+        for(int i=0;i<this->loot.size();i++){
+            cout<<i<<"\t"<<this->loot[i].amount<<"\t"<<this->loot[i].item->getName()<<endl;
+        }
+    }
+
+    return true;
+}

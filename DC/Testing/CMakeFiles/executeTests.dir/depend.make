@@ -310,7 +310,6 @@ CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootB
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
-CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
 
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
@@ -324,7 +323,6 @@ CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootB
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp
-CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox_test.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
 
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
@@ -352,6 +350,7 @@ CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawn
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.h
+CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
 
@@ -365,6 +364,7 @@ CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawn
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.h
+CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmor.cpp
 
@@ -378,6 +378,7 @@ CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawn
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.h
+CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPotion.cpp
 
@@ -391,6 +392,7 @@ CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawn
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.h
+CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpecializedItems.cpp
 
@@ -404,6 +406,7 @@ CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawn
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.h
+CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
 CMakeFiles/executeTests.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeapons.cpp
 

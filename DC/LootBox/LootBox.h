@@ -1,6 +1,10 @@
 #pragma once
 
-#include "../Spawner/Spawner.h"
+
+#include "../Creatures/Zombie/Zombie.h"
+
+#include "../Items/Potion/Potion.h"
+
 
 typedef struct inventorySlot
 {
@@ -66,5 +70,8 @@ public:
 
     //checks if the loot box is empty
     bool isEmpty();
+
+    //displays all the contents
+    bool displayContents();
 
 };

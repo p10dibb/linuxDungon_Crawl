@@ -360,4 +360,52 @@ TEST(LootBoxTest, IsEmpty)
     //removes item so box is empty again
     l.removeItem(0)->getName();
     EXPECT_TRUE(l.isEmpty());
- }
+}
+ 
+
+
+//Display contents
+TEST(LootBoxTest,DisplayContents){
+    LootBox l;
+   InventorySlot is;
+    Item *i;
+    vector<inventorySlot> v;
+
+    //setting the vector
+
+    //adding 1 armor in spot 0
+    i = new Armor();
+    i->setName("A1");
+    is.item = i;
+    is.amount = 1;
+    v.push_back(is);
+
+    //adds 3 potions in spot 1
+    i = new Potion();
+    i->setName("P1");
+    i->setStackSize(3);
+    is.amount = 3;
+    is.item = i;
+    v.push_back(is);
+
+    //adds 1 weapon to spot 2
+    i = new Weapon();
+    i->setName("W1");
+    i->setStackSize(1);
+    is.amount = 1;
+    is.item = i;
+    v.push_back(is);
+
+    //adds 1 potions in spot 3
+    i = new Potion();
+    i->setName("P2");
+    i->setStackSize(3);
+    is.amount = 1;
+    is.item = i;
+    v.push_back(is);
+
+    EXPECT_TRUE(l.setLoot(v));
+    EXPECT_TRUE(l.setMoney(54));
+
+    EXPECT_TRUE(l.displayContents());
+}

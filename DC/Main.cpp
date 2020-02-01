@@ -6,5 +6,5 @@
 int main() {
 	srand(time(NULL));
 	Run();
-
+	
 }

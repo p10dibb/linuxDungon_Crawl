@@ -1,9 +1,6 @@
 
 #pragma once
-#include "../Creatures/Zombie/Zombie.h"
-
-#include "../Items/Potion/Potion.h"
-
+#include "../LootBox/LootBox.h"
 
 typedef struct lootDrop {
 	int gold = 0;

@@ -385,6 +385,65 @@ int Player::EquipedDialogue() {
 
 		system("pause");
 		}
+}
+
+//takes a loot box and prompts the user to interact
+bool Player::InteractLootBox(LootBox *box){
+	char choice='9';
+	int amt=0;
+	Item* temp;
+
+	//player loot box dialogue
+	while (choice!='0'){
+		box->displayContents();
+		cout<<"would you like to: Exit(0), take Gold amt(1), take Gold All(2), take Item slot(3), Take Item All(4)"<<endl;
+		choice=getchar();
+
+		//take gold amt
+		if(choice=='1'){
+			cout<<"how much Gold?"<<endl;
+			cin>>amt;
+			this->RecieveMoney(box->removeMoney(amt));
+		}
+		
+		//take all gold
+		else if(choice =='2'){
+			this->RecieveMoney(box->removeMoney(box->getMoney()));
+		}
+
+		//take specifiv item
+		else if(choice == '3'){
+			cout<<"which item would you like? (slot#)"<<endl;
+			cin>>amt;
+			temp=box->removeItem(amt);
+			//checks if remove Item fails
+			if(temp->getName()!="Empty"){
+				//checks if add to inventory fails
+				if(!this->addToInventory(temp)){
+					// if fails readd to box
+					box->addItem(temp);
+				}
+			}
+			
+		}
+
+		//take all Items
+		else if(choice=='4'){
+			while(box->getLoot().size()!=0){
+				cout<<"a";
+				temp=box->removeItem(box->getLoot().size()-1);
+				//checks if remove Item fails
+				if(temp->getName()!="Empty"){
+					//checks if add to inventory fails
+					if(!this->addToInventory(temp)){
+						// if fails readd to box
+						box->addItem(temp);
+						break;
+					}
+				}
+			}
+		}
+
 	}
-
-
+	return true;
+}
