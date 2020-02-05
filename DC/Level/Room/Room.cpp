@@ -436,6 +436,7 @@ void Room::DisplayRoom()
 	}
 }
 
+//main loop that runs while in this room
 int Room::RunRoom()
 {
 	int results = 0;
@@ -459,6 +460,15 @@ int Room::RunRoom()
 					this->PlaceShop(this->shop.getPosition()[0], this->shop.getPosition()[1]);
 				}
 			}
+
+			//Places all loot boxes
+			map<array<int,2>,LootBox>::iterator it=this->LootBoxes.begin();
+			while (it!=this->LootBoxes.end()){
+				this->RoomMap[it->first[0]][it->first[1]]=Loot_RoomPieces;
+				it++;
+			}
+
+
 			tempPos = player->getPosition();
 			this->player->Navigation(this->RoomMap);
 			results = this->playerCollisionCheck();
@@ -475,7 +485,7 @@ int Room::RunRoom()
 			}
 			this->PlacePlayer(player->getPosition()[0], player->getPosition()[1]);
 			this->DisplayRoom();
-			cout<<"player steps: "<<steps<<endl;
+			cout << "player steps: " << steps << endl;
 			steps++;
 		}
 		//run Zombies
@@ -492,7 +502,7 @@ int Room::RunRoom()
 				tempPos = z.getPosition();
 				z.move(this->RoomMap);
 				results = this->zombieCollisionCheck(&z);
-				cout<<"results "<<results<<endl;
+				cout << "results " << results << endl;
 				//player dies
 				if (results == -1)
 				{
@@ -512,9 +522,8 @@ int Room::RunRoom()
 					break;
 				}
 				steps++;
-			//	this->DisplayRoom();
-				cout<<"zed steps: "<<steps<<endl;
-
+				//	this->DisplayRoom();
+				cout << "zed steps: " << steps << endl;
 			}
 			if (results != 0)
 			{
@@ -577,6 +586,14 @@ int Room::playerCollisionCheck()
 	{
 		return 3;
 	}
+	//checks for loot box collision
+	else if (RoomMap[player->getPosition()[0]][player->getPosition()[1]] == Loot_RoomPieces){
+		this->player->InteractLootBox(&this->LootBoxes[this->player->getPosition()]);
+		if(this->LootBoxes[this->player->getPosition()].isEmpty()){
+			this->LootBoxes.erase(this->player->getPosition());
+		}
+	}
+
 
 	return result;
 }
@@ -731,4 +748,49 @@ void Room::setVisited(bool v)
 bool Room::getVisited()
 {
 	return this->visited;
+}
+
+//returns the map of lootBoxes
+map<array<int, 2>, LootBox> Room::getLootBoxes() {
+	return this->LootBoxes;
+}
+
+//sets the map of LootBoxes only adds the ones in valid positions
+bool Room::setLootBoxes(map<array<int, 2>, LootBox> loot) {
+	map<array<int,2>,LootBox> temp;
+	map<array<int,2>,LootBox>::iterator it=loot.begin();
+	LootBox t;
+	while (it!=loot.end()){
+		t=it->second;
+
+		//checks if in the boundry
+		if(t.getPosition()[0]<this->maxX && t.getPosition()[0]>0 &&t.getPosition()[1]>0&&t.getPosition()[1]<this->maxY){
+			temp[t.getPosition()]=t;
+			this->RoomMap[t.getPosition()[0]][t.getPosition()[1]]=Loot_RoomPieces;
+		}
+		it++;
+	}
+	this->LootBoxes=temp;
+	return true;
+}
+
+//adds a lootbox at a location
+bool Room::addLootBox(int x, int y, LootBox loot)
+{
+	loot.setPosition({x,y});
+
+	if(this->LootBoxes.count(loot.getPosition())){
+		loot.Merge(&this->LootBoxes[loot.getPosition()]);
+		this->LootBoxes[loot.getPosition()]=loot;
+		
+	}else{
+		if (this->RoomMap[x][y]==Empty_RoomPieces||this->RoomMap[x][y]==Player_RoomPieces||this->RoomMap[x][y]==Enemy_RoomPieces){
+			this->LootBoxes[loot.getPosition()]=loot;	
+			this->RoomMap[x][y]=Loot_RoomPieces;
+
+		}else{
+			return false;
+		}
+	}
+	return true;
 }

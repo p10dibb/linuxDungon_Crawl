@@ -124,7 +124,7 @@ array<int, 2> Floor::getCurrentRoom()
 
 bool Floor::initializeRoom(int level, int x, int y)
 {
-
+	Spawner s;
 	Zombie z;
 	cout << "create enemies" << endl;
 	for (int i = 0; i < this->FloorMap[x][y].getStartingEnemyAmount(); i++)
@@ -151,6 +151,32 @@ bool Floor::initializeRoom(int level, int x, int y)
 			it++;
 		}
 	}
+
+	//innitialize lootboxes
+	if(this->FloorMap[x][y].getLootBoxes().size()!=0){
+	map<array<int,2>,LootBox>::iterator Loot_it=this->FloorMap[x][y].getLootBoxes().begin();
+	map<array<int,2>,LootBox> tempLootMap;
+	LootBox tempLoot;
+	array<int,2> tempPos;
+	//while(Loot_it!=this->FloorMap[x][y].getLootBoxes().end()){
+	for(int j=0;j<this->FloorMap[x][y].getLootBoxes().size();j++){
+		tempLoot=Loot_it->second;
+		tempPos=Loot_it->first;
+		//if box doesnt have forced inventory
+		if(!tempLoot.getForceInventory()){
+			tempLoot=s.CreateLootBox(this->player->getLevel());
+			tempLoot.setPosition(tempPos);
+			tempLootMap[tempPos]=tempLoot;
+					
+		}
+		else{
+			tempLootMap[Loot_it->first]=Loot_it->second;
+		}
+		Loot_it++;
+	}
+	this->FloorMap[x][y].setLootBoxes(tempLootMap);
+	}
+
 	//if there is a shop it sets it to appropriate level
 	if (this->FloorMap[x][y].getIsShop())
 	{

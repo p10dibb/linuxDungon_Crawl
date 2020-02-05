@@ -37,6 +37,8 @@ private:
 	array<int,2> RightDoorPosition;
 	array<int,2> LeftDoorPosition;
 
+	map<array<int, 2>, LootBox> LootBoxes;
+
 	//if the room has been visited by the player
 	bool visited=false;
 
@@ -129,10 +131,20 @@ public:
 	//returns the position of the UpDoor will return -1,-1 if door is false
 	array<int,2> getRightDoorPosition();
 
-
 	//sets if the room has been visited
 	void setVisited(bool v);
 
 	//gets if the room has been visited
 	bool getVisited();
+
+	//returns the map of lootBoxes
+	map<array<int,2>,LootBox> getLootBoxes();
+
+	//sets the map of LootBoxes
+	bool setLootBoxes(map<array<int,2>,LootBox> loot);
+
+	//adds a lootbox at a location
+	bool addLootBox(int x, int y, LootBox loot);
+
+	
 };

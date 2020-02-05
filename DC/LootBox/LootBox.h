@@ -25,6 +25,8 @@ private:
     //a vector of loot
     vector<inventorySlot> loot;
 
+    //if on room initialization it generates a new inventory
+    bool forcedInventory=false;
 
     array<int, 2> position;
 
@@ -73,5 +75,11 @@ public:
 
     //displays all the contents
     bool displayContents();
+
+    //returns forced inventory
+    bool getForceInventory();
+
+    //sets forced inventory
+    bool setForceInventory(bool f);
 
 };

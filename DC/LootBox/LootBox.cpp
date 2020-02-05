@@ -185,3 +185,15 @@ bool LootBox::displayContents(){
 
     return true;
 }
+
+    //returns forced inventory
+    bool LootBox::getForceInventory(){
+        return this->forcedInventory;
+    }
+
+    //sets forced inventory
+    bool LootBox::setForceInventory(bool f){
+        this->forcedInventory=f;
+
+        return true;
+    }

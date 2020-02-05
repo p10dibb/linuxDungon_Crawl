@@ -409,3 +409,13 @@ TEST(LootBoxTest,DisplayContents){
 
     EXPECT_TRUE(l.displayContents());
 }
+
+TEST(LootBoxSetterTest,ForcedInventory){
+    LootBox l;
+
+    EXPECT_TRUE(l.setForceInventory(true));
+    EXPECT_TRUE(l.getForceInventory());
+
+    EXPECT_TRUE(l.setForceInventory(false));
+    EXPECT_FALSE(l.getForceInventory());
+}

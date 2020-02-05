@@ -234,6 +234,12 @@ public:
 
 	//-------------------
 
+	//LootBox-------
+		//creates a lootbox
+		LootBox CreateLootBox(int level);
+
+	//
+
 };
 
 

@@ -93,5 +93,62 @@ LootDrop Spawner::GenerateZombieLootDrop(Zombie zed) {
 	return ret;
 }
 
+//spawner for treasure chest
+LootBox Spawner::CreateLootBox(int level){
 
+	LootBox ret;
+	int chance=0;
+
+	//amount of items in chest
+	chance=rand()%100;
+	int amount=0;
+	//5% for 5
+	if(chance<5){
+		amount=5;
+	}
+	//10% for 4
+	else if(chance<15){
+		amount=4;
+	}
+	//15% chance for 3
+	else if(chance<30){
+		amount=3;
+	}
+	//30% chance for 2
+	else if(chance<60){
+		amount=2;
+	}
+	//30% chance for 1
+	else if(chance<90){
+		amount=1;
+	}
+	//10% chance for 0
+	else if(chance<10){
+		amount=0;
+	}
+
+	//adds the items
+	for(int i=0;i<amount;i++){
+		switch (rand()%3)
+		{
+		//add potion
+		case 0: ret.addItem(this->CreateRandomPotion_MoreHealth());break;
+		//add Weapon
+		case 1: ret.addItem(this->CreateRandomWeapon(level));break;
+		//add Armor
+		case 2: ret.addItem(this->CreateRandomArmor(level));break;
+		default:
+			break;
+		}
+	}
+
+	//adds money
+	ret.addMoney(rand()%(level*10));
+	
+	if(ret.isEmpty()){
+		ret.addMoney(level);
+	}
+
+	return ret;	
+}
 

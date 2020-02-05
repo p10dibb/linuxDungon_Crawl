@@ -12,13 +12,16 @@ private:
 	//weapon equiped in right hand
 	Weapon* Right;
 	
-	//the masize of inventory
+	//the max possible size of inventory
 	int inventoryMax=100;
+
 	//The players inventory
 	InventorySlot Inventory[100];
+
 	//the amount of free slots of the inventory
 	int FreeSlots;
-	//the size of players inventory
+
+	//the size of players inventory currently
 	int InventorySize;
 
 	//money player has
@@ -113,10 +116,7 @@ public:
 		bool addToInventory(Item *i);
 
 		Item *RemoveItemFromInventory(int pos);
-
-		//Displays Info on Player 
-		void DisplayDetails();
-
+//drops an item from the lootBox
 		void DisplayInventory();
 
 		int InventoryDialogue();
@@ -127,6 +127,9 @@ public:
 
 		//takes a loot box and prompts the user to interact
 		bool InteractLootBox(LootBox *box);
+
+		//removes item from specified Location and turns it into a lootBox if fails return empty box
+		LootBox DropItem(int pos);
 
 	//-----------------------------
 	
@@ -261,6 +264,8 @@ public:
 
 	//-------------------------
 	
+//Displays all data for character
+	void DisplayDetails();
 
 };
 

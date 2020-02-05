@@ -201,6 +201,9 @@ Room createDefaultRoom()
 {
 	Spawner s;
 	Room ret;
+	LootBox l;
+	l.setMoney(12);
+	l.addItem(s.CreateRandomWeapon(1));
 
 	ret.setMaxX(10);
 
@@ -239,6 +242,8 @@ Room createDefaultRoom()
 	ret.addWalls(6, 9, 9, 9);
 
 	ret.addEnemy(s.CreateZombie(1),4,4);
+	ret.addLootBox(6,6, l);
+	
 
 	return ret;
 }
