@@ -63,12 +63,11 @@ void Run()
 			case 0:f.setRoom(createDefaultRoom_V1(), i, j);break;
 			case 1:f.setRoom(createDefaultRoom_V2(), i, j);break;
 			case 2:f.setRoom(createDefaultRoom_V3(), i, j);break;
-			case 3:f.setRoom(createDefaultRoom_V4(), i, j);break;
-
-			
-			default:
-				break;
+			case 3:f.setRoom(createDefaultRoom_V4(), i, j);break;			
+			default:break;
 			}
+			// f.setRoom(createDefaultRoom_V3(), i, j);
+
 			
 		}
 	}
@@ -620,6 +619,7 @@ Room createDefaultRoom_V4(){
 
 Room createTreasureRoom_V1(){
 	Room ret;
+	LootBox l;
 
 	ret.setMaxX(7);
 	ret.setMaxY(7);
@@ -636,19 +636,25 @@ Room createTreasureRoom_V1(){
 
 	//Left Wall
 	ret.addWalls(0,0,2,0);
-	ret.addLeftDoor(0,3);
-	ret.addWalls(0,4,0,6);
+	ret.addLeftDoor(3,0);
+	ret.addWalls(4,0,6,0);
 
 	//Right Wall
 	ret.addWalls(0,6,2,6);
 	ret.addRightDoor(3,6);
 	ret.addWalls(4,6,6,6);
 
-	ret.addLootBox(3,3,LootBox());
-	ret.addLootBox(2,2,LootBox());
-	ret.addLootBox(4,4,LootBox());
-	ret.addLootBox(2,4,LootBox());
-	ret.addLootBox(4,2,LootBox());
+
+	l.setMoney(10);
+	ret.addLootBox(3,3,l);
+	ret.addLootBox(2,2,l);
+	ret.addLootBox(4,4,l);
+	ret.addLootBox(2,4,l);
+	ret.addLootBox(4,2,l);
+
+
+
+	
 
 	return ret;
 

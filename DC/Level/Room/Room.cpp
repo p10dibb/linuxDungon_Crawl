@@ -13,6 +13,7 @@ Room::Room()
 			this->RoomMap[i][j] = Empty_RoomPieces;
 		}
 	}
+//	this->LootBoxes[{999,999}]=LootBox();
 }
 
 //checks if position is in the bounds of the map
@@ -462,12 +463,12 @@ int Room::RunRoom()
 			}
 
 			//Places all loot boxes
-			map<array<int,2>,LootBox>::iterator it=this->LootBoxes.begin();
-			while (it!=this->LootBoxes.end()){
-				this->RoomMap[it->first[0]][it->first[1]]=Loot_RoomPieces;
+			map<array<int, 2>, LootBox>::iterator it = this->LootBoxes.begin();
+			while (it != this->LootBoxes.end())
+			{
+				this->RoomMap[it->first[0]][it->first[1]] = Loot_RoomPieces;
 				it++;
 			}
-
 
 			tempPos = player->getPosition();
 			this->player->Navigation(this->RoomMap);
@@ -587,13 +588,14 @@ int Room::playerCollisionCheck()
 		return 3;
 	}
 	//checks for loot box collision
-	else if (RoomMap[player->getPosition()[0]][player->getPosition()[1]] == Loot_RoomPieces){
+	else if (RoomMap[player->getPosition()[0]][player->getPosition()[1]] == Loot_RoomPieces)
+	{
 		this->player->InteractLootBox(&this->LootBoxes[this->player->getPosition()]);
-		if(this->LootBoxes[this->player->getPosition()].isEmpty()){
+		if (this->LootBoxes[this->player->getPosition()].isEmpty())
+		{
 			this->LootBoxes.erase(this->player->getPosition());
 		}
 	}
-
 
 	return result;
 }
@@ -751,44 +753,58 @@ bool Room::getVisited()
 }
 
 //returns the map of lootBoxes
-map<array<int, 2>, LootBox> Room::getLootBoxes() {
+map<array<int, 2>, LootBox> Room::getLootBoxes()
+{
 	return this->LootBoxes;
 }
 
 //sets the map of LootBoxes only adds the ones in valid positions
-bool Room::setLootBoxes(map<array<int, 2>, LootBox> loot) {
-	map<array<int,2>,LootBox> temp;
-	map<array<int,2>,LootBox>::iterator it=loot.begin();
+bool Room::setLootBoxes(map<array<int, 2>, LootBox> loot)
+{
+	map<array<int, 2>, LootBox> temp;
+	map<array<int, 2>, LootBox>::iterator it = loot.begin();
 	LootBox t;
-	while (it!=loot.end()){
-		t=it->second;
+	while (it != loot.end())
+	{
+		t = it->second;
 
 		//checks if in the boundry
-		if(t.getPosition()[0]<this->maxX && t.getPosition()[0]>0 &&t.getPosition()[1]>0&&t.getPosition()[1]<this->maxY){
-			temp[t.getPosition()]=t;
-			this->RoomMap[t.getPosition()[0]][t.getPosition()[1]]=Loot_RoomPieces;
+		if (t.getPosition()[0] < this->maxX && t.getPosition()[0] > 0 && t.getPosition()[1] > 0 && t.getPosition()[1] < this->maxY)
+		{
+			temp[t.getPosition()] = t;
+			this->RoomMap[t.getPosition()[0]][t.getPosition()[1]] = Loot_RoomPieces;
 		}
 		it++;
 	}
-	this->LootBoxes=temp;
+	this->LootBoxes = temp;
 	return true;
 }
 
 //adds a lootbox at a location
 bool Room::addLootBox(int x, int y, LootBox loot)
 {
-	loot.setPosition({x,y});
+	array<int,2> pos;
+	pos[0]=x;
+	pos[1]=y;
+	loot.setPosition(pos);
 
-	if(this->LootBoxes.count(loot.getPosition())){
+	if (this->LootBoxes.count(loot.getPosition()))
+	{
 		loot.Merge(&this->LootBoxes[loot.getPosition()]);
-		this->LootBoxes[loot.getPosition()]=loot;
-		
-	}else{
-		if (this->RoomMap[x][y]==Empty_RoomPieces||this->RoomMap[x][y]==Player_RoomPieces||this->RoomMap[x][y]==Enemy_RoomPieces){
-			this->LootBoxes[loot.getPosition()]=loot;	
-			this->RoomMap[x][y]=Loot_RoomPieces;
+		this->LootBoxes[loot.getPosition()] = loot;
+	}
+	else
+	{
 
-		}else{
+		if (this->RoomMap[x][y] == Empty_RoomPieces || this->RoomMap[x][y] == Player_RoomPieces || this->RoomMap[x][y] == Enemy_RoomPieces)
+		{
+
+			this->LootBoxes[loot.getPosition()] = loot;
+			this->RoomMap[x][y] = Loot_RoomPieces;
+		}
+		else
+		{
+
 			return false;
 		}
 	}

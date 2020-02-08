@@ -95,12 +95,13 @@ LootDrop Spawner::GenerateZombieLootDrop(Zombie zed) {
 
 //spawner for treasure chest
 LootBox Spawner::CreateLootBox(int level){
-
+	
 	LootBox ret;
 	int chance=0;
 
 	//amount of items in chest
 	chance=rand()%100;
+
 	int amount=0;
 	//5% for 5
 	if(chance<5){
@@ -123,10 +124,9 @@ LootBox Spawner::CreateLootBox(int level){
 		amount=1;
 	}
 	//10% chance for 0
-	else if(chance<10){
+	else if(chance<100){
 		amount=0;
 	}
-
 	//adds the items
 	for(int i=0;i<amount;i++){
 		switch (rand()%3)
@@ -143,10 +143,11 @@ LootBox Spawner::CreateLootBox(int level){
 	}
 
 	//adds money
-	ret.addMoney(rand()%(level*10));
+	chance=rand()%(level*10);
+	ret.addMoney(chance);
 	
 	if(ret.isEmpty()){
-		ret.addMoney(level);
+		ret.addMoney(level+1);
 	}
 
 	return ret;	
