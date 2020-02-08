@@ -53,46 +53,54 @@ void Run()
 
 	int j;
 
+	//sets the internal Rooms
 	for (i = 1; i < 9; i++)
 	{
-
 		for (j = 1; j < 9; j++)
-		{
+		{	
+			switch (rand()%4)
+			{
+			case 0:f.setRoom(createDefaultRoom_V1(), i, j);break;
+			case 1:f.setRoom(createDefaultRoom_V2(), i, j);break;
+			case 2:f.setRoom(createDefaultRoom_V3(), i, j);break;
+			case 3:f.setRoom(createDefaultRoom_V4(), i, j);break;
 
-			f.setRoom(createDefaultRoom(), i, j);
+			
+			default:
+				break;
+			}
+			
 		}
 	}
 
+	//sets the Left Rooms
 	for (i = 1; i < 9; i++)
 	{
-
 		f.setRoom(createLeftRoom(), i, 0);
 	}
 
+	//sets the Right rooms
 	for (i = 1; i < 9; i++)
 	{
-
 		f.setRoom(createRightRoom(), i, 9);
 	}
 
+	//sets the top Rooms
 	for (i = 1; i < 9; i++)
 	{
-
 		f.setRoom(createUpRoom(), 0, i);
 	}
 
+	//sets the bootom rooms
 	for (i = 1; i < 9; i++)
 	{
-
 		f.setRoom(createDownRoom(), 9, i);
 	}
 
+	//sets the corner rooms
 	f.setRoom(createRoom0_0(), 0, 0);
-
 	f.setRoom(createRoom9_0(), 9, 0);
-
 	f.setRoom(createRoom9_9(), 9, 9);
-
 	f.setRoom(createRoom0_9(), 0, 9);
 
 	f.setPlayer(&player);
@@ -197,7 +205,7 @@ Room createRoom0_1()
 {
 }
 
-Room createDefaultRoom()
+Room createDefaultRoom_V1()
 {
 	Spawner s;
 	Room ret;
@@ -324,8 +332,7 @@ Room createRightRoom()
 	ret.addWalls(0, 9, 9, 9);
 
 	return ret;
-}
-
+}	
 Room createUpRoom()
 {
 
@@ -365,7 +372,7 @@ Room createUpRoom()
 
 	return ret;
 }
-
+//creates default Room 4 doors verticle hallway
 Room createDownRoom()
 {
 
@@ -498,5 +505,114 @@ Room createRoom0_9()
 	ret.addDownDoor(24, 4);
 	ret.addWalls(24, 5, 24, 24);
 	ret.addWalls(7, 0, 7, 18);
+	return ret;
+}
+
+//create Default room 4 door + shape
+Room createDefaultRoom_V2(){
+	Room ret;
+	LootBox l;
+
+	//sets maxX and Y
+	ret.setMaxX(30);
+	ret.setMaxY(30);
+
+	//Left walls
+	ret.addWalls(0,9,9,9);
+	ret.addWalls(9,0,14,0);
+	ret.addLeftDoor(15,0);
+	ret.addWalls(16,0,19,0);
+	ret.addWalls(19,9,29,9);
+
+	//right walls
+	ret.addWalls(0,19,9,19);
+	ret.addWalls(9,29,14,29);
+	ret.addRightDoor(15,29);
+	ret.addWalls(16,29,19,29);
+	ret.addWalls(19,19,29,19);
+
+	//top walls
+	ret.addWalls(9,0,9,9);
+	ret.addWalls(0,9,0,14);
+	ret.addUpDoor(0,15);
+	ret.addWalls(0,16,0,19);
+	ret.addWalls(9,19,9,29);
+
+	//bottomWalls
+	ret.addWalls(19,0,19,9);
+	ret.addWalls(29,9,29,14);
+	ret.addDownDoor(29,15);
+	ret.addWalls(29,16,29,19);
+	ret.addWalls(19,19,19,29);
+
+	ret.setStartingEnemyAmount(5);
+
+	ret.addLootBox((rand()%7)+10,(rand()%7)+10,LootBox());
+	return ret;
+}
+
+
+//creates default Room 4 doors verticle hallway
+Room createDefaultRoom_V3(){
+	Room ret;
+
+	ret.setMaxX(30);
+	ret.setMaxY(10);
+
+	//Left Wall
+	ret.addWalls(0,0,10,0);
+	ret.addLeftDoor(11,0);
+	ret.addWalls(12,0,29,0);
+
+	//Right Wall
+	ret.addWalls(0,9,21,9);
+	ret.addRightDoor(22,9);
+	ret.addWalls(23,9,29,9);
+
+	//Top Wall
+	ret.addWalls(0,0,0,5);
+	ret.addUpDoor(0,6);
+	ret.addWalls(0,7,0,9);
+
+	//Down Wall
+	ret.addWalls(29,0,29,2);
+	ret.addDownDoor(29,3);
+	ret.addWalls(29,4,29,9);
+
+	ret.setStartingEnemyAmount(3);
+
+	return ret;
+}
+
+
+//creates default Room 4 doors horizontal hallway
+Room createDefaultRoom_V4(){
+	Room ret;
+
+	ret.setMaxX(10);
+	ret.setMaxY(30);
+
+	//Left Wall
+	ret.addWalls(0,0,5,0);
+	ret.addLeftDoor(6,0);
+	ret.addWalls(7,0,9,0);
+
+	//Right Wall
+	ret.addWalls(0,29,4,29);
+	ret.addRightDoor(5,29);
+	ret.addWalls(6,29,9,29);
+
+	//Top Wall
+	ret.addWalls(0,0,0,8);
+	ret.addUpDoor(0,9);
+	ret.addWalls(0,10,0,29);
+
+	//Down Wall
+	ret.addWalls(9,0,9,18);
+	ret.addDownDoor(9,19);
+	ret.addWalls(9,20,9,29);
+
+	ret.setStartingEnemyAmount(3);
+
 	return ret;
 }

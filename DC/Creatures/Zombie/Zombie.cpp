@@ -189,6 +189,7 @@ void Zombie::move(array<array<RoomPieces_enum, 50>,50> map){
 
 	//if not moving in a set direction then pick new direction and distance
 	if (this->moveAmt==0){
+	
 		this->moveAmt=rand()%5+1;
 		int d=rand()%5;
 		switch (d)
@@ -199,6 +200,7 @@ void Zombie::move(array<array<RoomPieces_enum, 50>,50> map){
 		case 3:this->direction=Down_Direction;break;
 		default:this->direction=No_Direction;break;
 		}
+
 	}
 
 	//move left
@@ -210,20 +212,21 @@ void Zombie::move(array<array<RoomPieces_enum, 50>,50> map){
 	}// move right
 	else if(direction==Right_Direction){
 		//check for wall
-		if (map[this->getPosition()[0]][this->getPosition()[1]+1]==Empty_RoomPieces &&map[this->getPosition()[0]][this->getPosition()[1]+1]==Player_RoomPieces){
+		if (map[this->getPosition()[0]][this->getPosition()[1]+1]==Empty_RoomPieces ||map[this->getPosition()[0]][this->getPosition()[1]+1]==Player_RoomPieces){
 			this->setPosition({this->getPosition()[0],this->getPosition()[1]+1});
+		
 		}
 	}
 	//move up
 	else if(direction==Up_Direction){
 		//check for wall
-		if (map[this->getPosition()[0]-1][this->getPosition()[1]]==Empty_RoomPieces &&map[this->getPosition()[0]-1][this->getPosition()[1]]==Player_RoomPieces){
+		if (map[this->getPosition()[0]-1][this->getPosition()[1]]==Empty_RoomPieces ||map[this->getPosition()[0]-1][this->getPosition()[1]]==Player_RoomPieces){
 			this->setPosition({this->getPosition()[0]-1,this->getPosition()[1]});
 		}
 	}// move down
 	else if(direction==Down_Direction){
 		//check for wall
-		if (map[this->getPosition()[0]+1][this->getPosition()[1]]==Empty_RoomPieces &&map[this->getPosition()[0]+1][this->getPosition()[1]]==Player_RoomPieces){
+		if (map[this->getPosition()[0]+1][this->getPosition()[1]]==Empty_RoomPieces ||map[this->getPosition()[0]+1][this->getPosition()[1]]==Player_RoomPieces){
 			this->setPosition({this->getPosition()[0]+1,this->getPosition()[1]});
 		}
 	} 
