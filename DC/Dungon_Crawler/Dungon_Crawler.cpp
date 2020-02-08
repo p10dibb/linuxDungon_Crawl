@@ -102,6 +102,7 @@ void Run()
 	f.setRoom(createRoom9_0(), 9, 0);
 	f.setRoom(createRoom9_9(), 9, 9);
 	f.setRoom(createRoom0_9(), 0, 9);
+	f.setRoom(createTreasureRoom_V1(),1,1);
 
 	f.setPlayer(&player);
 
@@ -615,4 +616,40 @@ Room createDefaultRoom_V4(){
 	ret.setStartingEnemyAmount(3);
 
 	return ret;
+}
+
+Room createTreasureRoom_V1(){
+	Room ret;
+
+	ret.setMaxX(7);
+	ret.setMaxY(7);
+
+	//Top Wall
+	ret.addWalls(0,0,0,2);
+	ret.addUpDoor(0,3);
+	ret.addWalls(0,4,0,6);
+
+	//Bottom Wall
+	ret.addWalls(6,0,6,2);
+	ret.addDownDoor(6,3);
+	ret.addWalls(6,4,6,6);
+
+	//Left Wall
+	ret.addWalls(0,0,2,0);
+	ret.addLeftDoor(0,3);
+	ret.addWalls(0,4,0,6);
+
+	//Right Wall
+	ret.addWalls(0,6,2,6);
+	ret.addRightDoor(3,6);
+	ret.addWalls(4,6,6,6);
+
+	ret.addLootBox(3,3,LootBox());
+	ret.addLootBox(2,2,LootBox());
+	ret.addLootBox(4,4,LootBox());
+	ret.addLootBox(2,4,LootBox());
+	ret.addLootBox(4,2,LootBox());
+
+	return ret;
+
 }

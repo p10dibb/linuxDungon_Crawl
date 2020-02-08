@@ -43,3 +43,6 @@ Room createDefaultRoom_V3();
 
 //creates default Room 4 doors horizontal hallway
 Room createDefaultRoom_V4();
+
+//create a treasure room 4 doors 7x7 square
+Room createTreasureRoom_V1();
