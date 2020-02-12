@@ -129,6 +129,8 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dung
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.h
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.h
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.h
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.h
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
 
@@ -224,8 +226,51 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Main.cpp.o: /home/p
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Main.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.h
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Main.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Main.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Main.cpp
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Main.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Main.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.h
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Main.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.h
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Main.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
+
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
+
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
 
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h

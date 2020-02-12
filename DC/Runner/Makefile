@@ -636,6 +636,60 @@ home/paul/Desktop/linuxDungon_Crawl/DC/Main.cpp.s:
 	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Main.cpp.s
 .PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Main.cpp.s
 
+home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.o: home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o
+
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.o
+
+# target to build an object file
+home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o:
+	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o
+
+home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.i: home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.i
+
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.i
+
+# target to preprocess a source file
+home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.i:
+	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.i
+
+home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.s: home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.s
+
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.s
+
+# target to generate assembly for a file
+home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.s:
+	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.s
+
+home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.o: home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o
+
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.o
+
+# target to build an object file
+home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o:
+	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o
+
+home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.i: home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.i
+
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.i
+
+# target to preprocess a source file
+home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.i:
+	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.i
+
+home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.s: home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.s
+
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.s
+
+# target to generate assembly for a file
+home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.s:
+	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.s
+
 home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.o: home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.o
 
 .PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.o
@@ -864,6 +918,12 @@ help:
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Main.o"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Main.i"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Main.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.s"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.o"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.i"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.s"

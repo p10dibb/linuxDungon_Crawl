@@ -250,7 +250,7 @@ void Player::addSkillPoint(){
 		cout << "3\tSpeed\t" << this->getSpeed() << "\tIncreases speed in combat"<<endl;
 		cout << "4\tBase Attack\t" << this->getDamage() <<"\tIncreases Base Damage"<< endl;
 		cout << "5\tBase Defense\t" << this->getDefense() <<"\tIncreases Base Defense"<< endl;
-		cout << "6\tStamina\t" << this->getStamina() << "\tCurrently Does nothing"<<endl;
+		cout << "6\tStamina\t" << this->getStamina() << "\thow many steps per move cycle"<<endl;
 		cout << "Choice: ";
 		cin >> input;
 		

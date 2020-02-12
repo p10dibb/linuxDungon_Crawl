@@ -45,3 +45,5 @@ public:
 };
 //inputs a damage amount , damage type, and resistances and reduces damage to the proper damage
 int ReduceDamage(int damage,DamageTypes_enum damageTypes,vector<ActiveEffects> resistances);
+
+bool operator== (Zombie lhs, Zombie rhs);
