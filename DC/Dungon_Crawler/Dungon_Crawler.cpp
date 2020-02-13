@@ -5,11 +5,11 @@ void Run()
 
 	srand(time(NULL));
 	Spawner s;
-	Potion p =*s.CreateHealthPotion();
+Player p;
 
 	ofstream file;
 	file.open("../save.json");
-	file<<convertPotion2Json(p);
+	file<<convertPlayer2Json(p);
 
 	file.close();
 

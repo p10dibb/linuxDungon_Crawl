@@ -16,7 +16,8 @@ private:
 	int inventoryMax=100;
 
 	//The players inventory
-	InventorySlot Inventory[100];
+	// InventorySlot Inventory[100];
+	array<InventorySlot,100> Inventory;
 
 	//the amount of free slots of the inventory
 	int FreeSlots;
@@ -116,7 +117,7 @@ public:
 		bool addToInventory(Item *i);
 
 		Item *RemoveItemFromInventory(int pos);
-//drops an item from the lootBox
+		//drops an item from the lootBox
 		void DisplayInventory();
 
 		int InventoryDialogue();
@@ -152,8 +153,8 @@ public:
 		int setLeft(Weapon* l);
 		Weapon* getRight();
 		int setRight(Weapon* l);
-		
-		void setInventory(InventorySlot i[40]);
+		array<InventorySlot,100> getInventory();
+		void setInventory(array<InventorySlot,100> i);
 		int getFreeSlots();
 		void setFreeSlots(int f);
 		int getMoney();

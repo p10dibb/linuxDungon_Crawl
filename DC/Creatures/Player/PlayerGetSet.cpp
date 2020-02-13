@@ -56,9 +56,14 @@ void Player::setLevelUp(int l) {
 	this->LevelUp = l;
 }
 
-//doesnt do anything
-void Player::setInventory(InventorySlot i[40]) {
-	//this->Inventory = i;
+
+array<InventorySlot,100> Player::getInventory(){
+	return this->Inventory;
+}
+
+
+void Player::setInventory(array<InventorySlot,100> i){
+	this->Inventory=i;
 }
 
 //returns the total amount of free slots left

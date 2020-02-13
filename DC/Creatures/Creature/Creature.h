@@ -28,14 +28,9 @@ class Creature {
 		std::map<Effects_enum,ActiveEffects> DamageOverTimeEffects;
 		std::map<Effects_enum,ActiveEffects>  ResistanceEffects;
 
-		//DoubleLinkedList<ActiveEffects> BuffEffects;
-		//DoubleLinkedList<ActiveEffects> CombatEffects;
-		//DoubleLinkedList<ActiveEffects> DamageOverTimeEffects;
-		// DoubleLinkedList<ActiveEffects> ResistanceEffects;
 
 	public:
-	//map<Effects_enum,ActiveEffects> DeBuffmap;
-
+	
 	Creature();
 
 	//check if it contains effect and returns that effects location in list and -1 if it doesnt exist;

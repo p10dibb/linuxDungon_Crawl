@@ -89,7 +89,7 @@ Player::Player() {
 	this->LevelUp = 10;
 	this->Inventory;	
 	
-	for (int i = 0; i < this->InventorySize; i++) {
+	for (int i = 0; i < this->inventoryMax; i++) {
 		this->Inventory[i].item = new Item();
 	}
 }

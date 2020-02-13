@@ -9,7 +9,19 @@ string convertActiveEffect2Json(ActiveEffects effect);
 string converDamageType2Json(DamageTypes damage);
 
 //conver Item type to json
-string converItem2Json(Item i);
+string convertItem2Json(Item i);
 
 //converts potion to json
 string convertPotion2Json(Potion p);
+
+//converts weapons to json
+string convertWeapon2Json(Weapon w);
+
+//converts Armor to json
+string convertArmor2Json(Armor a);
+
+//converts inventory slot to json
+string convertInventorySlot2Json(InventorySlot i);
+
+//converts Player to Json
+string convertPlayer2Json(Player p);

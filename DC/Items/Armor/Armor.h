@@ -18,7 +18,6 @@ private:
 	ItemRarity_enum Rarity;
 	//all of the resistances
 	map<Effects_enum,ActiveEffects> ResistanceTypes;
-	//DoubleLinkedList<ActiveEffects> ResistanceTypes;
 
 
 public:
