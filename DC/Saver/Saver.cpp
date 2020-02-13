@@ -328,4 +328,18 @@ string convertPlayer2Json(Player p)
         return itemStr;
     }
 
-    
+    //loads active effect from json
+ActiveEffects ConvertJson2ActiveEffect(Value& effect){
+
+    ActiveEffects ret;
+    int mod=effect["Modifier"].GetInt();
+    int round=effect["RoundsActive"].GetInt();
+    Effects_enum eff=(Effects_enum)effect["Effect"].GetInt(); 
+    EffectTypes_enum type=(EffectTypes_enum)effect["EffectType"].GetInt();
+
+    ret=ActiveEffects(type,eff,mod,round);
+
+    return ret;
+
+
+}      

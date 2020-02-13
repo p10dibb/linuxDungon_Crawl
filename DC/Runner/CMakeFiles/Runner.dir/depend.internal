@@ -134,6 +134,31 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dung
  /home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/allocators.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/document.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/encodedstream.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/encodings.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/error/error.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/biginteger.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/clzll.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/diyfp.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/dtoa.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/ieee754.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/itoa.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/meta.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/pow10.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/stack.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/strfunc.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/strtod.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/swap.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/memorystream.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/msinttypes/inttypes.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/msinttypes/stdint.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/rapidjson.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/reader.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/stream.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/stringbuffer.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/writer.h
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.o
  /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
@@ -231,6 +256,31 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Main.cpp.o
  /home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/allocators.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/document.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/encodedstream.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/encodings.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/error/error.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/biginteger.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/clzll.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/diyfp.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/dtoa.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/ieee754.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/itoa.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/meta.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/pow10.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/stack.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/strfunc.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/strtod.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/swap.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/memorystream.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/msinttypes/inttypes.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/msinttypes/stdint.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/rapidjson.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/reader.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/stream.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/stringbuffer.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/writer.h
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o
  /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.h
@@ -252,6 +302,31 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_De
  /home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/allocators.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/document.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/encodedstream.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/encodings.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/error/error.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/biginteger.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/clzll.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/diyfp.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/dtoa.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/ieee754.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/itoa.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/meta.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/pow10.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/stack.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/strfunc.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/strtod.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/swap.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/memorystream.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/msinttypes/inttypes.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/msinttypes/stdint.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/rapidjson.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/reader.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/stream.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/stringbuffer.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/writer.h
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o
  /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.h
@@ -272,6 +347,31 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o
  /home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/allocators.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/document.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/encodedstream.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/encodings.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/error/error.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/biginteger.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/clzll.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/diyfp.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/dtoa.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/ieee754.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/itoa.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/meta.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/pow10.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/stack.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/strfunc.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/strtod.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/internal/swap.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/memorystream.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/msinttypes/inttypes.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/msinttypes/stdint.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/rapidjson.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/reader.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/stream.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/stringbuffer.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/rapidjson/writer.h
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.o
  /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h

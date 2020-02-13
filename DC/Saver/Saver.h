@@ -1,7 +1,9 @@
 #include "../Level/Floor/Floor.h"
 #include <fstream>
+#include "../rapidjson/document.h"
 #include "../rapidjson/writer.h"
-
+#include "../rapidjson/stringbuffer.h"
+using namespace rapidjson;
 
 //converts an active effect to json
 string convertActiveEffect2Json(ActiveEffects effect);
@@ -28,4 +30,4 @@ string convertInventorySlot2Json(InventorySlot i);
 string convertPlayer2Json(Player p);
 
 //loads active effect from json
-ActiveEffects ConverJson2ActiveEffect();
+ActiveEffects ConvertJson2ActiveEffect(Value& effect);

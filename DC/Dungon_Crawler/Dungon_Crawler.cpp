@@ -2,14 +2,28 @@
 
 void Run()
 {
-
-	srand(time(NULL));
 	Spawner s;
-Player p;
 
-	ofstream file;
+	Weapon w = *s.CreateRandomWeapon(1) ;
+
+	ofstream file1;
+
+	file1.open("../save.json");
+
+	
+	file1<<convertWeapon2Json(w);
+	file1.close();
+
+	ifstream file;
 	file.open("../save.json");
-	file<<convertPlayer2Json(p);
+	string str;
+	getline(file, str);
+	Document d;
+	Value &v = d.Parse(str.c_str());
+
+	ActiveEffects a=ConvertJson2ActiveEffect(v["Defense"]);
+	
+	cout<<a.getDamage()<<" "<<a.getEffect()<<" "<<a.getEffectType()<<" "<<a.getRound()<<endl;
 
 	file.close();
 
@@ -69,7 +83,8 @@ Player createPlayer()
 }
 
 //randomly generates a floor
-Floor createFloor(){
+Floor createFloor()
+{
 	//starting floor
 	Floor f;
 
@@ -81,18 +96,25 @@ Floor createFloor(){
 	for (i = 1; i < 9; i++)
 	{
 		for (j = 1; j < 9; j++)
-		{	
-			switch (rand()%4)
+		{
+			switch (rand() % 4)
 			{
-			case 0:f.setRoom(createDefaultRoom_V1(), i, j);break;
-			case 1:f.setRoom(createDefaultRoom_V2(), i, j);break;
-			case 2:f.setRoom(createDefaultRoom_V3(), i, j);break;
-			case 3:f.setRoom(createDefaultRoom_V4(), i, j);break;			
-			default:break;
+			case 0:
+				f.setRoom(createDefaultRoom_V1(), i, j);
+				break;
+			case 1:
+				f.setRoom(createDefaultRoom_V2(), i, j);
+				break;
+			case 2:
+				f.setRoom(createDefaultRoom_V3(), i, j);
+				break;
+			case 3:
+				f.setRoom(createDefaultRoom_V4(), i, j);
+				break;
+			default:
+				break;
 			}
 			// f.setRoom(createDefaultRoom_V3(), i, j);
-
-			
 		}
 	}
 
@@ -125,27 +147,32 @@ Floor createFloor(){
 	f.setRoom(createRoom9_0(), 9, 0);
 	f.setRoom(createRoom9_9(), 9, 9);
 	f.setRoom(createRoom0_9(), 0, 9);
-	f.setRoom(createTreasureRoom_V1(),1,1);
+	f.setRoom(createTreasureRoom_V1(), 1, 1);
 	return f;
 }
 
-
 //the first thing the player sees chooses between 1: new Character, 2: Load Character, 3: exit, other?
-int StartScreen(){
-	char choice='\0';
-	while(1){
-		cout<<"Welcome to Linux Dungeon Crawl!"<<endl;
-		cout<<"1.New Character"<<endl;
-		cout<<"2.Load Character (Not working yet)"<<endl;
-		cout<<"3.Exit"<<endl;
-		choice=getchar();
+int StartScreen()
+{
+	char choice = '\0';
+	while (1)
+	{
+		cout << "Welcome to Linux Dungeon Crawl!" << endl;
+		cout << "1.New Character" << endl;
+		cout << "2.Load Character (Not working yet)" << endl;
+		cout << "3.Exit" << endl;
+		choice = getchar();
 		switch (choice)
 		{
-		case '1':return 1;
-		case '2':return 2;
-		case '3':return 3;
-		
-		default:break;
+		case '1':
+			return 1;
+		case '2':
+			return 2;
+		case '3':
+			return 3;
+
+		default:
+			break;
 		}
 	}
 }
