@@ -1,5 +1,6 @@
 #include "../Level/Floor/Floor.h"
 #include <fstream>
+#include "../rapidjson/writer.h"
 
 
 //converts an active effect to json
@@ -25,3 +26,6 @@ string convertInventorySlot2Json(InventorySlot i);
 
 //converts Player to Json
 string convertPlayer2Json(Player p);
+
+//loads active effect from json
+ActiveEffects ConverJson2ActiveEffect();

@@ -193,6 +193,8 @@ Saver.h
 /home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.h
 fstream
 -
+rapidjson
+-
 
 /home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp
 Shop.h
