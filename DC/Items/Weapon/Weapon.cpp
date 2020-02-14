@@ -179,6 +179,11 @@ ActiveEffects Weapon::getCombatEffect(){
 	return this->CombatEffect;
 }
 
+void Weapon::setCombatEffect(ActiveEffects a){
+	this->CombatEffect=a;
+}
+
+
 int Weapon::getWeaponRank(){
 	return this->WeaponRank;
 	

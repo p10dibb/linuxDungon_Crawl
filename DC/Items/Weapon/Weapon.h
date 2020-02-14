@@ -58,6 +58,7 @@ public:
 	string getRarity_text();
 
 	ActiveEffects getCombatEffect();
+	void setCombatEffect(ActiveEffects a);
 
 	//used to see how "good" weapon is 
 	int getWeaponRank();

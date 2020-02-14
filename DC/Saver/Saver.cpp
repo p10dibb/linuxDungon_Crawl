@@ -16,7 +16,7 @@ string convertActiveEffect2Json(ActiveEffects effect)
 }
 
 //converts damage Type to json
-string converDamageType2Json(DamageTypes damage)
+string convertDamageType2Json(DamageTypes damage)
 {
 
     string damageStr = "{";
@@ -76,7 +76,7 @@ string convertWeapon2Json(Weapon w)
     vector<DamageTypes> damage = w.getDamageTypes_Weapon();
     for (int i = 0; i < damage.size(); i++)
     {
-        itemStr += converDamageType2Json(damage[i]);
+        itemStr += convertDamageType2Json(damage[i]);
         if (i < damage.size() - 1)
         {
             itemStr += ",";
@@ -86,7 +86,7 @@ string convertWeapon2Json(Weapon w)
             itemStr += "],";
         }
     }
-    itemStr += "\"Defense\":" + convertActiveEffect2Json(w.getDefense()) + ",";
+    itemStr += "\"Defense\":" + to_string(w.getDefense().getDamage()) + ",";
     itemStr += "\"TwoHanded\":" + to_string(w.getTwoHanded()) + ",";
     itemStr += "\"Speed\":" + to_string(w.getSpeed()) + ",";
     itemStr += "\"Level\":" + to_string(w.getLevel()) + ",";
@@ -343,3 +343,65 @@ ActiveEffects ConvertJson2ActiveEffect(Value& effect){
 
 
 }      
+
+
+//loads Damage Type from json
+DamageTypes ConvertJson2DamageTypes(Value& types){
+    DamageTypes ret;
+
+    ret.setDamage(types["Damage"].GetInt());
+    ret.setType((DamageTypes_enum)types["Type"].GetInt());
+    ret.setProbability(types["Probability"].GetInt());
+    ret.setIsDamageOverTime(types["isDamageOverTime"].GetInt());
+    ret.setDamageOverTime_damage(types["DamageOverTime_damage"].GetInt());
+    ret.setDamageOverTime_time(types["DamageOverTime_time"].GetInt());
+    return ret;
+
+
+}
+
+
+//loads Item from json
+Item ConvertJson2Item(Value& item){
+
+    Item i;
+    i.setName(item["Name"].GetString());
+    i.setValue(item["Value"].GetInt());
+    i.setWeight(item["Weight"].GetInt());
+    i.setStackSize(item["StackSize"].GetInt());
+    i.setDescription(item["Description"].GetString());
+
+    return i;
+}
+
+
+//loads Weapon from json
+Weapon ConvertJson2Weapon(Value& item){
+        DamageTypes t;
+
+    Weapon i;
+    i.setName(item["Name"].GetString());
+    i.setValue(item["Value"].GetInt());
+    i.setWeight(item["Weight"].GetInt());
+    i.setStackSize(item["StackSize"].GetInt());
+    i.setDescription(item["Description"].GetString());
+    i.setType((WeaponTypes_enum)item["WeaponType"].GetInt());
+    GenericArray<false,Value> damage =item["DamageTypes"].GetArray();
+    for(int j=0;j<damage.Size();j++){
+        t=ConvertJson2DamageTypes(damage[j]);
+        i.addDamageType(t);
+    }
+    i.setDefense( item["Defense"].GetInt());
+    i.setTwoHanded(item["TwoHanded"].GetInt());
+    i.setSpeed(item["Speed"].GetInt());
+    i.setLevel(item["Level"].GetInt());
+    i.setRange(item["Range"].GetInt());
+    i.setRarity((ItemRarity_enum)item["Rarity"].GetInt());
+    i.setCombatEffect(ConvertJson2ActiveEffect(item["CombatEffect"]));
+    i.calculateWeaponRank();    
+
+    return i;
+
+}
+
+// Potion ConvertJson2Potion()

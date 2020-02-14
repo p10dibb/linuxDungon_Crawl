@@ -4,27 +4,24 @@ void Run()
 {
 	Spawner s;
 
-	Weapon w = *s.CreateRandomWeapon(1) ;
-
 	ofstream file1;
 
 	file1.open("../save.json");
 
-	
-	file1<<convertWeapon2Json(w);
+	string str=convertWeapon2Json(*s.CreateRandomWeapon(1));
+	cout<<str<<endl<<endl;
+	file1<<str;
 	file1.close();
 
 	ifstream file;
 	file.open("../save.json");
-	string str;
+	// string str;
 	getline(file, str);
 	Document d;
 	Value &v = d.Parse(str.c_str());
 
-	ActiveEffects a=ConvertJson2ActiveEffect(v["Defense"]);
-	
-	cout<<a.getDamage()<<" "<<a.getEffect()<<" "<<a.getEffectType()<<" "<<a.getRound()<<endl;
-
+	Weapon w=ConvertJson2Weapon(v);
+	w.DisplayDetails();
 	file.close();
 
 	// Spawner s;

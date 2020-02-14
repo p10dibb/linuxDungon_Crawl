@@ -9,7 +9,7 @@ using namespace rapidjson;
 string convertActiveEffect2Json(ActiveEffects effect);
 
 //converts damage Type to json
-string converDamageType2Json(DamageTypes damage);
+string convertDamageType2Json(DamageTypes damage);
 
 //conver Item type to json
 string convertItem2Json(Item i);
@@ -31,3 +31,12 @@ string convertPlayer2Json(Player p);
 
 //loads active effect from json
 ActiveEffects ConvertJson2ActiveEffect(Value& effect);
+
+//loads Damage Type from json
+DamageTypes ConvertJson2DamageTypes(Value& types);
+
+//loads Item from json
+Item ConvertJson2Item(Value& item);
+
+//loads Weapon from json
+Weapon ConvertJson2Weapon(Value& item);
