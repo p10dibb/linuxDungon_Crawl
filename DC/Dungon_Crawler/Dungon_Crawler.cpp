@@ -7,8 +7,10 @@ void Run()
 	ofstream file1;
 
 	file1.open("../save.json");
-
-	string str=convertWeapon2Json(*s.CreateRandomWeapon(1));
+	InventorySlot i;
+	i.amount=3;
+	i.item=s.CreateRandomWeapon(1);
+	string str=convertInventorySlot2Json(i);
 	cout<<str<<endl<<endl;
 	file1<<str;
 	file1.close();
@@ -20,8 +22,10 @@ void Run()
 	Document d;
 	Value &v = d.Parse(str.c_str());
 
-	Weapon w=ConvertJson2Weapon(v);
-	w.DisplayDetails();
+	
+	InventorySlot j=ConvertJson2InventorySlot(v);
+	((Weapon*)j.item)->DisplayDetails();
+	cout<<"amount: "<<j.amount<<endl;
 	file.close();
 
 	// Spawner s;

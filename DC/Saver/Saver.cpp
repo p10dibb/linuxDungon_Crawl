@@ -136,7 +136,7 @@ string convertInventorySlot2Json(InventorySlot i)
 
     string itemStr = "{";
 
-    itemStr += "\"amount\":" + to_string(i.amount) + ",";
+    itemStr += "\"Amount\":" + to_string(i.amount) + ",";
     itemStr += "\"Item\":";
 
     if (typeid(*i.item) == typeid(Weapon))
@@ -362,46 +362,120 @@ DamageTypes ConvertJson2DamageTypes(Value& types){
 
 
 //loads Item from json
-Item ConvertJson2Item(Value& item){
+Item* ConvertJson2Item(Value& item){
 
-    Item i;
-    i.setName(item["Name"].GetString());
-    i.setValue(item["Value"].GetInt());
-    i.setWeight(item["Weight"].GetInt());
-    i.setStackSize(item["StackSize"].GetInt());
-    i.setDescription(item["Description"].GetString());
+    Item* i=new Item();
+    i->setName(item["Name"].GetString());
+    i->setValue(item["Value"].GetInt());
+    i->setWeight(item["Weight"].GetInt());
+    i->setStackSize(item["StackSize"].GetInt());
+    i->setDescription(item["Description"].GetString());
 
     return i;
 }
 
 
 //loads Weapon from json
-Weapon ConvertJson2Weapon(Value& item){
+Weapon* ConvertJson2Weapon(Value& item){
         DamageTypes t;
 
-    Weapon i;
-    i.setName(item["Name"].GetString());
-    i.setValue(item["Value"].GetInt());
-    i.setWeight(item["Weight"].GetInt());
-    i.setStackSize(item["StackSize"].GetInt());
-    i.setDescription(item["Description"].GetString());
-    i.setType((WeaponTypes_enum)item["WeaponType"].GetInt());
+    Weapon* i=new Weapon;
+    i->setName(item["Name"].GetString());
+    i->setValue(item["Value"].GetInt());
+    i->setWeight(item["Weight"].GetInt());
+    i->setStackSize(item["StackSize"].GetInt());
+    i->setDescription(item["Description"].GetString());
+    i->setType((WeaponTypes_enum)item["WeaponType"].GetInt());
     GenericArray<false,Value> damage =item["DamageTypes"].GetArray();
     for(int j=0;j<damage.Size();j++){
         t=ConvertJson2DamageTypes(damage[j]);
-        i.addDamageType(t);
+        i->addDamageType(t);
     }
-    i.setDefense( item["Defense"].GetInt());
-    i.setTwoHanded(item["TwoHanded"].GetInt());
-    i.setSpeed(item["Speed"].GetInt());
-    i.setLevel(item["Level"].GetInt());
-    i.setRange(item["Range"].GetInt());
-    i.setRarity((ItemRarity_enum)item["Rarity"].GetInt());
-    i.setCombatEffect(ConvertJson2ActiveEffect(item["CombatEffect"]));
-    i.calculateWeaponRank();    
+    i->setDefense( item["Defense"].GetInt());
+    i->setTwoHanded(item["TwoHanded"].GetInt());
+    i->setSpeed(item["Speed"].GetInt());
+    i->setLevel(item["Level"].GetInt());
+    i->setRange(item["Range"].GetInt());
+    i->setRarity((ItemRarity_enum)item["Rarity"].GetInt());
+    i->setCombatEffect(ConvertJson2ActiveEffect(item["CombatEffect"]));
+    i->calculateWeaponRank();    
 
     return i;
 
 }
 
-// Potion ConvertJson2Potion()
+
+//loads potion from json
+Potion* ConvertJson2Potion(Value& item){
+
+    Potion* i =new Potion();
+    i->setName(item["Name"].GetString());
+    i->setValue(item["Value"].GetInt());
+    i->setWeight(item["Weight"].GetInt());
+    i->setStackSize(item["StackSize"].GetInt());
+    i->setDescription(item["Description"].GetString());
+    i->setType((PotionTypes_enum)item["Type"].GetInt());
+    i->setTier(item["Tier"].GetInt());
+    i->setBaseBooster(item["BaseBooster"].GetInt());
+
+    return i;
+}
+
+
+//loads Armor from Json
+Armor* ConvertJson2Armor(Value& item){
+    ActiveEffects t;
+    Armor* i= new Armor();
+
+    i->setName(item["Name"].GetString());
+    i->setValue(item["Value"].GetInt());
+    i->setWeight(item["Weight"].GetInt());
+    i->setStackSize(item["StackSize"].GetInt());
+    i->setDescription(item["Description"].GetString());
+    i->setLevel(item["Level"].GetInt());
+    i->setType((ArmorType_enum)item["ArmorType"].GetInt());
+    i->setClass((ArmorClass_enum)item["Class"].GetInt());
+    i->setRarity((ItemRarity_enum)item["Rarity"].GetInt());
+
+    
+    GenericArray<false,Value> defense =item["ResistanceTypes"].GetArray();
+    for(int j=0;j<defense.Size();j++){
+        t=ConvertJson2ActiveEffect(defense[j]);
+        i->addResistanceType(t);
+    }
+
+    return i;
+
+}
+
+//loads InventorySlot from Json
+InventorySlot ConvertJson2InventorySlot(Value& slot){
+    InventorySlot i;
+    
+    i.item=new Item();
+    i.amount=slot["Amount"].GetInt();
+
+    Value& temp=slot["Item"];
+    // cout<<"Item:"<<temp["ItemType"].GetString()<<endl;
+    string s=temp["ItemType"].GetString();
+    if(s=="armor"){
+        i.item=ConvertJson2Armor(temp);
+    }else if(s=="weapon"){
+        i.item=ConvertJson2Weapon(temp);
+    }else if(s=="potion"){    
+        i.item=ConvertJson2Potion(temp);
+    }else{
+        i.item=ConvertJson2Item(temp);
+    }
+    return i;
+}
+
+
+
+//loads player from Json
+Player ConvertJson2Player(Value& player){
+    Player ret;
+
+    
+
+}

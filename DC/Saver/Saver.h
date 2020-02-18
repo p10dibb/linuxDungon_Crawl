@@ -36,7 +36,21 @@ ActiveEffects ConvertJson2ActiveEffect(Value& effect);
 DamageTypes ConvertJson2DamageTypes(Value& types);
 
 //loads Item from json
-Item ConvertJson2Item(Value& item);
+Item* ConvertJson2Item(Value& item);
 
 //loads Weapon from json
-Weapon ConvertJson2Weapon(Value& item);
+Weapon* ConvertJson2Weapon(Value& item);
+
+//loads potion from json
+Potion* ConvertJson2Potion(Value& item);
+
+//loads Armor from Json
+Armor* ConvertJson2Armor(Value& item);
+
+
+//loads InventorySlot from Json
+InventorySlot ConvertJson2InventorySlot(Value& slot);
+
+
+//loads player from Json
+Player ConvertJson2Player(Value& player);
