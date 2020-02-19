@@ -155,8 +155,9 @@ string convertInventorySlot2Json(InventorySlot i)
         Potion *p = dynamic_cast<Potion *>(i.item);
         itemStr += convertPotion2Json(*p);
     }
-    else{
-        itemStr+=convertItem2Json(*i.item);
+    else
+    {
+        itemStr += convertItem2Json(*i.item);
     }
     itemStr += "}";
 
@@ -179,7 +180,6 @@ string convertPlayer2Json(Player p)
     itemStr += "\"Name\":\"" + p.getName() + "\",";
     itemStr += "\"Position\":[" + to_string(p.getPosition()[0]) + "," + to_string(p.getPosition()[1]) + "],";
     itemStr += "\"DebuffEffects\":[";
-    cout << "effect1" << endl;
     map<Effects_enum, ActiveEffects>::iterator it = p.getDeBuffEffects().begin();
     ActiveEffects a;
     if (p.getDeBuffEffects().size() > 0)
@@ -197,8 +197,6 @@ string convertPlayer2Json(Player p)
         }
     }
     itemStr += "],";
-    cout << "effect2" << endl;
-
     itemStr += "\"BuffEffects\":[";
     it = p.getBuffEffects().begin();
     if (p.getBuffEffects().size() > 0)
@@ -217,7 +215,6 @@ string convertPlayer2Json(Player p)
         }
     }
     itemStr += "],";
-    cout << "effect3" << endl;
 
     itemStr += "\"CombatEffects\":[";
     it = p.getCombatEffects().begin();
@@ -238,7 +235,6 @@ string convertPlayer2Json(Player p)
         }
     }
     itemStr += "],";
-    cout << "effect4" << endl;
 
     itemStr += "\"DamageOverTimeEffects\":[";
     if (p.getDamageOverTimeEffects().size() > 0)
@@ -258,7 +254,6 @@ string convertPlayer2Json(Player p)
         }
     }
     itemStr += "],";
-    cout << "effect5" << endl;
 
     itemStr += "\"ResistanceEffects\":[";
     it = p.getResistanceEffects().begin();
@@ -277,76 +272,73 @@ string convertPlayer2Json(Player p)
             }
         }
     }
-        itemStr += "],";
-        cout<<"Armor"<<endl;
-        itemStr += "\"Head\":" + convertArmor2Json(*p.getHead()) + ",";
-        itemStr += "\"Torso\":" + convertArmor2Json(*p.getTorso()) + ",";
-        itemStr += "\"Hands\":" + convertArmor2Json(*p.getHands()) + ",";
-        itemStr += "\"Legs\":" + convertArmor2Json(*p.getLegs()) + ",";
-        itemStr += "\"Feet\":" + convertArmor2Json(*p.getFeet()) + ",";
-        cout<<"Weapon"<<endl;
+    itemStr += "],";
 
-        itemStr += "\"LeftWeapon\":" + convertWeapon2Json(*p.getLeft()) + ",";
-        itemStr += "\"RightWeapon\":" + convertWeapon2Json(*p.getRight()) + ",";
-        itemStr += "\"Inventory\":[";
-        cout<<"Inventory"<<endl;
+    itemStr += "\"Head\":" + convertArmor2Json(*p.getHead()) + ",";
+    itemStr += "\"Torso\":" + convertArmor2Json(*p.getTorso()) + ",";
+    itemStr += "\"Hands\":" + convertArmor2Json(*p.getHands()) + ",";
+    itemStr += "\"Legs\":" + convertArmor2Json(*p.getLegs()) + ",";
+    itemStr += "\"Feet\":" + convertArmor2Json(*p.getFeet()) + ",";
 
-        array<InventorySlot, 100> arr = p.getInventory();
-        for (int i = 0; i < 100; i++)
+    itemStr += "\"LeftWeapon\":" + convertWeapon2Json(*p.getLeft()) + ",";
+    itemStr += "\"RightWeapon\":" + convertWeapon2Json(*p.getRight()) + ",";
+    itemStr += "\"Inventory\":[";
+
+    array<InventorySlot, 100> arr = p.getInventory();
+    for (int i = 0; i < 100; i++)
+    {
+        if (arr[i].item == 0x0)
         {
-            if(arr[i].item==0x0){
-                break;
-            }
-            itemStr += convertInventorySlot2Json(arr[i]);
-       
-            if (i < 99)
-            {
-                itemStr += ",";
-            }
+            break;
         }
-        itemStr += "],";
-        cout<<"more inventory"<<endl;
-        itemStr += "\"FreeSlots\":" + to_string(p.getFreeSlots()) + ",";
-        itemStr += "\"InventorySize\":" + to_string(p.getInventorySize()) + ",";
-        itemStr += "\"Money\":" + to_string(p.getMoney()) + ",";
-        itemStr += "\"LevelUp\":" + to_string(p.getLevelUp()) + ",";
-        itemStr += "\"CurrentWeight\":" + to_string(p.getCurrentWeight()) + ",";
-        itemStr += "\"MaxWeight\":" + to_string(p.getMaxWeight()) + ",";
-        itemStr += "\"OverWeighted\":" + to_string(p.getOverWeighted()) + ",";
+        itemStr += convertInventorySlot2Json(arr[i]);
 
-        itemStr += "\"CreaturesKilled\":" + to_string(p.getCreaturesKilled()) + ",";
-        itemStr += "\"ItemsRecieved\":" + to_string(p.getItemsRecieved()) + ",";
-        itemStr += "\"GoldCollected\":" + to_string(p.getGoldCollected()) + ",";
-        itemStr += "\"GoldSpent\":" + to_string(p.getGoldSpent()) + ",";
-        itemStr += "\"RoomsBeenToo\":" + to_string(p.getRoomsBeenToo()) + ",";
-        itemStr += "\"DamageRecieved\":" + to_string(p.getDamageRecieved()) + ",";
-        itemStr += "\"DamageDealt\":" + to_string(p.getDamageDealt()) + ",";
-        itemStr += "\"MaxGoldHeld\":" + to_string(p.getMaxGoldHeld()) + ",";
-        itemStr += "\"MaxDamageDealt\":" + to_string(p.getMaxDamageDealt()) + ",";
-        itemStr += "\"PotionsDranked\":" + to_string(p.getPotionsDranked()) + "}";
-
-        return itemStr;
+        if (i < 99)
+        {
+            itemStr += ",";
+        }
     }
+    itemStr += "],";
+    itemStr += "\"FreeSlots\":" + to_string(p.getFreeSlots()) + ",";
+    itemStr += "\"InventorySize\":" + to_string(p.getInventorySize()) + ",";
+    itemStr += "\"Money\":" + to_string(p.getMoney()) + ",";
+    itemStr += "\"LevelUp\":" + to_string(p.getLevelUp()) + ",";
+    itemStr += "\"CurrentWeight\":" + to_string(p.getCurrentWeight()) + ",";
+    itemStr += "\"MaxWeight\":" + to_string(p.getMaxWeight()) + ",";
+    itemStr += "\"OverWeighted\":" + to_string(p.getOverWeighted()) + ",";
 
-    //loads active effect from json
-ActiveEffects ConvertJson2ActiveEffect(Value& effect){
+    itemStr += "\"CreaturesKilled\":" + to_string(p.getCreaturesKilled()) + ",";
+    itemStr += "\"ItemsRecieved\":" + to_string(p.getItemsRecieved()) + ",";
+    itemStr += "\"GoldCollected\":" + to_string(p.getGoldCollected()) + ",";
+    itemStr += "\"GoldSpent\":" + to_string(p.getGoldSpent()) + ",";
+    itemStr += "\"RoomsBeenToo\":" + to_string(p.getRoomsBeenToo()) + ",";
+    itemStr += "\"DamageRecieved\":" + to_string(p.getDamageRecieved()) + ",";
+    itemStr += "\"DamageDealt\":" + to_string(p.getDamageDealt()) + ",";
+    itemStr += "\"MaxGoldHeld\":" + to_string(p.getMaxGoldHeld()) + ",";
+    itemStr += "\"MaxDamageDealt\":" + to_string(p.getMaxDamageDealt()) + ",";
+    itemStr += "\"PotionsDranked\":" + to_string(p.getPotionsDranked()) + "}";
+
+    return itemStr;
+}
+
+//loads active effect from json
+ActiveEffects ConvertJson2ActiveEffect(Value &effect)
+{
 
     ActiveEffects ret;
-    int mod=effect["Modifier"].GetInt();
-    int round=effect["RoundsActive"].GetInt();
-    Effects_enum eff=(Effects_enum)effect["Effect"].GetInt(); 
-    EffectTypes_enum type=(EffectTypes_enum)effect["EffectType"].GetInt();
+    int mod = effect["Modifier"].GetInt();
+    int round = effect["RoundsActive"].GetInt();
+    Effects_enum eff = (Effects_enum)effect["Effect"].GetInt();
+    EffectTypes_enum type = (EffectTypes_enum)effect["EffectType"].GetInt();
 
-    ret=ActiveEffects(type,eff,mod,round);
+    ret = ActiveEffects(type, eff, mod, round);
 
     return ret;
-
-
-}      
-
+}
 
 //loads Damage Type from json
-DamageTypes ConvertJson2DamageTypes(Value& types){
+DamageTypes ConvertJson2DamageTypes(Value &types)
+{
     DamageTypes ret;
 
     ret.setDamage(types["Damage"].GetInt());
@@ -356,15 +348,13 @@ DamageTypes ConvertJson2DamageTypes(Value& types){
     ret.setDamageOverTime_damage(types["DamageOverTime_damage"].GetInt());
     ret.setDamageOverTime_time(types["DamageOverTime_time"].GetInt());
     return ret;
-
-
 }
 
-
 //loads Item from json
-Item* ConvertJson2Item(Value& item){
+Item *ConvertJson2Item(Value &item)
+{
 
-    Item* i=new Item();
+    Item *i = new Item();
     i->setName(item["Name"].GetString());
     i->setValue(item["Value"].GetInt());
     i->setWeight(item["Weight"].GetInt());
@@ -374,41 +364,41 @@ Item* ConvertJson2Item(Value& item){
     return i;
 }
 
-
 //loads Weapon from json
-Weapon* ConvertJson2Weapon(Value& item){
-        DamageTypes t;
+Weapon *ConvertJson2Weapon(Value &item)
+{
+    DamageTypes t;
 
-    Weapon* i=new Weapon;
+    Weapon *i = new Weapon;
     i->setName(item["Name"].GetString());
     i->setValue(item["Value"].GetInt());
     i->setWeight(item["Weight"].GetInt());
     i->setStackSize(item["StackSize"].GetInt());
     i->setDescription(item["Description"].GetString());
     i->setType((WeaponTypes_enum)item["WeaponType"].GetInt());
-    GenericArray<false,Value> damage =item["DamageTypes"].GetArray();
-    for(int j=0;j<damage.Size();j++){
-        t=ConvertJson2DamageTypes(damage[j]);
+    GenericArray<false, Value> damage = item["DamageTypes"].GetArray();
+    for (int j = 0; j < damage.Size(); j++)
+    {
+        t = ConvertJson2DamageTypes(damage[j]);
         i->addDamageType(t);
     }
-    i->setDefense( item["Defense"].GetInt());
+    i->setDefense(item["Defense"].GetInt());
     i->setTwoHanded(item["TwoHanded"].GetInt());
     i->setSpeed(item["Speed"].GetInt());
     i->setLevel(item["Level"].GetInt());
     i->setRange(item["Range"].GetInt());
     i->setRarity((ItemRarity_enum)item["Rarity"].GetInt());
     i->setCombatEffect(ConvertJson2ActiveEffect(item["CombatEffect"]));
-    i->calculateWeaponRank();    
+    i->calculateWeaponRank();
 
     return i;
-
 }
 
-
 //loads potion from json
-Potion* ConvertJson2Potion(Value& item){
+Potion *ConvertJson2Potion(Value &item)
+{
 
-    Potion* i =new Potion();
+    Potion *i = new Potion();
     i->setName(item["Name"].GetString());
     i->setValue(item["Value"].GetInt());
     i->setWeight(item["Weight"].GetInt());
@@ -421,11 +411,11 @@ Potion* ConvertJson2Potion(Value& item){
     return i;
 }
 
-
 //loads Armor from Json
-Armor* ConvertJson2Armor(Value& item){
+Armor *ConvertJson2Armor(Value &item)
+{
     ActiveEffects t;
-    Armor* i= new Armor();
+    Armor *i = new Armor();
 
     i->setName(item["Name"].GetString());
     i->setValue(item["Value"].GetInt());
@@ -437,45 +427,130 @@ Armor* ConvertJson2Armor(Value& item){
     i->setClass((ArmorClass_enum)item["Class"].GetInt());
     i->setRarity((ItemRarity_enum)item["Rarity"].GetInt());
 
-    
-    GenericArray<false,Value> defense =item["ResistanceTypes"].GetArray();
-    for(int j=0;j<defense.Size();j++){
-        t=ConvertJson2ActiveEffect(defense[j]);
+    GenericArray<false, Value> defense = item["ResistanceTypes"].GetArray();
+    for (int j = 0; j < defense.Size(); j++)
+    {
+        t = ConvertJson2ActiveEffect(defense[j]);
         i->addResistanceType(t);
     }
 
     return i;
-
 }
 
 //loads InventorySlot from Json
-InventorySlot ConvertJson2InventorySlot(Value& slot){
+InventorySlot ConvertJson2InventorySlot(Value &slot)
+{
     InventorySlot i;
-    
-    i.item=new Item();
-    i.amount=slot["Amount"].GetInt();
 
-    Value& temp=slot["Item"];
+    i.item = new Item();
+    i.amount = slot["Amount"].GetInt();
+
+    Value &temp = slot["Item"];
     // cout<<"Item:"<<temp["ItemType"].GetString()<<endl;
-    string s=temp["ItemType"].GetString();
-    if(s=="armor"){
-        i.item=ConvertJson2Armor(temp);
-    }else if(s=="weapon"){
-        i.item=ConvertJson2Weapon(temp);
-    }else if(s=="potion"){    
-        i.item=ConvertJson2Potion(temp);
-    }else{
-        i.item=ConvertJson2Item(temp);
+    string s = temp["ItemType"].GetString();
+    if (s == "armor")
+    {
+        i.item = ConvertJson2Armor(temp);
+    }
+    else if (s == "weapon")
+    {
+        i.item = ConvertJson2Weapon(temp);
+    }
+    else if (s == "potion")
+    {
+        i.item = ConvertJson2Potion(temp);
+    }
+    else
+    {
+        i.item = ConvertJson2Item(temp);
     }
     return i;
 }
 
-
-
 //loads player from Json
-Player ConvertJson2Player(Value& player){
+Player ConvertJson2Player(Value &player)
+{
     Player ret;
 
-    
+    ret.setDamage(player["Damage"].GetInt());
+    ret.setDefense(player["Defense"].GetInt());
+    ret.setSpeed(player["Speed"].GetInt());
+    ret.setStrength(player["Strength"].GetInt());
+    ret.setMaxHealth(player["MaxHealth"].GetInt());
+    ret.setHealth(player["Health"].GetInt());
+    ret.setLevel(player["Level"].GetInt());
+    ret.setXP(player["XP"].GetInt());
+    ret.setName(player["Name"].GetString());
+    ret.setPosition({player["Position"].GetArray()[0].GetInt(), player["Position"].GetArray()[1].GetInt()});
 
+    GenericArray<false, Value> effect = player["DebuffEffects"].GetArray();
+
+    for (int i = 0; i < effect.Size(); i++)
+    {
+        ret.AddDeBuffEffect(ConvertJson2ActiveEffect(effect[i]));
+    }
+
+    effect = player["BuffEffects"].GetArray();
+    for (int i = 0; i < effect.Size(); i++)
+    {
+        ret.AddBuffEffect(ConvertJson2ActiveEffect(effect[i]));
+    }
+
+    effect = player["CombatEffects"].GetArray();
+    for (int i = 0; i < effect.Size(); i++)
+    {
+        ret.AddCombatEffect(ConvertJson2ActiveEffect(effect[i]));
+    }
+    effect = player["DamageOverTimeEffects"].GetArray();
+    for (int i = 0; i < effect.Size(); i++)
+    {
+        ret.AddDamageOverTimeEffect(ConvertJson2ActiveEffect(effect[i]));
+    }
+    effect = player["ResistanceEffects"].GetArray();
+    for (int i = 0; i < effect.Size(); i++)
+    {
+        ret.AddResistanceEffect(ConvertJson2ActiveEffect(effect[i]));
+    }
+
+    ret.setHead(ConvertJson2Armor( player["Head"]));
+
+    ret.setTorso(ConvertJson2Armor(player["Torso"]));
+
+    ret.setHands(ConvertJson2Armor(player["Hands"]));
+
+    ret.setLegs(ConvertJson2Armor(player["Legs"]));
+
+    ret.setFeet(ConvertJson2Armor(player["Feet"]));
+
+    ret.setLeft(ConvertJson2Weapon(player["LeftWeapon"]));
+    
+    ret.setRight(ConvertJson2Weapon(player["RightWeapon"]));
+
+    effect=player["Inventory"].GetArray();
+
+    array<InventorySlot,100> arr;
+    for(int i=0;i<effect.Size();i++){
+       arr[i]=ConvertJson2InventorySlot(effect[i]);
+    }
+    ret.setInventory(arr);
+
+    ret.setFreeSlots(player["FreeSlots"].GetInt());
+    ret.setInventorySize(player["InventorySize"].GetInt());
+    ret.setMoney(player["Money"].GetInt());
+    ret.setLevelUp(player["LevelUp"].GetInt());
+    ret.setCurrentWeight(player["CurrentWeight"].GetInt());
+    ret.setMaxWeight(player["MaxWeight"].GetInt());
+    ret.setOverWeighted(player["OverWeighted"].GetInt());
+
+    ret.setCreaturesKilled(player["CreaturesKilled"].GetInt());
+    ret.setItemsRecieved(player["ItemsRecieved"].GetInt());
+    ret.setGoldCollected(player["GoldCollected"].GetInt());
+    ret.setGoldSpent(player["GoldSpent"].GetInt());
+    ret.setRoomsBeenToo(player["RoomsBeenToo"].GetInt());
+    ret.setDamageRecieved(player["DamageRecieved"].GetInt());
+    ret.setDamageDealt(player["DamageDealt"].GetInt());
+    ret.setMaxDamageDealt(player["MaxGoldHeld"].GetInt());
+    ret.setMaxDamageDealt(player["MaxDamageDealt"].GetInt());
+    ret.setPotionDranked(player["PotionsDranked"].GetInt());
+    return ret;
 }

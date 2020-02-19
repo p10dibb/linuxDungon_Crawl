@@ -7,11 +7,9 @@ void Run()
 	ofstream file1;
 
 	file1.open("../save.json");
-	InventorySlot i;
-	i.amount=3;
-	i.item=s.CreateRandomWeapon(1);
-	string str=convertInventorySlot2Json(i);
-	cout<<str<<endl<<endl;
+
+	string str=convertPlayer2Json(Player());
+	// cout<<str<<endl<<endl;
 	file1<<str;
 	file1.close();
 
@@ -23,9 +21,9 @@ void Run()
 	Value &v = d.Parse(str.c_str());
 
 	
-	InventorySlot j=ConvertJson2InventorySlot(v);
-	((Weapon*)j.item)->DisplayDetails();
-	cout<<"amount: "<<j.amount<<endl;
+	Player j=ConvertJson2Player(v);
+
+	cout<<"amount: "<<j.getPosition()[0]<<","<<j.getPosition()[1]<<endl;
 	file.close();
 
 	// Spawner s;

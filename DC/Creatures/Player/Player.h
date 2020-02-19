@@ -181,11 +181,17 @@ public:
 		//returns the amount of creatures player has killed
 		int getCreaturesKilled();
 
+		//sets amount of creatures killed
+		bool setCreaturesKilled(int amt);
+
 		//increases CreaturesKilled by 1
 		void IncrementCreaturesKilled();
 
 		//checks to see if the amount meets a reward requirment
 		int RewardCheckCreaturesKilled();
+
+		//sets the amount of items recieved
+		bool setItemsRecieved(int amt);
 
 		//returns the total amount of items recieved;
 		int getItemsRecieved();
@@ -196,6 +202,9 @@ public:
 		//checks to see if the ItemsRecieved meets reward requirments
 		int RewardCheckItemsRecieved();
 
+		//sets the Gold Collected
+		bool setGoldCollected(int amt);
+
 		//returns total amount of gold Collected
 		int getGoldCollected();
 
@@ -204,6 +213,9 @@ public:
 
 		//checks if the GoldCollected meets RewardRequirements
 		int RewardCheckGoldCollected(int amount);
+
+		//sets the Gold spent
+		bool setGoldSpent(int amt);
 
 		//returns the total amount of Gold Spent
 		int getGoldSpent();
@@ -214,6 +226,9 @@ public:
 		//checks if the GoldSpent meets reward Requirements
 		int RewardCheckGoldSpent();
 
+		//sets Rooms been too
+		bool setRoomsBeenToo(int amt);
+
 		//returns total amount of floors player has been too
 		int getRoomsBeenToo();
 
@@ -223,6 +238,9 @@ public:
 		//checks if the RoomsBeenToo meets reward requirements
 		int RewardCheckRoomsBeenToo();
 
+		//sets Damage Recieved
+		bool setDamageRecieved(int amt);
+			
 		//returns total amount of damage recieved
 		int getDamageRecieved();
 
@@ -231,6 +249,9 @@ public:
 
 		//checks if the DamageRecieved meetsReward requirements
 		int RewardCheckDamageRecieved();
+
+		//sets Damage Dealt
+		bool setDamageDealt(int amt);
 
 		//returns total amount of Damage Dealt
 		int getDamageDealt();
@@ -241,17 +262,26 @@ public:
 		// checks if DamageDealt meets reward requirements
 		int RewardCheckDamageDealt();
 
+		//sets Max Gold Held
+		bool setMaxGoldHeld(int amt);
+
 		//returns largest amount of Money the player has had
 		int getMaxGoldHeld();
 
 		//checks to see if MaxGold meets reqard requirements
 		int RewardCheckMaxGoldHeld();
 
+		//sets MaxDamage Dealt
+		bool setMaxDamageDealt(int amt);
+
 		//returns the maxDamage Dealt
 		int getMaxDamageDealt();
 
 		//checks if MaxDamageDealt meets Reward Requirements
 		int RewardCheckMaxDamageDealt(int damage);
+
+		//sets Potion Dranked
+		bool setPotionDranked(int amt);
 
 		//returns total amount of potions the player has drunk
 		int getPotionsDranked();

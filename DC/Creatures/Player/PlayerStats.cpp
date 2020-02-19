@@ -28,6 +28,18 @@ int Player::getCreaturesKilled(){
     return this->CreaturesKilled;
 }
 
+//sets amount of creatures killed
+bool Player::setCreaturesKilled(int amt){
+    if(amt<0){
+        this->CreaturesKilled=0;
+        return false;
+    }
+
+    this->CreaturesKilled=amt;
+    return true;
+}
+
+
 //increases CreaturesKilled by 1
 void Player::IncrementCreaturesKilled(){
     this->CreaturesKilled+=1;
@@ -116,6 +128,17 @@ int Player::RewardCheckCreaturesKilled(){
        return 10;
     }
     return -1;
+}
+
+
+//sets the amount of items recieved
+bool Player::setItemsRecieved(int amt){
+    if(amt<0){
+        this->ItemsRecieved=0;
+        return false;
+    }
+    this->ItemsRecieved=amt;
+    return true;
 }
 
 //returns the total amount of items recieved;
@@ -213,6 +236,17 @@ int Player::RewardCheckItemsRecieved(){
     return -1;
 }
 
+
+//sets the Gold Collected
+bool Player::setGoldCollected(int amt){
+    if(amt<0){
+        this->GoldCollected=0;
+        return false;
+    }
+    this->GoldCollected=amt;
+    return true;
+}
+
 //returns total amount of gold Collected
 int Player::getGoldCollected(){
     return this->GoldCollected;
@@ -281,6 +315,17 @@ int Player::RewardCheckGoldCollected(int amount){
     return -1;
 }
 
+//sets the Gold spent
+bool Player::setGoldSpent(int amt){
+    if(amt<0){
+        this->GoldSpent=0;
+        return false;
+    }
+
+    this->GoldSpent=amt;
+    return true;
+}
+
 //returns the total amount of Gold Spent
 int Player::getGoldSpent(){
     return this->GoldSpent;
@@ -294,6 +339,17 @@ void Player::IncrementGoldSpent(int amount){
 //checks if the GoldSpent meets reward Requirements
 int Player::RewardCheckGoldSpent(){
     return -1;
+}
+
+
+//sets Rooms been too
+bool Player::setRoomsBeenToo(int amt){
+    if(amt<0){
+        this->RoomsBeenToo=0;
+        return false;
+    }
+    this->RoomsBeenToo=amt;
+    return true;
 }
 
 //returns total amount of floors player has been too
@@ -311,6 +367,17 @@ int Player::RewardCheckRoomsBeenToo(){
     return -1;
 }
 
+
+//sets Damage Recieved
+bool Player::setDamageRecieved(int amt){
+    if(amt<0){
+        this->DamageRecieved=0;
+        return false;
+    }
+    this->DamageRecieved=amt;
+    return true;
+}
+
 //returns total amount of damage recieved
 int Player::getDamageRecieved(){
     return this->DamageRecieved;
@@ -324,6 +391,17 @@ void Player::IncrementDamageRecieved(int amount){
 //checks if the DamageRecieved meetsReward requirements
 int Player::RewardCheckDamageRecieved(){
     return -1;
+}
+
+
+//sets Damage Dealt
+bool Player::setDamageDealt(int amt){
+    if(amt<0){
+        this->DamageDealt=0;
+        return false;
+    }
+    this->DamageDealt=amt;
+    return true;
 }
 
 //returns total amount of Damage Dealt
@@ -341,6 +419,16 @@ int Player::RewardCheckDamageDealt(){
     return -1;
 }
 
+//sets Max Gold Held
+bool Player::setMaxGoldHeld(int amt){
+    if(amt<0){
+        this->MaxGoldHeld=0;
+        return false;
+    }
+    this->MaxGoldHeld=amt;
+    return true;
+}
+
 //returns largest amount of Money the player has had
 int Player::getMaxGoldHeld(){
     return this->MaxGoldHeld;
@@ -355,6 +443,17 @@ int Player::RewardCheckMaxGoldHeld(){
     return -1;
 }
 
+
+//sets MaxDamage Dealt
+bool Player::setMaxDamageDealt(int amt){
+    if(amt<0){
+        this->MaxDamageDealt=0;
+        return false;
+    }
+    this->MaxDamageDealt=amt;
+    return true;
+}   
+
 //returns the maxDamage Dealt
 int Player::getMaxDamageDealt(){
     return this->MaxDamageDealt;
@@ -368,6 +467,18 @@ int Player::RewardCheckMaxDamageDealt(int damage){
     }
     return -1;
 }
+
+
+//sets Potion Dranked
+bool Player::setPotionDranked(int amt){
+    if(amt<0){
+        this->PotionsDranked=0;
+        return false;
+    }
+    this->PotionsDranked=amt;
+    return true;
+}
+
 
 //returns total amount of potions the player has drunk
 int Player::getPotionsDranked(){
