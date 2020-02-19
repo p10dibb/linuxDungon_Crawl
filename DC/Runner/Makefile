@@ -663,6 +663,33 @@ home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.s:
 	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.s
 .PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.s
 
+home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.o: home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o
+
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.o
+
+# target to build an object file
+home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o:
+	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o
+
+home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.i: home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.i
+
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.i
+
+# target to preprocess a source file
+home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.i:
+	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.i
+
+home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.s: home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.s
+
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.s
+
+# target to generate assembly for a file
+home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.s:
+	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.s
+
 home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.o: home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o
 
 .PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.o
@@ -921,6 +948,9 @@ help:
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.o"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.i"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.s"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.o"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.i"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.s"

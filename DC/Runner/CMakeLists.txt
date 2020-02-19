@@ -21,6 +21,7 @@ add_executable(Runner  ../Main.cpp
 ../Combat/Combat.h ../Combat/Combat.cpp 
 ../Level/Room/Room.h ../Level/Room/Room.cpp 
 ../Level/Floor/Floor.h ../Level/Floor/Floor.cpp 
+../Saver/SaveFile/SaveFile.h ../Saver/SaveFile/SaveFile.cpp
 ../Saver/Saver.h ../Saver/Saver.cpp
 ../Room_Design/Room_Design.h ../Room_Design/Room_Design.cpp
 ../DamageTypes/DamageTypes.h ../DamageTypes/DamageTypes.cpp 

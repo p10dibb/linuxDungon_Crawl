@@ -1,4 +1,4 @@
-#include "../Level/Floor/Floor.h"
+#include "SaveFile/SaveFile.h"
 #include <fstream>
 #include "../rapidjson/document.h"
 #include "../rapidjson/writer.h"
@@ -54,3 +54,6 @@ InventorySlot ConvertJson2InventorySlot(Value& slot);
 
 //loads player from Json
 Player ConvertJson2Player(Value& player);
+
+//converts saveFile to json
+string ConvertSaveFile2Json(SaveFile file);

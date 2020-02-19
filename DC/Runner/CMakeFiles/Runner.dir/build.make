@@ -609,9 +609,33 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.c
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.o.provides.build: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.o
 
 
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o: CMakeFiles/Runner.dir/flags.make
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/paul/Desktop/linuxDungon_Crawl/DC/Runner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o -c /home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp
+
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp > CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.i
+
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp -o CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.s
+
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o.requires:
+
+.PHONY : CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o.requires
+
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o.provides: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o.provides.build
+.PHONY : CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o.provides
+
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o.provides.build: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o
+
+
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: CMakeFiles/Runner.dir/flags.make
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/paul/Desktop/linuxDungon_Crawl/DC/Runner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/paul/Desktop/linuxDungon_Crawl/DC/Runner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o -c /home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp
 
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.i: cmake_force
@@ -635,7 +659,7 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o.p
 
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: CMakeFiles/Runner.dir/flags.make
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/paul/Desktop/linuxDungon_Crawl/DC/Runner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/paul/Desktop/linuxDungon_Crawl/DC/Runner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o -c /home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp
 
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.i: cmake_force
@@ -659,7 +683,7 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_De
 
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o: CMakeFiles/Runner.dir/flags.make
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/paul/Desktop/linuxDungon_Crawl/DC/Runner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/paul/Desktop/linuxDungon_Crawl/DC/Runner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o -c /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp
 
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.i: cmake_force
@@ -683,7 +707,7 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageT
 
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o: CMakeFiles/Runner.dir/flags.make
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/paul/Desktop/linuxDungon_Crawl/DC/Runner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/paul/Desktop/linuxDungon_Crawl/DC/Runner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o -c /home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp
 
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.i: cmake_force
@@ -730,6 +754,7 @@ Runner_OBJECTS = \
 "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.o" \
 "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.o" \
 "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.o" \
+"CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o" \
 "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o" \
 "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o" \
 "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o" \
@@ -761,13 +786,14 @@ Runner: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.c
 Runner: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.o
 Runner: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.o
 Runner: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.o
+Runner: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o
 Runner: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o
 Runner: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o
 Runner: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o
 Runner: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp.o
 Runner: CMakeFiles/Runner.dir/build.make
 Runner: CMakeFiles/Runner.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/paul/Desktop/linuxDungon_Crawl/DC/Runner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Linking CXX executable Runner"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/paul/Desktop/linuxDungon_Crawl/DC/Runner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Linking CXX executable Runner"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Runner.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -798,6 +824,7 @@ CMakeFiles/Runner.dir/requires: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDun
 CMakeFiles/Runner.dir/requires: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.o.requires
 CMakeFiles/Runner.dir/requires: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.o.requires
 CMakeFiles/Runner.dir/requires: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.o.requires
+CMakeFiles/Runner.dir/requires: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o.requires
 CMakeFiles/Runner.dir/requires: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o.requires
 CMakeFiles/Runner.dir/requires: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o.requires
 CMakeFiles/Runner.dir/requires: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o.requires

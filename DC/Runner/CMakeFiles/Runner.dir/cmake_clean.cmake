@@ -22,6 +22,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.o"
   "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp.o"
   "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.cpp.o"
+  "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/SaveFile.cpp.o"
   "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o"
   "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp.o"
   "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o"

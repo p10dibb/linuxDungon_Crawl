@@ -6,6 +6,7 @@
 //#include <conio.h>
 using namespace::std;
 
+#define saveLocation "save.json"
 
 //Directional Enumeration;
 enum Direction_enum {Left_Direction, Up_Direction, Right_Direction, Down_Direction, No_Direction};

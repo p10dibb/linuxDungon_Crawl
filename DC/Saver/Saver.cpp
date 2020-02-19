@@ -416,7 +416,7 @@ Armor *ConvertJson2Armor(Value &item)
 {
     ActiveEffects t;
     Armor *i = new Armor();
-
+    
     i->setName(item["Name"].GetString());
     i->setValue(item["Value"].GetInt());
     i->setWeight(item["Weight"].GetInt());
@@ -552,5 +552,16 @@ Player ConvertJson2Player(Value &player)
     ret.setMaxDamageDealt(player["MaxGoldHeld"].GetInt());
     ret.setMaxDamageDealt(player["MaxDamageDealt"].GetInt());
     ret.setPotionDranked(player["PotionsDranked"].GetInt());
+    return ret;
+}
+
+//converts saveFile to json
+string ConvertSaveFile2Json(SaveFile file){
+    string ret="{";
+        ret+="\"SaveName\":\""+file.getFileName()+"\",";
+        ret+="\"CharacterName\":\""+file.getCharacterName()+"\",";
+        ret+="\"Time\":\""+file.getTime()+"\",";
+        ret+="\"Character\":"+convertPlayer2Json(file.getCharacter());
+    ret+="}";
     return ret;
 }

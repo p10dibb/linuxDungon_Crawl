@@ -2,53 +2,30 @@
 
 void Run()
 {
+
 	Spawner s;
 
-	ofstream file1;
+	Player player;
 
-	file1.open("../save.json");
+	Floor mainFloor;
 
-	string str=convertPlayer2Json(Player());
-	// cout<<str<<endl<<endl;
-	file1<<str;
-	file1.close();
+	switch (StartScreen())
+	{
+	case 1:player= createPlayer();	break;
+	case 2:cout<<"not set up yet"<<endl;break;
+	case 3: return;
+	default:
+		break;
+	}
 
-	ifstream file;
-	file.open("../save.json");
-	// string str;
-	getline(file, str);
-	Document d;
-	Value &v = d.Parse(str.c_str());
+	//creates the main floor
+	mainFloor=createFloor();
 
-	
-	Player j=ConvertJson2Player(v);
+	//sets the player
+	mainFloor.setPlayer(&player);
 
-	cout<<"amount: "<<j.getPosition()[0]<<","<<j.getPosition()[1]<<endl;
-	file.close();
-
-	// Spawner s;
-
-	// Player player;
-
-	// Floor mainFloor;
-
-	// switch (StartScreen())
-	// {
-	// case 1:player= createPlayer();	break;
-	// case 2:cout<<"not set up yet"<<endl;break;
-	// case 3: return;
-	// default:
-	// 	break;
-	// }
-
-	// //creates the main floor
-	// mainFloor=createFloor();
-
-	// //sets the player
-	// mainFloor.setPlayer(&player);
-
-	// //runs the game
-	// mainFloor.NavigateFloor();
+	//runs the game
+	mainFloor.NavigateFloor();
 }
 
 Player createPlayer()
@@ -174,4 +151,77 @@ int StartScreen()
 			break;
 		}
 	}
+}
+
+bool Saver(Player p){
+
+	vector<string> files;
+	string temp;
+	ifstream infile;
+	infile.open(saveLocation);
+	while(getline(infile,temp)){
+		files.push_back(temp);
+	}
+	cout<<"Files Loaded: "<<files.size()<<endl;
+	infile.close();
+	string name;
+	Document d;
+	string choice="";
+	int i=0, pos=-1;
+
+	//loops untill name is picked
+	while(1){
+	
+	cout<<"enter Save Name:";
+	cin>>name;
+	choice=-1;
+	
+	//itterates theough all the saves to compare name
+	for(i=0;i<files.size();i++){
+		d.Parse(files[i].c_str());
+		//checks if file under name already exists
+		if(name==d["SaveName"].GetString()){
+			while(choice!="1"&&choice!="0"){
+			cout<<"thier is already a save under this name would you like to replace it? (0)No,(1)yes"<<endl;
+			cin>>choice;
+			}
+			cout<<"thier is already a save under this name would you like to replace it? (0)No,(1)yes"<<endl;
+			
+			//if they want to overwrite
+			if(choice=="1"){
+				pos=i;
+				i=files.size();
+				break;
+			}
+			else{
+				break;
+			}
+		}
+	}
+	//if time to save break loop
+	if(i==files.size()){
+		break;
+	}
+	}
+
+	//if new save
+	SaveFile newSave=SaveFile(p,name);
+	if(pos!=-1){
+		cout<<"erasing"<<endl;
+		files.erase(files.begin()+pos);
+	}
+	
+	//adds new file to back
+	files.push_back(ConvertSaveFile2Json(newSave));
+
+
+	ofstream outfile;
+	outfile.open(saveLocation);
+	for(i=0;i<files.size();i++){
+		outfile<<files[i]<<endl;
+	}
+	
+	outfile.close();
+	cout<<"SAVED"<<endl;
+
 }
