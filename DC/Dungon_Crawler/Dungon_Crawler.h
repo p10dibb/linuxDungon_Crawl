@@ -12,4 +12,3 @@ Floor createFloor();
 //the first thing the player sees chooses between new Character, Load Character,exit, other?
 int StartScreen();
 
-bool Saver(Player p);

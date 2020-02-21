@@ -471,7 +471,13 @@ int Room::RunRoom()
 			}
 
 			tempPos = player->getPosition();
-			this->player->Navigation(this->RoomMap);
+			int navChoice;
+			while(navChoice=this->player->Navigation(this->RoomMap)==-4){
+				Saver(*player);
+			}
+			if(navChoice==-3){
+				return -3;
+			}
 			results = this->playerCollisionCheck();
 
 			//if hit exit

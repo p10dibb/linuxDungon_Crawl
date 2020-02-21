@@ -116,12 +116,13 @@ int Player::PauseMenue(){
 		case 1:this->InventoryDialogue();break;
 		case 2:this->DisplayStats();break;
 		case 3:this->EquipedDialogue();break;
-		case 4:cout<<"saving(doesnt do anyhing yet)"<<endl;break;
-		case 5: cout<<"Exiting (doesnt do anything yet)"<<endl;
+		case 4:cout<<"saving"<<endl;return -4;
+		case 5: cout<<"Exiting"<<endl;return -3;
 		
 		default:
 			break;
 		}
+		return true;
 
 	}
 
@@ -342,7 +343,7 @@ int Player::Navigation(array<array<RoomPieces_enum, 50>,50> map) {
 
 		case 'e':this->EquipedDialogue(); break;
 
-		case 'p':this->PauseMenue();break;
+		case 'p':return this->PauseMenue();break;
 
 		}
 

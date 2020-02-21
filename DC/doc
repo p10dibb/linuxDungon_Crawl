@@ -1,0 +1,11 @@
+Player Returns:
+
+-4:player saving
+-3: player exiting by choice
+-2: player ran from combat
+-1: player Died 
+0: enemy died in combat 
+1: player going left a room
+2: player going up a room
+3: player going right a room
+4: player going down a room

@@ -39,16 +39,16 @@ int Floor::NavigateFloor()
 	int value = 0;
 	while (1)
 	{
-		cout << endl
-			 << endl
-			 << "Room:" << currentRoom[0] << "," << currentRoom[1] << endl
-			 << endl;
+		cout << endl<< endl << "Room:" << currentRoom[0] << "," << currentRoom[1] << endl<< endl;
 		this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].setPlayer(this->getPlayer());
 		value = this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].RunRoom();
 
+		
 		if (value == -1)
 		{
 			return -1;
+		}else if(value ==-3){
+			return -3;
 		}
 		else
 		{

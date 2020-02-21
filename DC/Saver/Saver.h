@@ -57,3 +57,9 @@ Player ConvertJson2Player(Value& player);
 
 //converts saveFile to json
 string ConvertSaveFile2Json(SaveFile file);
+
+//prompts user for dialogue to save the file
+bool Saver(Player p);
+
+//prompts user for loading file
+Player Loader();
