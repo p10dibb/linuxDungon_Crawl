@@ -25,15 +25,15 @@ void Run()
 	}
 	//creates the main floor
 
-		
-
 	//runs the game
 	while (1)
 	{
 		mainFloor = createFloor();
-	
-	//sets the player
-	mainFloor.setPlayer(&player);
+
+		//sets the player
+		player.setPosition({1,1});
+		mainFloor.setPlayer(&player);
+		
 		results = mainFloor.NavigateFloor();
 		if (results == -3)
 		{
@@ -51,6 +51,8 @@ void Run()
 					return;
 				}
 			}
+		}else if(results==-1){
+			player.setHealth(player.getMaxHealth());
 		}
 	}
 }
