@@ -31,9 +31,9 @@ void Run()
 		mainFloor = createFloor();
 
 		//sets the player
-		player.setPosition({1,1});
+		player.setPosition({1, 1});
 		mainFloor.setPlayer(&player);
-		
+
 		results = mainFloor.NavigateFloor();
 		if (results == -3)
 		{
@@ -51,7 +51,9 @@ void Run()
 					return;
 				}
 			}
-		}else if(results==-1){
+		}
+		else if (results == -1)
+		{
 			player.setHealth(player.getMaxHealth());
 		}
 	}
@@ -59,30 +61,77 @@ void Run()
 
 Player createPlayer()
 {
-
 	Player ret;
+	int points = 10;
+
+	sf::Font font;
+	font.loadFromFile("../Fonts/Montserrat-Regular.ttf");
+	sf::RenderWindow window(sf::VideoMode(800, 800), "Create Character");
+	sf::Text name_text;
+	name_text.setFont(font);
+	name_text.setPosition(sf::Vector2f(10, 10));
+	name_text.setString("Name: ");
+
+	sf::Text skills_text;
+	skills_text.setFont(font);
+	skills_text.setPosition(sf::Vector2f(10, 40));
+	skills_text.setString("you have " + to_string(points) + " remaining what would you like to upgrade");
+
+	sf::Text ExitText("press Enter to confirm stats",font,30);
+	ExitText.setPosition(sf::Vector2f(10,70));
+	int name_Entered = 0;
 
 	string name;
 
-	cout << "choose a name:" << endl;
-
-	cin >> name;
-
-	ret.setName(name);
-
-	int points = 10;
-
-	int input = 0;
-
-	while (points != 0)
+	while (window.isOpen())
 	{
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				window.close();
+		}
 
-		cout << "you have " << points << " remaining what would you like to upgrade?" << endl;
+		window.clear();
+		//once points are 0 then displays confirm stats text and on enter it closes the window
+		if(points<=0){
+			window.draw(ExitText);
+			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)){
+				window.close();
+			}
+		}
+		
+		name_text.setString("Name: " + name + "\n");
+		window.draw(name_text);
 
-		ret.addSkillPoint();
+		//only goes after name is entered and only while points left >0
+		if(points>0  && name_Entered==1){
+			ret.addSkillPoint();
+			points--;
+			skills_text.setString("you have " + to_string(points) + " remaining what would you like to upgrade");
+		}
 
-		points--;
+		//only allows skills to be edited after name has been entered
+		if(name_Entered>0 ){
+			window.draw(skills_text);
+			name_Entered=1;
+			
+		}
+	
+
+	
+
+		window.display();
+		//gets the players name only after first itteration so starter text will display
+		if (name_Entered == 0)
+		{
+			name = getStringSFML(&window, name_text, "Name: ");
+			ret.setName(name);
+			name_Entered++;
+		}
+		
 	}
+
 
 	return ret;
 }
@@ -159,27 +208,70 @@ Floor createFloor()
 //the first thing the player sees chooses between 1: new Character, 2: Load Character, 3: exit, other?
 int StartScreen()
 {
-	char choice = '\0';
-	while (1)
-	{
-		cout << "Welcome to Linux Dungeon Crawl!" << endl;
-		cout << "1.New Character" << endl;
-		cout << "2.Load Character" << endl;
-		cout << "3.Exit" << endl;
-		choice = getchar();
-		switch (choice)
-		{
-		case '1':
-			return 1;
-		case '2':
-			return 2;
-		case '3':
-			return 3;
+	sf::Font font;
+	font.loadFromFile("../Fonts/Montserrat-Regular.ttf");
+	sf::RenderWindow window(sf::VideoMode(500, 300), "SFML works!");
 
-		default:
-			break;
+	sf::Text text;
+	text.setFont(font);
+	text.setPosition(sf::Vector2f(10, 10));
+	text.setString("Welcome to Linux Dungeon Crawl!\n1.New Character\n2.Load Character\n3.Exit");
+
+	text.setCharacterSize(40);
+
+	while (window.isOpen())
+	{
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				window.close();
 		}
+
+		window.clear();
+		window.draw(text);
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
+		{
+			window.close();
+
+			return 1;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+		{
+			window.close();
+
+			return 2;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3))
+		{
+			window.close();
+
+			return 1;
+		}
+
+		window.display();
 	}
+	// char choice = '\0';
+	// while (1)
+	// {
+	// 	cout << "Welcome to Linux Dungeon Crawl!" << endl;
+	// 	cout << "1.New Character" << endl;
+	// 	cout << "2.Load Character" << endl;
+	// 	cout << "3.Exit" << endl;
+	// 	choice = getchar();
+	// 	switch (choice)
+	// 	{
+	// 	case '1':
+	// 		return 1;
+	// 	case '2':
+	// 		return 2;
+	// 	case '3':
+	// 		return 3;
+
+	// 	default:
+	// 		break;
+	// 	}
+	// }
 }
 
 bool Saver(Player p)

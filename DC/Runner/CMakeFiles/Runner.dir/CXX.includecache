@@ -105,6 +105,8 @@ map
 -
 vector
 -
+SFML/Graphics.hpp
+-
 
 /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp
 Armor.h
@@ -172,8 +174,6 @@ LootBox.h
 Dungon_Crawler/Dungon_Crawler.h
 /home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.h
 map
--
-SFML/Graphics.hpp
 -
 
 /home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_Design.cpp

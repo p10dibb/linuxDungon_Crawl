@@ -3,6 +3,8 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <SFML/Graphics.hpp>
+
 //#include <conio.h>
 using namespace::std;
 

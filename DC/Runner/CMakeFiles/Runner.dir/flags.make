@@ -6,5 +6,5 @@ CXX_FLAGS = -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/paul/Desktop/linuxDungon_Crawl/DC/Runner2 
+CXX_INCLUDES = -I/home/paul/Desktop/linuxDungon_Crawl/DC/Runner 
 
