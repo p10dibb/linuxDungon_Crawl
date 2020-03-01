@@ -10,18 +10,21 @@ void Run()
 
 	Floor mainFloor;
 
-	switch (StartScreen())
+	while (player.getName() == "")
 	{
-	case 1:
-		player = createPlayer();
-		break;
-	case 2:
-		player = Loader();
-		break;
-	case 3:
-		return;
-	default:
-		break;
+		switch (StartScreen())
+		{
+		case 1:
+			player = createPlayer();
+			break;
+		case 2:
+			player = Loader();
+			break;
+		case 3:
+			return;
+		default:
+			break;
+		}
 	}
 	//creates the main floor
 
@@ -66,22 +69,30 @@ Player createPlayer()
 
 	sf::Font font;
 	font.loadFromFile("../Fonts/Montserrat-Regular.ttf");
+
 	sf::RenderWindow window(sf::VideoMode(800, 800), "Create Character");
+
+	sf::Text HeaderText("Create Character", font, 30);
+	HeaderText.setPosition(sf::Vector2f(10, 10));
+
 	sf::Text name_text;
 	name_text.setFont(font);
-	name_text.setPosition(sf::Vector2f(10, 10));
+	name_text.setPosition(sf::Vector2f(10, 40));
 	name_text.setString("Name: ");
 
 	sf::Text skills_text;
 	skills_text.setFont(font);
-	skills_text.setPosition(sf::Vector2f(10, 40));
+	skills_text.setPosition(sf::Vector2f(10, 70));
 	skills_text.setString("you have " + to_string(points) + " remaining what would you like to upgrade");
 
-	sf::Text ExitText("press Enter to confirm stats",font,30);
-	ExitText.setPosition(sf::Vector2f(10,70));
+	sf::Text ExitText("press Enter to confirm stats", font, 30);
+	ExitText.setPosition(sf::Vector2f(10, 100));
 	int name_Entered = 0;
 
 	string name;
+
+	vector<sf::Text> otherText;
+	otherText.push_back(HeaderText);
 
 	while (window.isOpen())
 	{
@@ -90,48 +101,50 @@ Player createPlayer()
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
+				ret=Player();
+
 		}
 
 		window.clear();
 		//once points are 0 then displays confirm stats text and on enter it closes the window
-		if(points<=0){
+		if (points <= 0)
+		{
 			window.draw(ExitText);
-			if(sf::Keyboard::isKeyPressed(sf::Keyboard::Return)){
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
+			{
 				window.close();
 			}
 		}
-		
+
 		name_text.setString("Name: " + name + "\n");
 		window.draw(name_text);
 
 		//only goes after name is entered and only while points left >0
-		if(points>0  && name_Entered==1){
+		if (points > 0 && name_Entered == 1)
+		{
 			ret.addSkillPoint();
 			points--;
 			skills_text.setString("you have " + to_string(points) + " remaining what would you like to upgrade");
 		}
 
 		//only allows skills to be edited after name has been entered
-		if(name_Entered>0 ){
+		if (name_Entered > 0)
+		{
 			window.draw(skills_text);
-			name_Entered=1;
-			
+			name_Entered = 1;
 		}
-	
 
-	
+		window.draw(HeaderText);
 
 		window.display();
 		//gets the players name only after first itteration so starter text will display
 		if (name_Entered == 0)
 		{
-			name = getStringSFML(&window, name_text, "Name: ");
+			name = getStringSFML(&window, otherText, name_text, "Name: ");
 			ret.setName(name);
 			name_Entered++;
 		}
-		
 	}
-
 
 	return ret;
 }
@@ -219,6 +232,8 @@ int StartScreen()
 
 	text.setCharacterSize(40);
 
+	int ret = -1;
+
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -234,44 +249,24 @@ int StartScreen()
 		{
 			window.close();
 
-			return 1;
+			ret = 1;
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
 		{
 			window.close();
 
-			return 2;
+			ret = 2;
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3))
 		{
 			window.close();
 
-			return 1;
+			ret = 3;
 		}
 
 		window.display();
 	}
-	// char choice = '\0';
-	// while (1)
-	// {
-	// 	cout << "Welcome to Linux Dungeon Crawl!" << endl;
-	// 	cout << "1.New Character" << endl;
-	// 	cout << "2.Load Character" << endl;
-	// 	cout << "3.Exit" << endl;
-	// 	choice = getchar();
-	// 	switch (choice)
-	// 	{
-	// 	case '1':
-	// 		return 1;
-	// 	case '2':
-	// 		return 2;
-	// 	case '3':
-	// 		return 3;
-
-	// 	default:
-	// 		break;
-	// 	}
-	// }
+	return ret;
 }
 
 bool Saver(Player p)
@@ -359,35 +354,190 @@ bool Saver(Player p)
 //prompts user for loading file
 Player Loader()
 {
+	sf::Font font;
+	font.loadFromFile("../Fonts/Montserrat-Regular.ttf");
 
+	sf::RenderWindow window(sf::VideoMode(800, 800), "Load");
+
+	sf::Text headerText("Load Save:", font, 50);
+	headerText.setPosition(sf::Vector2f(10, 10));
+
+	//up to 11 lines tall
+	sf::Text fileText("Files:\n", font, 30);
+	fileText.setPosition(sf::Vector2f(10, 60));
+
+	sf::Text instructionText("Select an option or view next/previose set using arrows", font, 30);
+	fileText.setPosition(sf::Vector2f(10, 90));
+
+	//string of all file names to be displayed
+	string fileNames = "";
+	//checks for key release
+	bool release = 0;
+	//helps keep track of which file to select
+	int fileAdder = 0;
+	//vector of all the files loaded
 	vector<string> files;
-	string temp, choice;
+	//string used to load saves from file
+	string temp;
+	//integer marking file selection
 	int choiceInt;
+	//counter of currently displayed files. needs to start at 10
+	int counter = 10;
+	//trigger to change the file display
+	bool showmore = true;
+	bool exit = false;
+
 	ifstream infile;
 	infile.open(saveLocation);
 
+	//loads all the saves to files vector
 	while (getline(infile, temp))
 	{
 		files.push_back(temp);
 	}
+	//sets fileAdder initially to the max size
+	fileAdder = files.size();
 	Document d;
-	for (int i = files.size() - 1; i >= 0; i--)
-	{
-		d.Parse(files[i].c_str());
-		cout << files.size() - i << ":" << d["SaveName"].GetString() << ", " << d["CharacterName"].GetString() << ", " << d["Time"].GetString() << endl;
-	}
-	while (1)
-	{
-		cout << "which file would you like: " << endl;
-		cin >> choice;
-		choiceInt = stoi(choice);
-		if (choiceInt > 0 && choiceInt <= files.size())
-			break;
-	}
 
-	d.Parse(files[files.size() - choiceInt].c_str());
+	//main loop
+	while (window.isOpen())
+	{
+
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				window.close();
+			exit = true;
+		}
+
+		//displays save files
+		if (showmore)
+		{
+			showmore = false;
+			//checks if there are any more files to display
+			if (counter == 10)
+			{
+				counter = 0;
+				fileNames = "";
+				for (int i = fileAdder - 1; (i >= fileAdder - 10 && i >= 0); i--)
+				{
+					d.Parse(files[i].c_str());
+
+					fileNames += "[" + to_string(counter) + "]:" + d["SaveName"].GetString() + ", " + d["CharacterName"].GetString() + ", " + d["Time"].GetString() + "\n";
+					counter++;
+				}
+				//sets new files text
+				fileText.setString("Files:\n" + fileNames);
+				//sets position based on amount of files (still a bit wonky)
+				instructionText.setPosition(sf::Vector2f(10, 90 + counter * 50));
+			}
+		}
+
+		//Displays window
+		window.clear();
+		window.draw(headerText);
+		window.draw(fileText);
+		window.draw(instructionText);
+		window.display();
+
+		//checks for key presses
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num0) && counter >= 0)
+		{
+			choiceInt = 0;
+			release = 1;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1) && counter >= 1)
+		{
+			choiceInt = 1;
+			release = 1;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2) && counter >= 2)
+		{
+			choiceInt = 2;
+			release = 1;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3) && counter >= 3)
+		{
+			choiceInt = 3;
+			release = 1;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4) && counter >= 4)
+		{
+			choiceInt = 4;
+			release = 1;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5) && counter >= 5)
+		{
+			choiceInt = 5;
+			release = 1;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num6) && counter >= 6)
+		{
+			choiceInt = 6;
+			release = 1;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num7) && counter >= 7)
+		{
+			choiceInt = 7;
+			release = 1;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num8) && counter >= 8)
+		{
+			choiceInt = 8;
+			release = 1;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num9) && counter >= 9)
+		{
+			choiceInt = 9;
+			release = 1;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+		{
+			choiceInt = -1;
+			release = 1;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		{
+			choiceInt = -2;
+			release = 1;
+		}
+		else if (release == 1)
+		{
+
+			if (choiceInt == -1)
+			{
+
+				if (counter == 10 && fileAdder != 10)
+				{
+					fileAdder -= counter;
+				}
+				showmore = true;
+			}
+			else if (choiceInt == -2)
+			{
+
+				if (fileAdder != files.size())
+				{
+					fileAdder += 10;
+				}
+				showmore = true;
+			}
+			else
+			{
+				d.Parse(files[(fileAdder - 1) - choiceInt].c_str());
+				window.close();
+			}
+
+			release = 0;
+		}
+	}
 
 	infile.close();
-
+	//if the window is closed return default character
+	if (exit)
+	{
+		return (Player());
+	}
 	return ConvertJson2Player(d["Character"]);
 }

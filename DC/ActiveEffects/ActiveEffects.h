@@ -85,5 +85,5 @@ public:
 };
 
 //uses SFML to get a string and display it on a window
-string getStringSFML(sf::RenderWindow *window,sf::Text text, string input_text);
+string getStringSFML(sf::RenderWindow *window,vector<sf::Text> otherTexts,sf::Text text, string input_text);
 // /sf::RenderWindow window, sf::Text text, string input_text
