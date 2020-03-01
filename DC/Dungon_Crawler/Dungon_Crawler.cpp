@@ -14,6 +14,7 @@ void Run()
 	{
 		switch (StartScreen())
 		{
+		case -1: return;
 		case 1:
 			player = createPlayer();
 			break;
@@ -100,9 +101,10 @@ Player createPlayer()
 		while (window.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
+			{
 				window.close();
-				ret=Player();
-
+				ret = Player();
+			}
 		}
 
 		window.clear();
@@ -240,7 +242,10 @@ int StartScreen()
 		while (window.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
+			{
 				window.close();
+				ret = -1;
+			}
 		}
 
 		window.clear();
@@ -272,65 +277,138 @@ int StartScreen()
 bool Saver(Player p)
 {
 
+	sf::Font font;
+	font.loadFromFile("../Fonts/Montserrat-Regular.ttf");
+	sf::RenderWindow window(sf::VideoMode(500, 500), "Save");
+
+	sf::Text headerText("Save", font, 50);
+	headerText.setPosition(sf::Vector2f(10, 10));
+
+	sf::Text saveNameText("Enter Save Name: ", font, 30);
+	saveNameText.setPosition(sf::Vector2f(10, 70));
+
+	sf::Text errorText("there is already a save under this name.\nwould you like to replace it? \n[1]:Yes\n[2]:No", font, 30);
+	errorText.setPosition(sf::Vector2f(10, 110));
+
+	//Texts tobe shown while getting the name
+	vector<sf::Text> Texts;
+	Texts.push_back(headerText);
+
+	//checks if a name has been entered
+	bool nameEntered = false;
+	//checks if error needs to be shown
+	bool showError = false;
+	//checks if key is released
+	bool release = false;
+	//name of the save file
+	string saveName = "";
+	//choice for overwriting or renaming
+	int choice = 0;
+	//vector of all save files
 	vector<string> files;
+	//temp document for reading in saves
+	Document d;
+	//temp string for loading in saves
 	string temp;
+	//in file
 	ifstream infile;
+	//counter for loops
+	int i = 0;
+	//position of the save to be overwritten if any -1 if not
+	int pos = -1;
+
+	//reads in all save files
 	infile.open(saveLocation);
 	while (getline(infile, temp))
 	{
 		files.push_back(temp);
 	}
-	cout << "Files Loaded: " << files.size() << endl;
 	infile.close();
-	string name;
-	Document d;
-	string choice = "";
-	int i = 0, pos = -1;
 
-	//loops untill name is picked
-	while (1)
+	//main loop
+	while (window.isOpen())
 	{
 
-		cout << "enter Save Name:";
-		cin >> name;
-		choice = -1;
-
-		//itterates theough all the saves to compare name
-		for (i = 0; i < files.size(); i++)
+		sf::Event event;
+		while (window.pollEvent(event))
 		{
-			d.Parse(files[i].c_str());
-			//checks if file under name already exists
-			if (name == d["SaveName"].GetString())
-			{
-				while (choice != "1" && choice != "0")
-				{
-					cout << "thier is already a save under this name would you like to replace it? (0)No,(1)yes" << endl;
-					cin >> choice;
-				}
-				cout << "thier is already a save under this name would you like to replace it? (0)No,(1)yes" << endl;
+			if (event.type == sf::Event::Closed)
+				window.close();
+		}
 
-				//if they want to overwrite
-				if (choice == "1")
+		window.clear();
+
+		window.draw(headerText);
+		window.draw(saveNameText);
+
+		//if a file with same name exists
+		if (showError)
+		{
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
+			{
+				choice = 1;
+				release = true;
+			}
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+			{
+				choice = 2;
+				release = true;
+			}
+			else if (release)
+			{
+				//if overwritting the file
+				if (choice == 1)
 				{
-					pos = i;
-					i = files.size();
-					break;
+					window.close();
 				}
-				else
+				//if reentering name
+				else if (choice == 2)
 				{
-					break;
+
+					nameEntered = false;
+					showError = false;
+					saveNameText.setString("Enter Save Name: ");
 				}
+
+				release = false;
+			}
+			//checks if still needs to show the error for asthetics
+			if (showError)
+			{
+				window.draw(errorText);
 			}
 		}
-		//if time to save break loop
-		if (i == files.size())
+
+		window.display();
+
+		//checks if name is entered if not then gets one
+		if (!nameEntered)
 		{
-			break;
+			saveName = getStringSFML(&window, Texts, saveNameText, "Enter Save Name: ");
+			nameEntered = true;
+			saveNameText.setString("Enter Save Name: " + saveName);
+
+			//loop to check if file name already exists
+			for (i = 0; i < files.size(); i++)
+			{
+				d.Parse(files[i].c_str());
+				//checks if file under name already exists
+				if (saveName == d["SaveName"].GetString())
+				{
+					showError = true;
+					pos = i;
+				}
+			}
+			//checks if an error occured
+			if (!showError)
+			{
+				window.close();
+			}
 		}
 	}
 
 	//if new save
-	SaveFile newSave = SaveFile(p, name);
+	SaveFile newSave = SaveFile(p, saveName);
 	if (pos != -1)
 	{
 		cout << "erasing" << endl;

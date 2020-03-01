@@ -244,8 +244,15 @@ string getStringSFML(sf::RenderWindow *window, vector<sf::Text> otherTexts, sf::
 	//checks for key release
 	bool release = 0;
 	string current_Char;
-	while (1)
+	while (window->isOpen())
 	{
+		sf::Event event;
+		while (window->pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				window->close();
+		}
+
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num0))
 		{
 			release = 1;
@@ -469,27 +476,29 @@ string getStringSFML(sf::RenderWindow *window, vector<sf::Text> otherTexts, sf::
 			current_Char = "m";
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return))
-		{	
+		{
 			//cannot be empty
-			if(ret!=""){
-			return ret;
-				
+			if (ret != "")
+			{
+				return ret;
 			}
 		}
-		else if(sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace)){
-			release =1;
-			current_Char="delete";
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::BackSpace))
+		{
+			release = 1;
+			current_Char = "delete";
 		}
-		else if (release )
+		else if (release)
 		{
 			//if deleting a character
-			if(current_Char=="delete"){
-				ret=ret.substr(0,ret.length()-1);
+			if (current_Char == "delete")
+			{
+				ret = ret.substr(0, ret.length() - 1);
 			}
 			//else add. the character
-			else{
-			ret += current_Char;
-
+			else
+			{
+				ret += current_Char;
 			}
 			//updates text
 			text.setString(input_text + ret);
