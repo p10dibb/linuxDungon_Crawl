@@ -110,49 +110,107 @@ Player::Player()
 
 int Player::PauseMenue()
 {
-	string options[10] = {"resume", "inventory", "stats", "equiped", "save", "exit"};
+
+	sf::Font font;
+	font.loadFromFile("../Fonts/Montserrat-Regular.ttf");
+
+	sf::RenderWindow window(sf::VideoMode(800, 800), "Pause");
+
+	sf::Text headerText("Pause Menu", font, 50);
+	headerText.setPosition(sf::Vector2f(10, 10));
+
+	sf::Text choiceText("[1]:Resume\n[2]:Inventory\n[3]:Stats\n[4]:Equipped\n[5]:Save\n[6]:Exit", font, 30);
+	choiceText.setPosition(sf::Vector2f(10, 60));
+
+	int choice = 0;
+
+	int ret;
+
+	bool release = false;
+
 	int func = -2;
-	string choice;
-	cout << "-----PAUSED-------" << endl;
 
-	//while resume command not run
-	while (func != 0)
+	while (window.isOpen())
 	{
-		cout << "Choices:" << endl;
-		for (int i = 0; i < 6; i++)
-		{
-			cout << options[i] << endl;
-		}
-		cout << "Enter Choice:" << endl;
-		cin >> choice;
-		func = getFunc(toLower(choice), options, 5);
 
-		switch (func)
+		sf::Event event;
+		while (window.pollEvent(event))
 		{
-		case -1:
-			cout << "Not a valid choice" << endl;
-			break;
-		case 1:
-			this->InventoryDialogue();
-			break;
-		case 2:
-			this->DisplayStats();
-			break;
-		case 3:
-			this->EquipedDialogue();
-			break;
-		case 4:
-			cout << "saving" << endl;
-			return -4;
-		case 5:
-			cout << "Exiting" << endl;
-			return -3;
-
-		default:
-			break;
+			if (event.type == sf::Event::Closed)
+			{
+				window.close();
+			}
 		}
-		return true;
+
+		window.clear();
+		window.draw(headerText);
+		window.draw(choiceText);
+		window.display();
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
+		{
+			choice = 1;
+			release = true;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+		{
+			choice = 2;
+			release = true;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3))
+		{
+			choice = 3;
+			release = true;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4))
+		{
+			choice = 4;
+			release = true;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5))
+		{
+			choice = 5;
+			release = true;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num6))
+		{
+			choice = 6;
+			release = true;
+		}
+		else if (release)
+		{
+			switch (choice)
+			{
+
+			case 1:
+				ret = 0;
+				window.close();
+				break;
+
+			case 2:
+				this->InventoryDialogue();
+				break;
+			case 3:
+				this->DisplayStats();
+				break;
+			case 4:
+				this->EquipedDialogue();
+				break;
+			case 5:
+				cout << "saving" << endl;
+				window.close();
+				ret = -4;
+				break;
+			case 6:
+				cout << "Exiting" << endl;
+				ret = -3;
+				window.close();
+			}
+			release = false;
+		}
+
 	}
+	return ret;
 }
 
 //Displays all data for character
@@ -301,7 +359,7 @@ void Player::addSkillPoint()
 	SpeedText.setPosition(sf::Vector2f(10, 100));
 	sf::Text AttackText("4\tBase Attack\t" + to_string(this->getDamage()) + "\tIncreases Base Damage", font, 20);
 	AttackText.setPosition(sf::Vector2f(10, 130));
-	sf::Text DefenseText("5\tBase Defense\t" + to_string(this->getDefense()) + "\tIncreases Base Defense",font,20);
+	sf::Text DefenseText("5\tBase Defense\t" + to_string(this->getDefense()) + "\tIncreases Base Defense", font, 20);
 	DefenseText.setPosition(sf::Vector2f(10, 160));
 	sf::Text StaminaText("6\tStamina\t" + to_string(this->getStamina()) + "\thow many steps per move cycle", font, 20);
 	StaminaText.setPosition(sf::Vector2f(10, 190));
@@ -386,7 +444,6 @@ void Player::addSkillPoint()
 			release = 0;
 
 			window.close();
-
 		}
 	}
 
@@ -425,20 +482,58 @@ void Player::addSkillPoint()
 //level up dialogue for player
 void Player::NextLevel()
 {
-	//get 3 upgrade points when you level up
 	int points = 3;
 	int input = 0;
+
+
 	this->setLevel(this->getLevel() + 1);
 	this->setMaxHealth(this->getMaxHealth() + 10);
 	this->setHealth(this->getMaxHealth());
-	cout << "Congrats you leveled up!! \nMax Health is now: " << this->getMaxHealth() << endl;
 
-	while (points != 0)
-	{
-		cout << "you have " << points << " remaining what would you like to upgrade?" << endl;
-		this->addSkillPoint();
+	sf::Font font;
+	font.loadFromFile("../Fonts/Montserrat-Regular.ttf");
+
+	
+	sf::RenderWindow window(sf::VideoMode(800,800),"Level Up");
+
+	sf::Text headerText("Congrats you leveled up!!",font,50);
+	headerText.setPosition(sf::Vector2f(10,10));
+
+	sf::Text maxHealthText("Max Health is now: "+ to_string(this->getMaxHealth()),font,30 );
+	maxHealthText.setPosition(sf::Vector2f(10,60));
+
+	sf::Text pointsRemainingText("you have "+ to_string( points) + " remaining",font,30);
+	pointsRemainingText.setPosition(sf::Vector2f(10,90));
+	
+	while (window.isOpen())
+	{		
+		
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+			{
+				window.close();
+			}
+		}
+
+		window.clear();
+		window.draw(headerText);
+		window.draw(maxHealthText);
+		window.draw(pointsRemainingText);
+		window.display();
+		
+		if(points<=0){
+			window.close();
+		}else{
+			this->addSkillPoint();
 		points--;
+		pointsRemainingText.setString("you have "+ to_string( points) + " remaining");
+
+		}
+		
 	}
+	
 	this->setLevelUp(this->getLevelUp() * 2);
 }
 
@@ -510,7 +605,7 @@ int Player::Navigation(array<array<RoomPieces_enum, 50>, 50> map)
 			this->EquipedDialogue();
 			break;
 
-		case 'p':
+		case 'p': 
 			return this->PauseMenue();
 			break;
 		}

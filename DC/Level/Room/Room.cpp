@@ -13,7 +13,7 @@ Room::Room()
 			this->RoomMap[i][j] = Empty_RoomPieces;
 		}
 	}
-//	this->LootBoxes[{999,999}]=LootBox();
+	//	this->LootBoxes[{999,999}]=LootBox();
 }
 
 //checks if position is in the bounds of the map
@@ -471,11 +471,13 @@ int Room::RunRoom()
 			}
 
 			tempPos = player->getPosition();
-			int navChoice;
-			while(navChoice=this->player->Navigation(this->RoomMap)==-4){
+			int navChoice=1;
+			while ((navChoice = this->player->Navigation(this->RoomMap)) == -4)
+			{
 				Saver(*player);
 			}
-			if(navChoice==-3){
+			if (navChoice == -3)
+			{
 				return -3;
 			}
 			results = this->playerCollisionCheck();
@@ -789,9 +791,9 @@ bool Room::setLootBoxes(map<array<int, 2>, LootBox> loot)
 //adds a lootbox at a location
 bool Room::addLootBox(int x, int y, LootBox loot)
 {
-	array<int,2> pos;
-	pos[0]=x;
-	pos[1]=y;
+	array<int, 2> pos;
+	pos[0] = x;
+	pos[1] = y;
 	loot.setPosition(pos);
 
 	if (this->LootBoxes.count(loot.getPosition()))
