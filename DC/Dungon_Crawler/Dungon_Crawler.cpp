@@ -2,8 +2,10 @@
 
 void Run()
 {
+
 	int results = 0;
-	string choice = "";
+	int choice = 0;
+	bool release = false;
 	Spawner s;
 
 	Player player;
@@ -14,7 +16,8 @@ void Run()
 	{
 		switch (StartScreen())
 		{
-		case -1: return;
+		case -1:
+			return;
 		case 1:
 			player = createPlayer();
 			break;
@@ -41,19 +44,59 @@ void Run()
 		results = mainFloor.NavigateFloor();
 		if (results == -3)
 		{
-			while (choice != "1" || choice != "2")
+
+			sf::Font font;
+			font.loadFromFile("../Fonts/Montserrat-Regular.ttf");
+
+			sf::RenderWindow exitWindow(sf::VideoMode(800, 800), "Exit");
+
+			sf::Text exitText("Exiting\nWould you like to save:\n[1]:Yes\n[2]:No ", font, 30);
+			exitText.setPosition(sf::Vector2f(10, 10));
+
+			while (exitWindow.isOpen())
 			{
-				cout << "would you like to save?: (1) yes, (2)No" << endl;
-				cin >> choice;
-				if (stoi(choice) == 1)
+
+				sf::Event event;
+				while (exitWindow.pollEvent(event))
 				{
-					Saver(*mainFloor.getPlayer());
-					return;
+					if (event.type == sf::Event::Closed)
+						exitWindow.close();
 				}
-				else if (stoi(choice) == 2)
+
+				exitWindow.clear();
+				exitWindow.draw(exitText);
+				exitWindow.display();
+
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
 				{
-					return;
+					release = true;
+					choice = 1;
 				}
+				else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+				{
+					release = true;
+					choice = 2;
+				}
+				else if (release)
+				{
+					switch (choice)
+					{
+					case 1:
+						Saver(*mainFloor.getPlayer());
+						exitWindow.close();
+						break;
+					case 2:
+						exitWindow.close();
+						break;
+					default:
+						break;
+					}
+				}
+			}
+
+			if (choice != 0)
+			{
+				return;
 			}
 		}
 		else if (results == -1)
@@ -484,10 +527,11 @@ Player Loader()
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			if (event.type == sf::Event::Closed){
+			if (event.type == sf::Event::Closed)
+			{
 
 				window.close();
-			exit = true;
+				exit = true;
 			}
 		}
 

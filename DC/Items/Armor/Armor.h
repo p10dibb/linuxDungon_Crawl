@@ -52,3 +52,9 @@ public:
 
 
 };
+
+//returns a string for armor type
+string armorType_toString(ArmorType_enum a);
+
+//returns a string for armor class
+string armorClass_toString(ArmorClass_enum a);

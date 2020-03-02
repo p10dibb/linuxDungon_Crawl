@@ -84,6 +84,271 @@ void Player::DisplayInventory()
 //Displays inventory and all of the options
 int Player::InventoryDialogue()
 {
+	sf::Font font;
+	font.loadFromFile("../Fonts/Montserrat-Regular.ttf");
+
+	sf::RenderWindow window(sf::VideoMode(800, 800), "Inventory");
+
+	sf::Text headerText("Inventory", font, 30);
+	headerText.setPosition(sf::Vector2f(10, 10));
+
+	array<sf::RectangleShape, 100> slots;
+
+	sf::RectangleShape highlighter;
+
+	sf::RectangleShape DisplayBox;
+	DisplayBox.setSize(sf::Vector2f(300, 500));
+	DisplayBox.setPosition(sf::Vector2f(450, 50));
+	DisplayBox.setFillColor(sf::Color::Blue);
+
+	sf::Text itemNameText("Name: ", font, 30);
+	itemNameText.setPosition(sf::Vector2f(460, 60));
+
+	sf::Text itemInfo("", font, 20);
+	itemInfo.setPosition(sf::Vector2f(460, 100));
+
+	sf::Text itemValues("", font, 20);
+	itemValues.setPosition(sf::Vector2f(590, 100));
+
+	sf::Text itemDescription("", font, 20);
+
+	sf::Text otherInfoText("", font, 20);
+
+	sf::Text commandsText("[1]:Use\t\t[2]:exit", font, 20);
+	commandsText.setPosition(sf::Vector2f(450, 570));
+
+	int cur = 0;
+
+	int choice = -1;
+
+	bool release = true;
+
+	bool equipable = false;
+
+	bool useable = false;
+
+	Direction_enum direct =No_Direction;
+
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 10; j++)
+		{
+			slots[(i * 10) + j].setSize(sf::Vector2f(30, 30));
+			slots[(i * 10) + j].setFillColor(sf::Color::Blue);
+			slots[(i * 10) + j].setPosition(sf::Vector2f(10 + (42 * j), 50 + (42 * i)));
+		}
+	}
+
+	highlighter.setFillColor(sf::Color::Cyan);
+	highlighter.setSize(sf::Vector2f(40, 40));
+	highlighter.setPosition(sf::Vector2f(slots[cur].getPosition().x - 5, slots[cur].getPosition().y - 5));
+
+	while (window.isOpen())
+	{
+
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+			{
+				window.close();
+			}
+		}
+
+		window.clear();
+		window.draw(headerText);
+		window.draw(highlighter);
+		window.draw(DisplayBox);
+		window.draw(itemNameText);
+		window.draw(itemInfo);
+		window.draw(itemValues);
+		window.draw(itemDescription);
+		window.draw(commandsText);
+		window.draw(otherInfoText);
+
+		for (int k = 0; k < this->InventorySize; k++)
+		{
+			window.draw(slots[k]);
+		}
+
+		window.display();
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		{
+			release = true;
+			direct = Up_Direction;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			release = true;
+			direct = Down_Direction;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		{
+			release = true;
+			direct = Right_Direction;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		{
+			release = true;
+			direct = Left_Direction;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
+		{
+			choice = 1;
+			release = true;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+		{
+			choice = 2;
+			release = true;
+		}
+		else if (release)
+		{
+
+			if (choice == 1)
+			{
+
+				choice = -1;
+
+				if (equipable)
+				{
+					this->EquipInventory(cur);
+				}
+				else if (useable)
+				{
+					this->UseInventory(cur);
+				}
+				else
+				{
+					//normal item
+				}
+			}
+			else if (choice == 2)
+			{
+
+				choice = -1;
+				window.close();
+			}
+
+			if (direct == Up_Direction && cur >= 10)
+			{
+				cur -= 10;
+			}
+			else if (direct == Down_Direction && cur <= this->InventorySize - 10)
+			{
+				cur += 10;
+			}
+			else if (direct == Left_Direction && cur != 0)
+			{
+				cur--;
+			}
+			else if (direct == Right_Direction && cur < InventorySize - 1)
+			{
+				cur++;
+			}
+			itemNameText.setString(this->Inventory[cur].item->getName());
+
+			if ((typeid(*this->Inventory[cur].item) == typeid(Armor)))
+			{
+				Armor *a = dynamic_cast<Armor *>(this->Inventory[cur].item);
+				equipable = true;
+				useable = false;
+				itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nClass:\nType:\n");
+				itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getTotalResistance()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + armorClass_toString(a->getClass()) + "\n" + armorType_toString(a->getType()));
+				itemDescription.setPosition(sf::Vector2f(460, 250));
+				itemDescription.setString(a->getDescription());
+				commandsText.setString("[1]:Equip\t\t[2]:Exit");
+
+				string resistances = "Resistances:\n";
+				vector<ActiveEffects> temp = a->getResistanceTypes();
+
+				for (int g = 0; g < temp.size(); g++)
+				{
+
+					if (temp[g].getResistance() > 0)
+					{
+						resistances += temp[g].getEffectName() + "\t" + to_string(temp[g].getResistance()) + "\n";
+					}
+				}
+
+				otherInfoText.setString(resistances);
+
+				otherInfoText.setPosition(sf::Vector2f(460, 280));
+			}
+			else if ((typeid(*this->Inventory[cur].item) == typeid(Weapon)))
+			{
+				Weapon *a = dynamic_cast<Weapon *>(this->Inventory[cur].item);
+
+				equipable = true;
+				useable = false;
+
+				itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nDefense:\nSpeed:\nRarity:\nEffect:\n");
+				itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getWeaponRank()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + to_string(a->getDefense().getResistance()) + "\n" + to_string(a->getSpeed()) + "\n" + a->getRarity_text() + "\n" + a->getCombatEffect().getEffectName());
+
+				itemDescription.setPosition(sf::Vector2f(460, 300));
+				itemDescription.setString(a->getDescription());
+				commandsText.setString("[1]:Equip\t\t[2]:Exit");
+
+				string damages = "Damage Types:\n";
+				vector<DamageTypes> temp = a->getDamageTypes_Weapon();
+
+				for (int g = 0; g < temp.size(); g++)
+				{
+
+					if (temp[g].getDamage() > 0)
+					{
+						damages += temp[g].getName() + "\t" + to_string(temp[g].getDamage()) + "\n";
+					}
+				}
+
+				otherInfoText.setString(damages);
+
+				otherInfoText.setPosition(sf::Vector2f(460, 330));
+			}
+			else if ((typeid(*this->Inventory[cur].item) == typeid(Potion)))
+			{
+				Potion *a = dynamic_cast<Potion *>(this->Inventory[cur].item);
+
+				equipable = false;
+				useable = true;
+
+				itemInfo.setString("Amount:\nValue:\nTier:\nType:");
+				itemValues.setString(to_string(this->Inventory[cur].amount) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getTier()) + "\n" + a->getTypeName());
+				itemDescription.setPosition(sf::Vector2f(460, 200));
+				itemDescription.setString(a->getDescription());
+				commandsText.setString("[1]:Use\t\t[2]:Exit");
+			}
+			else if (this->Inventory[cur].item->getName() == "Empty")
+			{
+				equipable = false;
+				useable = false;
+
+				itemInfo.setString("");
+				itemValues.setString("");
+				itemDescription.setString("");
+				otherInfoText.setString("");
+				commandsText.setString("\t\t[2]:Exit");
+			}
+			else
+			{
+				equipable = false;
+				useable = false;
+				itemNameText.setString(Inventory[cur].item->getName());
+				itemInfo.setString("");
+				itemValues.setString("");
+				itemDescription.setString("");
+				otherInfoText.setString("");
+				commandsText.setString("\t\t[2]:Exit");
+				//normal item
+			}
+
+			release = false;
+			direct=No_Direction;
+			highlighter.setPosition(sf::Vector2f(slots[cur].getPosition().x - 5, slots[cur].getPosition().y - 5));
+		}
+	}
+
 	array<string, 5> functions = {"view", "equip", "use", "move", "exit"};
 	int slot = -1;
 	string func = "";
@@ -133,7 +398,6 @@ int Player::InventoryDialogue()
 					this->ViewInventory(slot);
 					break;
 				case 1:
-					this->EquipInventory(slot);
 					break;
 				case 2:
 					this->UseInventory(slot);
@@ -528,10 +792,13 @@ LootBox Player::DropItem(int pos)
 	return ret;
 }
 
-bool operator== (Zombie lhs, Zombie rhs){
-	
-	if(lhs.getName()==rhs.getName()&&lhs.getSpeed()==rhs.getSpeed()&&lhs.getHealth()==rhs.getHealth()){{
-		return true;
-	}}
+bool operator==(Zombie lhs, Zombie rhs)
+{
 
+	if (lhs.getName() == rhs.getName() && lhs.getSpeed() == rhs.getSpeed() && lhs.getHealth() == rhs.getHealth())
+	{
+		{
+			return true;
+		}
+	}
 }
