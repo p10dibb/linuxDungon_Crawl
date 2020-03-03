@@ -125,6 +125,7 @@ public:
 		int EquipedDialogue();
 
 		void DisplayEquiped();
+		
 
 		//takes a loot box and prompts the user to interact
 		bool InteractLootBox(LootBox *box);

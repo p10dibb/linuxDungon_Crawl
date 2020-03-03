@@ -92,43 +92,59 @@ int Player::InventoryDialogue()
 	sf::Text headerText("Inventory", font, 30);
 	headerText.setPosition(sf::Vector2f(10, 10));
 
+	//inventory slots shapes
 	array<sf::RectangleShape, 100> slots;
 
+	//marks which item is selected
 	sf::RectangleShape highlighter;
 
+	//box holding Items details
 	sf::RectangleShape DisplayBox;
 	DisplayBox.setSize(sf::Vector2f(300, 500));
 	DisplayBox.setPosition(sf::Vector2f(450, 50));
 	DisplayBox.setFillColor(sf::Color::Blue);
 
+	//name of the item
 	sf::Text itemNameText("Name: ", font, 30);
 	itemNameText.setPosition(sf::Vector2f(460, 60));
 
+	//info tags of each item
 	sf::Text itemInfo("", font, 20);
 	itemInfo.setPosition(sf::Vector2f(460, 100));
 
+	//values corolating to each tag
 	sf::Text itemValues("", font, 20);
 	itemValues.setPosition(sf::Vector2f(590, 100));
 
+	//the description of the item
 	sf::Text itemDescription("", font, 20);
 
+	//the text for extra info
 	sf::Text otherInfoText("", font, 20);
 
+	//Shows availible commands
 	sf::Text commandsText("[1]:Use\t\t[2]:exit", font, 20);
 	commandsText.setPosition(sf::Vector2f(450, 570));
 
+	//current slot selected
 	int cur = 0;
 
+	//choice for commands
 	int choice = -1;
 
+	//checks for key release
 	bool release = true;
 
+	//if item is equipable
 	bool equipable = false;
 
+	//if item is useable
 	bool useable = false;
 
-	Direction_enum direct =No_Direction;
+	//direction for selector to use
+	Direction_enum direct = No_Direction;
 
+	//sets all of the item slots
 	for (int i = 0; i < 10; i++)
 	{
 		for (int j = 0; j < 10; j++)
@@ -143,6 +159,7 @@ int Player::InventoryDialogue()
 	highlighter.setSize(sf::Vector2f(40, 40));
 	highlighter.setPosition(sf::Vector2f(slots[cur].getPosition().x - 5, slots[cur].getPosition().y - 5));
 
+	//main loop
 	while (window.isOpen())
 	{
 
@@ -165,12 +182,10 @@ int Player::InventoryDialogue()
 		window.draw(itemDescription);
 		window.draw(commandsText);
 		window.draw(otherInfoText);
-
 		for (int k = 0; k < this->InventorySize; k++)
 		{
 			window.draw(slots[k]);
 		}
-
 		window.display();
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
@@ -206,6 +221,7 @@ int Player::InventoryDialogue()
 		else if (release)
 		{
 
+			//if try to equip or use item
 			if (choice == 1)
 			{
 
@@ -224,6 +240,7 @@ int Player::InventoryDialogue()
 					//normal item
 				}
 			}
+			//if exit the inventory
 			else if (choice == 2)
 			{
 
@@ -231,6 +248,7 @@ int Player::InventoryDialogue()
 				window.close();
 			}
 
+			//checks for moving through inventory
 			if (direct == Up_Direction && cur >= 10)
 			{
 				cur -= 10;
@@ -249,6 +267,7 @@ int Player::InventoryDialogue()
 			}
 			itemNameText.setString(this->Inventory[cur].item->getName());
 
+			//displays correct data depending item type
 			if ((typeid(*this->Inventory[cur].item) == typeid(Armor)))
 			{
 				Armor *a = dynamic_cast<Armor *>(this->Inventory[cur].item);
@@ -344,69 +363,8 @@ int Player::InventoryDialogue()
 			}
 
 			release = false;
-			direct=No_Direction;
+			direct = No_Direction;
 			highlighter.setPosition(sf::Vector2f(slots[cur].getPosition().x - 5, slots[cur].getPosition().y - 5));
-		}
-	}
-
-	array<string, 5> functions = {"view", "equip", "use", "move", "exit"};
-	int slot = -1;
-	string func = "";
-	int funcNum = -1;
-
-	while (1)
-	{
-		cout << "Enter an option and a position" << endl;
-		cout << "List of Options:[";
-		for (int i = 0; i < functions.size(); i++)
-		{
-			cout << functions[i] << "| ";
-		}
-		cout << "]" << endl;
-
-		cout << "Inventory Slots: " << endl;
-		this->DisplayInventory();
-
-		cout << endl
-			 << "Input:";
-		cin >> func;
-		funcNum = getFuncInventory(func);
-		if (funcNum == -1)
-		{
-			cout << endl
-				 << "Not a valid option type" << endl;
-		}
-		else if (funcNum == 4)
-		{
-			cout << "Exiting inventory" << endl;
-			return 0;
-		}
-		else
-		{
-			cin >> slot;
-			if (slot > this->InventorySize || slot < 0)
-			{
-				cout << "Not a valid inventory slot" << endl;
-			}
-			else
-			{
-
-				switch (funcNum)
-				{
-
-				case 0:
-					this->ViewInventory(slot);
-					break;
-				case 1:
-					break;
-				case 2:
-					this->UseInventory(slot);
-					break;
-				case 3:
-					this->MoveInventory(slot);
-					break;
-				}
-			}
 		}
 	}
 }
@@ -463,52 +421,71 @@ int Player::ViewInventory(int pos)
 // equips an item from inventory
 int Player::EquipInventory(int pos)
 {
+	bool error = false;
+
+	sf::Font font;
+	font.loadFromFile("../Fonts/Montserrat-Regular.ttf");
 
 	if (typeid(*this->Inventory[pos].item) == typeid(Weapon))
 	{
-		this->DisplayEquiped();
+		// this->DisplayEquiped();
 		Weapon *w = dynamic_cast<Weapon *>(this->Inventory[pos].item);
 		int input = 0;
-		cout << "wold you like to equip right(1) left(2):";
-		cin >> input;
-		if (input == 1)
+		sf::RenderWindow weaponWindow(sf::VideoMode(800, 800), "Weapon Equip");
+
+		sf::Text options("Would you like to Equip in\n[1]:Left\t[2]:Right", font, 30);
+		options.setPosition(sf::Vector2f(10, 10));
+
+		while (weaponWindow.isOpen())
 		{
-			this->Inventory[pos].item = this->Right;
-			if (!this->setRight(w))
+
+			sf::Event event1;
+			while (weaponWindow.pollEvent(event1))
 			{
-				cout << "Failed to equip" << endl;
-				this->Inventory[pos].item = w;
+				if (event1.type == sf::Event::Closed)
+				{
+					weaponWindow.close();
+				}
 			}
-			return 0;
-		}
-		else if (input == 2)
-		{
-			this->Inventory[pos].item = this->Left;
-			if (!this->setLeft(w))
+			weaponWindow.clear();
+
+			weaponWindow.draw(options);
+			weaponWindow.display();
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
 			{
-				cout << "Failed to equip" << endl;
-				this->Inventory[pos].item = w;
+				this->Inventory[pos].item = this->Right;
+				if (!this->setRight(w))
+				{
+					error = true;
+					this->Inventory[pos].item = w;
+				}
+				weaponWindow.close();
 			}
-			return 0;
-		}
-		else
-		{
-			cout << "not valid input" << endl;
-			return -1;
+			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+			{
+				this->Inventory[pos].item = this->Left;
+				if (!this->setLeft(w))
+				{
+					error = true;
+					this->Inventory[pos].item = w;
+				}
+				weaponWindow.close();
+			}
 		}
 	}
 	else if ((typeid(*this->Inventory[pos].item) == typeid(Armor)))
 	{
 
 		Armor *a = dynamic_cast<Armor *>(this->Inventory[pos].item);
-		cout << "armour type for equip: " << a->getType() << endl;
+		// cout << "armour type for equip: " << a->getType() << endl;
 
 		if (a->getType() == Helmet_ArmorType)
 		{
 			this->Inventory[pos].item = this->getHead();
 			if (!this->setHead(a))
 			{
-				cout << "Failed to equip" << endl;
+				error = true;
 				this->Inventory[pos].item = a;
 			}
 		}
@@ -517,7 +494,8 @@ int Player::EquipInventory(int pos)
 			this->Inventory[pos].item = this->getTorso();
 			if (!this->setTorso(a))
 			{
-				cout << "Failed to equip" << endl;
+				error = true;
+
 				this->Inventory[pos].item = a;
 			}
 		}
@@ -526,7 +504,8 @@ int Player::EquipInventory(int pos)
 			this->Inventory[pos].item = this->getHands();
 			if (!this->setHands(a))
 			{
-				cout << "Failed to equip" << endl;
+				error = true;
+
 				this->Inventory[pos].item = a;
 			}
 		}
@@ -535,7 +514,8 @@ int Player::EquipInventory(int pos)
 			this->Inventory[pos].item = this->getLegs();
 			if (!this->setLegs(a))
 			{
-				cout << "Failed to equip" << endl;
+				error = true;
+
 				this->Inventory[pos].item = a;
 			}
 		}
@@ -544,9 +524,33 @@ int Player::EquipInventory(int pos)
 			this->Inventory[pos].item = this->getFeet();
 			if (!this->setFeet(a))
 			{
-				cout << "Failed to equip" << endl;
+				error = true;
+
 				this->Inventory[pos].item = a;
 			}
+		}
+	}
+
+	if (error)
+	{
+		sf::RenderWindow errorWindow(sf::VideoMode(200, 200), "Failed To Equip");
+		sf::Text errorText("Failed To Equip", font, 30);
+		errorText.setPosition(sf::Vector2f(10, 10));
+
+		while (errorWindow.isOpen())
+		{
+
+			sf::Event event2;
+			while (errorWindow.pollEvent(event2))
+			{
+				if (event2.type == sf::Event::Closed)
+				{
+					errorWindow.close();
+				}
+			}
+			errorWindow.clear();
+			errorWindow.draw(errorText);
+			errorWindow.display();
 		}
 	}
 
@@ -616,6 +620,7 @@ int Player::MoveInventory(int pos)
 
 void Player::DisplayEquiped()
 {
+
 	cout << "\t" << this->getName() << endl;
 	cout << "Health: " << this->getHealth() << "/" << this->getMaxHealth() << endl;
 	cout << "Level: " << this->getLevel() << endl;
@@ -641,59 +646,394 @@ void Player::DisplayEquiped()
 
 int Player::EquipedDialogue()
 {
-	array<string, 8> commands = {"right", "left", "head", "torso", "hands", "legs", "feet", "exit"};
-	string input = "";
-	while (1)
+	sf::Font font;
+	font.loadFromFile("../Fonts/Montserrat-Regular.ttf");
+	sf::RenderWindow window(sf::VideoMode(800, 800), "Equipped");
+
+	sf::Text mainText(this->getName() + "\nHealth:" + to_string(this->getHealth()) + "/" + to_string(this->getMaxHealth()) + "\nLevel:" + to_string(this->getLevel()) + "\nXP:" + to_string(this->getXP()) + "/" + to_string(this->getLevelUp()) + "\nGold:" + to_string(this->getMoney()), font, 30);
+	mainText.setPosition(200, 10);
+
+	sf::RectangleShape HelmetPic(sf::Vector2f(30, 30));
+	HelmetPic.setFillColor(sf::Color::Red);
+	HelmetPic.setPosition(80, 110);
+
+	sf::RectangleShape ChestPic(sf::Vector2f(90, 120));
+	ChestPic.setFillColor(sf::Color::Blue);
+	ChestPic.setPosition(50, 143);
+
+	sf::RectangleShape GlovePicLeft(sf::Vector2f(20, 20));
+	GlovePicLeft.setFillColor(sf::Color::Magenta);
+	GlovePicLeft.setPosition(sf::Vector2f(27, 200));
+
+	sf::RectangleShape GlovePicRight(sf::Vector2f(20, 20));
+	GlovePicRight.setFillColor(sf::Color::Magenta);
+	GlovePicRight.setPosition(sf::Vector2f(143, 200));
+
+	sf::RectangleShape LegPic(sf::Vector2f(70, 110));
+	LegPic.setFillColor(sf::Color::Cyan);
+	LegPic.setPosition(sf::Vector2f(60, 276));
+
+	sf::RectangleShape BootPic(sf::Vector2f(70, 50));
+	BootPic.setFillColor(sf::Color::Green);
+	BootPic.setPosition(sf::Vector2f(60, 389));
+
+	sf::RectangleShape LeftWeaponPic(sf::Vector2f(40, 90));
+	LeftWeaponPic.setFillColor(sf::Color::White);
+	LeftWeaponPic.setPosition(sf::Vector2f(20, 10));
+
+	sf::RectangleShape RightWeaponPic(sf::Vector2f(40, 90));
+	RightWeaponPic.setFillColor(sf::Color::White);
+	RightWeaponPic.setPosition(sf::Vector2f(130, 10));
+
+	sf::RectangleShape highlighter(sf::Vector2f(200, 20));
+	highlighter.setFillColor(sf::Color::Red);
+	highlighter.setPosition(195, 195);
+
+	sf::Text ChoiceText("[1]:Helmet\n[2]:Chest\n[3]:Gloves\n[4]:Pants\n[5]:Boots\n[6]:Left Weapon\n[7]:Right Weapon\n[8]:Exit", font, 20);
+	ChoiceText.setPosition(sf::Vector2f(200, 190));
+
+	sf::RectangleShape infoWindow(sf::Vector2f(300, 500));
+	infoWindow.setFillColor(sf::Color::Blue);
+	infoWindow.setPosition(sf::Vector2f(450, 30));
+
+	//name of the item
+	sf::Text itemNameText("Name: ", font, 30);
+	itemNameText.setPosition(sf::Vector2f(460, 60));
+
+	//info tags of each item
+	sf::Text itemInfo("", font, 20);
+	itemInfo.setPosition(sf::Vector2f(460, 100));
+
+	//values corolating to each tag
+	sf::Text itemValues("", font, 20);
+	itemValues.setPosition(sf::Vector2f(590, 100));
+
+	//the description of the item
+	sf::Text itemDescription("", font, 20);
+
+	//the text for extra info
+	sf::Text otherInfoText("", font, 20);
+
+	int choice = 1;
+
+	Direction_enum direct = No_Direction;
+
+	bool release = true;
+
+	while (window.isOpen())
 	{
-		//system("clear");
-		this->DisplayEquiped();
-		cout << "what would you like to see more info on |";
-		for (int i = 0; i < commands.size(); i++)
-		{
-			cout << commands[i] << "| ";
-		}
-		cout << ":" << endl;
 
-		cin >> input;
-		input = toLower(input);
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+			{
+				window.close();
+			}
+		}
 
-		if (input == commands[0])
-		{
-			this->Right->DisplayDetails();
-		}
-		else if (input == commands[1])
-		{
-			this->Left->DisplayDetails();
-		}
-		else if (input == commands[2])
-		{
-			this->getHead()->DisplayDetails();
-		}
-		else if (input == commands[3])
-		{
-			this->getTorso()->DisplayDetails();
-		}
-		else if (input == commands[4])
-		{
-			this->getHands()->DisplayDetails();
-		}
-		else if (input == commands[5])
-		{
-			this->getLegs()->DisplayDetails();
-		}
-		else if (input == commands[6])
-		{
-			this->getFeet()->DisplayDetails();
-		}
-		else if (input == commands[7])
-		{
-			return 0;
-		}
-		getchar();
-		getchar();
+		window.clear();
 
-		system("pause");
+		window.draw(mainText);
+		window.draw(HelmetPic);
+		window.draw(ChestPic);
+		window.draw(LegPic);
+		window.draw(BootPic);
+		window.draw(GlovePicRight);
+		window.draw(GlovePicLeft);
+		window.draw(RightWeaponPic);
+		window.draw(LeftWeaponPic);
+		window.draw(highlighter);
+		window.draw(ChoiceText);
+		window.draw(infoWindow);
+		window.draw(itemNameText);
+		window.draw(itemValues);
+		window.draw(itemInfo);
+		window.draw(itemDescription);
+		window.draw(otherInfoText);
+		window.display();
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
+		{
+			choice = 1;
+			release = true;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+		{
+			choice = 2;
+			release = true;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3))
+		{
+			choice = 3;
+			release = true;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4))
+		{
+			choice = 4;
+			release = true;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5))
+		{
+			choice = 5;
+			release = true;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num6))
+		{
+			choice = 6;
+			release = true;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num7))
+		{
+			choice = 7;
+			release = true;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num8))
+		{
+			window.close();
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		{
+			direct = Up_Direction;
+			release = true;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+		{
+			direct = Down_Direction;
+			release = true;
+		}
+		else if (release)
+		{
+			vector<ActiveEffects> temp;
+			vector<DamageTypes> temp2;
+
+			string resistances = "Resistances:\n";
+
+			if (direct == Up_Direction)
+			{
+				if (choice == 1)
+				{
+					choice = 7;
+				}
+				else
+				{
+					choice--;
+				}
+			}
+			else if (direct == Down_Direction)
+			{
+				if (choice == 7)
+				{
+					choice = 1;
+				}
+				else
+				{
+					choice++;
+				}
+			}
+
+			switch (choice)
+			{
+			case 1:
+				temp = this->getHead()->getResistanceTypes();
+				itemValues.setString(to_string(this->getHead()->getLevel()) + "\n" + to_string(this->getHead()->getTotalResistance()) + "\n" + to_string(this->getHead()->getValue()) + "\n" + to_string(this->getHead()->getWeight()) + "\n" + armorClass_toString(this->getHead()->getClass()) + "\n" + armorType_toString(this->getHead()->getType()));
+				itemDescription.setPosition(sf::Vector2f(460, 250));
+				itemDescription.setString(this->getHead()->getDescription());
+				for (int g = 0; g < temp.size(); g++)
+				{
+					if (temp[g].getResistance() > 0)
+					{
+						resistances += "Resistances:\n" + temp[g].getEffectName() + "\t" + to_string(temp[g].getResistance()) + "\n";
+					}
+				}
+
+				otherInfoText.setString(resistances);
+
+				otherInfoText.setPosition(sf::Vector2f(460, 280));
+
+				break;
+			case 2:
+				temp = this->getTorso()->getResistanceTypes();
+				itemValues.setString(to_string(this->getTorso()->getLevel()) + "\n" + to_string(this->getTorso()->getTotalResistance()) + "\n" + to_string(this->getTorso()->getValue()) + "\n" + to_string(this->getTorso()->getWeight()) + "\n" + armorClass_toString(this->getTorso()->getClass()) + "\n" + armorType_toString(this->getTorso()->getType()));
+				itemDescription.setPosition(sf::Vector2f(460, 250));
+				itemDescription.setString(this->getTorso()->getDescription());
+				for (int g = 0; g < temp.size(); g++)
+				{
+					if (temp[g].getResistance() > 0)
+					{
+						resistances += "Resistances:\n" + temp[g].getEffectName() + "\t" + to_string(temp[g].getResistance()) + "\n";
+					}
+				}
+
+				otherInfoText.setString(resistances);
+
+				otherInfoText.setPosition(sf::Vector2f(460, 280));
+
+				break;
+			case 3:
+				temp = this->getHands()->getResistanceTypes();
+				itemValues.setString(to_string(this->getHands()->getLevel()) + "\n" + to_string(this->getHands()->getTotalResistance()) + "\n" + to_string(this->getHands()->getValue()) + "\n" + to_string(this->getHands()->getWeight()) + "\n" + armorClass_toString(this->getHands()->getClass()) + "\n" + armorType_toString(this->getHands()->getType()));
+				itemDescription.setPosition(sf::Vector2f(460, 250));
+				itemDescription.setString(this->getHands()->getDescription());
+				for (int g = 0; g < temp.size(); g++)
+				{
+					if (temp[g].getResistance() > 0)
+					{
+						resistances += "Resistances:\n" + temp[g].getEffectName() + "\t" + to_string(temp[g].getResistance()) + "\n";
+					}
+				}
+
+				otherInfoText.setString(resistances);
+
+				otherInfoText.setPosition(sf::Vector2f(460, 280));
+
+				break;
+			case 4:
+				temp = this->getLegs()->getResistanceTypes();
+				itemValues.setString(to_string(this->getLegs()->getLevel()) + "\n" + to_string(this->getLegs()->getTotalResistance()) + "\n" + to_string(this->getLegs()->getValue()) + "\n" + to_string(this->getLegs()->getWeight()) + "\n" + armorClass_toString(this->getLegs()->getClass()) + "\n" + armorType_toString(this->getLegs()->getType()));
+				itemDescription.setPosition(sf::Vector2f(460, 250));
+				itemDescription.setString(this->getLegs()->getDescription());
+				for (int g = 0; g < temp.size(); g++)
+				{
+					if (temp[g].getResistance() > 0)
+					{
+						resistances += "Resistances:\n" + temp[g].getEffectName() + "\t" + to_string(temp[g].getResistance()) + "\n";
+					}
+				}
+
+				otherInfoText.setString(resistances);
+
+				otherInfoText.setPosition(sf::Vector2f(460, 280));
+
+				break;
+			case 5:
+				temp = this->getFeet()->getResistanceTypes();
+				itemValues.setString(to_string(this->getFeet()->getLevel()) + "\n" + to_string(this->getFeet()->getTotalResistance()) + "\n" + to_string(this->getFeet()->getValue()) + "\n" + to_string(this->getFeet()->getWeight()) + "\n" + armorClass_toString(this->getFeet()->getClass()) + "\n" + armorType_toString(this->getFeet()->getType()));
+				itemDescription.setPosition(sf::Vector2f(460, 250));
+				itemDescription.setString(this->getFeet()->getDescription());
+				for (int g = 0; g < temp.size(); g++)
+				{
+					if (temp[g].getResistance() > 0)
+					{
+						resistances += "Resistances:\n" + temp[g].getEffectName() + "\t" + to_string(temp[g].getResistance()) + "\n";
+					}
+				}
+
+				otherInfoText.setString(resistances);
+
+				otherInfoText.setPosition(sf::Vector2f(460, 280));
+
+				break;
+
+			case 6:
+				temp2 = this->getLeft()->getDamageTypes_Weapon();
+				itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nDefense:\nSpeed:\nRarity:\nEffect:\n");
+				itemValues.setString(to_string(getLeft()->getLevel()) + "\n" + to_string(getLeft()->getWeaponRank()) + "\n" + to_string(getLeft()->getValue()) + "\n" + to_string(getLeft()->getWeight()) + "\n" + to_string(getLeft()->getDefense().getResistance()) + "\n" + to_string(getLeft()->getSpeed()) + "\n" + getLeft()->getRarity_text() + "\n" + getLeft()->getCombatEffect().getEffectName());
+
+				itemDescription.setPosition(sf::Vector2f(460, 300));
+				itemDescription.setString(getLeft()->getDescription());
+
+				resistances = "Damage Types:\n";
+
+				for (int g = 0; g < temp2.size(); g++)
+				{
+
+					if (temp2[g].getDamage() > 0)
+					{
+						resistances += temp2[g].getName() + "\t" + to_string(temp2[g].getDamage()) + "\n";
+					}
+				}
+
+				otherInfoText.setString(resistances);
+
+				otherInfoText.setPosition(sf::Vector2f(460, 330));
+				break;
+
+			case 7:
+				temp2 = this->getRight()->getDamageTypes_Weapon();
+				itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nDefense:\nSpeed:\nRarity:\nEffect:\n");
+				itemValues.setString(to_string(getRight()->getLevel()) + "\n" + to_string(getRight()->getWeaponRank()) + "\n" + to_string(getRight()->getValue()) + "\n" + to_string(getRight()->getWeight()) + "\n" + to_string(getRight()->getDefense().getResistance()) + "\n" + to_string(getRight()->getSpeed()) + "\n" + getRight()->getRarity_text() + "\n" + getRight()->getCombatEffect().getEffectName());
+
+				itemDescription.setPosition(sf::Vector2f(460, 300));
+				itemDescription.setString(getRight()->getDescription());
+
+				resistances = "Damage Types:\n";
+
+				for (int g = 0; g < temp2.size(); g++)
+				{
+
+					if (temp2[g].getDamage() > 0)
+					{
+						resistances += temp2[g].getName() + "\t" + to_string(temp2[g].getDamage()) + "\n";
+					}
+				}
+
+				otherInfoText.setString(resistances);
+
+				otherInfoText.setPosition(sf::Vector2f(460, 330));
+				break;
+
+			default:
+				break;
+			}
+			highlighter.setPosition(sf::Vector2f(195, 190 + 25 * (choice - 1)));
+			release = false;
+		}
 	}
+
+	// array<string, 8> commands = {"right", "left", "head", "torso", "hands", "legs", "feet", "exit"};
+	// string input = "";
+	// while (1)
+	// {
+	// 	//system("clear");
+	// 	this->DisplayEquiped();
+	// 	cout << "what would you like to see more info on |";
+	// 	for (int i = 0; i < commands.size(); i++)
+	// 	{
+	// 		cout << commands[i] << "| ";
+	// 	}
+	// 	cout << ":" << endl;
+
+	// 	cin >> input;
+	// 	input = toLower(input);
+
+	// 	if (input == commands[0])
+	// 	{
+	// 		this->Right->DisplayDetails();
+	// 	}
+	// 	else if (input == commands[1])
+	// 	{
+	// 		this->Left->DisplayDetails();
+	// 	}
+	// 	else if (input == commands[2])
+	// 	{
+	// 		this->getHead()->DisplayDetails();
+	// 	}
+	// 	else if (input == commands[3])
+	// 	{
+	// 		this->getTorso()->DisplayDetails();
+	// 	}
+	// 	else if (input == commands[4])
+	// 	{
+	// 		this->getHands()->DisplayDetails();
+	// 	}
+	// 	else if (input == commands[5])
+	// 	{
+	// 		this->getLegs()->DisplayDetails();
+	// 	}
+	// 	else if (input == commands[6])
+	// 	{
+	// 		this->getFeet()->DisplayDetails();
+	// 	}
+	// 	else if (input == commands[7])
+	// 	{
+	// 		return 0;
+	// 	}
+	// 	getchar();
+	// 	getchar();
+
+	// 	system("pause");
+	// }
 }
 
 //takes a loot box and prompts the user to interact

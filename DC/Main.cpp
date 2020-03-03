@@ -4,9 +4,9 @@
 #include<map>
 
 
-
 int main() {
 	srand(time(NULL));
+
 
 	Run();
 	
