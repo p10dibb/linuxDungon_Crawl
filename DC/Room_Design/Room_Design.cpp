@@ -35,6 +35,8 @@ Room createRoom0_0()
 
 	ret.addWalls(6, 9, 18, 9);
 
+	ret.PlaceShop(9,5);
+
 	return ret;
 }
 

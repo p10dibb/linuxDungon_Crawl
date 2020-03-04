@@ -446,36 +446,7 @@ void Player::addSkillPoint()
 		}
 	}
 
-	// string input="";
-	// int exit=0;
-	// while(exit!=1){
-	// 	// cout << "#\tstat\tcurrent level\tDescription" << endl;
-	// 	// cout << "1\tMaxHealth\t" << this->getMaxHealth() <<"\tMaximum Health of the player"<< endl;
-	// 	// cout << "2\tStrength\t" << this->getStrength() <<"\tIncreases Carrying capacity and lessens handicap of speed for heavy armour"<< endl;
-	// 	// cout << "3\tSpeed\t" << this->getSpeed() << "\tIncreases speed in combat"<<endl;
-	// 	// cout << "4\tBase Attack\t" << this->getDamage() <<"\tIncreases Base Damage"<< endl;
-	// 	// cout << "5\tBase Defense\t" << this->getDefense() <<"\tIncreases Base Defense"<< endl;
-	// 	// cout << "6\tStamina\t" << this->getStamina() << "\thow many steps per move cycle"<<endl;
-	// 	// cout << "Choice: ";
-	// 	// cin >> input;
 
-	// 	switch(getFunc(input,options,6)){
-	// 		case 0:this->setMaxHealth(this->getMaxHealth() + 10);
-	// 			this->setHealth(this->getMaxHealth());
-	// 			exit=1;
-	// 			break;
-	// 		case 1: this->setStrength(this->getStrength()+1);
-	// 			this->MaxWeight = this->getStrength() * 10;
-	// 			this->setOverWeighted(this->MaxWeight < this->CurrentWeight);
-	// 			exit=1;
-	// 			break;
-	// 		case 2:this->setSpeed(this->getSpeed() + 1);exit=1;break;
-	// 		case 3:this->setDamage(this->getDamage()+1);exit=1;break;
-	// 		case 4:this->setDefense(this->getDefense()+1);exit=1;break;
-	// 		case 5:this->setStamina(this->getStamina()+1);exit=1;break;
-	// 		default: cout << "Not a valid choice:" << endl;break;
-	// 	}
-	// }
 }
 
 //level up dialogue for player

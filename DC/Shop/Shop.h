@@ -4,8 +4,10 @@ class Shop{
 private:
 
 //Store inventory.
-Item* Inventory[20];
-int InventorySize=20;
+// Item* Inventory[20];
+// int InventorySize=20;
+
+vector<Item*> Inventory;
 
 //the amount of Items that the store will have to buy stuff from you
 int Money;
@@ -17,6 +19,10 @@ Spawner spawner;
 
 //x,y position
 array<int, 2> Position;
+
+int BuyMerchantMultiplier=.7;
+
+int SellMerchantMultiplier=1.5;
 
 
 public:
