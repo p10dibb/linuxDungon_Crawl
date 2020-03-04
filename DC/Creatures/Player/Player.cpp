@@ -78,11 +78,11 @@ Player::Player()
 {
 	Biped();
 
-	this->setDamage(1);
-	this->setSpeed(1);
-	this->setDefense(1);
-	this->setStamina(1);
-	this->setStrength(1);
+	this->setDamage(3);
+	this->setSpeed(3);
+	this->setDefense(3);
+	this->setStamina(3);
+	this->setStrength(3);
 
 	this->Right = new Weapon();
 	this->Right->setName("Fist");
@@ -208,7 +208,6 @@ int Player::PauseMenue()
 			}
 			release = false;
 		}
-
 	}
 	return ret;
 }
@@ -485,7 +484,6 @@ void Player::NextLevel()
 	int points = 3;
 	int input = 0;
 
-
 	this->setLevel(this->getLevel() + 1);
 	this->setMaxHealth(this->getMaxHealth() + 10);
 	this->setHealth(this->getMaxHealth());
@@ -493,21 +491,20 @@ void Player::NextLevel()
 	sf::Font font;
 	font.loadFromFile("../Fonts/Montserrat-Regular.ttf");
 
-	
-	sf::RenderWindow window(sf::VideoMode(800,800),"Level Up");
+	sf::RenderWindow window(sf::VideoMode(800, 800), "Level Up");
 
-	sf::Text headerText("Congrats you leveled up!!",font,50);
-	headerText.setPosition(sf::Vector2f(10,10));
+	sf::Text headerText("Congrats you leveled up!!", font, 50);
+	headerText.setPosition(sf::Vector2f(10, 10));
 
-	sf::Text maxHealthText("Max Health is now: "+ to_string(this->getMaxHealth()),font,30 );
-	maxHealthText.setPosition(sf::Vector2f(10,60));
+	sf::Text maxHealthText("Max Health is now: " + to_string(this->getMaxHealth()), font, 30);
+	maxHealthText.setPosition(sf::Vector2f(10, 60));
 
-	sf::Text pointsRemainingText("you have "+ to_string( points) + " remaining",font,30);
-	pointsRemainingText.setPosition(sf::Vector2f(10,90));
-	
+	sf::Text pointsRemainingText("you have " + to_string(points) + " remaining", font, 30);
+	pointsRemainingText.setPosition(sf::Vector2f(10, 90));
+
 	while (window.isOpen())
-	{		
-		
+	{
+
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
@@ -522,18 +519,19 @@ void Player::NextLevel()
 		window.draw(maxHealthText);
 		window.draw(pointsRemainingText);
 		window.display();
-		
-		if(points<=0){
-			window.close();
-		}else{
-			this->addSkillPoint();
-		points--;
-		pointsRemainingText.setString("you have "+ to_string( points) + " remaining");
 
+		if (points <= 0)
+		{
+			window.close();
 		}
-		
+		else
+		{
+			this->addSkillPoint();
+			points--;
+			pointsRemainingText.setString("you have " + to_string(points) + " remaining");
+		}
 	}
-	
+
 	this->setLevelUp(this->getLevelUp() * 2);
 }
 
@@ -571,43 +569,84 @@ int Player::move(array<array<RoomPieces_enum, 50>, 50> map, int direction)
 int Player::Navigation(array<array<RoomPieces_enum, 50>, 50> map)
 {
 
+	int choice = -1;
+
+		bool release = false;
 	while (1)
 	{
 
-		char input = '\0';
-		cout << "enter [a,w,d,s] for movement or i for inventory or e to view equiped or p to pause fo more options" << endl;
-		input = getchar();
-		//cin>>input;
-		//cout<<endl<<"input: "<<input<<endl;
-		switch (input)
+	
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
-		case 'a':
-			this->move(map, 0);
-			return 0;
+			choice = 0;
+			release = true;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		{
+			choice = 1;
+			release = true;
 
-		case 'w':
-			this->move(map, 1);
-			return 0;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		{
+			choice = 2;
+			release = true;
 
-		case 'd':
-			this->move(map, 2);
-			return 0;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+		{
+			choice = 3;
+			release = true;
 
-		case 's':
-			this->move(map, 3);
-			return 0;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::I))
+		{
+			choice = 4;
+			release = true;
 
-		case 'i':
-			this->InventoryDialogue();
-			break;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+		{
+			choice = 5;
+			release = true;
 
-		case 'e':
-			this->EquipedDialogue();
-			break;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::P) || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+		{
+			choice = 6;
+			release = true;
 
-		case 'p': 
-			return this->PauseMenue();
-			break;
+		}
+		else if (release)
+		{
+			switch (choice)
+			{
+			case 0:
+				this->move(map, 0);
+				return 0;
+			case 1:
+				this->move(map, 1);
+				return 0;
+			case 2:
+				this->move(map, 2);
+				return 0;
+			case 3:
+				this->move(map, 3);
+				return 0;
+			case 4:
+				this->InventoryDialogue();
+				break;
+			case 5:
+				this->EquipedDialogue();
+				break;
+			case 6:
+				return this->PauseMenue();
+
+			default:
+				break;
+			}
+			release = false;
 		}
 	}
 }

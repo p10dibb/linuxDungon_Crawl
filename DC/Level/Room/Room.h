@@ -17,6 +17,8 @@ private:
 	Spawner spawner;
 	Player *player;
 
+	
+
 	Shop shop;
 	//is the shop accisable
 	bool isShop = false;
@@ -44,6 +46,8 @@ private:
 	bool visited=false;
 
 public:
+
+vector<vector<sf::RectangleShape>> RoomMap_Sfml;
 	Room();
 
 	//gets the amount of enemies at the start of the level
@@ -97,7 +101,7 @@ public:
 
 	int zombieCollisionCheck(Zombie *zed);
 
-	void DisplayRoom();
+	void DisplayRoom(sf::RenderWindow *window);
 	int RunRoom();
 
 	void setIsShop(bool shop);

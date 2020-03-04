@@ -39,8 +39,18 @@ int Floor::NavigateFloor()
 	int value = 0;
 	while (1)
 	{
+		
 		cout << endl<< endl << "Room:" << currentRoom[0] << "," << currentRoom[1] << endl<< endl;
 		this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].setPlayer(this->getPlayer());
+
+
+		if (!this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getVisited())
+			{
+				cout << "initializing" << endl;
+				this->initializeRoom(this->player->getLevel(), currentRoom[0], currentRoom[1]);
+			}
+			this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].setVisited(true);
+
 		value = this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].RunRoom();
 
 		
@@ -103,12 +113,7 @@ int Floor::NavigateFloor()
 					player->IncrementRoomsBeenToo();
 				}
 			}
-			if (!this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getVisited())
-			{
-				cout << "initializing" << endl;
-				this->initializeRoom(this->player->getLevel(), currentRoom[0], currentRoom[1]);
-			}
-			this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].setVisited(true);
+			
 		}
 	}
 }
@@ -189,6 +194,17 @@ bool Floor::initializeRoom(int level, int x, int y)
 	{
 
 		this->FloorMap[x][y].setShopLevel(this->getPlayer()->getLevel());
+	}
+
+	sf::RectangleShape temp(sf::Vector2f(30,30));
+	for(int i=0;i<this->FloorMap[x][y].getMaxY();i++){
+
+		this->FloorMap[x][y].RoomMap_Sfml.push_back(vector<sf::RectangleShape>());
+		for(int j=0;j<this->FloorMap[x][y].getMaxX();j++){
+			cout<<"Floor X: "<<j<<" Y: "<<i<<endl;
+			temp.setPosition(10+32*i,80+32*j);
+			this->FloorMap[x][y].RoomMap_Sfml[i].push_back(temp);	
+		}
 	}
 
 	//create the other stuff like shops and lootchests (not added yet)

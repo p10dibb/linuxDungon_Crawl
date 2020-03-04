@@ -392,13 +392,57 @@ void Room::setPlayer(Player *p)
 }
 
 //prints out the map
-void Room::DisplayRoom()
+void Room::DisplayRoom(sf::RenderWindow *window)
 {
 
-	for (int i = 0; i < this->maxX; i++)
+	for (int i = 0; i < this->maxY; i++)
 	{
-		for (int j = 0; j < this->maxY; j++)
+		for (int j = 0; j < this->maxX; j++)
 		{
+
+			switch (this->RoomMap[j][i])
+			{
+			case Empty_RoomPieces:
+				cout << " ";
+				break;
+			case Wall_RoomPieces:
+				this->RoomMap_Sfml[i][j].setFillColor(sf::Color::Red);
+				window->draw(this->RoomMap_Sfml[i][j]);
+				cout << "-";
+				break;
+			case Player_RoomPieces:
+				this->RoomMap_Sfml[i][j].setFillColor(sf::Color::Blue);
+				window->draw(this->RoomMap_Sfml[i][j]);
+				break;
+			case Enemy_RoomPieces:
+				this->RoomMap_Sfml[i][j].setFillColor(sf::Color::Green);
+				window->draw(this->RoomMap_Sfml[i][j]);
+				break;
+			case Shop_RoomPieces:
+				this->RoomMap_Sfml[i][j].setFillColor(sf::Color::White);
+				window->draw(this->RoomMap_Sfml[i][j]);
+				break;
+			case DownDoor_RoomPieces:
+				this->RoomMap_Sfml[i][j].setFillColor(sf::Color::Magenta);
+				window->draw(this->RoomMap_Sfml[i][j]);
+				break;
+			case UpDoor_RoomPieces:
+				this->RoomMap_Sfml[i][j].setFillColor(sf::Color::Magenta);
+				window->draw(this->RoomMap_Sfml[i][j]);
+				break;
+			case LeftDoor_RoomPieces:
+				this->RoomMap_Sfml[i][j].setFillColor(sf::Color::Magenta);
+				window->draw(this->RoomMap_Sfml[i][j]);
+				break;
+			case RightDoor_RoomPieces:
+				this->RoomMap_Sfml[i][j].setFillColor(sf::Color::Magenta);
+				window->draw(this->RoomMap_Sfml[i][j]);
+				break;
+			case Loot_RoomPieces:
+				this->RoomMap_Sfml[i][j].setFillColor(sf::Color::Yellow);
+				window->draw(this->RoomMap_Sfml[i][j]);
+				break;
+			}
 			switch (this->RoomMap[i][j])
 			{
 			case Empty_RoomPieces:
@@ -440,12 +484,37 @@ void Room::DisplayRoom()
 //main loop that runs while in this room
 int Room::RunRoom()
 {
+		sf::Font font;
+	font.loadFromFile("../Fonts/Montserrat-Regular.ttf");
 	int results = 0;
 	array<int, 2> tempPos;
+	bool playersTurn = true;
 
-	this->DisplayRoom();
-	while (1)
+	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Run Room");
+
+	sf::Text whosTurn("Players Turn",font,30);
+	whosTurn.setPosition(sf::Vector2f(10,10));
+
+	// vector<sf::Text> otherText;
+
+	// this->DisplayRoom();
+	while (window.isOpen())
 	{
+
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+			{
+				window.close();
+			}
+		}
+
+		window.clear();
+		window.draw(whosTurn);
+		this->DisplayRoom(&window);
+
+		window.display();
 		//runs Player
 		int steps = 0;
 
@@ -471,7 +540,7 @@ int Room::RunRoom()
 			}
 
 			tempPos = player->getPosition();
-			int navChoice=1;
+			int navChoice = 1;
 			while ((navChoice = this->player->Navigation(this->RoomMap)) == -4)
 			{
 				Saver(*player);
@@ -492,14 +561,22 @@ int Room::RunRoom()
 				player->setPosition(tempPos);
 				return results;
 			}
+
+			window.clear();
+			window.draw(whosTurn);
+
 			this->PlacePlayer(player->getPosition()[0], player->getPosition()[1]);
-			this->DisplayRoom();
+			
+			this->DisplayRoom(&window);
+
+			window.display();
 			cout << "player steps: " << steps << endl;
 			steps++;
 		}
 		//run Zombies
 		map<array<int, 2>, Zombie> temp;
 		map<array<int, 2>, Zombie>::const_iterator it = this->Enemies.begin();
+
 		while (it != this->Enemies.end())
 		{
 			Zombie z = it->second;
@@ -524,7 +601,19 @@ int Room::RunRoom()
 						z.setPosition(tempPos);
 					}
 
+					whosTurn.setString("Enemies Turn");
+					window.clear();
+					window.draw(whosTurn);
+
 					this->PlaceEnemy(z.getPosition()[0], z.getPosition()[1]);
+
+					this->DisplayRoom(&window);
+
+					window.display();
+					whosTurn.setString("Players Turn");
+
+					//should replace with something else later
+					for(int delay=0;delay<50000000;delay++);
 				}
 				else if (results == 0)
 				{
@@ -541,8 +630,7 @@ int Room::RunRoom()
 			it++;
 		}
 		Enemies = temp;
-
-		this->DisplayRoom();
+		window.display();
 	}
 
 	return 0;

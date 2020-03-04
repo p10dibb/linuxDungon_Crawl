@@ -431,6 +431,9 @@ int Player::EquipInventory(int pos)
 		// this->DisplayEquiped();
 		Weapon *w = dynamic_cast<Weapon *>(this->Inventory[pos].item);
 		int input = 0;
+
+		bool release = false;
+
 		sf::RenderWindow weaponWindow(sf::VideoMode(800, 800), "Weapon Equip");
 
 		sf::Text options("Would you like to Equip in\n[1]:Left\t[2]:Right", font, 30);
@@ -454,23 +457,44 @@ int Player::EquipInventory(int pos)
 
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
 			{
-				this->Inventory[pos].item = this->Right;
-				if (!this->setRight(w))
-				{
-					error = true;
-					this->Inventory[pos].item = w;
-				}
-				weaponWindow.close();
+				input = 1;
+
+				release = true;
 			}
 			else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
 			{
-				this->Inventory[pos].item = this->Left;
-				if (!this->setLeft(w))
+				input = 2;
+
+				release = true;
+			}
+			else if (release)
+			{
+				switch (input)
 				{
-					error = true;
-					this->Inventory[pos].item = w;
+				case 1:
+					this->Inventory[pos].item = this->Right;
+					if (!this->setRight(w))
+					{
+						error = true;
+						this->Inventory[pos].item = w;
+					}
+					weaponWindow.close();
+					break;
+
+				case 2:
+
+					this->Inventory[pos].item = this->Left;
+					if (!this->setLeft(w))
+					{
+						error = true;
+						this->Inventory[pos].item = w;
+					}
+					weaponWindow.close();
+					break;
+
+				default:
+					break;
 				}
-				weaponWindow.close();
 			}
 		}
 	}
@@ -836,6 +860,8 @@ int Player::EquipedDialogue()
 			{
 			case 1:
 				temp = this->getHead()->getResistanceTypes();
+				itemNameText.setString("Name: " + this->getHead()->getName());
+
 				itemValues.setString(to_string(this->getHead()->getLevel()) + "\n" + to_string(this->getHead()->getTotalResistance()) + "\n" + to_string(this->getHead()->getValue()) + "\n" + to_string(this->getHead()->getWeight()) + "\n" + armorClass_toString(this->getHead()->getClass()) + "\n" + armorType_toString(this->getHead()->getType()));
 				itemDescription.setPosition(sf::Vector2f(460, 250));
 				itemDescription.setString(this->getHead()->getDescription());
@@ -854,6 +880,8 @@ int Player::EquipedDialogue()
 				break;
 			case 2:
 				temp = this->getTorso()->getResistanceTypes();
+				itemNameText.setString("Name: " + this->getTorso()->getName());
+
 				itemValues.setString(to_string(this->getTorso()->getLevel()) + "\n" + to_string(this->getTorso()->getTotalResistance()) + "\n" + to_string(this->getTorso()->getValue()) + "\n" + to_string(this->getTorso()->getWeight()) + "\n" + armorClass_toString(this->getTorso()->getClass()) + "\n" + armorType_toString(this->getTorso()->getType()));
 				itemDescription.setPosition(sf::Vector2f(460, 250));
 				itemDescription.setString(this->getTorso()->getDescription());
@@ -872,6 +900,8 @@ int Player::EquipedDialogue()
 				break;
 			case 3:
 				temp = this->getHands()->getResistanceTypes();
+				itemNameText.setString("Name: " + this->getHands()->getName());
+
 				itemValues.setString(to_string(this->getHands()->getLevel()) + "\n" + to_string(this->getHands()->getTotalResistance()) + "\n" + to_string(this->getHands()->getValue()) + "\n" + to_string(this->getHands()->getWeight()) + "\n" + armorClass_toString(this->getHands()->getClass()) + "\n" + armorType_toString(this->getHands()->getType()));
 				itemDescription.setPosition(sf::Vector2f(460, 250));
 				itemDescription.setString(this->getHands()->getDescription());
@@ -890,6 +920,8 @@ int Player::EquipedDialogue()
 				break;
 			case 4:
 				temp = this->getLegs()->getResistanceTypes();
+				itemNameText.setString("Name: " + this->getLegs()->getName());
+
 				itemValues.setString(to_string(this->getLegs()->getLevel()) + "\n" + to_string(this->getLegs()->getTotalResistance()) + "\n" + to_string(this->getLegs()->getValue()) + "\n" + to_string(this->getLegs()->getWeight()) + "\n" + armorClass_toString(this->getLegs()->getClass()) + "\n" + armorType_toString(this->getLegs()->getType()));
 				itemDescription.setPosition(sf::Vector2f(460, 250));
 				itemDescription.setString(this->getLegs()->getDescription());
@@ -908,6 +940,8 @@ int Player::EquipedDialogue()
 				break;
 			case 5:
 				temp = this->getFeet()->getResistanceTypes();
+				itemNameText.setString("Name: " + this->getFeet()->getName());
+
 				itemValues.setString(to_string(this->getFeet()->getLevel()) + "\n" + to_string(this->getFeet()->getTotalResistance()) + "\n" + to_string(this->getFeet()->getValue()) + "\n" + to_string(this->getFeet()->getWeight()) + "\n" + armorClass_toString(this->getFeet()->getClass()) + "\n" + armorType_toString(this->getFeet()->getType()));
 				itemDescription.setPosition(sf::Vector2f(460, 250));
 				itemDescription.setString(this->getFeet()->getDescription());
@@ -927,6 +961,7 @@ int Player::EquipedDialogue()
 
 			case 6:
 				temp2 = this->getLeft()->getDamageTypes_Weapon();
+				itemNameText.setString("Name: " + this->getLeft()->getName());
 				itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nDefense:\nSpeed:\nRarity:\nEffect:\n");
 				itemValues.setString(to_string(getLeft()->getLevel()) + "\n" + to_string(getLeft()->getWeaponRank()) + "\n" + to_string(getLeft()->getValue()) + "\n" + to_string(getLeft()->getWeight()) + "\n" + to_string(getLeft()->getDefense().getResistance()) + "\n" + to_string(getLeft()->getSpeed()) + "\n" + getLeft()->getRarity_text() + "\n" + getLeft()->getCombatEffect().getEffectName());
 
@@ -951,6 +986,8 @@ int Player::EquipedDialogue()
 
 			case 7:
 				temp2 = this->getRight()->getDamageTypes_Weapon();
+				itemNameText.setString("Name: " + this->getRight()->getName());
+
 				itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nDefense:\nSpeed:\nRarity:\nEffect:\n");
 				itemValues.setString(to_string(getRight()->getLevel()) + "\n" + to_string(getRight()->getWeaponRank()) + "\n" + to_string(getRight()->getValue()) + "\n" + to_string(getRight()->getWeight()) + "\n" + to_string(getRight()->getDefense().getResistance()) + "\n" + to_string(getRight()->getSpeed()) + "\n" + getRight()->getRarity_text() + "\n" + getRight()->getCombatEffect().getEffectName());
 
@@ -980,129 +1017,493 @@ int Player::EquipedDialogue()
 			release = false;
 		}
 	}
-
-	// array<string, 8> commands = {"right", "left", "head", "torso", "hands", "legs", "feet", "exit"};
-	// string input = "";
-	// while (1)
-	// {
-	// 	//system("clear");
-	// 	this->DisplayEquiped();
-	// 	cout << "what would you like to see more info on |";
-	// 	for (int i = 0; i < commands.size(); i++)
-	// 	{
-	// 		cout << commands[i] << "| ";
-	// 	}
-	// 	cout << ":" << endl;
-
-	// 	cin >> input;
-	// 	input = toLower(input);
-
-	// 	if (input == commands[0])
-	// 	{
-	// 		this->Right->DisplayDetails();
-	// 	}
-	// 	else if (input == commands[1])
-	// 	{
-	// 		this->Left->DisplayDetails();
-	// 	}
-	// 	else if (input == commands[2])
-	// 	{
-	// 		this->getHead()->DisplayDetails();
-	// 	}
-	// 	else if (input == commands[3])
-	// 	{
-	// 		this->getTorso()->DisplayDetails();
-	// 	}
-	// 	else if (input == commands[4])
-	// 	{
-	// 		this->getHands()->DisplayDetails();
-	// 	}
-	// 	else if (input == commands[5])
-	// 	{
-	// 		this->getLegs()->DisplayDetails();
-	// 	}
-	// 	else if (input == commands[6])
-	// 	{
-	// 		this->getFeet()->DisplayDetails();
-	// 	}
-	// 	else if (input == commands[7])
-	// 	{
-	// 		return 0;
-	// 	}
-	// 	getchar();
-	// 	getchar();
-
-	// 	system("pause");
-	// }
 }
 
 //takes a loot box and prompts the user to interact
 bool Player::InteractLootBox(LootBox *box)
 {
-	char choice = '9';
-	int amt = 0;
+	sf::Font font;
+	font.loadFromFile("../Fonts/Montserrat-Regular.ttf");
+
+	sf::RenderWindow window(sf::VideoMode(800, 800), "Loot Box");
+
+	sf::RectangleShape infoWindow(sf::Vector2f(300, 500));
+	infoWindow.setFillColor(sf::Color::Blue);
+	infoWindow.setPosition(sf::Vector2f(450, 30));
+
+	//name of the item
+	sf::Text itemNameText("Name: ", font, 30);
+	itemNameText.setPosition(sf::Vector2f(460, 60));
+
+	//info tags of each item
+	sf::Text itemInfo("", font, 20);
+	itemInfo.setPosition(sf::Vector2f(460, 100));
+
+	//values corolating to each tag
+	sf::Text itemValues("", font, 20);
+	itemValues.setPosition(sf::Vector2f(590, 100));
+
+	//the description of the item
+	sf::Text itemDescription("", font, 20);
+
+	//the text for extra info
+	sf::Text otherInfoText("", font, 20);
+
+	sf::Text commands("[Space]:take selected [1]:Take All  [2]:Exit", font, 30);
+	commands.setPosition(10, 400);
+
+	sf::Text boxNameText("", font, 30);
+	boxNameText.setPosition(sf::Vector2f(10, 10));
+	boxNameText.setString(box->getName());
+
+	sf::Text boxContents("", font, 30);
+	boxContents.setPosition(sf::Vector2f(10, 40));
+
+	sf::RectangleShape highlighter(sf::Vector2f(200, 30));
+	highlighter.setFillColor(sf::Color::Red);
+	highlighter.setPosition(sf::Vector2f(10, 40));
+
+	string contentsString = "";
+
+	int amount = 0;
+
+	int current = 0;
+
+	int choice = 0;
+
+	bool release = true;
+
 	Item *temp;
 
-	//player loot box dialogue
-	while (choice != '0')
+	Direction_enum direct = No_Direction;
+
+	while (window.isOpen())
 	{
-		box->displayContents();
-		cout << "would you like to: Exit(0), take Gold amt(1), take Gold All(2), take Item slot(3), Take Item All(4)" << endl;
-		choice = getchar();
 
-		//take gold amt
-		if (choice == '1')
+		sf::Event event;
+		while (window.pollEvent(event))
 		{
-			cout << "how much Gold?" << endl;
-			cin >> amt;
-			this->RecieveMoney(box->removeMoney(amt));
-		}
-
-		//take all gold
-		else if (choice == '2')
-		{
-			this->RecieveMoney(box->removeMoney(box->getMoney()));
-		}
-
-		//take specifiv item
-		else if (choice == '3')
-		{
-			cout << "which item would you like? (slot#)" << endl;
-			cin >> amt;
-			temp = box->removeItem(amt);
-			//checks if remove Item fails
-			if (temp->getName() != "Empty")
+			if (event.type == sf::Event::Closed)
 			{
-				//checks if add to inventory fails
-				if (!this->addToInventory(temp))
-				{
-					// if fails readd to box
-					box->addItem(temp);
-				}
+				window.close();
 			}
 		}
 
-		//take all Items
-		else if (choice == '4')
+		window.clear();
+		window.draw(infoWindow);
+		window.draw(itemNameText);
+		window.draw(itemValues);
+		window.draw(itemInfo);
+		window.draw(itemDescription);
+		window.draw(otherInfoText);
+
+		if (!box->isEmpty())
 		{
-			while (box->getLoot().size() != 0)
+			window.draw(highlighter);
+		}
+		window.draw(boxNameText);
+		window.draw(boxContents);
+
+		window.draw(commands);
+
+		window.display();
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
+		{
+			choice = 1;
+
+			release = true;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+		{
+			choice = 2;
+
+			release = true;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		{
+
+			choice = 3;
+
+			release = true;
+		}
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		{
+			direct = Up_Direction;
+
+			release = true;
+		}
+
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			direct = Down_Direction;
+
+			release = true;
+		}
+		else if (release)
+		{
+
+			switch (choice)
 			{
-				cout << "a";
-				temp = box->removeItem(box->getLoot().size() - 1);
-				//checks if remove Item fails
-				if (temp->getName() != "Empty")
+			case 1:
+				this->RecieveMoney(box->removeMoney(box->getMoney()));
+				while (box->getLoot().size() != 0)
 				{
-					//checks if add to inventory fails
-					if (!this->addToInventory(temp))
+					temp = box->removeItem(box->getLoot().size() - 1);
+					//checks if remove Item fails
+					if (temp->getName() != "Empty")
 					{
-						// if fails readd to box
-						box->addItem(temp);
-						break;
+						//checks if add to inventory fails
+						if (!this->addToInventory(temp))
+						{
+							// if fails readd to box
+							box->addItem(temp);
+							break;
+						}
 					}
 				}
+				break;
+			case 2:
+				window.close();
+				break;
+			case 3:
+				if (box->getMoney() > 0 && current == 0)
+				{
+					this->RecieveMoney(box->removeMoney(box->getMoney()));
+				}
+				else if (box->getMoney() > 0)
+				{
+					temp = box->removeItem(current - 1);
+					//checks if remove Item fails
+					if (temp->getName() != "Empty")
+					{
+						//checks if add to inventory fails
+						if (!this->addToInventory(temp))
+						{
+							// if fails readd to box
+							box->addItem(temp);
+							break;
+						}
+					}
+					current--;
+				}
+				else
+				{
+					temp = box->removeItem(current);
+					//checks if remove Item fails
+					if (temp->getName() != "Empty")
+					{
+						//checks if add to inventory fails
+						if (!this->addToInventory(temp))
+						{
+							// if fails readd to box
+							box->addItem(temp);
+							break;
+						}
+					}
+					current--;
+				}
+				break;
+			default:
+				break;
 			}
+			if (box->getMoney() > 0 || box->getLoot().size() > 0)
+			{
+				switch (direct)
+				{
+				case Up_Direction:
+					if (current > 0)
+					{
+						current--;
+					}
+					else
+					{
+						current = amount - 1;
+					}
+					break;
+				case Down_Direction:
+					if (current < amount - 1)
+					{
+						current++;
+					}
+					else
+					{
+						current = 0;
+					}
+					break;
+
+				default:
+					break;
+				}
+			}
+			amount = 0;
+			highlighter.setPosition(10, 45 + (37 * current));
+
+			contentsString = "";
+			if (box->getMoney() != 0)
+			{
+				contentsString += to_string(box->getMoney()) + " Gold\n";
+				amount++;
+			}
+			if (box->getLoot().size() > 0)
+			{
+				for (int i = 0; i < box->getLoot().size(); i++)
+				{
+					amount++;
+					contentsString += to_string(box->getLoot()[i].amount) + " " + box->getLoot()[i].item->getName() + "\n";
+				}
+			}
+
+			boxContents.setString(contentsString);
+
+			if (box->getMoney() > 0)
+			{
+				//displays correct data depending item type
+				if(current==0){
+						itemInfo.setString("Gold: "+to_string(box->getMoney()));
+					itemValues.setString("");
+					itemDescription.setString("");
+					otherInfoText.setString("");
+				
+				}else if ((typeid(*box->getLoot()[current-1].item) == typeid(Armor)))
+				{
+					Armor *a = dynamic_cast<Armor *>(box->getLoot()[current-1].item);
+					itemNameText.setString(a->getName());
+					itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nClass:\nType:\n");
+					itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getTotalResistance()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + armorClass_toString(a->getClass()) + "\n" + armorType_toString(a->getType()));
+					itemDescription.setPosition(sf::Vector2f(460, 250));
+					itemDescription.setString(a->getDescription());
+
+					string resistances = "Resistances:\n";
+					vector<ActiveEffects> temp = a->getResistanceTypes();
+
+					for (int g = 0; g < temp.size(); g++)
+					{
+
+						if (temp[g].getResistance() > 0)
+						{
+							resistances += temp[g].getEffectName() + "\t" + to_string(temp[g].getResistance()) + "\n";
+						}
+					}
+
+					otherInfoText.setString(resistances);
+
+					otherInfoText.setPosition(sf::Vector2f(460, 280));
+				}
+				else if ((typeid(*box->getLoot()[current-1].item) == typeid(Weapon)))
+				{
+					Weapon *a = dynamic_cast<Weapon *>(box->getLoot()[current-1].item);
+					itemNameText.setString(a->getName());
+
+				
+
+					itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nDefense:\nSpeed:\nRarity:\nEffect:\n");
+					itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getWeaponRank()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + to_string(a->getDefense().getResistance()) + "\n" + to_string(a->getSpeed()) + "\n" + a->getRarity_text() + "\n" + a->getCombatEffect().getEffectName());
+
+					itemDescription.setPosition(sf::Vector2f(460, 300));
+					itemDescription.setString(a->getDescription());
+
+					string damages = "Damage Types:\n";
+					vector<DamageTypes> temp = a->getDamageTypes_Weapon();
+
+					for (int g = 0; g < temp.size(); g++)
+					{
+
+						if (temp[g].getDamage() > 0)
+						{
+							damages += temp[g].getName() + "\t" + to_string(temp[g].getDamage()) + "\n";
+						}
+					}
+
+					otherInfoText.setString(damages);
+
+					otherInfoText.setPosition(sf::Vector2f(460, 330));
+				}
+				else if ((typeid(*box->getLoot()[current-1].item) == typeid(Potion)))
+				{
+					Potion *a = dynamic_cast<Potion *>(box->getLoot()[current-1].item);
+					itemNameText.setString(a->getName());
+
+
+					itemInfo.setString("Amount:\nValue:\nTier:\nType:");
+					itemValues.setString(to_string(box->getLoot()[current-1].amount) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getTier()) + "\n" + a->getTypeName());
+					itemDescription.setPosition(sf::Vector2f(460, 200));
+					itemDescription.setString(a->getDescription());
+				}
+				else if (box->getLoot()[current-1].item->getName() == "Empty")
+				{
+					itemNameText.setString("Name:");
+				
+
+					itemInfo.setString("");
+					itemValues.setString("");
+					itemDescription.setString("");
+					otherInfoText.setString("");
+				}
+				else
+				{
+				
+					itemNameText.setString(box->getLoot()[current-1].item->getName());
+					itemInfo.setString("");
+					itemValues.setString("");
+					itemDescription.setString("");
+					otherInfoText.setString("");
+				}
+			}
+			else
+			{
+				if ((typeid(*box->getLoot()[current].item) == typeid(Armor)))
+				{
+					Armor *a = dynamic_cast<Armor *>(box->getLoot()[current].item);
+				
+					itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nClass:\nType:\n");
+					itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getTotalResistance()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + armorClass_toString(a->getClass()) + "\n" + armorType_toString(a->getType()));
+					itemDescription.setPosition(sf::Vector2f(460, 250));
+					itemDescription.setString(a->getDescription());
+
+					string resistances = "Resistances:\n";
+					vector<ActiveEffects> temp = a->getResistanceTypes();
+
+					for (int g = 0; g < temp.size(); g++)
+					{
+
+						if (temp[g].getResistance() > 0)
+						{
+							resistances += temp[g].getEffectName() + "\t" + to_string(temp[g].getResistance()) + "\n";
+						}
+					}
+
+					otherInfoText.setString(resistances);
+
+					otherInfoText.setPosition(sf::Vector2f(460, 280));
+				}
+				else if ((typeid(*box->getLoot()[current].item) == typeid(Weapon)))
+				{
+					Weapon *a = dynamic_cast<Weapon *>(box->getLoot()[current].item);
+
+				
+
+					itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nDefense:\nSpeed:\nRarity:\nEffect:\n");
+					itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getWeaponRank()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + to_string(a->getDefense().getResistance()) + "\n" + to_string(a->getSpeed()) + "\n" + a->getRarity_text() + "\n" + a->getCombatEffect().getEffectName());
+
+					itemDescription.setPosition(sf::Vector2f(460, 300));
+					itemDescription.setString(a->getDescription());
+
+					string damages = "Damage Types:\n";
+					vector<DamageTypes> temp = a->getDamageTypes_Weapon();
+
+					for (int g = 0; g < temp.size(); g++)
+					{
+
+						if (temp[g].getDamage() > 0)
+						{
+							damages += temp[g].getName() + "\t" + to_string(temp[g].getDamage()) + "\n";
+						}
+					}
+
+					otherInfoText.setString(damages);
+
+					otherInfoText.setPosition(sf::Vector2f(460, 330));
+				}
+				else if ((typeid(*box->getLoot()[current].item) == typeid(Potion)))
+				{
+					Potion *a = dynamic_cast<Potion *>(box->getLoot()[current].item);
+
+
+					itemInfo.setString("Amount:\nValue:\nTier:\nType:");
+					itemValues.setString(to_string(box->getLoot()[current].amount) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getTier()) + "\n" + a->getTypeName());
+					itemDescription.setPosition(sf::Vector2f(460, 200));
+					itemDescription.setString(a->getDescription());
+				}
+				else if (box->getLoot()[current].item->getName() == "Empty")
+				{
+				
+
+					itemInfo.setString("");
+					itemValues.setString("");
+					itemDescription.setString("");
+					otherInfoText.setString("");
+				}
+				else
+				{
+				
+					itemNameText.setString(box->getLoot()[current].item->getName());
+					itemInfo.setString("");
+					itemValues.setString("");
+					itemDescription.setString("");
+					otherInfoText.setString("");
+				}
+			}
+
+			release = false;
+			direct = No_Direction;
+			choice = 0;
 		}
 	}
+
+	// char choice = '9';
+	int amt = 0;
+
+	//player loot box dialogue
+	// while (choice != '0')
+	// {
+	// 	box->displayContents();
+	// 	cout << "would you like to: Exit(0), take Gold amt(1), take Gold All(2), take Item slot(3), Take Item All(4)" << endl;
+	// 	choice = getchar();
+
+	// 	//take gold amt
+	// 	if (choice == '1')
+	// 	{
+	// 		cout << "how much Gold?" << endl;
+	// 		cin >> amt;
+	// 		this->RecieveMoney(box->removeMoney(amt));
+	// 	}
+
+	// 	//take all gold
+	// 	else if (choice == '2')
+	// 	{
+	// 		this->RecieveMoney(box->removeMoney(box->getMoney()));
+	// 	}
+
+	// 	//take specifiv item
+	// 	else if (choice == '3')
+	// 	{
+	// 		cout << "which item would you like? (slot#)" << endl;
+	// 		cin >> amt;
+	// 		temp = box->removeItem(amt);
+	// 		//checks if remove Item fails
+	// 		if (temp->getName() != "Empty")
+	// 		{
+	// 			//checks if add to inventory fails
+	// 			if (!this->addToInventory(temp))
+	// 			{
+	// 				// if fails readd to box
+	// 				box->addItem(temp);
+	// 			}
+	// 		}
+	// 	}
+
+	// 	//take all Items
+	// 	else if (choice == '4')
+	// 	{
+	// 		while (box->getLoot().size() != 0)
+	// 		{
+	// 			cout << "a";
+	// 			temp = box->removeItem(box->getLoot().size() - 1);
+	// 			//checks if remove Item fails
+	// 			if (temp->getName() != "Empty")
+	// 			{
+	// 				//checks if add to inventory fails
+	// 				if (!this->addToInventory(temp))
+	// 				{
+	// 					// if fails readd to box
+	// 					box->addItem(temp);
+	// 					break;
+	// 				}
+	// 			}
+	// 		}
+	// 	}
+	// }
 	return true;
 }
 
