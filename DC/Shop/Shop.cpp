@@ -1121,13 +1121,13 @@ array<int, 2> Shop::getPosition()
 //sets the shops position if out of bounds it will set shop to 5,5
 void Shop::setPosition(array<int, 2> pos)
 {
-    if (pos[0] > 8 || pos[0] < 1)
-    {
-        pos[0] = 5;
-    }
-    if (pos[1] > 8 || pos[1] < 1)
-    {
-        pos[1] = 5;
-    }
+    // if (pos[0] > 8 || pos[0] < 1)
+    // {
+    //     pos[0] = 5;
+    // }
+    // if (pos[1] > 8 || pos[1] < 1)
+    // {
+    //     pos[1] = 5;
+    // }
     this->Position = pos;
 }

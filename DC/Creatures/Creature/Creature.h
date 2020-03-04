@@ -135,7 +135,7 @@ class Creature {
 
 
 	//itterates through active effects and applies damage from damage effects
-	int runDamageOverTimeEffects();
+	int runDamageOverTimeEffects(queue<string> * log);
 
 	int getDamage();
 	void setDamage(int i);

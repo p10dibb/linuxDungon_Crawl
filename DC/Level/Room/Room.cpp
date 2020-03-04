@@ -281,7 +281,10 @@ bool Room::PlaceShop(int x, int y)
 		return false;
 	}
 
+	this->isShop=true;
+	this->shop.setPosition({x,y});
 	this->RoomMap[x][y] = Shop_RoomPieces;
+	
 	return true;
 }
 

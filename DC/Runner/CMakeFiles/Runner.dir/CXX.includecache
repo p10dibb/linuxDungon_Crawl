@@ -105,6 +105,8 @@ map
 -
 vector
 -
+queue
+-
 SFML/Graphics.hpp
 -
 

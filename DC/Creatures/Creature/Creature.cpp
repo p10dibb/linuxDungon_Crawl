@@ -499,7 +499,7 @@ void Creature::DisplayAllEffects(){
 }
 
 //itterates through active effects and applies damage from damage effects returns -1 if dead
-int Creature::runDamageOverTimeEffects() {
+int Creature::runDamageOverTimeEffects(queue<string> * log) {
 	int damage = 0;
 	int total=0;
 	ActiveEffects current;
@@ -510,7 +510,7 @@ int Creature::runDamageOverTimeEffects() {
 		if ( current.getEffectType()==DamageOverTime_EffectTypes) {
 			total+=current.getDamage();
 			this->setHealth(this->getHealth() - current.getDamage());
-			cout << this->getName() << " Took " << current.getDamage() << " damage from " << current.getEffectName() << endl;
+			log->push(this->getName() + " Took "+ to_string(current.getDamage())+ " damage from "+ current.getEffectName());
 			if (this->getHealth() <= 0) {
 				cout << this->getName() << " has died from " << current.getEffectName()<<endl;
 				return -1;

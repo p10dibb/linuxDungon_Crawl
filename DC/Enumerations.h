@@ -3,6 +3,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include <queue>
 #include <SFML/Graphics.hpp>
 
 //#include <conio.h>
