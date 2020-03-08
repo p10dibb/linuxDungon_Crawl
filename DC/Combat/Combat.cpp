@@ -117,6 +117,7 @@ int PlayerVsZombieCombat(Player *player, Zombie *zed)
 			tempLog = zed->getName() + " Deals " + to_string(Damage);
 			Logs.push(tempLog);
 
+			player->IncrementDamageRecieved(Damage);
 			player->IncrementDamageRecieved(player->runDamageOverTimeEffects(&Logs));
 			player->DecrementAllEffects();
 			zed->runDamageOverTimeEffects(&Logs);
