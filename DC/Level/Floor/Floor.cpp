@@ -39,25 +39,30 @@ int Floor::NavigateFloor()
 	int value = 0;
 	while (1)
 	{
-		
-		cout << endl<< endl << "Room:" << currentRoom[0] << "," << currentRoom[1] << endl<< endl;
+
+		cout << endl
+			 << endl
+			 << "Room:" << currentRoom[0] << "," << currentRoom[1] << endl
+			 << endl;
+		cout << this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getRoomType() << endl;
+
 		this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].setPlayer(this->getPlayer());
 
-
 		if (!this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].getVisited())
-			{
-				cout << "initializing" << endl;
-				this->initializeRoom(this->player->getLevel(), currentRoom[0], currentRoom[1]);
-			}
-			this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].setVisited(true);
+		{
+			cout << "initializing" << endl;
+			this->initializeRoom(this->player->getLevel(), currentRoom[0], currentRoom[1]);
+		}
+		this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].setVisited(true);
 
 		value = this->FloorMap[this->currentRoom[0]][this->currentRoom[1]].RunRoom();
 
-		
 		if (value == -1)
 		{
 			return -1;
-		}else if(value ==-3){
+		}
+		else if (value == -3)
+		{
 			return -3;
 		}
 		else
@@ -113,7 +118,6 @@ int Floor::NavigateFloor()
 					player->IncrementRoomsBeenToo();
 				}
 			}
-			
 		}
 	}
 }
@@ -131,39 +135,39 @@ bool Floor::initializeRoom(int level, int x, int y)
 {
 	Spawner s;
 	Zombie z;
-	cout << "create enemies" << endl;
+
+	cout << "create "<<this->FloorMap[x][y].getStartingEnemyAmount()<< " enemies" << endl;
 	for (int i = 0; i < this->FloorMap[x][y].getStartingEnemyAmount(); i++)
 	{
+		cout<<"creaing enemy "<<i+1<<endl;
 
 		z = spawner.CreateZombie(level);
-
-		//adds zombie at unigue location
 		while (!this->FloorMap[x][y].addEnemy(z, rand() % this->FloorMap[x][y].getMaxX(), rand() % this->FloorMap[x][y].getMaxY()))
 			;
 	}
 
-	cout << "placing enemies" << endl;
 	if (this->FloorMap[x][y].getEnemies().size() != 0)
 	{
-		map<array<int, 2>, Zombie>::const_iterator it = this->FloorMap[x][y].getEnemies().begin();
-		while (it != this->FloorMap[x][y].getEnemies().end())
+		cout << "placing enemies" << endl;
+		int i=1;
+		map<array<int, 2>, Zombie>::const_iterator it = this->FloorMap[x][y].Enemies.begin();
+		while (it != this->FloorMap[x][y].Enemies.end())
 		{
-			cout << "1" << endl;
 			z = it->second;
-			cout << "2" << endl;
 			this->FloorMap[x][y].PlaceEnemy(z.getPosition()[0], z.getPosition()[1]);
-			cout << "3" << endl;
 			it++;
+			i++;
 		}
 	}
 
 	//innitialize lootboxes
 	if (this->FloorMap[x][y].getLootBoxes().size() != 0)
 	{
+		cout << "placing Lootboxes" << endl;
+
 		map<array<int, 2>, LootBox> temp = this->FloorMap[x][y].getLootBoxes();
 
 		map<array<int, 2>, LootBox>::const_iterator Loot_it = temp.begin();
-	
 
 		map<array<int, 2>, LootBox> tempLootMap;
 		LootBox tempLoot;
@@ -190,20 +194,24 @@ bool Floor::initializeRoom(int level, int x, int y)
 	}
 
 	//if there is a shop it sets it to appropriate level
+
 	if (this->FloorMap[x][y].getIsShop())
 	{
+		cout<<"placing shop"<<endl;
 
 		this->FloorMap[x][y].setShopLevel(this->getPlayer()->getLevel());
 	}
 
-	sf::RectangleShape temp(sf::Vector2f(30,30));
-	for(int i=0;i<this->FloorMap[x][y].getMaxY();i++){
+	cout << "building Room" << endl;
+	sf::RectangleShape temp(sf::Vector2f(20, 20));
+	for (int i = 0; i < this->FloorMap[x][y].getMaxY(); i++)
+	{
 
 		this->FloorMap[x][y].RoomMap_Sfml.push_back(vector<sf::RectangleShape>());
-		for(int j=0;j<this->FloorMap[x][y].getMaxX();j++){
-			cout<<"Floor X: "<<j<<" Y: "<<i<<endl;
-			temp.setPosition(10+32*i,80+32*j);
-			this->FloorMap[x][y].RoomMap_Sfml[i].push_back(temp);	
+		for (int j = 0; j < this->FloorMap[x][y].getMaxX(); j++)
+		{
+			temp.setPosition(10 + 21 * i, 80 + 21 * j);
+			this->FloorMap[x][y].RoomMap_Sfml[i].push_back(temp);
 		}
 	}
 

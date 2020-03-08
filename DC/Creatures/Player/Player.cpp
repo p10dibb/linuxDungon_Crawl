@@ -302,41 +302,75 @@ int Player::ActualSpeed()
 //player recieves lootdrop from enemy
 void Player::RecieveLootDrop(lootDrop loot)
 {
+	sf::Font font;
+	font.loadFromFile("../Fonts/Montserrat-Regular.ttf");
+	sf::RenderWindow window(sf::VideoMode(500, 500), "Recieve Loot Drop");
 
-	cout << "You recieved: " << endl
-		 << "XP: " << loot.xp << endl;
+	sf::Text RecieveText("", font, 30);
+	RecieveText.setPosition(sf::Vector2f(10, 10));
+
+	sf::Text CommandText("[1]: Exit", font, 30);
+	CommandText.setPosition(10, 250);
+
+	string recieve = "You Recieved:\nXP: " + to_string(loot.xp) + "\n";
 	this->setXP(this->getXP() + loot.xp);
+
+	bool release = false;
 
 	if (loot.gold != 0)
 	{
-		cout << "Gold: " << loot.gold << endl;
-		//this->Money += loot.gold;
+		recieve += "Gold: " + to_string(loot.gold) + "\n";
 		this->RecieveMoney(loot.gold);
 	}
 
 	if (loot.weapon != NULL)
 	{
-		cout << "Weapon: " << loot.weapon->getName() << endl;
+		recieve += "Weapon: " + loot.weapon->getName() + "\n";
 		this->addToInventory(loot.weapon);
 	}
 
 	if (loot.armour != NULL)
 	{
-		cout << "Armor: " << loot.armour->getName();
+		recieve += "Armor: " + loot.armour->getName() + "\n";
 		this->addToInventory(loot.armour);
 	}
 
 	if (loot.potion != NULL)
 	{
-		cout << "Potion: " << loot.potion->getName();
+		recieve += "Potion: " + loot.potion->getName();
 		this->addToInventory(loot.potion);
+	}
+
+	RecieveText.setString(recieve);
+	while (window.isOpen())
+	{
+
+		sf::Event event;
+		while (window.pollEvent(event))
+		{
+			if (event.type == sf::Event::Closed)
+				window.close();
+		}
+
+		window.clear();
+		window.draw(RecieveText);
+		window.draw(CommandText);
+		window.display();
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
+		{
+			release = true;
+		}
+		else if (release)
+		{
+			window.close();
+		}
 	}
 
 	if (this->getXP() >= this->getLevelUp())
 	{
 		this->NextLevel();
 	}
-	cout << endl;
 }
 
 void Player::addSkillPoint()
@@ -445,8 +479,6 @@ void Player::addSkillPoint()
 			window.close();
 		}
 	}
-
-
 }
 
 //level up dialogue for player
@@ -542,11 +574,9 @@ int Player::Navigation(array<array<RoomPieces_enum, 50>, 50> map)
 
 	int choice = -1;
 
-		bool release = false;
+	bool release = false;
 	while (1)
 	{
-
-	
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
@@ -557,37 +587,31 @@ int Player::Navigation(array<array<RoomPieces_enum, 50>, 50> map)
 		{
 			choice = 1;
 			release = true;
-
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::D) || sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		{
 			choice = 2;
 			release = true;
-
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::S) || sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 		{
 			choice = 3;
 			release = true;
-
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::I))
 		{
 			choice = 4;
 			release = true;
-
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
 		{
 			choice = 5;
 			release = true;
-
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::P) || sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 		{
 			choice = 6;
 			release = true;
-
 		}
 		else if (release)
 		{
@@ -723,15 +747,6 @@ vector<ActiveEffects> Player::getAllResistanceTypes()
 			it++;
 		}
 	}
-	// if(!this->getResistanceEffects().empty()){
-	// 	map<Effects_enum,ActiveEffects>::const_iterator it =this->getResistanceEffects().begin();
-	// 	while(it!=this->getResistanceEffects().end()){
-	// 		ret.push_back(it->second);
-	// 		it++;
-	// 		cout<<x<<endl;
-	// 		x++;
-	// 	}
-	// }
 
 	//takes current defense stat and converts to an active effect
 	ret.push_back(ActiveEffects(Resistance_EffectTypes, NormalResistance_Effects, this->getDefense(), 10));

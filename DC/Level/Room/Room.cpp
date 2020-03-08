@@ -90,7 +90,7 @@ map<array<int, 2>, Zombie> Room::getEnemies()
 //adds an enemy to a given cordinate
 bool Room::addEnemy(Zombie enemy, int x, int y)
 {
-
+	
 	enemy.setPosition({x, y});
 
 	if (Enemies.count({x, y}))
@@ -406,12 +406,10 @@ void Room::DisplayRoom(sf::RenderWindow *window)
 			switch (this->RoomMap[j][i])
 			{
 			case Empty_RoomPieces:
-				cout << " ";
 				break;
 			case Wall_RoomPieces:
 				this->RoomMap_Sfml[i][j].setFillColor(sf::Color::Red);
 				window->draw(this->RoomMap_Sfml[i][j]);
-				cout << "-";
 				break;
 			case Player_RoomPieces:
 				this->RoomMap_Sfml[i][j].setFillColor(sf::Color::Blue);
@@ -446,41 +444,8 @@ void Room::DisplayRoom(sf::RenderWindow *window)
 				window->draw(this->RoomMap_Sfml[i][j]);
 				break;
 			}
-			switch (this->RoomMap[i][j])
-			{
-			case Empty_RoomPieces:
-				cout << " ";
-				break;
-			case Wall_RoomPieces:
-				cout << "|";
-				break;
-			case Player_RoomPieces:
-				cout << "P";
-				break;
-			case Enemy_RoomPieces:
-				cout << "E";
-				break;
-			case Shop_RoomPieces:
-				cout << "S";
-				break;
-			case DownDoor_RoomPieces:
-				cout << "D";
-				break;
-			case UpDoor_RoomPieces:
-				cout << "U";
-				break;
-			case LeftDoor_RoomPieces:
-				cout << "L";
-				break;
-			case RightDoor_RoomPieces:
-				cout << "R";
-				break;
-			case Loot_RoomPieces:
-				cout << "T";
-				break;
-			}
+	
 		}
-		cout << endl;
 	}
 }
 
@@ -573,16 +538,19 @@ int Room::RunRoom()
 			this->DisplayRoom(&window);
 
 			window.display();
-			cout << "player steps: " << steps << endl;
 			steps++;
 		}
 		//run Zombies
 		map<array<int, 2>, Zombie> temp;
 		map<array<int, 2>, Zombie>::const_iterator it = this->Enemies.begin();
-
+		// cout<<"zed amt: "<<this->Enemies.size()<<endl;
+		int k=1;
 		while (it != this->Enemies.end())
 		{
+			// cout<<"Enemy "<<k<<" is moving"<<endl;
 			Zombie z = it->second;
+	
+			
 			steps = 0;
 			while (steps < z.getStamina())
 			{
@@ -591,7 +559,6 @@ int Room::RunRoom()
 				tempPos = z.getPosition();
 				z.move(this->RoomMap);
 				results = this->zombieCollisionCheck(&z);
-				cout << "results " << results << endl;
 				//player dies
 				if (results == -1)
 				{
@@ -624,8 +591,8 @@ int Room::RunRoom()
 				}
 				steps++;
 				//	this->DisplayRoom();
-				cout << "zed steps: " << steps << endl;
 			}
+
 			if (results != 0)
 			{
 				temp[z.getPosition()] = z;
@@ -647,6 +614,7 @@ int Room::playerCollisionCheck()
 	if (RoomMap[player->getPosition()[0]][player->getPosition()[1]] == Enemy_RoomPieces)
 	{
 
+		cout<<"p col Enemy Level: "<<this->Enemies[player->getPosition()].getLevel()<<"Health: "<<this->Enemies[player->getPosition()].getHealth()<<" Position: "<<player->getPosition()[0]<<","<<player->getPosition()[1]<<endl;
 		result = PlayerVsZombieCombat(this->player, &this->Enemies[player->getPosition()]);
 		//if zombie dies
 		if (result == 0)
@@ -704,8 +672,9 @@ int Room::zombieCollisionCheck(Zombie *zed)
 	int result = -3;
 	if (RoomMap[zed->getPosition()[0]][zed->getPosition()[1]] == Player_RoomPieces)
 	{
+		cout<<"z col Enemy Level: "<<zed->getLevel()<<"Health: "<<zed->getHealth()<<" Position: "<<player->getPosition()[0]<<","<<player->getPosition()[1]<<endl;
 
-		result = PlayerVsZombieCombat(this->player, &this->Enemies[player->getPosition()]);
+		result = PlayerVsZombieCombat(this->player, zed);
 		//if zombie dies
 		if (result == 0)
 		{
@@ -909,3 +878,11 @@ bool Room::addLootBox(int x, int y, LootBox loot)
 	}
 	return true;
 }
+
+
+	string Room::getRoomType(){
+		return this->roomType;
+	}
+	bool Room::setRoomType(string type){
+		this->roomType=type;
+	}

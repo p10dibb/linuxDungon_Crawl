@@ -172,7 +172,8 @@ string convertPlayer2Json(Player p)
     itemStr += "\"Damage\":" + to_string(p.getDamage()) + ",";
     itemStr += "\"Defense\":" + to_string(p.getDefense()) + ",";
     itemStr += "\"Speed\":" + to_string(p.getSpeed()) + ",";
-    itemStr += "\"Strength\":" + to_string(p.getStamina()) + ",";
+    itemStr += "\"Strength\":" + to_string(p.getStrength()) + ",";
+    itemStr += "\"Stamina\":" +to_string(p.getStamina())+",";
     itemStr += "\"MaxHealth\":" + to_string(p.getMaxHealth()) + ",";
     itemStr += "\"Health\":" + to_string(p.getHealth()) + ",";
     itemStr += "\"Level\":" + to_string(p.getLevel()) + ",";
@@ -476,6 +477,7 @@ Player ConvertJson2Player(Value &player)
     ret.setDefense(player["Defense"].GetInt());
     ret.setSpeed(player["Speed"].GetInt());
     ret.setStrength(player["Strength"].GetInt());
+    ret.setStamina(player["Stamina"].GetInt());
     ret.setMaxHealth(player["MaxHealth"].GetInt());
     ret.setHealth(player["Health"].GetInt());
     ret.setLevel(player["Level"].GetInt());

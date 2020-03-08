@@ -3,6 +3,8 @@
 //player fighting zombie  return 0=zombie died -1=player died
 int PlayerVsZombieCombat(Player *player, Zombie *zed)
 {
+	cout << "Enemy Level: " << zed->getLevel() <<"Health: "<<zed->getHealth()<< " Position: " << player->getPosition()[0] << "," << player->getPosition()[1] << endl;
+
 	//speed totals who ever has the higher number gets to attack
 	int playerSpeedTot = player->ActualSpeed();
 	int ZombieSpeedTot = zed->getSpeed();

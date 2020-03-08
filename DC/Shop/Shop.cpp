@@ -1005,7 +1005,7 @@ void Shop::GenerateNewInventory()
     // {
     //     this->Inventory[i] = new Item();
     // }
-
+    this->Inventory.clear();
     for (i = 0; i < 10; i++)
     {
 

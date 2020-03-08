@@ -26,7 +26,6 @@ private:
 	//amount of enemies at the initialization of the room
 	int startingEnemyAmount = 0;
 
-	map<array<int, 2>, Zombie> Enemies;
 
 	//if the room contains a door
 	bool isUpDoor = false;
@@ -45,7 +44,10 @@ private:
 	//if the room has been visited by the player
 	bool visited=false;
 
+	string roomType="Default Room";
+
 public:
+	map<array<int, 2>, Zombie> Enemies;
 
 vector<vector<sf::RectangleShape>> RoomMap_Sfml;
 	Room();
@@ -151,5 +153,6 @@ vector<vector<sf::RectangleShape>> RoomMap_Sfml;
 	//adds a lootbox at a location
 	bool addLootBox(int x, int y, LootBox loot);
 
-	
+	string getRoomType();
+	bool setRoomType(string type);
 };

@@ -36,7 +36,8 @@ Room createRoom0_0()
 	ret.addWalls(6, 9, 18, 9);
 
 	ret.PlaceShop(9,5);
-
+	ret.setStartingEnemyAmount(6);
+	ret.setRoomType("Room 0_0");
 	return ret;
 }
 
@@ -60,7 +61,7 @@ Room createRoom1_0()
 	ret.addWalls(9, 0, 9, 19);
 
 	ret.addWalls(9, 0, 9, 19);
-
+	ret.setRoomType("Room 1_0");
 	return ret;
 }
 
@@ -114,6 +115,7 @@ Room createDefaultRoom_V1()
 
 	ret.addEnemy(s.CreateZombie(1),4,4);
 	ret.addLootBox(6,6, l);
+	ret.setRoomType("Small square");
 	
 
 	return ret;
@@ -156,6 +158,9 @@ Room createLeftRoom()
 
 	ret.addWalls(6, 9, 9, 9);
 
+
+	ret.setRoomType("Left Room");
+
 	return ret;
 }
 
@@ -193,6 +198,8 @@ Room createRightRoom()
 	ret.addWalls(9, 6, 9, 9);
 
 	ret.addWalls(0, 9, 9, 9);
+
+	ret.setRoomType("Right Room");
 
 	return ret;
 }	
@@ -233,6 +240,8 @@ Room createUpRoom()
 
 	ret.addWalls(6, 9, 9, 9);
 
+	ret.setRoomType("Up Room");
+
 	return ret;
 }
 //creates default Room 4 doors verticle hallway
@@ -272,6 +281,7 @@ Room createDownRoom()
 	ret.addRightDoor(5, 9);
 
 	ret.addWalls(6, 9, 9, 9);
+	ret.setRoomType("Down Room");
 
 	return ret;
 }
@@ -307,6 +317,7 @@ Room createRoom9_0()
 	z.setStamina(2);
 
 	ret.addEnemy(z,3,3);
+	ret.setRoomType("Room 9_0");
 
 	return ret;
 }
@@ -335,6 +346,8 @@ Room createRoom9_9()
 
 	//Bottom Wall
 	ret.addWalls(0, 29, 29, 29);
+
+	ret.setRoomType("Room 9_9");
 
 	return ret;
 }
@@ -368,6 +381,9 @@ Room createRoom0_9()
 	ret.addDownDoor(24, 4);
 	ret.addWalls(24, 5, 24, 24);
 	ret.addWalls(7, 0, 7, 18);
+
+	ret.setRoomType("Room 0_9");
+
 	return ret;
 }
 
@@ -411,6 +427,9 @@ Room createDefaultRoom_V2(){
 	ret.setStartingEnemyAmount(5);
 
 	ret.addLootBox((rand()%7)+10,(rand()%7)+10,LootBox());
+
+	ret.setRoomType("Plus room");
+
 	return ret;
 }
 
@@ -442,6 +461,8 @@ Room createDefaultRoom_V3(){
 	ret.addWalls(29,4,29,9);
 
 	ret.setStartingEnemyAmount(3);
+
+	ret.setRoomType("Verticle hall");
 
 	return ret;
 }
@@ -475,6 +496,7 @@ Room createDefaultRoom_V4(){
 
 	ret.setStartingEnemyAmount(3);
 
+	ret.setRoomType("Horizontal Hall");
 	return ret;
 }
 
@@ -513,6 +535,7 @@ Room createTreasureRoom_V1(){
 	ret.addLootBox(2,4,l);
 	ret.addLootBox(4,2,l);
 
+	ret.setRoomType("Treasure Room");
 
 
 	

@@ -5,9 +5,11 @@ bool Player::addToInventory(Item *i)
 {
 
 	//stats incrementer
-	this->IncrementItemsRecieved();
 
-	if (FreeSlots != 0)
+	cout<<"Free slots: "<<this->FreeSlots<<endl;
+	cout<<"item name: "<<i->getName()<<endl;
+	this->IncrementItemsRecieved();
+	if (FreeSlots > 0)
 	{
 
 		//checks if there is already a stack of said item and if there is room in the stack for another one
@@ -29,6 +31,7 @@ bool Player::addToInventory(Item *i)
 		//if not already a stack find next empty slot and add new stack
 		for (int k = 0; k < this->getInventorySize(); k++)
 		{
+			// cout<<"slot "<<k<<" amount: "<<this->Inventory[k].amount<<endl;
 			//checks if inventory slot is empty
 			if (this->Inventory[k].amount == 0)
 			{
@@ -64,6 +67,8 @@ Item *Player::RemoveItemFromInventory(int pos)
 	{
 		this->Inventory[pos].item = new Item();
 		this->Inventory[pos].amount = 0;
+	this->FreeSlots++;
+
 	}
 	this->setCurrentWeight(this->getCurrentWeight() - temp->getWeight());
 	this->setOverWeighted(this->getMaxWeight() < this->getCurrentWeight());
@@ -253,7 +258,7 @@ int Player::InventoryDialogue()
 			{
 				cur -= 10;
 			}
-			else if (direct == Down_Direction && cur <= this->InventorySize - 10)
+			else if (direct == Down_Direction && cur <= this->InventorySize - 11)
 			{
 				cur += 10;
 			}
@@ -610,6 +615,7 @@ int Player::UseInventory(int pos)
 		if (this->Inventory[pos].amount == 0)
 		{
 			this->Inventory[pos].item = new Item();
+			this->FreeSlots++;
 		}
 	}
 
@@ -1147,9 +1153,9 @@ bool Player::InteractLootBox(LootBox *box)
 			{
 			case 1:
 				this->RecieveMoney(box->removeMoney(box->getMoney()));
-				while (box->getLoot().size() != 0)
+				while (box->getLoot().size() > 0)
 				{
-					temp = box->removeItem(box->getLoot().size() - 1);
+					temp = box->removeItem(box->getLoot().size() -1 );
 					//checks if remove Item fails
 					if (temp->getName() != "Empty")
 					{
@@ -1162,6 +1168,7 @@ bool Player::InteractLootBox(LootBox *box)
 						}
 					}
 				}
+				cout<<"exiting: "<<box->isEmpty() <<endl;
 				break;
 			case 2:
 				window.close();
@@ -1350,7 +1357,7 @@ bool Player::InteractLootBox(LootBox *box)
 					otherInfoText.setString("");
 				}
 			}
-			else
+			else if(box->getLoot().size()>0)
 			{
 				if ((typeid(*box->getLoot()[current].item) == typeid(Armor)))
 				{
@@ -1444,66 +1451,6 @@ bool Player::InteractLootBox(LootBox *box)
 	// char choice = '9';
 	int amt = 0;
 
-	//player loot box dialogue
-	// while (choice != '0')
-	// {
-	// 	box->displayContents();
-	// 	cout << "would you like to: Exit(0), take Gold amt(1), take Gold All(2), take Item slot(3), Take Item All(4)" << endl;
-	// 	choice = getchar();
-
-	// 	//take gold amt
-	// 	if (choice == '1')
-	// 	{
-	// 		cout << "how much Gold?" << endl;
-	// 		cin >> amt;
-	// 		this->RecieveMoney(box->removeMoney(amt));
-	// 	}
-
-	// 	//take all gold
-	// 	else if (choice == '2')
-	// 	{
-	// 		this->RecieveMoney(box->removeMoney(box->getMoney()));
-	// 	}
-
-	// 	//take specifiv item
-	// 	else if (choice == '3')
-	// 	{
-	// 		cout << "which item would you like? (slot#)" << endl;
-	// 		cin >> amt;
-	// 		temp = box->removeItem(amt);
-	// 		//checks if remove Item fails
-	// 		if (temp->getName() != "Empty")
-	// 		{
-	// 			//checks if add to inventory fails
-	// 			if (!this->addToInventory(temp))
-	// 			{
-	// 				// if fails readd to box
-	// 				box->addItem(temp);
-	// 			}
-	// 		}
-	// 	}
-
-	// 	//take all Items
-	// 	else if (choice == '4')
-	// 	{
-	// 		while (box->getLoot().size() != 0)
-	// 		{
-	// 			cout << "a";
-	// 			temp = box->removeItem(box->getLoot().size() - 1);
-	// 			//checks if remove Item fails
-	// 			if (temp->getName() != "Empty")
-	// 			{
-	// 				//checks if add to inventory fails
-	// 				if (!this->addToInventory(temp))
-	// 				{
-	// 					// if fails readd to box
-	// 					box->addItem(temp);
-	// 					break;
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// }
 	return true;
 }
 
