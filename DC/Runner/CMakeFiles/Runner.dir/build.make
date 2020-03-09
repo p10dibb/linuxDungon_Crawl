@@ -225,28 +225,28 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Bip
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.o.provides.build: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.o
 
 
-CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o: CMakeFiles/Runner.dir/flags.make
-CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/paul/Desktop/linuxDungon_Crawl/DC/Runner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o -c /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o: CMakeFiles/Runner.dir/flags.make
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o: /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/paul/Desktop/linuxDungon_Crawl/DC/Runner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o -c /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp
 
-CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp > CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.i
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp > CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.i
 
-CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp -o CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.s
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp -o CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.s
 
-CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o.requires:
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o.requires:
 
-.PHONY : CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o.requires
+.PHONY : CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o.requires
 
-CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o.provides: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o.requires
-	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o.provides.build
-.PHONY : CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o.provides
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o.provides: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o.requires
+	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o.provides.build
+.PHONY : CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o.provides
 
-CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o.provides.build: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o.provides.build: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o
 
 
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.o: CMakeFiles/Runner.dir/flags.make
@@ -738,7 +738,7 @@ Runner_OBJECTS = \
 "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.o" \
 "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.o" \
 "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.o" \
-"CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o" \
+"CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o" \
 "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.o" \
 "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.o" \
 "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.o" \
@@ -770,7 +770,7 @@ Runner: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/
 Runner: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.o
 Runner: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.o
 Runner: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.o
-Runner: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o
+Runner: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o
 Runner: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.o
 Runner: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.o
 Runner: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.o
@@ -813,7 +813,7 @@ CMakeFiles/Runner.dir/requires: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDun
 CMakeFiles/Runner.dir/requires: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.o.requires
 CMakeFiles/Runner.dir/requires: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.o.requires
 CMakeFiles/Runner.dir/requires: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.o.requires
-CMakeFiles/Runner.dir/requires: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o.requires
+CMakeFiles/Runner.dir/requires: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o.requires
 CMakeFiles/Runner.dir/requires: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.o.requires
 CMakeFiles/Runner.dir/requires: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.o.requires
 CMakeFiles/Runner.dir/requires: CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.o.requires

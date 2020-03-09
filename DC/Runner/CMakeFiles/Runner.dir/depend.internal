@@ -11,8 +11,8 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.cpp.o
  /home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
@@ -37,13 +37,24 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
+CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o
+ /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.h
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.o
  /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
@@ -56,9 +67,9 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Pl
  /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerGetSet.cpp
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
@@ -71,9 +82,9 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Pl
  /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerInventory.cpp
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
@@ -86,9 +97,9 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Pl
  /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
@@ -97,17 +108,6 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Pl
  /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.h
-CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o
- /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Item/Item.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.h
 CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
@@ -117,8 +117,8 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dung
  /home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.cpp
  /home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.h
@@ -190,8 +190,8 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Floor/Floor.c
  /home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
@@ -236,8 +236,8 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Level/Room/Room.cpp
  /home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
@@ -280,7 +280,7 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp
  /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
@@ -294,8 +294,8 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Main.cpp.o
  /home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Dungon_Crawler/Dungon_Crawler.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
@@ -342,8 +342,8 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Room_Design/Room_De
  /home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
@@ -389,8 +389,8 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/SaveFile/Save
  /home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
@@ -407,8 +407,8 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Saver/Saver.cpp.o
  /home/paul/Desktop/linuxDungon_Crawl/DC/Combat/Combat.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
@@ -450,8 +450,8 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Shop/Shop.cpp.o
  /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
@@ -466,7 +466,7 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp
  /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
@@ -480,7 +480,7 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerArmo
  /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
@@ -494,7 +494,7 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerPoti
  /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
@@ -508,7 +508,7 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerSpec
  /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h
@@ -522,7 +522,7 @@ CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/SpawnerWeap
  /home/paul/Desktop/linuxDungon_Crawl/DC/ActiveEffects/ActiveEffects.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.h
- /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
+ /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Enumerations.h
  /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.h

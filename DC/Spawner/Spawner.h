@@ -68,8 +68,8 @@ private:
 
 public:
 	Spawner();
-	Zombie CreateZombie(int level, bool forceLevel=false );
-	LootDrop GenerateZombieLootDrop(Zombie zed);
+	Enemy CreateZombie(int level, bool forceLevel=false );
+	LootDrop GenerateEnemyLootDrop(Enemy zed);
 
 	//Weapons -----in SpawnerWeapons.cpp
 		Weapon* CreateClaws(int level, bool forceLevel=false,bool forceRarity=false,ItemRarity_enum rarity =Common_ItemRarity);

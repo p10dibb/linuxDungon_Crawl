@@ -6,7 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Armor/Armor.cpp.o"
   "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Weapon/Weapon.cpp.o"
   "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.cpp.o"
-  "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o"
+  "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o"
   "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.cpp.o"
   "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.cpp.o"
   "CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Spawner/Spawner.cpp.o"

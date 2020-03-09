@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "../Creatures/Zombie/Zombie.h"
+#include "../Creatures/Enemy/Enemy.h"
 
 #include "../Items/Potion/Potion.h"
 

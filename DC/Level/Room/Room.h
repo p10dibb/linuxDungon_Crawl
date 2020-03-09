@@ -47,7 +47,7 @@ private:
 	string roomType="Default Room";
 
 public:
-	map<array<int, 2>, Zombie> Enemies;
+	map<array<int, 2>, Enemy> Enemies;
 
 vector<vector<sf::RectangleShape>> RoomMap_Sfml;
 	Room();
@@ -63,13 +63,13 @@ vector<vector<sf::RectangleShape>> RoomMap_Sfml;
 	void setPlayer(Player *p);
 
 	//sets a new map of enemies and checks to make sure they are all valid
-	bool setEnemies(map<array<int, 2>, Zombie> enemies);
+	bool setEnemies(map<array<int, 2>, Enemy> enemies);
 
 	//returns the map of enemies
-	map<array<int, 2>, Zombie> getEnemies();
+	map<array<int, 2>, Enemy> getEnemies();
 
 	//adds an enemy to a given cordinate
-	bool addEnemy(Zombie enemy, int x, int y);
+	bool addEnemy(Enemy enemy, int x, int y);
 
 	//draws a line between 2 given points can only be strait lines
 	bool addWalls(int x1, int y1, int x2, int y2);
@@ -101,7 +101,7 @@ vector<vector<sf::RectangleShape>> RoomMap_Sfml;
 	//-1 player dies //0 nothing important  //1 exits left // 2 exits up  // 3 exits right// 4 exits down
 	int playerCollisionCheck();
 
-	int zombieCollisionCheck(Zombie *zed);
+	int EnemyCollisionCheck(Enemy *zed);
 
 	void DisplayRoom(sf::RenderWindow *window);
 	int RunRoom();

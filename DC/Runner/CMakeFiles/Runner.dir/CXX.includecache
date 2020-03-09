@@ -48,6 +48,14 @@ vector
 map
 -
 
+/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp
+Enemy.h
+/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
+
+/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
+../Biped/Biped.h
+/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
+
 /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp
 Player.h
 /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.h
@@ -69,14 +77,6 @@ Player.h
 /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp
 Player.h
 /home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.h
-
-/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp
-Zombie.h
-/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
-
-/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
-../Biped/Biped.h
-/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Biped/Biped.h
 
 /home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp
 DamageTypes.h
@@ -167,8 +167,8 @@ LootBox.h
 /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
 
 /home/paul/Desktop/linuxDungon_Crawl/DC/LootBox/LootBox.h
-../Creatures/Zombie/Zombie.h
-/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.h
+../Creatures/Enemy/Enemy.h
+/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.h
 ../Items/Potion/Potion.h
 /home/paul/Desktop/linuxDungon_Crawl/DC/Items/Potion/Potion.h
 

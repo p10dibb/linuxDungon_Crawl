@@ -134,12 +134,11 @@ array<int, 2> Floor::getCurrentRoom()
 bool Floor::initializeRoom(int level, int x, int y)
 {
 	Spawner s;
-	Zombie z;
+	Enemy z;
 
 	cout << "create "<<this->FloorMap[x][y].getStartingEnemyAmount()<< " enemies" << endl;
 	for (int i = 0; i < this->FloorMap[x][y].getStartingEnemyAmount(); i++)
 	{
-		cout<<"creaing enemy "<<i+1<<endl;
 
 		z = spawner.CreateZombie(level);
 		while (!this->FloorMap[x][y].addEnemy(z, rand() % this->FloorMap[x][y].getMaxX(), rand() % this->FloorMap[x][y].getMaxY()))
@@ -150,7 +149,7 @@ bool Floor::initializeRoom(int level, int x, int y)
 	{
 		cout << "placing enemies" << endl;
 		int i=1;
-		map<array<int, 2>, Zombie>::const_iterator it = this->FloorMap[x][y].Enemies.begin();
+		map<array<int, 2>, Enemy>::const_iterator it = this->FloorMap[x][y].Enemies.begin();
 		while (it != this->FloorMap[x][y].Enemies.end())
 		{
 			z = it->second;

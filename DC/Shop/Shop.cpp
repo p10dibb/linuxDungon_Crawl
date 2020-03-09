@@ -122,23 +122,23 @@ void Shop::ShopDialogue(Player *player)
 
     sf::Font font;
     font.loadFromFile("../Fonts/Montserrat-Regular.ttf");
-    sf::RenderWindow window(sf::VideoMode(800, 800), "Shop");
+    sf::RenderWindow window(sf::VideoMode(1000, 1000), "Shop");
 
     sf::RectangleShape infoBox(sf::Vector2f(300, 500));
     infoBox.setFillColor(sf::Color::Blue);
-    infoBox.setPosition(sf::Vector2f(450, 30));
+    infoBox.setPosition(sf::Vector2f(600, 80));
 
     //name of the item
     sf::Text itemNameText("Name: ", font, 30);
-    itemNameText.setPosition(sf::Vector2f(460, 60));
+    itemNameText.setPosition(sf::Vector2f(610, 110));
 
     //info tags of each item
     sf::Text itemInfo("", font, 20);
-    itemInfo.setPosition(sf::Vector2f(460, 100));
+    itemInfo.setPosition(sf::Vector2f(610, 150));
 
     //values corolating to each tag
     sf::Text itemValues("", font, 20);
-    itemValues.setPosition(sf::Vector2f(590, 100));
+    itemValues.setPosition(sf::Vector2f(740, 150));
 
     //the description of the item
     sf::Text itemDescription("", font, 20);
@@ -147,23 +147,23 @@ void Shop::ShopDialogue(Player *player)
     sf::Text otherInfoText("", font, 20);
 
     sf::Text commands("[1]:Buy [2]:Sell [3]:Exit", font, 30);
-    commands.setPosition(10, 400);
+    commands.setPosition(270, 500);
 
-    sf::RectangleShape storeFront(sf::Vector2f(600, 400));
-    storeFront.setPosition(sf::Vector2f(50, 50));
+    sf::RectangleShape storeFront(sf::Vector2f(600, 450));
+    storeFront.setPosition(sf::Vector2f(100, 50));
     storeFront.setFillColor(sf::Color::Red);
 
     sf::Text shopContents("", font, 30);
-    shopContents.setPosition(sf::Vector2f(10, 40));
+    shopContents.setPosition(sf::Vector2f(10, 90));
 
     string contentsString = "";
 
     sf::RectangleShape highlighter(sf::Vector2f(200, 30));
     highlighter.setFillColor(sf::Color::Red);
-    highlighter.setPosition(sf::Vector2f(10, 40));
+    highlighter.setPosition(sf::Vector2f(10, 90));
 
     sf::Text ErrorText("", font, 30);
-    ErrorText.setPosition(sf::Vector2f(400, 400));
+    ErrorText.setPosition(sf::Vector2f(300, 40));
 
     array<sf::RectangleShape, 100> slots;
 
@@ -174,13 +174,13 @@ void Shop::ShopDialogue(Player *player)
         {
             slots[(i * 10) + j].setSize(sf::Vector2f(30, 30));
             slots[(i * 10) + j].setFillColor(sf::Color::Blue);
-            slots[(i * 10) + j].setPosition(sf::Vector2f(10 + (42 * j), 50 + (42 * i)));
+            slots[(i * 10) + j].setPosition(sf::Vector2f(10 + (42 * j), 100 + (42 * i)));
         }
     }
 
     sf::RectangleShape slotHighlighter;
     sf::Text Gold(player->getName() + ": " + to_string(player->getMoney()) + " Shop: " + to_string(this->getMoney()), font, 30);
-    Gold.setPosition(sf::Vector2f(300, 300));
+    Gold.setPosition(sf::Vector2f(300, 10));
 
     slotHighlighter.setFillColor(sf::Color::Cyan);
     slotHighlighter.setSize(sf::Vector2f(40, 40));
@@ -304,7 +304,7 @@ void Shop::ShopDialogue(Player *player)
                         itemNameText.setString(a->getName());
                         itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nClass:\nType:\n");
                         itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getTotalResistance()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + armorClass_toString(a->getClass()) + "\n" + armorType_toString(a->getType()));
-                        itemDescription.setPosition(sf::Vector2f(460, 250));
+                        itemDescription.setPosition(sf::Vector2f(610, 300));
                         itemDescription.setString(a->getDescription());
 
                         string resistances = "Resistances:\n";
@@ -321,7 +321,7 @@ void Shop::ShopDialogue(Player *player)
 
                         otherInfoText.setString(resistances);
 
-                        otherInfoText.setPosition(sf::Vector2f(460, 280));
+                        otherInfoText.setPosition(sf::Vector2f(610, 330));
                     }
                     else if ((typeid(*this->Inventory[current]) == typeid(Weapon)))
                     {
@@ -332,7 +332,7 @@ void Shop::ShopDialogue(Player *player)
                         itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nDefense:\nSpeed:\nRarity:\nEffect:\n");
                         itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getWeaponRank()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + to_string(a->getDefense().getResistance()) + "\n" + to_string(a->getSpeed()) + "\n" + a->getRarity_text() + "\n" + a->getCombatEffect().getEffectName());
 
-                        itemDescription.setPosition(sf::Vector2f(460, 300));
+                        itemDescription.setPosition(sf::Vector2f(610, 350));
                         itemDescription.setString(a->getDescription());
 
                         string damages = "Damage Types:\n";
@@ -349,7 +349,7 @@ void Shop::ShopDialogue(Player *player)
 
                         otherInfoText.setString(damages);
 
-                        otherInfoText.setPosition(sf::Vector2f(460, 330));
+                        otherInfoText.setPosition(sf::Vector2f(610, 330));
                     }
                     else if ((typeid(*this->Inventory[current]) == typeid(Potion)))
                     {
@@ -358,7 +358,7 @@ void Shop::ShopDialogue(Player *player)
 
                         itemInfo.setString("Value:\nTier:\nType:");
                         itemValues.setString(to_string(a->getValue()) + "\n" + to_string(a->getTier()) + "\n" + a->getTypeName());
-                        itemDescription.setPosition(sf::Vector2f(460, 200));
+                        itemDescription.setPosition(sf::Vector2f(610, 250));
                         itemDescription.setString(a->getDescription());
                     }
                     else if (this->Inventory[current]->getName() == "Empty")
@@ -393,7 +393,7 @@ void Shop::ShopDialogue(Player *player)
                         itemNameText.setString(a->getName());
                         itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nClass:\nType:\n");
                         itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getTotalResistance()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + armorClass_toString(a->getClass()) + "\n" + armorType_toString(a->getType()));
-                        itemDescription.setPosition(sf::Vector2f(460, 250));
+                        itemDescription.setPosition(sf::Vector2f(610, 250));
                         itemDescription.setString(a->getDescription());
 
                         string resistances = "Resistances:\n";
@@ -410,7 +410,7 @@ void Shop::ShopDialogue(Player *player)
 
                         otherInfoText.setString(resistances);
 
-                        otherInfoText.setPosition(sf::Vector2f(460, 280));
+                        otherInfoText.setPosition(sf::Vector2f(610, 330));
                     }
                     else if ((typeid(*player->getInventory()[current].item) == typeid(Weapon)))
                     {
@@ -420,7 +420,7 @@ void Shop::ShopDialogue(Player *player)
                         itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nDefense:\nSpeed:\nRarity:\nEffect:\n");
                         itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getWeaponRank()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + to_string(a->getDefense().getResistance()) + "\n" + to_string(a->getSpeed()) + "\n" + a->getRarity_text() + "\n" + a->getCombatEffect().getEffectName());
 
-                        itemDescription.setPosition(sf::Vector2f(460, 300));
+                        itemDescription.setPosition(sf::Vector2f(610, 350));
                         itemDescription.setString(a->getDescription());
 
                         string damages = "Damage Types:\n";
@@ -437,7 +437,7 @@ void Shop::ShopDialogue(Player *player)
 
                         otherInfoText.setString(damages);
 
-                        otherInfoText.setPosition(sf::Vector2f(460, 330));
+                        otherInfoText.setPosition(sf::Vector2f(610, 330));
                     }
                     else if ((typeid(*player->getInventory()[current].item) == typeid(Potion)))
                     {
@@ -446,7 +446,7 @@ void Shop::ShopDialogue(Player *player)
 
                         itemInfo.setString("Amount:\nValue:\nTier:\nType:");
                         itemValues.setString(to_string(player->getInventory()[current].amount) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getTier()) + "\n" + a->getTypeName());
-                        itemDescription.setPosition(sf::Vector2f(460, 200));
+                        itemDescription.setPosition(sf::Vector2f(610, 250));
                         itemDescription.setString(a->getDescription());
                     }
                     else if (player->getInventory()[current].item->getName() == "Empty")
@@ -552,7 +552,7 @@ void Shop::ShopDialogue(Player *player)
                     itemNameText.setString(a->getName());
                     itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nClass:\nType:\n");
                     itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getTotalResistance()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + armorClass_toString(a->getClass()) + "\n" + armorType_toString(a->getType()));
-                    itemDescription.setPosition(sf::Vector2f(460, 250));
+                    itemDescription.setPosition(sf::Vector2f(610, 250));
                     itemDescription.setString(a->getDescription());
 
                     string resistances = "Resistances:\n";
@@ -569,7 +569,7 @@ void Shop::ShopDialogue(Player *player)
 
                     otherInfoText.setString(resistances);
 
-                    otherInfoText.setPosition(sf::Vector2f(460, 280));
+                    otherInfoText.setPosition(sf::Vector2f(610, 330));
                 }
                 else if ((typeid(*this->Inventory[current]) == typeid(Weapon)))
                 {
@@ -580,7 +580,7 @@ void Shop::ShopDialogue(Player *player)
                     itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nDefense:\nSpeed:\nRarity:\nEffect:\n");
                     itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getWeaponRank()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + to_string(a->getDefense().getResistance()) + "\n" + to_string(a->getSpeed()) + "\n" + a->getRarity_text() + "\n" + a->getCombatEffect().getEffectName());
 
-                    itemDescription.setPosition(sf::Vector2f(460, 300));
+                    itemDescription.setPosition(sf::Vector2f(610, 350));
                     itemDescription.setString(a->getDescription());
 
                     string damages = "Damage Types:\n";
@@ -597,7 +597,7 @@ void Shop::ShopDialogue(Player *player)
 
                     otherInfoText.setString(damages);
 
-                    otherInfoText.setPosition(sf::Vector2f(460, 330));
+                    otherInfoText.setPosition(sf::Vector2f(610, 330));
                 }
                 else if ((typeid(*this->Inventory[current]) == typeid(Potion)))
                 {
@@ -606,12 +606,14 @@ void Shop::ShopDialogue(Player *player)
 
                     itemInfo.setString("Value:\nTier:\nType:");
                     itemValues.setString(to_string(a->getValue()) + "\n" + to_string(a->getTier()) + "\n" + a->getTypeName());
-                    itemDescription.setPosition(sf::Vector2f(460, 200));
+                    itemDescription.setPosition(sf::Vector2f(610, 250));
                     itemDescription.setString(a->getDescription());
+                    otherInfoText.setString("");
+
                 }
                 else if (this->Inventory[current]->getName() == "Empty")
                 {
-                    itemNameText.setString("a->getName()");
+                    itemNameText.setString("");
 
                     itemInfo.setString("");
                     itemValues.setString("");
@@ -634,7 +636,7 @@ void Shop::ShopDialogue(Player *player)
                 }
                 shopContents.setString(contentsString);
 
-                highlighter.setPosition(10, 45 + (current * 35));
+                highlighter.setPosition(10, 95 + (current * 37));
             }
             else if (mode == 2)
             {
@@ -675,7 +677,7 @@ void Shop::ShopDialogue(Player *player)
                 {
                     current -= 10;
                 }
-                else if (direct == Down_Direction && current <= player->getInventorySize() - 10)
+                else if (direct == Down_Direction && current <= player->getInventorySize() - 11)
                 {
                     current += 10;
                 }
@@ -696,7 +698,7 @@ void Shop::ShopDialogue(Player *player)
                     itemNameText.setString(a->getName());
                     itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nClass:\nType:\n");
                     itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getTotalResistance()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + armorClass_toString(a->getClass()) + "\n" + armorType_toString(a->getType()));
-                    itemDescription.setPosition(sf::Vector2f(460, 250));
+                    itemDescription.setPosition(sf::Vector2f(610, 300));
                     itemDescription.setString(a->getDescription());
 
                     string resistances = "Resistances:\n";
@@ -713,7 +715,7 @@ void Shop::ShopDialogue(Player *player)
 
                     otherInfoText.setString(resistances);
 
-                    otherInfoText.setPosition(sf::Vector2f(460, 280));
+                    otherInfoText.setPosition(sf::Vector2f(610, 330));
                 }
                 else if ((typeid(*player->getInventory()[current].item) == typeid(Weapon)))
                 {
@@ -723,7 +725,7 @@ void Shop::ShopDialogue(Player *player)
                     itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nDefense:\nSpeed:\nRarity:\nEffect:\n");
                     itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getWeaponRank()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + to_string(a->getDefense().getResistance()) + "\n" + to_string(a->getSpeed()) + "\n" + a->getRarity_text() + "\n" + a->getCombatEffect().getEffectName());
 
-                    itemDescription.setPosition(sf::Vector2f(460, 300));
+                    itemDescription.setPosition(sf::Vector2f(610, 350));
                     itemDescription.setString(a->getDescription());
 
                     string damages = "Damage Types:\n";
@@ -740,7 +742,7 @@ void Shop::ShopDialogue(Player *player)
 
                     otherInfoText.setString(damages);
 
-                    otherInfoText.setPosition(sf::Vector2f(460, 330));
+                    otherInfoText.setPosition(sf::Vector2f(610, 330));
                 }
                 else if ((typeid(*player->getInventory()[current].item) == typeid(Potion)))
                 {
@@ -749,7 +751,7 @@ void Shop::ShopDialogue(Player *player)
 
                     itemInfo.setString("Amount:\nValue:\nTier:\nType:");
                     itemValues.setString(to_string(player->getInventory()[current].amount) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getTier()) + "\n" + a->getTypeName());
-                    itemDescription.setPosition(sf::Vector2f(460, 200));
+                    itemDescription.setPosition(sf::Vector2f(610, 250));
                     itemDescription.setString(a->getDescription());
                 }
                 else if (player->getInventory()[current].item->getName() == "Empty")

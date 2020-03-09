@@ -313,7 +313,7 @@ Room createRoom9_0()
 	ret.addRightDoor(17, 19);
 	ret.addWalls(18, 19, 19, 19);
 
-	Zombie z= s.CreateZombie(1);
+	Enemy z= s.CreateZombie(1);
 	z.setStamina(2);
 
 	ret.addEnemy(z,3,3);

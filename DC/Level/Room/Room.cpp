@@ -51,12 +51,12 @@ bool Room::setStartingEnemyAmount(int amount)
 }
 
 //sets a new map of enemies and checks to make sure they are all valid
-bool Room::setEnemies(map<array<int, 2>, Zombie> enemies)
+bool Room::setEnemies(map<array<int, 2>, Enemy> enemies)
 {
 	array<int, 2> tempPos;
-	Zombie tempEnemy;
+	Enemy tempEnemy;
 
-	map<array<int, 2>, Zombie>::const_iterator it = enemies.begin();
+	map<array<int, 2>, Enemy>::const_iterator it = enemies.begin();
 	while (it != enemies.end())
 	{
 		tempPos = it->first;
@@ -82,13 +82,13 @@ bool Room::setEnemies(map<array<int, 2>, Zombie> enemies)
 }
 
 //returns the map of enemies
-map<array<int, 2>, Zombie> Room::getEnemies()
+map<array<int, 2>, Enemy> Room::getEnemies()
 {
 	return this->Enemies;
 }
 
 //adds an enemy to a given cordinate
-bool Room::addEnemy(Zombie enemy, int x, int y)
+bool Room::addEnemy(Enemy enemy, int x, int y)
 {
 	
 	enemy.setPosition({x, y});
@@ -540,15 +540,15 @@ int Room::RunRoom()
 			window.display();
 			steps++;
 		}
-		//run Zombies
-		map<array<int, 2>, Zombie> temp;
-		map<array<int, 2>, Zombie>::const_iterator it = this->Enemies.begin();
+		//run Enemys
+		map<array<int, 2>, Enemy> temp;
+		map<array<int, 2>, Enemy>::const_iterator it = this->Enemies.begin();
 		// cout<<"zed amt: "<<this->Enemies.size()<<endl;
 		int k=1;
 		while (it != this->Enemies.end())
 		{
 			// cout<<"Enemy "<<k<<" is moving"<<endl;
-			Zombie z = it->second;
+			Enemy z = it->second;
 	
 			
 			steps = 0;
@@ -558,7 +558,7 @@ int Room::RunRoom()
 
 				tempPos = z.getPosition();
 				z.move(this->RoomMap);
-				results = this->zombieCollisionCheck(&z);
+				results = this->EnemyCollisionCheck(&z);
 				//player dies
 				if (results == -1)
 				{
@@ -610,23 +610,23 @@ int Room::RunRoom()
 int Room::playerCollisionCheck()
 {
 	int result = 0;
-	//checks for Zombie Collision
+	//checks for Enemy Collision
 	if (RoomMap[player->getPosition()[0]][player->getPosition()[1]] == Enemy_RoomPieces)
 	{
 
 		cout<<"p col Enemy Level: "<<this->Enemies[player->getPosition()].getLevel()<<"Health: "<<this->Enemies[player->getPosition()].getHealth()<<" Position: "<<player->getPosition()[0]<<","<<player->getPosition()[1]<<endl;
-		result = PlayerVsZombieCombat(this->player, &this->Enemies[player->getPosition()]);
-		//if zombie dies
+		result = PlayerVsEnemyCombat(this->player, &this->Enemies[player->getPosition()]);
+		//if Enemy dies
 		if (result == 0)
 		{
 			//recieves the loot drop
-			this->player->RecieveLootDrop(this->spawner.GenerateZombieLootDrop(this->Enemies[player->getPosition()]));
+			this->player->RecieveLootDrop(this->spawner.GenerateEnemyLootDrop(this->Enemies[player->getPosition()]));
 			//clears the Enemy from the map
 			this->ClearSpot(this->player->getPosition()[0], this->player->getPosition()[1]);
-			//removes the zombie from the array
+			//removes the Enemy from the array
 			this->Enemies.erase(player->getPosition());
 		}
-		//if the player escapes the zombie
+		//if the player escapes the Enemy
 		else if (result == -2)
 		{
 			return -2;
@@ -667,26 +667,26 @@ int Room::playerCollisionCheck()
 	return result;
 }
 
-int Room::zombieCollisionCheck(Zombie *zed)
+int Room::EnemyCollisionCheck(Enemy *zed)
 {
 	int result = -3;
 	if (RoomMap[zed->getPosition()[0]][zed->getPosition()[1]] == Player_RoomPieces)
 	{
 		cout<<"z col Enemy Level: "<<zed->getLevel()<<"Health: "<<zed->getHealth()<<" Position: "<<player->getPosition()[0]<<","<<player->getPosition()[1]<<endl;
 
-		result = PlayerVsZombieCombat(this->player, zed);
-		//if zombie dies
+		result = PlayerVsEnemyCombat(this->player, zed);
+		//if Enemy dies
 		if (result == 0)
 		{
 			//recieves the loot drop
-			this->player->RecieveLootDrop(this->spawner.GenerateZombieLootDrop(*zed));
+			this->player->RecieveLootDrop(this->spawner.GenerateEnemyLootDrop(*zed));
 			//clears the Enemy from the map
 			this->ClearSpot(this->player->getPosition()[0], this->player->getPosition()[1]);
-			//removes the zombie from the array
+			//removes the Enemy from the array
 			this->Enemies.erase(player->getPosition());
 		}
 	}
-	// -3 if not-2 if the player escapes the zombie -1 if player dies 0 if zombie dies
+	// -3 if not-2 if the player escapes the Enemy -1 if player dies 0 if Enemy dies
 	return result;
 }
 

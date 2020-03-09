@@ -30,7 +30,7 @@ public:
 	//runner for the floor
 	int NavigateFloor();
 
-	//creates  room x,y with set amount of zombies if -1 then randomly select 1-5; will be initialized with initialize room
+	//creates  room x,y with set amount of Enemys if -1 then randomly select 1-5; will be initialized with initialize room
 	bool createRoom( int x, int y, int zedamt = -1, bool isShop= false);
 
 	//initializes the room[x][y] so it is at similer level to the input level(probably players level)

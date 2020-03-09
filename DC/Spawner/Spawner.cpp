@@ -5,8 +5,8 @@ Spawner::Spawner() {
 }
 
 ////creates a Zombie based on the level inputed. should be the players level
-Zombie Spawner::CreateZombie(int level, bool forceLevel ) {
-	Zombie ret;
+Enemy Spawner::CreateZombie(int level, bool forceLevel ) {
+	Enemy ret;
 	
 	//ransdomly sets name
 	ret.setName(this->ZombieNames[rand() % this->ZombieNames.size()]);
@@ -44,7 +44,7 @@ Zombie Spawner::CreateZombie(int level, bool forceLevel ) {
 
 
 ////creates the zombies lootdrop
-LootDrop Spawner::GenerateZombieLootDrop(Zombie zed) {
+LootDrop Spawner::GenerateEnemyLootDrop(Enemy zed) {
 	int chance = 0;
 	LootDrop ret;
 	//100% chance of xp drop

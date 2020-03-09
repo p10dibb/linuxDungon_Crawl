@@ -29,7 +29,7 @@ add_executable(${EXECUTABLE_NAME}   ../Main.cpp
 ../Items/Armor/Armor.cpp ../Items/Armor/Armor.h 
 ../Items/Weapon/Weapon.h ../Items/Weapon/Weapon.cpp 
 ../Creatures/Biped/Biped.h ../Creatures/Biped/Biped.cpp 
-../Creatures/Zombie/Zombie.h ../Creatures/Zombie/Zombie.cpp 
+../Creatures/Enemy/Enemy.h ../Creatures/Enemy/Enemy.cpp 
 ../Items/Potion/Potion.h ../Items/Potion/Potion.cpp 
 ../LootBox/LootBox.h ../LootBox/LootBox.cpp 
 ../Spawner/Spawner.cpp ../Spawner/Spawner.h ../Spawner/SpawnerWeapons.cpp ../Spawner/SpawnerPotion.cpp ../Spawner/SpawnerArmor.cpp ../Spawner/SpawnerSpecializedItems.cpp 

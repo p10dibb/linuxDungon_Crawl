@@ -1,7 +1,7 @@
 #pragma once
 #include "../Shop/Shop.h"
 
-int PlayerVsZombieCombat(Player* player, Zombie *zed);
+int PlayerVsEnemyCombat(Player* player, Enemy *zed);
 
 int PlayersChoices(Player* player);
 

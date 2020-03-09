@@ -1480,13 +1480,3 @@ LootBox Player::DropItem(int pos)
 	return ret;
 }
 
-bool operator==(Zombie lhs, Zombie rhs)
-{
-
-	if (lhs.getName() == rhs.getName() && lhs.getSpeed() == rhs.getSpeed() && lhs.getHealth() == rhs.getHealth())
-	{
-		{
-			return true;
-		}
-	}
-}

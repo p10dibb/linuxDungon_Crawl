@@ -277,6 +277,33 @@ home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.s:
 	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.s
 .PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.cpp.s
 
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.o: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o
+
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.o
+
+# target to build an object file
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o:
+	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.o
+
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.i: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.i
+
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.i
+
+# target to preprocess a source file
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.i:
+	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.i
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.i
+
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.s: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.s
+
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.s
+
+# target to generate assembly for a file
+home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.s:
+	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.s
+.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.cpp.s
+
 home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.o: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.cpp.o
 
 .PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.o
@@ -384,33 +411,6 @@ home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.s: home/paul
 home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.s:
 	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.s
 .PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.cpp.s
-
-home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.o: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o
-
-.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.o
-
-# target to build an object file
-home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o:
-	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o
-.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.o
-
-home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.i: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.i
-
-.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.i
-
-# target to preprocess a source file
-home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.i:
-	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.i
-.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.i
-
-home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.s: home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.s
-
-.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.s
-
-# target to generate assembly for a file
-home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.s:
-	$(MAKE) -f CMakeFiles/Runner.dir/build.make CMakeFiles/Runner.dir/home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.s
-.PHONY : home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.cpp.s
 
 home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.o: home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.cpp.o
 
@@ -950,6 +950,9 @@ help:
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.o"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.i"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Creature/Creature.s"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.o"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.i"
+	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Enemy/Enemy.s"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.o"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.i"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/Player.s"
@@ -962,9 +965,6 @@ help:
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.o"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.i"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Player/PlayerStats.s"
-	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.o"
-	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.i"
-	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/Creatures/Zombie/Zombie.s"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.o"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.i"
 	@echo "... home/paul/Desktop/linuxDungon_Crawl/DC/DamageTypes/DamageTypes.s"
