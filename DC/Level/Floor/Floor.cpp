@@ -136,14 +136,38 @@ bool Floor::initializeRoom(int level, int x, int y)
 	Spawner s;
 	Enemy z;
 
-	cout << "create "<<this->FloorMap[x][y].getStartingEnemyAmount()<< " enemies" << endl;
-	for (int i = 0; i < this->FloorMap[x][y].getStartingEnemyAmount(); i++)
-	{
+	// cout << "create "<<this->FloorMap[x][y].getStartingEnemyAmount()<< " enemies" << endl;
+	vector<array<int,2>> enemies=this->FloorMap[x][y].getStartingEnemyAmount();
+	for(int i=0;i<enemies.size();i++){
+		for (int j=0;j<enemies[i][0];j++){
 
-		z = spawner.CreateZombie(level);
-		while (!this->FloorMap[x][y].addEnemy(z, rand() % this->FloorMap[x][y].getMaxX(), rand() % this->FloorMap[x][y].getMaxY()))
+			switch ((Enemy_enum)enemies[i][1])
+			{
+			case Zombie_Enemy:z=spawner.CreateZombie(level);cout<<"Creating Zed"<<endl;
+				break;
+			case Rodent_Enemy:z=spawner.CreateRodent(level);cout<<"Creating Rodent"<<endl;
+				break;
+			case Human_Enemy: z=spawner.CreateHuman(level);cout<<"Creating Human"<<endl;
+				break;
+			case Boss_Enemy:z=spawner.CreateBoss(level);cout<<"Creating Boss"<<endl;
+				break;
+			
+			default:
+				break;
+			}
+			while (!this->FloorMap[x][y].addEnemy(z, rand() % this->FloorMap[x][y].getMaxX(), rand() % this->FloorMap[x][y].getMaxY()))
 			;
+
+		}
 	}
+
+	// for (int i = 0; i < this->FloorMap[x][y].getStartingEnemyAmount(); i++)
+	// {
+
+	// 	z = spawner.CreateZombie(level);
+	// 	while (!this->FloorMap[x][y].addEnemy(z, rand() % this->FloorMap[x][y].getMaxX(), rand() % this->FloorMap[x][y].getMaxY()))
+	// 		;
+	// }
 
 	if (this->FloorMap[x][y].getEnemies().size() != 0)
 	{

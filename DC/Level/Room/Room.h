@@ -24,7 +24,10 @@ private:
 	bool isShop = false;
 
 	//amount of enemies at the initialization of the room
-	int startingEnemyAmount = 0;
+	// int startingEnemyAmount = 0;
+
+	//array[0]=amt array[1]=enemy type;
+	vector<array<int,2>> starting_Enemy_Amount;
 
 
 	//if the room contains a door
@@ -53,10 +56,13 @@ vector<vector<sf::RectangleShape>> RoomMap_Sfml;
 	Room();
 
 	//gets the amount of enemies at the start of the level
-	int getStartingEnemyAmount();
+	vector<array<int,2>> getStartingEnemyAmount();
 
 	//sets the amount of enemies at the start of the level 0<amount<roomX*roomY
-	bool setStartingEnemyAmount(int amount);
+	bool setStartingEnemyAmount(vector<array<int,2>> enemies);
+
+	//adds enemies to the vector
+	bool addEnemies(int amt,Enemy_enum type);
 
 	Player *getPlayer();
 

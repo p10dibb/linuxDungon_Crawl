@@ -10,6 +10,7 @@ Enemy Spawner::CreateZombie(int level, bool forceLevel ) {
 	
 	//ransdomly sets name
 	ret.setName(this->ZombieNames[rand() % this->ZombieNames.size()]);
+	ret.setType(Zombie_Enemy);
 
 	//sets level to range between playerlevel-3 and playerlevel+3
 	if (forceLevel) {
@@ -41,6 +42,147 @@ Enemy Spawner::CreateZombie(int level, bool forceLevel ) {
 
 
 }
+
+////creates a Rodent based on the level inputed. should be the players level
+Enemy Spawner::CreateRodent(int level, bool forceLevel ) {
+	Enemy ret;
+	
+	//ransdomly sets name
+	ret.setName(this->RodentNames[rand() % this->RodentNames.size()]);
+	ret.setType(Rodent_Enemy);
+
+	//sets level to range between playerlevel-3 and playerlevel+3
+	if (forceLevel) {
+		ret.setLevel(level);
+	}
+	else {
+		ret.setLevel((level - 3) + rand() % 6);
+	}
+
+	ret.setPosition({ 1 + rand() % 8, 1 + rand() % 8 });
+	//sets health and max health to 10 times its level
+	ret.setHealth(4 * ret.getLevel());
+	ret.setMaxHealth(4 * ret.getLevel());
+		
+	//sets base damage, defense, speed and stamina based on its level
+	ret.setDamage((ret.getLevel()+1 / 6) + rand() % ret.getLevel());
+	ret.setDefense((ret.getLevel()+1 / 6) + rand() % (ret.getLevel()+1 / 3));
+	ret.setSpeed((ret.getLevel()+1 ) + rand() % ret.getLevel()*2);
+	ret.setStamina(6+rand() % (6+ret.getLevel()));
+
+	//sets weapon
+	ret.setWeapon(CreateClaws(ret.getLevel(), true));
+
+	//sets xp drop
+	ret.setXP(ret.getLevel() + (ret.getDamage() + ret.getDefense()+ ret.getSpeed())/3);
+
+	
+	return ret;
+
+
+}
+
+////creates a Human based on the level inputed. should be the players level
+Enemy Spawner::CreateHuman(int level, bool forceLevel ) {
+	Enemy ret;
+	
+	//ransdomly sets name
+	ret.setName(this->HumanNames[rand() % this->HumanNames.size()]);
+	ret.setType(Human_Enemy);
+
+	//sets level to range between playerlevel-3 and playerlevel+3
+	if (forceLevel) {
+		ret.setLevel(level);
+	}
+	else {
+		ret.setLevel((level - 3) + rand() % 6);
+	}
+
+	ret.setPosition({ 1 + rand() % 8, 1 + rand() % 8 });
+	//sets health and max health to 10 times its level
+	ret.setHealth(10 * ret.getLevel());
+	ret.setMaxHealth(10 * ret.getLevel());
+		
+	//sets base damage, defense, speed and stamina based on its level
+	ret.setDamage((ret.getLevel()+1 / 2) + rand() % ret.getLevel());
+	ret.setDefense((ret.getLevel()+1 / 4) + rand() % (ret.getLevel()+1 / 2));
+	ret.setSpeed((ret.getLevel()+1 / 2) + rand() % ret.getLevel());
+	ret.setStamina(rand() % 5);
+
+	//sets weapon
+	ret.setWeapon(this->CreateRandomWeapon(ret.getLevel(), true));
+
+	ret.setHands(this->CreateGloves(ret.getLevel(),Normal_ArmorClass,true));
+
+	ret.setHead(this->CreateHelmet(ret.getLevel(),Normal_ArmorClass,true));
+	ret.setTorso(this->CreateChest(ret.getLevel(),Normal_ArmorClass,true));
+	ret.setLegs(this->CreatePants(ret.getLevel(),Normal_ArmorClass,true));
+	ret.setFeet(this->CreateBoots(ret.getLevel(),Normal_ArmorClass,true));
+
+
+
+
+
+	//sets xp drop
+	ret.setXP(ret.getLevel() + (ret.getDamage() + ret.getDefense()+ ret.getSpeed())/3);
+
+	
+	return ret;
+
+
+}
+
+////creates a Boss based on the level inputed. should be the players level
+Enemy Spawner::CreateBoss(int level, bool forceLevel ) {
+	Enemy ret;
+	
+	//ransdomly sets name
+	ret.setName(this->BossNames[rand() % this->BossNames.size()]);
+	ret.setType(Boss_Enemy);
+
+	//sets level to range between playerlevel-3 and playerlevel+3
+	if (forceLevel) {
+		ret.setLevel(level);
+	}
+	else {
+		ret.setLevel((level - 3) + rand() % 6);
+	}
+
+	ret.setPosition({ 1 + rand() % 8, 1 + rand() % 8 });
+	//sets health and max health to 10 times its level
+	ret.setHealth(50 * ret.getLevel());
+	ret.setMaxHealth(50 * ret.getLevel());
+		
+	//sets base damage, defense, speed and stamina based on its level
+	ret.setDamage((ret.getLevel()+1 / 2) + rand() % ret.getLevel());
+	ret.setDefense((ret.getLevel()+1 / 4) + rand() % (ret.getLevel()+1 / 2));
+	ret.setSpeed((ret.getLevel()+1 / 2) + rand() % ret.getLevel());
+	ret.setStamina(rand() % 5);
+
+	//sets weapon
+	ret.setWeapon(this->CreateRandomWeapon(ret.getLevel(), true));
+
+	ret.setHands(this->CreateGloves(ret.getLevel(),Normal_ArmorClass,true));
+
+	ret.setHead(this->CreateHelmet(ret.getLevel(),Normal_ArmorClass,true));
+	ret.setTorso(this->CreateChest(ret.getLevel(),Normal_ArmorClass,true));
+	ret.setLegs(this->CreatePants(ret.getLevel(),Normal_ArmorClass,true));
+	ret.setFeet(this->CreateBoots(ret.getLevel(),Normal_ArmorClass,true));
+
+
+
+
+
+	//sets xp drop
+	ret.setXP(ret.getLevel() + (ret.getDamage() + ret.getDefense()+ ret.getSpeed())/3);
+
+	
+	return ret;
+
+
+}
+
+
 
 
 ////creates the zombies lootdrop

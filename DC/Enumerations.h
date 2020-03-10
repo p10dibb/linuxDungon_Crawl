@@ -49,3 +49,6 @@ enum WeaponTypes_enum{NULL_WeaponType,Sword_WeaponType, Shield_WeaponType, Dagge
 
 //the markers for Room maps
 enum RoomPieces_enum{Empty_RoomPieces, Wall_RoomPieces, UpDoor_RoomPieces, RightDoor_RoomPieces, LeftDoor_RoomPieces, DownDoor_RoomPieces, Enemy_RoomPieces, Shop_RoomPieces, Loot_RoomPieces, Player_RoomPieces};
+
+//different enemy types
+enum Enemy_enum{NULL_Enemy,Zombie_Enemy,Rodent_Enemy, Boss_Enemy, Human_Enemy};

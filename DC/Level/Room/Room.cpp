@@ -27,27 +27,35 @@ bool inBounds(array<int, 2> pos)
 }
 
 //gets the amount of enemies at the start of the level
-int Room::getStartingEnemyAmount()
+vector<array<int,2>> Room::getStartingEnemyAmount()
 {
-	return this->startingEnemyAmount;
+	return this->starting_Enemy_Amount;
 }
 
-//sets the amount of enemies at the start of the level 0<amount<roomX*roomY
-bool Room::setStartingEnemyAmount(int amount)
+bool Room::setStartingEnemyAmount(vector<array<int,2>> enemies)
 {
-	if (amount < 0)
-	{
-		this->startingEnemyAmount = 0;
-		return false;
+	this->starting_Enemy_Amount=enemies;
+	return true;
+}
+
+//sets the amount of enemies at the start of the level 0<amount<roomX*roomY/2
+bool Room::addEnemies(int amt, Enemy_enum type){
+	int tot=0;
+	array<int,2> temp;
+
+	for(int i=0; i<this->starting_Enemy_Amount.size();i++){
+		tot+=this->starting_Enemy_Amount[i][0];
 	}
-	else if (amount > this->maxX * this->maxY)
-	{
-		this->startingEnemyAmount = this->maxX * this->maxY;
+
+	if(tot+amt<(this->maxX*maxY)/2){
+	temp[0]=amt;
+	temp[1]=type;
+	this->starting_Enemy_Amount.push_back(temp);
+	return true;
+	}else{
 		return false;
 	}
 
-	this->startingEnemyAmount = amount;
-	return true;
 }
 
 //sets a new map of enemies and checks to make sure they are all valid

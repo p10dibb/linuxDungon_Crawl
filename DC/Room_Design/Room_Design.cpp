@@ -36,7 +36,8 @@ Room createRoom0_0()
 	ret.addWalls(6, 9, 18, 9);
 
 	ret.PlaceShop(9,5);
-	ret.setStartingEnemyAmount(6);
+	ret.addEnemies(3,Zombie_Enemy);
+	ret.addEnemies(3,Rodent_Enemy);
 	ret.setRoomType("Room 0_0");
 	return ret;
 }
@@ -424,7 +425,8 @@ Room createDefaultRoom_V2(){
 	ret.addWalls(29,16,29,19);
 	ret.addWalls(19,19,19,29);
 
-	ret.setStartingEnemyAmount(5);
+	// ret.setStartingEnemyAmount(5);
+	ret.addEnemies(5,Human_Enemy);
 
 	ret.addLootBox((rand()%7)+10,(rand()%7)+10,LootBox());
 
@@ -460,7 +462,8 @@ Room createDefaultRoom_V3(){
 	ret.addDownDoor(29,3);
 	ret.addWalls(29,4,29,9);
 
-	ret.setStartingEnemyAmount(3);
+	// ret.setStartingEnemyAmount(3);
+	ret.addEnemies(3,Rodent_Enemy);
 
 	ret.setRoomType("Verticle hall");
 
@@ -494,7 +497,8 @@ Room createDefaultRoom_V4(){
 	ret.addDownDoor(9,19);
 	ret.addWalls(9,20,9,29);
 
-	ret.setStartingEnemyAmount(3);
+	// ret.setStartingEnemyAmount(3);
+	ret.addEnemies(3,Zombie_Enemy);
 
 	ret.setRoomType("Horizontal Hall");
 	return ret;

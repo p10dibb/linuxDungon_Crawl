@@ -23,6 +23,15 @@ private:
 	//Zombie names for random generation
 	array<string, 8> ZombieNames = { "Zombie", "Ghoul", "Skeleton", "Corpse Eater", "Grave Walker", "Pale", "Rotter", "Resurected" };
 
+	//rodent names for random generating
+	array<string,3> RodentNames={"Giant Rat", "Sewer Rat","R.O.U.S"	};
+
+	//human enemy names
+	array<string,3> HumanNames={"Knight","Bandit","Joe"};
+
+	//Boss Names
+	array<string,3> BossNames={"Ogre","Big Boss","Dread Knight"};
+
 	//Weapons++++++++++++++++++++++++++++++++++++++++++++++++++++
 	//Descriptor names for random name generation by levell		0-6							8-14												15-24											25-39													40+		
 	array<string,5> WeaponDescriptors[5] = { {"Wooden","Weak","Plastic","Super Common","Pitiful"} ,{"Stone","Dull","Damaged","Rusted","Common"},{"Iron","Adaquate","Usable","Bronze", "Rare"},{"Steel","Good", "Strong","Vicious","Sharp"},{"Diamond","Amazing","Angelic","Legendary","God Like"} };
@@ -69,6 +78,10 @@ private:
 public:
 	Spawner();
 	Enemy CreateZombie(int level, bool forceLevel=false );
+	Enemy CreateRodent(int level, bool forceLevel=false );
+	Enemy CreateHuman(int level, bool forceLevel=false );
+	Enemy CreateBoss( int level, bool forceLevel=false);
+	
 	LootDrop GenerateEnemyLootDrop(Enemy zed);
 
 	//Weapons -----in SpawnerWeapons.cpp

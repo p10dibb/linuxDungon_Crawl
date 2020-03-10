@@ -341,6 +341,8 @@ int Player::InventoryDialogue()
 				itemValues.setString(to_string(this->Inventory[cur].amount) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getTier()) + "\n" + a->getTypeName());
 				itemDescription.setPosition(sf::Vector2f(460, 200));
 				itemDescription.setString(a->getDescription());
+				otherInfoText.setString("");
+
 				commandsText.setString("[1]:Use\t\t[2]:Exit");
 			}
 			else if (this->Inventory[cur].item->getName() == "Empty")

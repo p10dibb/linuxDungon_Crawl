@@ -15,6 +15,8 @@ private:
 	//the distance that the zombie moves
 	int moveAmt;
 
+	Enemy_enum type;
+
 
 public:
 	
@@ -41,9 +43,20 @@ public:
 
 	void move(array<array<RoomPieces_enum, 50>,50> map);
 
+	Enemy_enum getType();
+	bool setType(Enemy_enum type);
+
 
 };
 //inputs a damage amount , damage type, and resistances and reduces damage to the proper damage
 int ReduceDamage(int damage,DamageTypes_enum damageTypes,vector<ActiveEffects> resistances);
 
 // bool operator== (Zombie lhs, Zombie rhs);
+
+
+
+//Enemy_enum Descriptions
+	//Rodent:
+	//Zombie:
+	//Human:
+	//Boss:
