@@ -146,7 +146,7 @@ void Shop::ShopDialogue(Player *player)
     //the text for extra info
     sf::Text otherInfoText("", font, 20);
 
-    sf::Text commands("[1]:Buy [2]:Sell [3]:Exit", font, 30);
+    sf::Text commands("[1]:Buy [2]:Sell [Esc]:Exit", font, 30);
     commands.setPosition(270, 500);
 
     sf::RectangleShape storeFront(sf::Vector2f(600, 450));
@@ -173,7 +173,19 @@ void Shop::ShopDialogue(Player *player)
         for (int j = 0; j < 10; j++)
         {
             slots[(i * 10) + j].setSize(sf::Vector2f(30, 30));
-            slots[(i * 10) + j].setFillColor(sf::Color::Blue);
+
+            switch(player->getInventory()[(i*10)+j].item->getRarity()){
+				case NULL_ItemRarity:slots[(i * 10) + j].setFillColor(sf::Color::Cyan);break;
+				case Common_ItemRarity:slots[(i * 10) + j].setFillColor(sf::Color::White);break;
+				case UnCommon_ItemRarity:slots[(i * 10) + j].setFillColor(sf::Color::Green);break;
+				case Rare_ItemRarity:slots[(i * 10) + j].setFillColor(sf::Color::Green);break;
+				case Legendary_ItemRarity:slots[(i * 10) + j].setFillColor(sf::Color::Magenta);break;
+				case Unique_ItemRarity:slots[(i * 10) + j].setFillColor(sf::Color::Yellow);break;
+				case DEVELOPER_ItemRarity:slots[(i * 10) + j].setFillColor(sf::Color::Red);break;
+				default: break;
+
+
+			}
             slots[(i * 10) + j].setPosition(sf::Vector2f(10 + (42 * j), 100 + (42 * i)));
         }
     }
@@ -259,6 +271,10 @@ void Shop::ShopDialogue(Player *player)
             choice = 3;
             release = true;
         }
+        else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
+            choice=-2;
+            release=true;
+        }
         else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) || sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
         {
             direct = Left_Direction;
@@ -288,7 +304,7 @@ void Shop::ShopDialogue(Player *player)
                 {
                 case 1:
                     mode = 1;
-                    commands.setString("[1]:Back [2]:Buy");
+                    commands.setString("[Esc]:Back [2]:Buy");
                     contentsString = "";
                     for (int i = 0; i < this->Inventory.size(); i++)
                     {
@@ -383,7 +399,7 @@ void Shop::ShopDialogue(Player *player)
                     break;
                 case 2:
                     mode = 2;
-                    commands.setString("[1]:Back [2]:Sell");
+                    commands.setString("[Esc]:Back [2]:Sell");
                     current=0;
                     slotHighlighter.setPosition(sf::Vector2f(slots[current].getPosition().x - 5, slots[current].getPosition().y - 5));
 
@@ -469,7 +485,7 @@ void Shop::ShopDialogue(Player *player)
                         //normal item
                     }
                     break;
-                case 3:
+                case -2:
                     window.close();
                 default:
                     break;
@@ -479,9 +495,9 @@ void Shop::ShopDialogue(Player *player)
             {
                 switch (choice)
                 {
-                case 1:
+                case -2:
                     mode = 0;
-                    commands.setString("[1]:Buy [2]:Sell [3]:Exit");
+                    commands.setString("[1]:Buy [2]:Sell [Esc]:Exit");
                     showError = false;
 
                     break;
@@ -642,9 +658,9 @@ void Shop::ShopDialogue(Player *player)
             {
                 switch (choice)
                 {
-                case 1:
+                case -2:
                     mode = 0;
-                    commands.setString("[1]:Buy [2]:Sell [3]:Exit");
+                    commands.setString("[1]:Buy [2]:Sell [Esc]:Exit");
                     showError = false;
                     break;
                 case 2: //retrieves the item to be sold from player inventory

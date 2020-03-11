@@ -48,11 +48,16 @@ private:
 	bool visited=false;
 
 	string roomType="Default Room";
+	queue<array<int,2>> Enemy_SpawnPoints;
+
 
 public:
 	map<array<int, 2>, Enemy> Enemies;
 
 vector<vector<sf::RectangleShape>> RoomMap_Sfml;
+
+
+
 	Room();
 
 	//gets the amount of enemies at the start of the level
@@ -161,4 +166,10 @@ vector<vector<sf::RectangleShape>> RoomMap_Sfml;
 
 	string getRoomType();
 	bool setRoomType(string type);
+
+	//adds a new spaw point to the queue
+	bool addSpawnPoints(array<int,2> newPos);
+
+	//pops the next point from the queue and if empty returns {-1,-1};
+	array<int,2> getSpawnpoint();
 };

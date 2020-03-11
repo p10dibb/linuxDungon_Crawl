@@ -5,6 +5,7 @@ Potion::Potion() {
 	this->Tier = 1;
 	this->Type = NULL_PotionType;
 	this->BaseBooster = 0;
+	this->setRarity(Common_ItemRarity);
 	this->setStackSize(5);
 
 }

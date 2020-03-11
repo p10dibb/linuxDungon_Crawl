@@ -23,6 +23,7 @@ Item::Item() {
 	this->Weight = 0;
 	this->StackSize = 1;
 	this->Description="";
+	this->Rarity=NULL_ItemRarity;
 }
 
 
@@ -84,4 +85,34 @@ string Item::getDescription(){
 }
 void Item::setDescription(string description){
 	this->Description=description;
+}
+
+string Item::getRarity_text()
+{
+	switch (this->getRarity())
+	{
+	case Common_ItemRarity:
+		return "Common";
+	case UnCommon_ItemRarity:
+		return "UnCommon";
+	case Rare_ItemRarity:
+		return "Rare";
+	case Legendary_ItemRarity:
+		return "Legendary";
+	case Unique_ItemRarity:
+		return "Unique";
+	case DEVELOPER_ItemRarity:
+		"DEVELOPER";
+	default:
+		return "Null";
+	}
+}
+
+ItemRarity_enum Item::getRarity()
+{
+	return this->Rarity;
+}
+void Item::setRarity(ItemRarity_enum rarity)
+{
+	this->Rarity = rarity;
 }

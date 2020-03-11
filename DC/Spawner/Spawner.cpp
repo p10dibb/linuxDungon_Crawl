@@ -32,7 +32,7 @@ Enemy Spawner::CreateZombie(int level, bool forceLevel ) {
 	ret.setStamina(rand() % 5);
 
 	//sets weapon
-	ret.setWeapon(CreateClaws(ret.getLevel(), true));
+	ret.addWeapon(CreateClaws(ret.getLevel(), true));
 
 	//sets xp drop
 	ret.setXP(ret.getLevel() + (ret.getDamage() + ret.getDefense()+ ret.getSpeed())/3);
@@ -71,7 +71,7 @@ Enemy Spawner::CreateRodent(int level, bool forceLevel ) {
 	ret.setStamina(6+rand() % (6+ret.getLevel()));
 
 	//sets weapon
-	ret.setWeapon(CreateClaws(ret.getLevel(), true));
+	ret.addWeapon(CreateClaws(ret.getLevel(), true));
 
 	//sets xp drop
 	ret.setXP(ret.getLevel() + (ret.getDamage() + ret.getDefense()+ ret.getSpeed())/3);
@@ -110,7 +110,11 @@ Enemy Spawner::CreateHuman(int level, bool forceLevel ) {
 	ret.setStamina(rand() % 5);
 
 	//sets weapon
-	ret.setWeapon(this->CreateRandomWeapon(ret.getLevel(), true));
+	ret.addWeapon(this->CreateRandomWeapon(ret.getLevel(), true));
+	if(rand()%2==0){
+	ret.addWeapon(this->CreateRandomWeapon(ret.getLevel(), true));
+
+	}
 
 	ret.setHands(this->CreateGloves(ret.getLevel(),Normal_ArmorClass,true));
 
@@ -160,7 +164,7 @@ Enemy Spawner::CreateBoss(int level, bool forceLevel ) {
 	ret.setStamina(rand() % 5);
 
 	//sets weapon
-	ret.setWeapon(this->CreateRandomWeapon(ret.getLevel(), true));
+	ret.addWeapon(this->CreateRandomWeapon(ret.getLevel(), true));
 
 	ret.setHands(this->CreateGloves(ret.getLevel(),Normal_ArmorClass,true));
 
@@ -199,7 +203,7 @@ LootDrop Spawner::GenerateEnemyLootDrop(Enemy zed) {
 	}
 	//10% chance of weapon drop
 	if (rand() % 10 == 0) {
-		ret.weapon = zed.getWeapon();
+		ret.weapon = zed.getWeapons()[rand()%zed.getWeapons().size()];
 	}
 
 	// 10% chance to drop armour

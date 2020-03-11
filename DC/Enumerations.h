@@ -35,7 +35,7 @@ enum ArmorClass_enum {  NULL_ArmorClass,Light_ArmorClass, Normal_ArmorClass, Hea
 enum ArmorType_enum {NULL_ArmorType, Helmet_ArmorType, Chest_ArmorType, Gloves_ArmorType, Pants_ArmorType, Boots_ArmorType};
 
 //Item Rarity Level
-enum ItemRarity_enum{Common_ItemRarity, UnCommon_ItemRarity, Rare_ItemRarity,Legendary_ItemRarity,Unique_ItemRarity,DEVELOPER_ItemRarity};
+enum ItemRarity_enum{NULL_ItemRarity,Common_ItemRarity, UnCommon_ItemRarity, Rare_ItemRarity,Legendary_ItemRarity,Unique_ItemRarity,DEVELOPER_ItemRarity};
 
 //Types of Potions Described in Potions.h
 enum PotionTypes_enum { NULL_PotionType, 

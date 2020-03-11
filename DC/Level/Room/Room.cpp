@@ -27,35 +27,39 @@ bool inBounds(array<int, 2> pos)
 }
 
 //gets the amount of enemies at the start of the level
-vector<array<int,2>> Room::getStartingEnemyAmount()
+vector<array<int, 2>> Room::getStartingEnemyAmount()
 {
 	return this->starting_Enemy_Amount;
 }
 
-bool Room::setStartingEnemyAmount(vector<array<int,2>> enemies)
+bool Room::setStartingEnemyAmount(vector<array<int, 2>> enemies)
 {
-	this->starting_Enemy_Amount=enemies;
+	this->starting_Enemy_Amount = enemies;
 	return true;
 }
 
 //sets the amount of enemies at the start of the level 0<amount<roomX*roomY/2
-bool Room::addEnemies(int amt, Enemy_enum type){
-	int tot=0;
-	array<int,2> temp;
+bool Room::addEnemies(int amt, Enemy_enum type)
+{
+	int tot = 0;
+	array<int, 2> temp;
 
-	for(int i=0; i<this->starting_Enemy_Amount.size();i++){
-		tot+=this->starting_Enemy_Amount[i][0];
+	for (int i = 0; i < this->starting_Enemy_Amount.size(); i++)
+	{
+		tot += this->starting_Enemy_Amount[i][0];
 	}
 
-	if(tot+amt<(this->maxX*maxY)/2){
-	temp[0]=amt;
-	temp[1]=type;
-	this->starting_Enemy_Amount.push_back(temp);
-	return true;
-	}else{
+	if (tot + amt < this->Enemy_SpawnPoints.size())
+	{
+		temp[0] = amt;
+		temp[1] = type;
+		this->starting_Enemy_Amount.push_back(temp);
+		return true;
+	}
+	else
+	{
 		return false;
 	}
-
 }
 
 //sets a new map of enemies and checks to make sure they are all valid
@@ -98,7 +102,7 @@ map<array<int, 2>, Enemy> Room::getEnemies()
 //adds an enemy to a given cordinate
 bool Room::addEnemy(Enemy enemy, int x, int y)
 {
-	
+
 	enemy.setPosition({x, y});
 
 	if (Enemies.count({x, y}))
@@ -289,10 +293,10 @@ bool Room::PlaceShop(int x, int y)
 		return false;
 	}
 
-	this->isShop=true;
-	this->shop.setPosition({x,y});
+	this->isShop = true;
+	this->shop.setPosition({x, y});
 	this->RoomMap[x][y] = Shop_RoomPieces;
-	
+
 	return true;
 }
 
@@ -452,7 +456,6 @@ void Room::DisplayRoom(sf::RenderWindow *window)
 				window->draw(this->RoomMap_Sfml[i][j]);
 				break;
 			}
-	
 		}
 	}
 }
@@ -460,7 +463,7 @@ void Room::DisplayRoom(sf::RenderWindow *window)
 //main loop that runs while in this room
 int Room::RunRoom()
 {
-		sf::Font font;
+	sf::Font font;
 	font.loadFromFile("../Fonts/Montserrat-Regular.ttf");
 	int results = 0;
 	array<int, 2> tempPos;
@@ -468,8 +471,8 @@ int Room::RunRoom()
 
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Run Room");
 
-	sf::Text whosTurn("Players Turn",font,30);
-	whosTurn.setPosition(sf::Vector2f(10,10));
+	sf::Text whosTurn("Players Turn", font, 30);
+	whosTurn.setPosition(sf::Vector2f(10, 10));
 
 	// vector<sf::Text> otherText;
 
@@ -542,7 +545,7 @@ int Room::RunRoom()
 			window.draw(whosTurn);
 
 			this->PlacePlayer(player->getPosition()[0], player->getPosition()[1]);
-			
+
 			this->DisplayRoom(&window);
 
 			window.display();
@@ -552,13 +555,12 @@ int Room::RunRoom()
 		map<array<int, 2>, Enemy> temp;
 		map<array<int, 2>, Enemy>::const_iterator it = this->Enemies.begin();
 		// cout<<"zed amt: "<<this->Enemies.size()<<endl;
-		int k=1;
+		int k = 1;
 		while (it != this->Enemies.end())
 		{
 			// cout<<"Enemy "<<k<<" is moving"<<endl;
 			Enemy z = it->second;
-	
-			
+
 			steps = 0;
 			while (steps < z.getStamina())
 			{
@@ -591,7 +593,8 @@ int Room::RunRoom()
 					whosTurn.setString("Players Turn");
 
 					//should replace with something else later
-					for(int delay=0;delay<50000000;delay++);
+					for (int delay = 0; delay < 50000000; delay++)
+						;
 				}
 				else if (results == 0)
 				{
@@ -622,7 +625,7 @@ int Room::playerCollisionCheck()
 	if (RoomMap[player->getPosition()[0]][player->getPosition()[1]] == Enemy_RoomPieces)
 	{
 
-		cout<<"p col Enemy Level: "<<this->Enemies[player->getPosition()].getLevel()<<"Health: "<<this->Enemies[player->getPosition()].getHealth()<<" Position: "<<player->getPosition()[0]<<","<<player->getPosition()[1]<<endl;
+		cout << "p col Enemy Level: " << this->Enemies[player->getPosition()].getLevel() << "Health: " << this->Enemies[player->getPosition()].getHealth() << " Position: " << player->getPosition()[0] << "," << player->getPosition()[1] << endl;
 		result = PlayerVsEnemyCombat(this->player, &this->Enemies[player->getPosition()]);
 		//if Enemy dies
 		if (result == 0)
@@ -680,7 +683,7 @@ int Room::EnemyCollisionCheck(Enemy *zed)
 	int result = -3;
 	if (RoomMap[zed->getPosition()[0]][zed->getPosition()[1]] == Player_RoomPieces)
 	{
-		cout<<"z col Enemy Level: "<<zed->getLevel()<<"Health: "<<zed->getHealth()<<" Position: "<<player->getPosition()[0]<<","<<player->getPosition()[1]<<endl;
+		cout << "z col Enemy Level: " << zed->getLevel() << "Health: " << zed->getHealth() << " Position: " << player->getPosition()[0] << "," << player->getPosition()[1] << endl;
 
 		result = PlayerVsEnemyCombat(this->player, zed);
 		//if Enemy dies
@@ -887,10 +890,53 @@ bool Room::addLootBox(int x, int y, LootBox loot)
 	return true;
 }
 
+string Room::getRoomType()
+{
+	return this->roomType;
+}
+bool Room::setRoomType(string type)
+{
+	this->roomType = type;
+}
 
-	string Room::getRoomType(){
-		return this->roomType;
+//adds a new spaw point to the queue
+bool Room::addSpawnPoints(array<int, 2> newPos)
+{
+	queue<array<int, 2>> tempQueue;
+	array<int, 2> tempPos;
+	bool duplicate = false;
+
+	if(newPos[0]>this->maxX || newPos[0]<0|| newPos[1]>this->maxY || newPos[1]<0){
+		return false;
 	}
-	bool Room::setRoomType(string type){
-		this->roomType=type;
+
+	while (!this->Enemy_SpawnPoints.empty())
+	{
+		tempPos = this->Enemy_SpawnPoints.front();
+		this->Enemy_SpawnPoints.pop();
+		if (tempPos == newPos)
+		{
+			duplicate = true;
+		}
+		tempQueue.push(tempPos);
 	}
+
+	if (!duplicate)
+	{
+		tempQueue.push(newPos);
+	}
+	this->Enemy_SpawnPoints = tempQueue;
+
+	return !duplicate;
+}
+
+//pops the next point from the queue and if empty returns {-1,-1};
+array<int, 2> Room::getSpawnpoint()
+{
+	array<int,2> temp ={-1,-1};
+	if(!this->Enemy_SpawnPoints.empty()){
+		temp=this->Enemy_SpawnPoints.front();
+		this->Enemy_SpawnPoints.pop();
+	}
+	return temp;
+}

@@ -36,6 +36,22 @@ Room createRoom0_0()
 	ret.addWalls(6, 9, 18, 9);
 
 	ret.PlaceShop(9,5);
+
+	ret.addSpawnPoints({3,3});
+	ret.addSpawnPoints({6,8});
+	ret.addSpawnPoints({1,4});
+	ret.addSpawnPoints({4,1});
+	ret.addSpawnPoints({8,8});
+
+	ret.addSpawnPoints({7,2});
+	ret.addSpawnPoints({6,5});
+
+
+
+
+
+
+
 	ret.addEnemies(3,Zombie_Enemy);
 	ret.addEnemies(3,Rodent_Enemy);
 	ret.setRoomType("Room 0_0");
@@ -62,6 +78,14 @@ Room createRoom1_0()
 	ret.addWalls(9, 0, 9, 19);
 
 	ret.addWalls(9, 0, 9, 19);
+
+	ret.addSpawnPoints({1,5});
+	ret.addSpawnPoints({1,3});
+	ret.addSpawnPoints({6,15});
+	ret.addSpawnPoints({7,18});
+	ret.addSpawnPoints({5,13});
+	ret.addSpawnPoints({2,12});
+
 	ret.setRoomType("Room 1_0");
 	return ret;
 }
@@ -75,8 +99,7 @@ Room createDefaultRoom_V1()
 	Spawner s;
 	Room ret;
 	LootBox l;
-	l.setMoney(12);
-	l.addItem(s.CreateRandomWeapon(1));
+	
 
 	ret.setMaxX(10);
 
@@ -113,7 +136,12 @@ Room createDefaultRoom_V1()
 	ret.addRightDoor(5, 9);
 
 	ret.addWalls(6, 9, 9, 9);
-
+	ret.addSpawnPoints({1,6});
+	ret.addSpawnPoints({1,3});
+	ret.addSpawnPoints({6,8});
+	ret.addSpawnPoints({7,3});
+	ret.addSpawnPoints({5,5});
+	ret.addSpawnPoints({2,4});
 	ret.addEnemy(s.CreateZombie(1),4,4);
 	ret.addLootBox(6,6, l);
 	ret.setRoomType("Small square");
@@ -159,6 +187,12 @@ Room createLeftRoom()
 
 	ret.addWalls(6, 9, 9, 9);
 
+	ret.addSpawnPoints({2,5});
+	ret.addSpawnPoints({1,3});
+	ret.addSpawnPoints({6,8});
+	ret.addSpawnPoints({7,2});
+	ret.addSpawnPoints({5,5});
+	ret.addSpawnPoints({2,8});
 
 	ret.setRoomType("Left Room");
 
@@ -199,6 +233,12 @@ Room createRightRoom()
 	ret.addWalls(9, 6, 9, 9);
 
 	ret.addWalls(0, 9, 9, 9);
+		ret.addSpawnPoints({1,5});
+	ret.addSpawnPoints({1,3});
+	ret.addSpawnPoints({6,6});
+	ret.addSpawnPoints({7,3});
+	ret.addSpawnPoints({5,4});
+	ret.addSpawnPoints({2,3});
 
 	ret.setRoomType("Right Room");
 
@@ -240,6 +280,12 @@ Room createUpRoom()
 	ret.addRightDoor(5, 9);
 
 	ret.addWalls(6, 9, 9, 9);
+		ret.addSpawnPoints({2,4});
+	ret.addSpawnPoints({1,3});
+	ret.addSpawnPoints({6,3});
+	ret.addSpawnPoints({7,7});
+	ret.addSpawnPoints({5,2});
+	ret.addSpawnPoints({2,5});
 
 	ret.setRoomType("Up Room");
 
@@ -282,6 +328,12 @@ Room createDownRoom()
 	ret.addRightDoor(5, 9);
 
 	ret.addWalls(6, 9, 9, 9);
+		ret.addSpawnPoints({5,1});
+	ret.addSpawnPoints({2,3});
+	ret.addSpawnPoints({6,4});
+	ret.addSpawnPoints({7,4});
+	ret.addSpawnPoints({5,3});
+	ret.addSpawnPoints({2,7});
 	ret.setRoomType("Down Room");
 
 	return ret;
@@ -316,7 +368,12 @@ Room createRoom9_0()
 
 	Enemy z= s.CreateZombie(1);
 	z.setStamina(2);
-
+	ret.addSpawnPoints({1,5});
+	ret.addSpawnPoints({1,3});
+	ret.addSpawnPoints({6,16});
+	ret.addSpawnPoints({8,18});
+	ret.addSpawnPoints({5,13});
+	ret.addSpawnPoints({2,12});
 	ret.addEnemy(z,3,3);
 	ret.setRoomType("Room 9_0");
 
@@ -348,6 +405,19 @@ Room createRoom9_9()
 	//Bottom Wall
 	ret.addWalls(0, 29, 29, 29);
 
+	ret.addSpawnPoints({1,5});
+	ret.addSpawnPoints({17,3});
+	ret.addSpawnPoints({6,15});
+	ret.addSpawnPoints({7,18});
+	ret.addSpawnPoints({5,13});
+	ret.addSpawnPoints({2,12});
+		ret.addSpawnPoints({7,5});
+	ret.addSpawnPoints({21,17});
+	ret.addSpawnPoints({28,15});
+	ret.addSpawnPoints({7,27});
+	ret.addSpawnPoints({14,23});
+	ret.addSpawnPoints({23,12});
+	ret.addEnemies(8,Human_Enemy);
 	ret.setRoomType("Room 9_9");
 
 	return ret;
@@ -382,6 +452,12 @@ Room createRoom0_9()
 	ret.addDownDoor(24, 4);
 	ret.addWalls(24, 5, 24, 24);
 	ret.addWalls(7, 0, 7, 18);
+		ret.addSpawnPoints({1,5});
+	ret.addSpawnPoints({1,3});
+	ret.addSpawnPoints({6,15});
+	ret.addSpawnPoints({7,18});
+	ret.addSpawnPoints({5,13});
+	ret.addSpawnPoints({2,12});
 
 	ret.setRoomType("Room 0_9");
 
@@ -425,6 +501,13 @@ Room createDefaultRoom_V2(){
 	ret.addWalls(29,16,29,19);
 	ret.addWalls(19,19,19,29);
 
+	ret.addSpawnPoints({15,15});
+	ret.addSpawnPoints({15,4});
+	ret.addSpawnPoints({17,15});
+	ret.addSpawnPoints({16,19});
+	ret.addSpawnPoints({19,15});
+	ret.addSpawnPoints({5,12});
+
 	// ret.setStartingEnemyAmount(5);
 	ret.addEnemies(5,Human_Enemy);
 
@@ -462,10 +545,17 @@ Room createDefaultRoom_V3(){
 	ret.addDownDoor(29,3);
 	ret.addWalls(29,4,29,9);
 
+		ret.addSpawnPoints({1,5});
+	ret.addSpawnPoints({1,3});
+	ret.addSpawnPoints({15,4});
+	ret.addSpawnPoints({7,3});
+	ret.addSpawnPoints({15,3});
+	ret.addSpawnPoints({12,2});
 	// ret.setStartingEnemyAmount(3);
 	ret.addEnemies(3,Rodent_Enemy);
 
 	ret.setRoomType("Verticle hall");
+
 
 	return ret;
 }
@@ -497,8 +587,16 @@ Room createDefaultRoom_V4(){
 	ret.addDownDoor(9,19);
 	ret.addWalls(9,20,9,29);
 
+
+	ret.addSpawnPoints({1,5});
+	ret.addSpawnPoints({1,3});
+	ret.addSpawnPoints({6,15});
+	ret.addSpawnPoints({7,18});
+	ret.addSpawnPoints({5,13});
+	ret.addSpawnPoints({2,12});
+
 	// ret.setStartingEnemyAmount(3);
-	ret.addEnemies(3,Zombie_Enemy);
+ret.addEnemies(3,Zombie_Enemy);
 
 	ret.setRoomType("Horizontal Hall");
 	return ret;

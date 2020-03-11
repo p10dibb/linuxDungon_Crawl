@@ -58,7 +58,7 @@ void Armor::DisplayDetails()
 	cout << "Weight: " << this->getWeight() << endl;
 	cout << "StackSize: " << this->getStackSize() << endl;
 	cout << "Level: " << this->Level << endl;
-	cout << "Rarity: " << RarityToString(this->Rarity) << endl;
+	cout << "Rarity: " << RarityToString(this->getRarity()) << endl;
 	cout << "Total Defense: " << getTotalResistance() << endl;
 	cout << "Type: " << this->getType_text() << endl;
 	cout << "Class: " << this->getClass_text() << endl;
@@ -77,14 +77,7 @@ void Armor::DisplayDetails()
 	}
 }
 
-ItemRarity_enum Armor::getRarity()
-{
-	return this->Rarity;
-}
-void Armor::setRarity(ItemRarity_enum rarity)
-{
-	this->Rarity = rarity;
-}
+
 
 vector<ActiveEffects> Armor::getResistanceTypes()
 {

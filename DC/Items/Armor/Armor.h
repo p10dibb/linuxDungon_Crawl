@@ -14,8 +14,7 @@ private:
 	ArmorType_enum Type;
 	//class (light, normal, or heavy)
 	ArmorClass_enum Class;
-	//items rarity
-	ItemRarity_enum Rarity;
+	
 	//all of the resistances
 	map<Effects_enum,ActiveEffects> ResistanceTypes;
 
@@ -26,8 +25,7 @@ public:
 	
 	int getLevel();
 	void setLevel(int l);
-	ItemRarity_enum getRarity();
-	void setRarity(ItemRarity_enum rarity);
+	
 	ArmorType_enum getType();
 	void setType(ArmorType_enum t);
 	ArmorClass_enum getClass();

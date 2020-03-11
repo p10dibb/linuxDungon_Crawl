@@ -119,7 +119,7 @@ int Player::PauseMenue()
 	sf::Text headerText("Pause Menu", font, 50);
 	headerText.setPosition(sf::Vector2f(10, 10));
 
-	sf::Text choiceText("[1]:Resume\n[2]:Inventory\n[3]:Stats\n[4]:Equipped\n[5]:Save\n[6]:Exit", font, 30);
+	sf::Text choiceText("[1]:Resume\n[2]:Inventory\n[3]:Stats\n[4]:Equipped\n[5]:Save\n[6]:Exit Game", font, 30);
 	choiceText.setPosition(sf::Vector2f(10, 60));
 
 	int choice = 0;
@@ -175,6 +175,10 @@ int Player::PauseMenue()
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num6))
 		{
 			choice = 6;
+			release = true;
+		}else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
+		{
+			choice = 1;
 			release = true;
 		}
 		else if (release)
@@ -309,7 +313,7 @@ void Player::RecieveLootDrop(lootDrop loot)
 	sf::Text RecieveText("", font, 30);
 	RecieveText.setPosition(sf::Vector2f(10, 10));
 
-	sf::Text CommandText("[1]: Exit", font, 30);
+	sf::Text CommandText("[Esc]: Exit", font, 30);
 	CommandText.setPosition(10, 250);
 
 	string recieve = "You Recieved:\nXP: " + to_string(loot.xp) + "\n";
@@ -357,7 +361,7 @@ void Player::RecieveLootDrop(lootDrop loot)
 		window.draw(CommandText);
 		window.display();
 
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1))
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 		{
 			release = true;
 		}

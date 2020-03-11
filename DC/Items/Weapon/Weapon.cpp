@@ -150,14 +150,7 @@ void Weapon::addDamageType(DamageTypes type){
 }
 
 
-ItemRarity_enum Weapon::getRarity(){
-	return this->Rarity;
-}
 
-
-void Weapon::setRarity(ItemRarity_enum rarity){
-	this->Rarity=rarity;
-}
 
 
 //return the text equivilent of rarity

@@ -7,9 +7,9 @@ Enemy::Enemy()
 	this->moveAmt = 0;
 	this->direction = No_Direction;
 
-	this->weapon = new Weapon();
+	// this->weapon = new Weapon();
 
-	this->type=NULL_Enemy;
+	this->type = NULL_Enemy;
 }
 
 Direction_enum Enemy::getDirection()
@@ -22,15 +22,15 @@ int Enemy::getMoveAmt()
 	return this->moveAmt;
 }
 
-Weapon *Enemy::getWeapon()
-{
-	return this->weapon;
-}
+// Weapon *Enemy::getWeapon()
+// {
+// 	return this->weapon;
+// }
 
-void Enemy::setWeapon(Weapon *w)
-{
-	this->weapon = w;
-}
+// void Enemy::setWeapon(Weapon *w)
+// {
+// 	this->weapon = w;
+// }
 
 vector<ActiveEffects> Enemy::getAllResistanceTypes()
 {
@@ -54,7 +54,10 @@ vector<ActiveEffects> Enemy::getAllResistanceTypes()
 	ret.push_back(ActiveEffects(Resistance_EffectTypes, NormalResistance_Effects, this->getDefense(), 10));
 
 	//adds Enemy default defense
-	ret.push_back(this->weapon->getDefense());
+	for(int i=0;i<this->weapons.size();i++){
+ret.push_back(this->weapons[i]->getDefense());
+	}
+	
 
 	//gets helmet resistance
 	temp = this->getHead()->getResistanceTypes();
@@ -166,7 +169,7 @@ void Enemy::DisplayDetails()
 	//cout << "Defense: " << this->getDefense() << endl;
 	cout << "Stamina: " << this->getStamina() << endl;
 	cout << "Weapon: " << endl;
-	this->weapon->DisplayDetails();
+	// this->weapon->DisplayDetails();
 }
 
 int Enemy::ActualSpeed()
@@ -174,7 +177,14 @@ int Enemy::ActualSpeed()
 	int speed = 0;
 	int ArmorWeight = this->getHead()->getWeight() + this->getTorso()->getWeight() + this->getHands()->getWeight() + this->getLegs()->getWeight() + this->getFeet()->getWeight();
 
-	speed = this->getSpeed() + this->weapon->getSpeed() - (ArmorWeight / (this->getStrength() / 2));
+	for(int i=0;i<this->weapons.size();i++){
+		speed+=this->weapons[i]->getSpeed();
+	}
+
+	speed=speed/(weapons.size()+1);
+
+	speed+=this->getSpeed();
+	speed -= (ArmorWeight / (this->getStrength() / 2));
 
 	if (this->ContainDeBuffEffect(Slowed_Effects))
 	{
@@ -191,8 +201,20 @@ int Enemy::ActualSpeed()
 vector<DamageTypes> Enemy::getAllDamageTypes()
 {
 	vector<DamageTypes> ret;
-	ret = this->getWeapon()->getDamageTypes_Weapon();
+	vector<DamageTypes> temp;
+
+
 	ret.push_back(DamageTypes(this->getDamage()));
+	
+
+	// ret = this->getWeapon()->getDamageTypes_Weapon(); 	 	
+
+	for(int i=0; i<this->weapons.size();i++){
+		temp=this->weapons[i]->getDamageTypes_Weapon();
+		for (int j=0; j<temp.size();j++){
+			ret.push_back(temp[j]);
+		}
+	}
 
 	if (!this->ContainBuffEffect(DamageBoost_Effects))
 	{
@@ -292,4 +314,19 @@ bool Enemy::setType(Enemy_enum type)
 {
 	this->type = type;
 	return true;
+}
+
+bool Enemy::setWeapons(vector<Weapon *> weapons)
+{
+	this->weapons = weapons;
+	return true;
+}
+bool Enemy::addWeapon(Weapon *weapon)
+{
+	this->weapons.push_back(weapon);
+	return true;
+}
+vector<Weapon *> Enemy::getWeapons()
+{
+	return this->weapons;
 }

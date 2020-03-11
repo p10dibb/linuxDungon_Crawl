@@ -7,7 +7,9 @@ class Enemy : public  Biped {
 private:
 	
 
-	Weapon* weapon;
+
+	//can have many weapons incase of more then 2 armed enemies
+	vector<Weapon*> weapons; 
 
 	//the direction that the zombie is moving
 	Direction_enum direction;
@@ -22,8 +24,7 @@ public:
 	
 	Enemy();
 	
-	Weapon* getWeapon();
-	void setWeapon(Weapon* w);
+	
 
 	//gets all the attack types as Damage types
 	vector<DamageTypes> getAllDamageTypes();
@@ -45,6 +46,11 @@ public:
 
 	Enemy_enum getType();
 	bool setType(Enemy_enum type);
+
+	bool setWeapons(vector<Weapon *> weapons);
+	bool addWeapon(Weapon* weapon);
+	vector<Weapon*> getWeapons();
+
 
 
 };

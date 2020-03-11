@@ -3,9 +3,7 @@
 class Shop{
 private:
 
-//Store inventory.
-// Item* Inventory[20];
-// int InventorySize=20;
+
 
 vector<Item*> Inventory;
 

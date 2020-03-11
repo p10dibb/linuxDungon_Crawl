@@ -32,7 +32,7 @@ void Player::DisplayStats()
                       font, 30);
     statText.setPosition(10, 60);
 
-    sf::Text commandText("[1]:Exit", font, 30);
+    sf::Text commandText("[Esc]:Exit", font, 30);
     commandText.setPosition(10, 700);
 
 
@@ -59,7 +59,7 @@ void Player::DisplayStats()
         window.draw(commandText);
         window.display();
 
-        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)){
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
             choice=1;
             release=true;
         }

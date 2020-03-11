@@ -6,8 +6,8 @@ bool Player::addToInventory(Item *i)
 
 	//stats incrementer
 
-	cout<<"Free slots: "<<this->FreeSlots<<endl;
-	cout<<"item name: "<<i->getName()<<endl;
+	cout << "Free slots: " << this->FreeSlots << endl;
+	cout << "item name: " << i->getName() << endl;
 	this->IncrementItemsRecieved();
 	if (FreeSlots > 0)
 	{
@@ -67,8 +67,7 @@ Item *Player::RemoveItemFromInventory(int pos)
 	{
 		this->Inventory[pos].item = new Item();
 		this->Inventory[pos].amount = 0;
-	this->FreeSlots++;
-
+		this->FreeSlots++;
 	}
 	this->setCurrentWeight(this->getCurrentWeight() - temp->getWeight());
 	this->setOverWeighted(this->getMaxWeight() < this->getCurrentWeight());
@@ -128,7 +127,7 @@ int Player::InventoryDialogue()
 	sf::Text otherInfoText("", font, 20);
 
 	//Shows availible commands
-	sf::Text commandsText("[1]:Use\t\t[2]:exit", font, 20);
+	sf::Text commandsText("[1]:Use\t\t[Esc]:exit", font, 20);
 	commandsText.setPosition(sf::Vector2f(450, 570));
 
 	//current slot selected
@@ -155,7 +154,33 @@ int Player::InventoryDialogue()
 		for (int j = 0; j < 10; j++)
 		{
 			slots[(i * 10) + j].setSize(sf::Vector2f(30, 30));
-			slots[(i * 10) + j].setFillColor(sf::Color::Blue);
+			switch (this->Inventory[(i * 10) + j].item->getRarity())
+			{
+			case NULL_ItemRarity:
+				slots[(i * 10) + j].setFillColor(sf::Color::Cyan);
+				break;
+			case Common_ItemRarity:
+				slots[(i * 10) + j].setFillColor(sf::Color::White);
+				break;
+			case UnCommon_ItemRarity:
+				slots[(i * 10) + j].setFillColor(sf::Color::Green);
+				break;
+			case Rare_ItemRarity:
+				slots[(i * 10) + j].setFillColor(sf::Color::Green);
+				break;
+			case Legendary_ItemRarity:
+				slots[(i * 10) + j].setFillColor(sf::Color::Magenta);
+				break;
+			case Unique_ItemRarity:
+				slots[(i * 10) + j].setFillColor(sf::Color::Yellow);
+				break;
+			case DEVELOPER_ItemRarity:
+				slots[(i * 10) + j].setFillColor(sf::Color::Red);
+				break;
+			default:
+				break;
+			}
+
 			slots[(i * 10) + j].setPosition(sf::Vector2f(10 + (42 * j), 50 + (42 * i)));
 		}
 	}
@@ -218,9 +243,9 @@ int Player::InventoryDialogue()
 			choice = 1;
 			release = true;
 		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 		{
-			choice = 2;
+			choice = -2;
 			release = true;
 		}
 		else if (release)
@@ -246,7 +271,7 @@ int Player::InventoryDialogue()
 				}
 			}
 			//if exit the inventory
-			else if (choice == 2)
+			else if (choice == -2)
 			{
 
 				choice = -1;
@@ -282,7 +307,7 @@ int Player::InventoryDialogue()
 				itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getTotalResistance()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + armorClass_toString(a->getClass()) + "\n" + armorType_toString(a->getType()));
 				itemDescription.setPosition(sf::Vector2f(460, 250));
 				itemDescription.setString(a->getDescription());
-				commandsText.setString("[1]:Equip\t\t[2]:Exit");
+				commandsText.setString("[1]:Equip\t\t[Esc]:Exit");
 
 				string resistances = "Resistances:\n";
 				vector<ActiveEffects> temp = a->getResistanceTypes();
@@ -312,7 +337,7 @@ int Player::InventoryDialogue()
 
 				itemDescription.setPosition(sf::Vector2f(460, 300));
 				itemDescription.setString(a->getDescription());
-				commandsText.setString("[1]:Equip\t\t[2]:Exit");
+				commandsText.setString("[1]:Equip\t\t[Esc]:Exit");
 
 				string damages = "Damage Types:\n";
 				vector<DamageTypes> temp = a->getDamageTypes_Weapon();
@@ -343,7 +368,7 @@ int Player::InventoryDialogue()
 				itemDescription.setString(a->getDescription());
 				otherInfoText.setString("");
 
-				commandsText.setString("[1]:Use\t\t[2]:Exit");
+				commandsText.setString("[1]:Use\t\t[Esc]:Exit");
 			}
 			else if (this->Inventory[cur].item->getName() == "Empty")
 			{
@@ -354,7 +379,7 @@ int Player::InventoryDialogue()
 				itemValues.setString("");
 				itemDescription.setString("");
 				otherInfoText.setString("");
-				commandsText.setString("\t\t[2]:Exit");
+				commandsText.setString("\t\t[Esc]:Exit");
 			}
 			else
 			{
@@ -365,7 +390,7 @@ int Player::InventoryDialogue()
 				itemValues.setString("");
 				itemDescription.setString("");
 				otherInfoText.setString("");
-				commandsText.setString("\t\t[2]:Exit");
+				commandsText.setString("\t\t[Esc]:Exit");
 				//normal item
 			}
 
@@ -721,7 +746,7 @@ int Player::EquipedDialogue()
 	highlighter.setFillColor(sf::Color::Red);
 	highlighter.setPosition(195, 195);
 
-	sf::Text ChoiceText("[1]:Helmet\n[2]:Chest\n[3]:Gloves\n[4]:Pants\n[5]:Boots\n[6]:Left Weapon\n[7]:Right Weapon\n[8]:Exit", font, 20);
+	sf::Text ChoiceText("[1]:Helmet\n[2]:Chest\n[3]:Gloves\n[4]:Pants\n[5]:Boots\n[6]:Left Weapon\n[7]:Right Weapon\n[Esc]:Exit", font, 20);
 	ChoiceText.setPosition(sf::Vector2f(200, 190));
 
 	sf::RectangleShape infoWindow(sf::Vector2f(300, 500));
@@ -820,9 +845,10 @@ int Player::EquipedDialogue()
 			choice = 7;
 			release = true;
 		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num8))
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 		{
-			window.close();
+			choice = 8;
+			release = true;
 		}
 		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) || sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 		{
@@ -838,6 +864,11 @@ int Player::EquipedDialogue()
 		{
 			vector<ActiveEffects> temp;
 			vector<DamageTypes> temp2;
+
+			if (choice == 8)
+			{
+				window.close();
+			}
 
 			string resistances = "Resistances:\n";
 
@@ -1057,7 +1088,7 @@ bool Player::InteractLootBox(LootBox *box)
 	//the text for extra info
 	sf::Text otherInfoText("", font, 20);
 
-	sf::Text commands("[Space]:take selected [1]:Take All  [2]:Exit", font, 30);
+	sf::Text commands("[Space]:take selected [1]:Take All  [Esc]:Exit", font, 30);
 	commands.setPosition(10, 400);
 
 	sf::Text boxNameText("", font, 30);
@@ -1100,13 +1131,13 @@ bool Player::InteractLootBox(LootBox *box)
 		window.clear();
 		window.draw(infoWindow);
 		window.draw(itemNameText);
-		window.draw(itemValues);
-		window.draw(itemInfo);
-		window.draw(itemDescription);
-		window.draw(otherInfoText);
 
 		if (!box->isEmpty())
 		{
+			window.draw(itemValues);
+			window.draw(itemInfo);
+			window.draw(itemDescription);
+			window.draw(otherInfoText);
 			window.draw(highlighter);
 		}
 		window.draw(boxNameText);
@@ -1122,9 +1153,9 @@ bool Player::InteractLootBox(LootBox *box)
 
 			release = true;
 		}
-		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2))
+		else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 		{
-			choice = 2;
+			choice = -2;
 
 			release = true;
 		}
@@ -1150,14 +1181,13 @@ bool Player::InteractLootBox(LootBox *box)
 		}
 		else if (release)
 		{
-
 			switch (choice)
 			{
 			case 1:
 				this->RecieveMoney(box->removeMoney(box->getMoney()));
 				while (box->getLoot().size() > 0)
 				{
-					temp = box->removeItem(box->getLoot().size() -1 );
+					temp = box->removeItem(box->getLoot().size() - 1);
 					//checks if remove Item fails
 					if (temp->getName() != "Empty")
 					{
@@ -1170,15 +1200,16 @@ bool Player::InteractLootBox(LootBox *box)
 						}
 					}
 				}
-				cout<<"exiting: "<<box->isEmpty() <<endl;
+				cout << "exiting: " << box->isEmpty() << endl;
 				break;
-			case 2:
+			case -2:
 				window.close();
 				break;
 			case 3:
 				if (box->getMoney() > 0 && current == 0)
 				{
 					this->RecieveMoney(box->removeMoney(box->getMoney()));
+					current=0;
 				}
 				else if (box->getMoney() > 0)
 				{
@@ -1268,15 +1299,16 @@ bool Player::InteractLootBox(LootBox *box)
 			if (box->getMoney() > 0)
 			{
 				//displays correct data depending item type
-				if(current==0){
-						itemInfo.setString("Gold: "+to_string(box->getMoney()));
+				if (current == 0)
+				{
+					itemInfo.setString("Gold: " + to_string(box->getMoney()));
 					itemValues.setString("");
 					itemDescription.setString("");
 					otherInfoText.setString("");
-				
-				}else if ((typeid(*box->getLoot()[current-1].item) == typeid(Armor)))
+				}
+				else if ((typeid(*box->getLoot()[current - 1].item) == typeid(Armor)))
 				{
-					Armor *a = dynamic_cast<Armor *>(box->getLoot()[current-1].item);
+					Armor *a = dynamic_cast<Armor *>(box->getLoot()[current - 1].item);
 					itemNameText.setString(a->getName());
 					itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nClass:\nType:\n");
 					itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getTotalResistance()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + armorClass_toString(a->getClass()) + "\n" + armorType_toString(a->getType()));
@@ -1299,12 +1331,10 @@ bool Player::InteractLootBox(LootBox *box)
 
 					otherInfoText.setPosition(sf::Vector2f(460, 280));
 				}
-				else if ((typeid(*box->getLoot()[current-1].item) == typeid(Weapon)))
+				else if ((typeid(*box->getLoot()[current - 1].item) == typeid(Weapon)))
 				{
-					Weapon *a = dynamic_cast<Weapon *>(box->getLoot()[current-1].item);
+					Weapon *a = dynamic_cast<Weapon *>(box->getLoot()[current - 1].item);
 					itemNameText.setString(a->getName());
-
-				
 
 					itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nDefense:\nSpeed:\nRarity:\nEffect:\n");
 					itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getWeaponRank()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + to_string(a->getDefense().getResistance()) + "\n" + to_string(a->getSpeed()) + "\n" + a->getRarity_text() + "\n" + a->getCombatEffect().getEffectName());
@@ -1328,21 +1358,19 @@ bool Player::InteractLootBox(LootBox *box)
 
 					otherInfoText.setPosition(sf::Vector2f(460, 330));
 				}
-				else if ((typeid(*box->getLoot()[current-1].item) == typeid(Potion)))
+				else if ((typeid(*box->getLoot()[current - 1].item) == typeid(Potion)))
 				{
-					Potion *a = dynamic_cast<Potion *>(box->getLoot()[current-1].item);
+					Potion *a = dynamic_cast<Potion *>(box->getLoot()[current - 1].item);
 					itemNameText.setString(a->getName());
 
-
 					itemInfo.setString("Amount:\nValue:\nTier:\nType:");
-					itemValues.setString(to_string(box->getLoot()[current-1].amount) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getTier()) + "\n" + a->getTypeName());
+					itemValues.setString(to_string(box->getLoot()[current - 1].amount) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getTier()) + "\n" + a->getTypeName());
 					itemDescription.setPosition(sf::Vector2f(460, 200));
 					itemDescription.setString(a->getDescription());
 				}
-				else if (box->getLoot()[current-1].item->getName() == "Empty")
+				else if (box->getLoot()[current - 1].item->getName() == "Empty")
 				{
 					itemNameText.setString("Name:");
-				
 
 					itemInfo.setString("");
 					itemValues.setString("");
@@ -1351,20 +1379,20 @@ bool Player::InteractLootBox(LootBox *box)
 				}
 				else
 				{
-				
-					itemNameText.setString(box->getLoot()[current-1].item->getName());
+
+					itemNameText.setString(box->getLoot()[current - 1].item->getName());
 					itemInfo.setString("");
 					itemValues.setString("");
 					itemDescription.setString("");
 					otherInfoText.setString("");
 				}
 			}
-			else if(box->getLoot().size()>0)
+			else if (box->getLoot().size() > 0)
 			{
 				if ((typeid(*box->getLoot()[current].item) == typeid(Armor)))
 				{
 					Armor *a = dynamic_cast<Armor *>(box->getLoot()[current].item);
-				
+
 					itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nClass:\nType:\n");
 					itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getTotalResistance()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + armorClass_toString(a->getClass()) + "\n" + armorType_toString(a->getType()));
 					itemDescription.setPosition(sf::Vector2f(460, 250));
@@ -1389,8 +1417,6 @@ bool Player::InteractLootBox(LootBox *box)
 				else if ((typeid(*box->getLoot()[current].item) == typeid(Weapon)))
 				{
 					Weapon *a = dynamic_cast<Weapon *>(box->getLoot()[current].item);
-
-				
 
 					itemInfo.setString("Level:\nScore:\nValue:\nWeight:\nDefense:\nSpeed:\nRarity:\nEffect:\n");
 					itemValues.setString(to_string(a->getLevel()) + "\n" + to_string(a->getWeaponRank()) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getWeight()) + "\n" + to_string(a->getDefense().getResistance()) + "\n" + to_string(a->getSpeed()) + "\n" + a->getRarity_text() + "\n" + a->getCombatEffect().getEffectName());
@@ -1418,7 +1444,6 @@ bool Player::InteractLootBox(LootBox *box)
 				{
 					Potion *a = dynamic_cast<Potion *>(box->getLoot()[current].item);
 
-
 					itemInfo.setString("Amount:\nValue:\nTier:\nType:");
 					itemValues.setString(to_string(box->getLoot()[current].amount) + "\n" + to_string(a->getValue()) + "\n" + to_string(a->getTier()) + "\n" + a->getTypeName());
 					itemDescription.setPosition(sf::Vector2f(460, 200));
@@ -1426,7 +1451,6 @@ bool Player::InteractLootBox(LootBox *box)
 				}
 				else if (box->getLoot()[current].item->getName() == "Empty")
 				{
-				
 
 					itemInfo.setString("");
 					itemValues.setString("");
@@ -1435,7 +1459,7 @@ bool Player::InteractLootBox(LootBox *box)
 				}
 				else
 				{
-				
+
 					itemNameText.setString(box->getLoot()[current].item->getName());
 					itemInfo.setString("");
 					itemValues.setString("");
@@ -1447,6 +1471,8 @@ bool Player::InteractLootBox(LootBox *box)
 			release = false;
 			direct = No_Direction;
 			choice = 0;
+			cout<<"Current: "<<current<<endl;
+
 		}
 	}
 
@@ -1481,4 +1507,3 @@ LootBox Player::DropItem(int pos)
 
 	return ret;
 }
-

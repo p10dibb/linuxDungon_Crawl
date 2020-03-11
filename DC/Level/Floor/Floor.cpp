@@ -135,6 +135,7 @@ bool Floor::initializeRoom(int level, int x, int y)
 {
 	Spawner s;
 	Enemy z;
+	array<int,2> tempPos;
 
 	// cout << "create "<<this->FloorMap[x][y].getStartingEnemyAmount()<< " enemies" << endl;
 	vector<array<int,2>> enemies=this->FloorMap[x][y].getStartingEnemyAmount();
@@ -155,8 +156,12 @@ bool Floor::initializeRoom(int level, int x, int y)
 			default:
 				break;
 			}
-			while (!this->FloorMap[x][y].addEnemy(z, rand() % this->FloorMap[x][y].getMaxX(), rand() % this->FloorMap[x][y].getMaxY()))
-			;
+			
+			tempPos=this->FloorMap[x][y].getSpawnpoint();
+			if(tempPos[0]!=-1 &&tempPos[1]!=-1){
+				this->FloorMap[x][y].addEnemy(z,tempPos[0],tempPos[1]);
+			}
+			
 
 		}
 	}

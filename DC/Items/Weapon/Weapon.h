@@ -20,7 +20,6 @@ private:
 	int Speed;
 	int Level;
 	int Range;
-	ItemRarity_enum Rarity;
 	ActiveEffects CombatEffect;
 
 	
@@ -41,8 +40,7 @@ public:
 	void setLevel(int l);
 	int getRange();
 	void setRange(int r);
-	void setRarity(ItemRarity_enum rarity);
-	ItemRarity_enum getRarity();
+
 
 	WeaponTypes_enum getType();
 	void setType(WeaponTypes_enum w);

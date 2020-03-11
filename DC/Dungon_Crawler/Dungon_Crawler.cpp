@@ -10,8 +10,6 @@ void Run()
 
 	Player player;
 
-	Weapon *w=s.CreateAxe(1,true);
-	w->addDamageType(DamageTypes(4,100,Fire_DamageType,true,2,3));
 
 	Floor mainFloor;
 
@@ -33,7 +31,6 @@ void Run()
 			break;
 		}
 	}
-	player.addToInventory(w);
 	//creates the main floor
 
 	//runs the game
