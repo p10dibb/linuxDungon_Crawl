@@ -934,9 +934,30 @@ bool Room::addSpawnPoints(array<int, 2> newPos)
 array<int, 2> Room::getSpawnpoint()
 {
 	array<int,2> temp ={-1,-1};
+
+	queue<array<int,2>> tempqueue;
+	int choice=rand()%this->Enemy_SpawnPoints.size(), size=Enemy_SpawnPoints.size();
+	cout<<"Choice: "<<choice<<endl;
+	cout<<"size: "<<this->Enemy_SpawnPoints.size()<<endl;
+
 	if(!this->Enemy_SpawnPoints.empty()){
-		temp=this->Enemy_SpawnPoints.front();
+
+		
+		for(int i=0;i<size;i++){
+			cout<<"i: "<<i<<endl;
+			if(i==choice){
+				temp=Enemy_SpawnPoints.front();
+			}else{
+				tempqueue.push(Enemy_SpawnPoints.front());
+			}
+			Enemy_SpawnPoints.pop();
+		}
+
+
+		// temp=this->Enemy_SpawnPoints.front();
 		this->Enemy_SpawnPoints.pop();
 	}
+	cout<<"temp: "<<temp[0]<<","<<temp[1]<<endl;
+	this->Enemy_SpawnPoints=tempqueue;
 	return temp;
 }

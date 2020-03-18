@@ -52,8 +52,8 @@ Room createRoom0_0()
 
 
 
-	ret.addEnemies(3,Zombie_Enemy);
-	ret.addEnemies(3,Rodent_Enemy);
+	ret.addEnemies(1,Zombie_Enemy);
+	// ret.addEnemies(3,Rodent_Enemy);
 	ret.setRoomType("Room 0_0");
 	return ret;
 }
@@ -411,7 +411,7 @@ Room createRoom9_9()
 	ret.addSpawnPoints({7,18});
 	ret.addSpawnPoints({5,13});
 	ret.addSpawnPoints({2,12});
-		ret.addSpawnPoints({7,5});
+	ret.addSpawnPoints({7,5});
 	ret.addSpawnPoints({21,17});
 	ret.addSpawnPoints({28,15});
 	ret.addSpawnPoints({7,27});
@@ -644,4 +644,287 @@ Room createTreasureRoom_V1(){
 
 	return ret;
 
+}
+
+//15 by 10 room 2 doors left and right 4 rodents
+Room Create_ShortHall_V1(){
+
+	Room ret;
+
+	ret.setMaxX(10);
+	ret.setMaxY(15);
+
+	//LeftWall
+	ret.addWalls(0,0,4,0);
+	ret.addLeftDoor(5,0);
+	ret.addWalls(6,0,9,0);
+
+	//Right Wall
+	ret.addWalls(0,14,4,14);
+	ret.addRightDoor(5,14);
+	ret.addWalls(6,14,9,14);
+
+	//Top Wall
+	ret.addWalls(0,0,0,14);
+	
+	//Bottom Wall
+	ret.addWalls(9,0,9,14);
+
+
+	ret.addSpawnPoints({5,5});
+	ret.addSpawnPoints({6,6});
+	ret.addSpawnPoints({3,13});
+	ret.addSpawnPoints({8,8});
+	ret.addSpawnPoints({2,5});
+	ret.addSpawnPoints({3,7});
+	ret.addSpawnPoints({7,4});
+	ret.addSpawnPoints({4,2});
+
+
+	ret.addEnemies(4,Rodent_Enemy);
+
+
+	return ret;
+
+
+}
+
+//10 by 10  2 doors top and bottom 3 rodents
+Room Create_SquareRoom_V1(){
+	Room ret;
+	ret.setMaxX(10);
+	ret.setMaxY(10);
+
+	//left wall
+	ret.addWalls(0,0,9,0);
+	//right Wall
+	ret.addWalls(0,9,9,9);
+	//top wall
+	ret.addWalls(0,0,0,4);
+	ret.addUpDoor(0,5);
+	ret.addWalls(0,6,0,9);
+
+	//bottom wall
+	ret.addWalls(9,0,9,4);
+	ret.addDownDoor(9,5);
+	ret.addWalls(9,6,9,9);
+
+	ret.addSpawnPoints({2,2});
+	ret.addSpawnPoints({4,4});
+	ret.addSpawnPoints({5,5});
+	ret.addSpawnPoints({4,5});
+	ret.addSpawnPoints({4,7});
+	ret.addSpawnPoints({3,7});
+
+	ret.addEnemies(3,Rodent_Enemy);
+
+	return ret;
+}
+
+//10 by 10  3 doors top and bottom and Right 3 rodents
+Room Create_SquareRoom_V2(){
+Room ret;
+	ret.setMaxX(10);
+	ret.setMaxY(10);
+
+	//left wall
+	ret.addWalls(0,0,9,0);
+	//right Wall
+	ret.addWalls(0,9,9,9);
+	//top wall
+	ret.addWalls(0,0,0,4);
+	ret.addUpDoor(0,5);
+	ret.addWalls(0,6,0,9);
+
+	//bottom wall
+	ret.addWalls(9,0,9,4);
+	ret.addDownDoor(9,5);
+	ret.addWalls(9,6,9,9);
+
+	ret.addSpawnPoints({2,2});
+	ret.addSpawnPoints({4,4});
+	ret.addSpawnPoints({5,5});
+	ret.addSpawnPoints({4,5});
+	ret.addSpawnPoints({4,7});
+	ret.addSpawnPoints({3,7});
+
+	ret.addEnemies(3,Rodent_Enemy);
+
+	return ret;
+}
+
+//15 by 10 room 2 doors left and right 3 rodents
+Room Create_ShortHall_V2(){
+
+	Room ret;
+
+	ret.setMaxX(10);
+	ret.setMaxY(15);
+
+	//LeftWall
+	ret.addWalls(0,0,4,0);
+	ret.addLeftDoor(5,0);
+	ret.addWalls(6,0,9,0);
+
+	//Right Wall
+	ret.addWalls(0,14,4,14);
+	ret.addRightDoor(5,14);
+	ret.addWalls(6,14,9,14);
+
+	//Top Wall
+	ret.addWalls(0,0,0,14);
+	
+	//Bottom Wall
+	ret.addWalls(9,0,9,14);
+
+
+	ret.addSpawnPoints({5,5});
+	ret.addSpawnPoints({6,6});
+	ret.addSpawnPoints({3,13});
+	ret.addSpawnPoints({8,8});
+	ret.addSpawnPoints({2,5});
+	ret.addSpawnPoints({3,7});
+	ret.addSpawnPoints({7,4});
+	ret.addSpawnPoints({4,2});
+
+
+	ret.addEnemies(3,Rodent_Enemy);
+
+
+	return ret;
+
+
+}
+
+
+
+
+
+//10 by 10 2 doors right and down 2 Rodents
+Room Create_UpperLeftCorner_V2(){
+	Room ret;
+	ret.setMaxX(10);
+	ret.setMaxY(10);
+
+	//LeftWall
+	ret.addWalls(0,0,1,0);
+	ret.addLeftDoor(2,0);
+	ret.addWalls(3,0,4,0);
+	ret.addWalls(4,3,9,3);
+
+	//Right Wall
+	ret.addWalls(0,9,9,9);
+	
+	//Top Wall
+	ret.addWalls(0,0,0,9);
+
+	//bottom Wall
+	ret.addWalls(4,0,4,3);
+	ret.addWalls(9,3,9,5);
+	ret.addDownDoor(9,6);
+	ret.addWalls(9,7,9,9);
+
+	ret.addSpawnPoints({6,6});
+	ret.addSpawnPoints({7,7});
+	ret.addSpawnPoints({1,7});
+	ret.addSpawnPoints({8,8});
+	ret.addSpawnPoints({2,2});
+
+	ret.addEnemies(2,Rodent_Enemy);
+	
+	return ret;
+	
+}
+
+
+//10 by 10 2 doors left and down 2 Rodents
+Room Create_UpperRightCorner_V2(){
+	Room ret;
+	ret.setMaxX(10);
+	ret.setMaxY(10);
+
+	//LeftWall
+	ret.addWalls(0,0,1,0);
+	ret.addLeftDoor(2,0);
+	ret.addWalls(3,0,4,0);
+	ret.addWalls(4,3,9,3);
+
+	//Right Wall
+	ret.addWalls(0,9,9,9);
+	
+	//Top Wall
+	ret.addWalls(0,0,0,9);
+
+	//bottom Wall
+	ret.addWalls(4,0,4,3);
+	ret.addWalls(9,3,9,5);
+	ret.addDownDoor(9,6);
+	ret.addWalls(9,7,9,9);
+
+	ret.addSpawnPoints({6,6});
+	ret.addSpawnPoints({7,7});
+	ret.addSpawnPoints({1,7});
+	ret.addSpawnPoints({8,8});
+	ret.addSpawnPoints({2,2});
+
+	ret.addEnemies(2,Rodent_Enemy);
+	
+	return ret;
+}
+
+//10 by 10 2 doors up and right 3 Rodents
+Room Create_BottomLeftCorner_V2(){
+	Room ret;
+
+
+	//Left Wall
+	ret.addWalls(0,0,9,0);
+
+	//rightWall
+	ret.addWalls(0,4,5,4);
+	ret.addWalls(5,9,6,9);
+	ret.addRightDoor(7,9);
+	ret.addWalls(8,9,9,9);
+
+	//top walls
+	ret.addWalls(0,0,0,1);
+	ret.addUpDoor(0,2);
+	ret.addWalls(0,3,0,4);
+	ret.addWalls(5,4,5,9);
+
+	//bottom Wall
+	ret.addWalls(9,0,9,9);
+
+	ret.addSpawnPoints({4,2});
+	ret.addSpawnPoints({6,6});
+	ret.addEnemies(1,Rodent_Enemy);
+
+	return ret;
+
+}
+
+//10 by 10 2 doors up and left 3 Rodents
+Room Create_BottomRightCorner_V2(){
+	Room ret;
+
+	//Right wall
+	ret.addWalls(0,9,9,9);
+
+	//top wall
+	ret.addWalls(4,0,4,5);
+	ret.addWalls(0,5,0,6);
+	ret.addUpDoor(0,7);
+	ret.addWalls(0,8,0,9);
+
+	//LeftWall
+	ret.addWalls(4,0,6,0);
+	ret.addLeftDoor(7,0);
+	ret.addWalls(8,0,9,0);
+	ret.addWalls(0,5,4,5);
+
+
+	//bottom Wall
+	ret.addWalls(9,0,9,9);
+
+	return ret;
 }

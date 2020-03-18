@@ -260,10 +260,62 @@ int Player::InventoryDialogue()
 				if (equipable)
 				{
 					this->EquipInventory(cur);
+					switch (this->Inventory[cur].item->getRarity())
+					{
+					case NULL_ItemRarity:
+						slots[cur].setFillColor(sf::Color::Cyan);
+						break;
+					case Common_ItemRarity:
+						slots[cur].setFillColor(sf::Color::White);
+						break;
+					case UnCommon_ItemRarity:
+						slots[cur].setFillColor(sf::Color::Green);
+						break;
+					case Rare_ItemRarity:
+						slots[cur].setFillColor(sf::Color::Green);
+						break;
+					case Legendary_ItemRarity:
+						slots[cur].setFillColor(sf::Color::Magenta);
+						break;
+					case Unique_ItemRarity:
+						slots[cur].setFillColor(sf::Color::Yellow);
+						break;
+					case DEVELOPER_ItemRarity:
+						slots[cur].setFillColor(sf::Color::Red);
+						break;
+					default:
+						break;
+					}
 				}
 				else if (useable)
 				{
 					this->UseInventory(cur);
+					switch (this->Inventory[cur].item->getRarity())
+					{
+					case NULL_ItemRarity:
+						slots[cur].setFillColor(sf::Color::Cyan);
+						break;
+					case Common_ItemRarity:
+						slots[cur].setFillColor(sf::Color::White);
+						break;
+					case UnCommon_ItemRarity:
+						slots[cur].setFillColor(sf::Color::Green);
+						break;
+					case Rare_ItemRarity:
+						slots[cur].setFillColor(sf::Color::Green);
+						break;
+					case Legendary_ItemRarity:
+						slots[cur].setFillColor(sf::Color::Magenta);
+						break;
+					case Unique_ItemRarity:
+						slots[cur].setFillColor(sf::Color::Yellow);
+						break;
+					case DEVELOPER_ItemRarity:
+						slots[cur].setFillColor(sf::Color::Red);
+						break;
+					default:
+						break;
+					}
 				}
 				else
 				{
@@ -1209,7 +1261,7 @@ bool Player::InteractLootBox(LootBox *box)
 				if (box->getMoney() > 0 && current == 0)
 				{
 					this->RecieveMoney(box->removeMoney(box->getMoney()));
-					current=0;
+					current = 0;
 				}
 				else if (box->getMoney() > 0)
 				{
@@ -1471,8 +1523,7 @@ bool Player::InteractLootBox(LootBox *box)
 			release = false;
 			direct = No_Direction;
 			choice = 0;
-			cout<<"Current: "<<current<<endl;
-
+			cout << "Current: " << current << endl;
 		}
 	}
 
